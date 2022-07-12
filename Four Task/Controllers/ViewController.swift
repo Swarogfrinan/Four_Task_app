@@ -33,6 +33,10 @@ class ViewController: UIViewController {
     //MARK: - Let/var
     var timer = Timer()
     var optionalTimer:  Timer?
+    var firstTimer = Timer()
+    var secondTimer = Timer()
+    var thirdTimer = Timer()
+    var fourTimer = Timer()
     let format = DateFormatter()
     let now = NSDate()
     var count : Int = 0
