@@ -8,12 +8,7 @@
 import UIKit
 import Foundation
 
-public enum targetTask {
-    case firstCase
-    case secondCase
-    case thirdCase
-    case fourCase
-}
+
 
 class ViewController: UIViewController {
 //MARK: - IBOutlet
@@ -29,8 +24,15 @@ class ViewController: UIViewController {
     
     @IBOutlet var buttonCollections: [UIButton]!
     
+    @IBOutlet weak var dayTimeLabel: UILabel!
+    @IBOutlet weak var firstExtraLabel: UILabel!
+    @IBOutlet weak var secondExtraLabel: UILabel!
+    @IBOutlet weak var thirdExtraLabel: UILabel!
+    @IBOutlet weak var fourExtraLabel: UILabel!
+    
     //MARK: - Let/var
     var timer = Timer()
+    var optionalTimer:  Timer?
     let format = DateFormatter()
     let now = NSDate()
     var count : Int = 0
@@ -41,8 +43,8 @@ class ViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        clockLabel.text = "00:00"
-    
+        clockLabel.text = "Lets work"
+        dayTimeLabel.text = now.description
     }
 
     
@@ -64,23 +66,48 @@ class ViewController: UIViewController {
     }
     
     //MARK: - Methods
-    
+    ///Счётчик таймера
     @objc func timerCounter() -> Void {
         count = count + 1
+        let time = secondToHourMinutesSeconds(seconds: count)
+        let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+        clockLabel.text = timeString
     }
-//    func secondToHourMinutesSeconds(seconds: Int) -> (Int, Int, Int) {
-//      return ((seconds / 3600), (seconds % 3600) / 60, (seconds % 3600) % 60))
-//    }
+    ///Перевод секунд в час, минуту, секунду.
+    func secondToHourMinutesSeconds(seconds: Int) -> (Int, Int, Int) {
+        return ((seconds / 3600), (seconds % 3600) / 60, ((seconds % 3600) % 60))
+    }
+    /// Перевод численных значений в формат String
+    func makeTimeString(hours: Int, minutes: Int, seconds: Int) -> String {
+        var timeString = ""
+        timeString += String(format: "%02d", hours)
+        timeString += ":"
+        timeString += String(format: "%02d", minutes)
+        timeString += ":"
+        timeString += String(format: "%02d", seconds)
+        return timeString
+    }
     
-    @objc func updateTimer() {
-        if (count > 0) {
-            let minutes = String(count / 60)
-            let seconds = String(count % 60)
-            clockLabel.text = minutes + ":" + seconds
-            
-        }
+    func createTimer() {
+      if optionalTimer == nil {
+        let timer = Timer(timeInterval: 1.0,
+          target: self,
+          selector: #selector(timerCounter),
+          userInfo: nil,
+          repeats: true)
+        RunLoop.current.add(timer, forMode: .common)
+        timer.tolerance = 0.1
+        
+        self.optionalTimer = timer
+      }
     }
-}
+    
+    func cancelTimer() {
+      optionalTimer?.invalidate()
+      optionalTimer = nil
+    }
+    }
+
 
 
 
@@ -93,7 +120,7 @@ class ViewController: UIViewController {
         func firstTask() {
         if (timerCounting) {
             timerCounting = false
-            timer.invalidate()
+            cancelTimer()
                 UIView.animate(withDuration: 0.3) { [self] in
             secondTaskButton.backgroundColor = .systemRed
             thirdTaskButton.backgroundColor = .systemBlue
@@ -101,11 +128,12 @@ class ViewController: UIViewController {
             secondTaskButton.isEnabled = true
             thirdTaskButton.isEnabled = true
             fourTaskButton.isEnabled = true
-            clockLabel.text = "Stop"
+            
             }
             } else {
         timerCounting = true
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+//        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(createTimer), userInfo: nil, repeats: true)
+                createTimer()
         UIView.animate(withDuration: 0.3) { [self] in
         secondTaskButton.backgroundColor = .systemGray
         thirdTaskButton.backgroundColor = .systemGray2
@@ -113,7 +141,7 @@ class ViewController: UIViewController {
             secondTaskButton.isEnabled = false
             thirdTaskButton.isEnabled = false
             fourTaskButton.isEnabled = false
-            clockLabel.text = "Start"
+        
          }
         }
         }
@@ -129,11 +157,11 @@ class ViewController: UIViewController {
                 firstTaskButton.isEnabled = true
                 thirdTaskButton.isEnabled = true
                 fourTaskButton.isEnabled = true
-            clockLabel.text = "Stop"
+            
             }
         } else {
         timerCounting = true
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
                UIView.animate(withDuration: 0.3) { [self] in
         firstTaskButton.backgroundColor = .systemGray
         thirdTaskButton.backgroundColor = .systemGray2
@@ -141,7 +169,7 @@ class ViewController: UIViewController {
                    firstTaskButton.isEnabled = false
                    thirdTaskButton.isEnabled = false
                    fourTaskButton.isEnabled = false
-             clockLabel.text = "Start"
+         
          }
         }
         }
@@ -156,11 +184,11 @@ class ViewController: UIViewController {
                 firstTaskButton.isEnabled = true
                 secondTaskButton.isEnabled = true
                 fourTaskButton.isEnabled = true
-            clockLabel.text = "Stop"
+           
             }
         } else {
         timerCounting = true
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
                UIView.animate(withDuration: 0.3) { [self] in
         firstTaskButton.backgroundColor = .systemGray
         secondTaskButton.backgroundColor = .systemGray2
@@ -168,7 +196,7 @@ class ViewController: UIViewController {
                    firstTaskButton.isEnabled = false
                    secondTaskButton.isEnabled = false
                    fourTaskButton.isEnabled = false
-             clockLabel.text = "Start"
+         
          }
         }
         }
@@ -183,13 +211,12 @@ class ViewController: UIViewController {
             firstTaskButton.isEnabled = true
             secondTaskButton.isEnabled = true
             thirdTaskButton.isEnabled = true
-                
-            clockLabel.text = "Stop"
+            
             }
             
         } else {
         timerCounting = true
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
                UIView.animate(withDuration: 0.3) { [self] in
         firstTaskButton.backgroundColor = .systemGray
         secondTaskButton.backgroundColor = .systemGray2
@@ -197,7 +224,7 @@ class ViewController: UIViewController {
         firstTaskButton.isEnabled = false
         secondTaskButton.isEnabled = false
         thirdTaskButton.isEnabled = false
-             clockLabel.text = "Start"
+    
          }
         }
         }
