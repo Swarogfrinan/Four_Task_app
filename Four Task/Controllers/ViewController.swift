@@ -137,10 +137,8 @@ class ViewController: UIViewController {
         
         ///Функция второй задачи.
         func secondTask() {
-        if (timerStarted) {
-            timerStarted = false
-            timer.invalidate()
-//            cancelTimer()
+            if (timerStarted) {
+                startAction()
             UIView.animate(withDuration: 0.3) { [self] in
             firstTaskButton.backgroundColor = .systemYellow
             thirdTaskButton.backgroundColor = .systemBlue
@@ -151,8 +149,8 @@ class ViewController: UIViewController {
             clockLabel.textColor = .systemGray
             }
         } else {
-        timerStarted = true
-       secondTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
+            if stopTime != nil {
+        stopAction()
             clockLabel.text = secondTimer.description
         UIView.animate(withDuration: 0.3) { [self] in
         firstTaskButton.backgroundColor = .systemGray
@@ -162,6 +160,7 @@ class ViewController: UIViewController {
         thirdTaskButton.isEnabled = false
         fourTaskButton.isEnabled = false
         clockLabel.textColor = .systemRed
+        }
         }
         }
         }

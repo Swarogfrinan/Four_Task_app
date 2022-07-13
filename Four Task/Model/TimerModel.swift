@@ -17,19 +17,20 @@ let userDefaults = UserDefaults.standard
 let START_TIME_KEY = "startTime"
 let STOP_TIME_KEY = "stopTime"
 let COUNTING_KEY = "countingKey"
+let STARTING_KEYS = ["startTime", "StartimeSecond", "StartimeThird", "StartimeFour"]
 
 //MARK: - Extension
 extension ViewController {
 ///Запуск Action Timer
    func startAction() {
-    setStoptTime(date: Date())
+    setStopTime(date: Date())
     stopTimer()
     }
     ///Запуск Stop Action Timer с проверкой есть ли пауза.
     func stopAction() {
         if stopTime != nil {
     let restartTime = calcRestartTime(start: startTime!, stop: stopTime!)
-    setStoptTime(date: nil)
+    setStopTime(date: nil)
     setStartTime(date: restartTime)
             } else {
                 setStartTime(date: Date())
@@ -39,7 +40,7 @@ extension ViewController {
     ///Reset данных и выставление нуля.
     /// //if hidden false то ресет (Идея)
     func resetAction() {
-        setStoptTime(date: nil)
+        setStopTime(date: nil)
         setStartTime(date: nil)
         clockLabel.text = makeTimeString(hours: 0, minutes: 0, seconds: 0)
         stopTimer()
@@ -57,7 +58,7 @@ extension ViewController {
         userDefaults.set(startTime, forKey: START_TIME_KEY)
     }
     ///Остановка стартового времени - по key с сохранением в USERDEFAULTS.
-    func setStoptTime(date: Date?) {
+    func setStopTime(date: Date?) {
         stopTime = date
         userDefaults.set(stopTime, forKey: STOP_TIME_KEY)
     }
