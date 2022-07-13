@@ -41,14 +41,13 @@ class ViewController: UIViewController {
     let format = DateFormatter()
     let now = NSDate()
     var count : Int = 0
- 
 
-    
-    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         clockLabel.text = "Lets work"
+        ///Установка верхнего лейбла - времени текущего дня. (12 Часовая)
         makeCurrentTime()
         
         
@@ -72,31 +71,31 @@ class ViewController: UIViewController {
 
     
     //MARK: - IBOutlet methods
+    ///Первая жёлтая кнопка
     @IBAction func firstTaskButtonPressed(_ sender: UIButton) {
        firstTask()
     }
-    
+    ///Вторая красная кнопка
     @IBAction func secondTakeButtonPressed(_ sender: UIButton) {
         secondTask()
     }
-    
+    ///Третья синяя кнопка
     @IBAction func thirdTaskButtonPressed(_ sender: UIButton) {
         thirdTask()
     }
-    
+    ///Четвёртая зеленая кнопка
     @IBAction func fourTaskButtonPressed(_ sender: UIButton) {
         fourTask()
     }
     
     //MARK: - Methods
-    ///Счётчик таймера
+    ///Счётчик таймера (Старая версия)
     @objc func timerCounter() -> Void {
         count = count + 1
         let time = secondToHourMinutesSeconds(seconds: count)
         let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
         clockLabel.text = timeString
     }
-
 }
 
 
@@ -104,8 +103,9 @@ class ViewController: UIViewController {
 
 
 
-
+//MARK: - Extension + Methods
     extension ViewController {
+        ///Функция первой задачи.
         func firstTask() {
         if (timerStarted) {
             startAction()
@@ -135,7 +135,7 @@ class ViewController: UIViewController {
         }
             
         
-        
+        ///Функция второй задачи.
         func secondTask() {
         if (timerStarted) {
             timerStarted = false
@@ -165,7 +165,7 @@ class ViewController: UIViewController {
         }
         }
         }
-        
+        ///Функция  третьей  задачи.
         func thirdTask() {
         if (timerStarted) {
             timerStarted = false
@@ -193,6 +193,7 @@ class ViewController: UIViewController {
          }
         }
         }
+        ///Функция четвёртой задачи.
         func fourTask() {
         if (timerStarted) {
             timerStarted = false
