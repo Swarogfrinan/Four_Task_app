@@ -18,30 +18,46 @@ let START_TIME_KEY = "startTime"
 let STOP_TIME_KEY = "stopTime"
 let COUNTING_KEY = "countingKey"
 let STARTING_KEYS = ["startTime", "StartimeSecond", "StartimeThird", "StartimeFour"]
+//четверг проба пера
+let START_TIME_KEY_SECOND = "startTimeSecond"
+let START_TIME_KEY_THIRD = "startTimeThird"
+let START_TIME_KEY_FOUR = "startTimeFour"
+let STOP_TIME_KEY_SECOND = "stopTimeSecond"
+let STOP_TIME_KEY_THIRD = "stopTimeThird"
+let STOP_TIME_KEY_FOUR = "stopTimeFour"
+let COUNTING_KEY_SECOND = "countingKeySecond"
+let COUNTING_KEY_THIRD = "countingKeyThird"
+let COUNTING_KEY_FOUR = "countingKeyFour"
 
 //MARK: - Extension
 extension ViewController {
 ///Запуск Action Timer
    func startAction() {
-    setStopTime(date: Date())
+//    setStopTime(date: Date())
+    setStopTimers(date: Date())
     stopTimer()
     }
     ///Запуск Stop Action Timer с проверкой есть ли пауза.
     func stopAction() {
         if stopTime != nil {
     let restartTime = calcRestartTime(start: startTime!, stop: stopTime!)
-    setStopTime(date: nil)
-    setStartTime(date: restartTime)
+//    setStopTime(date: nil)
+//    setStartTime(date: restartTime)
+            setStopTimers(date: nil)
+             setStartTimers(date: restartTime)
             } else {
-                setStartTime(date: Date())
+//                setStartTime(date: Date())
+                setStartTimers(date: Date())
             }
             startTimer()
     }
     ///Reset данных и выставление нуля.
     /// //if hidden false то ресет (Идея)
     func resetAction() {
-        setStopTime(date: nil)
-        setStartTime(date: nil)
+//        setStopTime(date: nil)
+//        setStartTime(date: nil)
+        setStopTimers(date: nil)
+        setStartTimers(date: nil)
         clockLabel.text = makeTimeString(hours: 0, minutes: 0, seconds: 0)
         stopTimer()
     }
@@ -62,7 +78,7 @@ extension ViewController {
         stopTime = date
         userDefaults.set(stopTime, forKey: STOP_TIME_KEY)
     }
-    ///Ведется ли счёт времени - по key с сохранением в USERDEFAULTS.
+        //Ведется ли счёт времени - по key с сохранением в USERDEFAULTS.
     func setTimerCounting(value: Bool) {
         timerStarted = value
         userDefaults.set(timerStarted, forKey: COUNTING_KEY)
@@ -70,13 +86,15 @@ extension ViewController {
     ///Запуск таймера
     func startTimer() {
         scheduledTimer = Timer.scheduledTimer(timeInterval: 0.1 , target: self, selector: #selector(refreshValue), userInfo: nil, repeats: true)
-        setTimerCounting(value: true)
+//        setTimerCounting(value: true)
+        setTimerCountingsKeys(value: true)
     }
     ///Остановка таймера
     func stopTimer() {
         if scheduledTimer != nil {
             scheduledTimer.invalidate()
-            setTimerCounting(value: false)
+//            setTimerCounting(value: false)
+            setTimerCountingsKeys(value: false)
             
         }
     }
@@ -96,7 +114,6 @@ extension ViewController {
             setTimeLabel(0)
         }
     }
-  
     
     
     

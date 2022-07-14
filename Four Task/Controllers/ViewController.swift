@@ -96,13 +96,87 @@ class ViewController: UIViewController {
         let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
         clockLabel.text = timeString
     }
+    ///Четверг проба функций
+    func setStartTimers(date: Date?) {
+        if firstTaskButton.isEnabled == false {
+        startTime = date
+        userDefaults.set(startTime, forKey: START_TIME_KEY)
+            print("Установка Старт Время - первый кейс сработал")
+        } else {
+            if secondTaskButton.isEnabled == false {
+                startTime = date
+                userDefaults.set(startTime, forKey: START_TIME_KEY_SECOND)
+                print("Установка Старт Время - второй кейс сработал")
+            } else {
+                if thirdTaskButton.isEnabled == false {
+                    startTime = date
+                    userDefaults.set(startTime, forKey: START_TIME_KEY_THIRD)
+                    print("Установка Старт Время - третий кейс сработал")
+                } else {
+                    if fourTaskButton.isEnabled == false {
+                        startTime = date
+                        userDefaults.set(startTime, forKey: START_TIME_KEY_FOUR)
+                        print("Установка Старт Время - четвертый кейс сработал")
+                }
+    }
+    }
 }
-
-
-
-
-
-
+    }
+    func setStopTimers(date: Date?) {
+        if firstTaskButton.isEnabled == false {
+        stopTime = date
+        userDefaults.set(stopTime, forKey: STOP_TIME_KEY)
+            print("Установка СТОП Время - первый кейс сработал")
+        } else {
+            if secondTaskButton.isEnabled == false {
+                stopTime = date
+                userDefaults.set(stopTime, forKey: STOP_TIME_KEY_SECOND)
+                print("Установка СТОП Время - второй кейс сработал")
+            } else {
+                if thirdTaskButton.isEnabled == false {
+                    stopTime = date
+                    userDefaults.set(stopTime, forKey: STOP_TIME_KEY_THIRD)
+                    print("Установка СТОП Время - третий кейс сработал")
+                } else {
+                    if fourTaskButton.isEnabled == false {
+                        stopTime = date
+                        userDefaults.set(stopTime, forKey: STOP_TIME_KEY_FOUR)
+                        print("Установка СТОП Время - четвертый кейс сработал")
+                }
+    }
+    }
+}
+    }
+    func setTimerCountingsKeys(value: Bool) {
+        if clockLabel.textColor == .systemYellow {
+            timerStarted = value
+            userDefaults.set(timerStarted, forKey: COUNTING_KEY)
+            print("Установка СЧËТЧИК COUNTING Время - первый кейс сработал")
+        } else {
+            if clockLabel.textColor == .systemRed {
+                timerStarted = value
+                userDefaults.set(timerStarted, forKey: COUNTING_KEY_SECOND)
+                print("Установка СЧËТЧИК COUNTING Время - второй кейс сработал")
+            } else {
+                if clockLabel.textColor == .systemBlue {
+                    timerStarted = value
+                    userDefaults.set(timerStarted, forKey: COUNTING_KEY_THIRD)
+                    print("Установка СЧËТЧИК COUNTING Время - Третий кейс сработал")
+                } else {
+                    if clockLabel.textColor == .systemGreen {
+                        timerStarted = value
+                        userDefaults.set(timerStarted, forKey: COUNTING_KEY_FOUR)
+                        print("Установка СЧËТЧИК COUNTING Время - Четвертый кейс сработал")
+    }
+                }
+            }
+        }
+    }
+    
+    
+        //Четверг проба пера
+//конец
+}
 //MARK: - Extension + Methods
     extension ViewController {
         ///Функция первой задачи.
