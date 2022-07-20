@@ -10,7 +10,6 @@ import Foundation
 var stopTimeSecond: Date?
 var startTimeSecond: Date?
 var scheduledTimerSecond: Timer!
-var timerCounting: Bool = false
 //MARK: - Extension
 extension ViewController {
     ///Подтягивание 2 таймера из бэкграунда если он был нажат последним.
@@ -91,7 +90,7 @@ secondTaskStart()
     print("Установлено значение setStartTimeSecond по ключуStart_keys01 в SecondButtonLogic.")
 }
     fileprivate func setTimerCountingSecond(_ value: Bool) {
-    timerStarted.firstTimerStarted = value
+    timerStarted.secondTimerStarted = value
     userDefaults.set(timerStarted.secondTimerStarted, forKey: COUNTING_KEYS[1])
     print("Установлено значение setTimerCountingSecond по Counting_keys1 в SecondButtonLogic.")
 }
@@ -99,7 +98,6 @@ secondTaskStart()
     let time = secToHourMinutesSecondsSecond(seconds: value)
     let timeString = makeTimeStringSecond(hours: time.0, minutes: time.1, seconds: time.2)
     clockLabel.text = timeString
-///    print("Установлен LABEl СLOCK с переводом цифрового значения в строку в ButtonsModel.")
 }
     ///Перевод секунд в час, минуту, секунду.
     fileprivate func secToHourMinutesSecondsSecond(seconds: Int) -> (Int, Int, Int) {
@@ -107,7 +105,6 @@ secondTaskStart()
         let mm = (seconds % 3600) / 60
         let sec = (seconds % 3600) % 60
         return (hour, mm, sec)
-       
     }
     /// Перевод численных значений часы/минуты/секунды в формат String
   fileprivate  func makeTimeStringSecond(hours: Int, minutes: Int, seconds: Int) -> String {

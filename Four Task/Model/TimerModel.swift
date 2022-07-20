@@ -14,6 +14,7 @@ var scheduledTimer: Timer!
 var startTime:Date?
 var stopTime:Date?
 var started : Bool = false
+var timerCounting: Bool = false
 //MARK: - CodingKeys
 let userDefaults = UserDefaults.standard
 ///Стартовые ключи для запуска кнопок
