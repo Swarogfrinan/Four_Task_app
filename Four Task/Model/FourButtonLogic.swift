@@ -13,6 +13,20 @@ var scheduledTimerFour: Timer!
 
 //MARK: - Extension
 extension ViewController {
+    func fourRefreshBackgroundTimer() {
+    if timerStarted.fourTimerStarted {
+        startTimerFour()
+    } else {
+        stopTimerFour()
+        if let start = startTimeFour {
+            if let stop = stopTimeFour {
+                let time = calcRestartTimeFour(start: start, stop: stop)
+                let diff = Date().timeIntervalSince(time)
+                setTimeLabelFour(Int(diff))
+            }
+            }
+            }
+            }
     //MARK: - START
   func fourTask(){
         print("Нажатие третьей кнопки")
@@ -39,6 +53,7 @@ extension ViewController {
     fileprivate  func startTimerFour() {
 scheduledTimerFour = Timer.scheduledTimer(timeInterval: 0.1 , target: self, selector: #selector(refreshValueFour), userInfo: nil, repeats: true)
 setTimerCountingFour(true)
+fourTaskStart()
 }
 //MARK: - STOP
     func stopActionFour() {

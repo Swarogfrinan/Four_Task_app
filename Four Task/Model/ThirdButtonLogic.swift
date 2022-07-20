@@ -12,15 +12,29 @@ var scheduledTimerThird: Timer!
 
 //MARK: - Extension
 extension ViewController {
+    func thirdRefreshBackgroundTimer() {
+    if timerStarted.thirdTimerStarted {
+        startTimerThird()
+    } else {
+        stopTimerThird()
+        if let start = startTimeThird {
+            if let stop = stopTimeThird {
+                let time = calcRestartTimeThird(start: start, stop: stop)
+                let diff = Date().timeIntervalSince(time)
+                setTimeLabelThird(Int(diff))
+            }
+            }
+            }
+            }
     //MARK: - START
   func thirdTask(){
-        print("Нажатие третьей кнопки")
+        print("Нажатие 3 кнопки")
         if timerCounting == true {
-            print("TimerCounting = true в третьей кнопке")
+            print("TimerCounting = true в 3 кнопке")
             setStopTimeThird(date: Date())
             thirdTaskStop()
             stopTimerThird()
-            print("Третий таймер остановлен. UI отработал. ")
+            print("3 таймер остановлен. UI отработал. ")
         } else {
             if let stop = stopTimeThird {
                 let restartTime = calcRestartTimeThird(start: startTimeThird!, stop: stop)
@@ -38,12 +52,13 @@ extension ViewController {
     fileprivate  func startTimerThird() {
 scheduledTimerThird = Timer.scheduledTimer(timeInterval: 0.1 , target: self, selector: #selector(refreshValueThird), userInfo: nil, repeats: true)
 setTimerCountingThird(true)
+//        clockLabel.textColor = .systemBlue
+        thirdTaskStart()
 }
 //MARK: - STOP
     func stopActionThird() {
     if stopTimeThird != nil {
-        
-let restartTime = calcRestartTimeThird(start: startTimeThird!, stop: stopTimeThird!)
+        let restartTime = calcRestartTimeThird(start: startTimeThird!, stop: stopTimeThird!)
 setStopTimeThird(date: nil)
 setStartTimeThird(date: restartTime)
     } else {
@@ -67,17 +82,17 @@ setStartTimeThird(date: restartTime)
     fileprivate func setStopTimeThird(date: Date?) {
     stopTimeThird = date
     userDefaults.set(stopTimeThird, forKey: STOP_KEYS[2])
-    print("Установлено значение setStopTimeSecond по Stop_keys1 в ButtonsModel.")
+    print("Установлено значение setStopTimeThird по Stop_keys2 в ThirdButtonLogic.")
 }
     fileprivate func setStartTimeThird(date: Date?) {
     startTimeThird = date
     userDefaults.set(startTimeThird, forKey: STARTING_KEYS[2])
-    print("Установлено значение setStartTimeSecond по ключуStart_keys01 в ButtonsModel.")
+    print("Установлено значение setStartTimeThird по ключуStart_keys02 в ThirdButtonLogic.")
 }
     fileprivate func setTimerCountingThird(_ value: Bool) {
     timerStarted.thirdTimerStarted = value
     userDefaults.set(timerStarted.thirdTimerStarted, forKey: COUNTING_KEYS[2])
-    print("Установлено значение setTimerCountingSecond по Counting_keys1 в ButtonsModel.")
+    print("Установлено значение setTimerCountingThird по Counting_keys2 в ThirdButtonLogic.")
 }
     fileprivate func setTimeLabelThird(_ value: Int) {
     let time = secToHourMinutesSecondsThird(seconds: value)

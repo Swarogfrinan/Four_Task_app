@@ -4,25 +4,55 @@
 //
 //  Created by Ilya Vasilev on 19.07.2022.
 //
-
+//MARK: - First Logic Model
 import Foundation
+//MARK: - Let/var
 var stopTimeOne: Date?
 var startTimeOne: Date?
 var scheduledTimerOne: Timer!
-//MARK: - START
+//MARK: - Extension
 extension ViewController {
-    
-    
-func startActionOne() {
-    if timerStarted.firstTimerStarted == false {
-    setStopTimeOne(date: Date())
- stopTimerOne()
- }
-}
+    ///Подтягивание 1 таймера из бэкграунда если он был нажат последним.
+    func firstRefreshBackgroundTimer() {
+    if timerStarted.firstTimerStarted {
+        startTimerOne()
+    } else {
+        stopTimerOne()
+        if let start = startTimeOne {
+            if let stop = stopTimeOne {
+                let time = calcRestartTimeOne(start: start, stop: stop)
+                let diff = Date().timeIntervalSince(time)
+                setTimeLabelOne(Int(diff))
+            }
+            }
+            }
+            }
+//MARK: - Start
+    func firstTask() {
+        print("Нажатие 1 кнопки")
+        if timerCounting == true {
+            print("TimerCounting = true в 1 кнопке")
+            setStopTimeOne(date: Date())
+            firstTaskStop()
+            stopTimerOne()
+            print("1 таймер остановлен. UI отработал. ")
+            } else {
+            if let stop = stopTimeOne {
+                let restartTime = calcRestartTimeOne(start: startTimeOne!, stop: stop)
+                setStopTimeOne(date: nil)
+                setStartTimeOne(date: restartTime)
+                } else {
+                setStartTimeOne(date: Date())
+                }
+                firstTaskStart()
+                startTimerOne()
+                }
+                }
 ///Запуск Stop Action Timer с проверкой есть ли пауза.
- func startTimerOne() {
-scheduledTimerOne = Timer.scheduledTimer(timeInterval: 0.1 , target: self, selector: #selector(refreshValueOne), userInfo: nil, repeats: true)
-setTimerCountingOne(true)
+func startTimerOne() {
+        scheduledTimerOne = Timer.scheduledTimer(timeInterval: 0.1 , target: self, selector:    #selector(refreshValueOne), userInfo: nil, repeats: true)
+        setTimerCountingOne(true)
+        firstTaskStart()
 }
 //MARK: - STOP
 func stopActionOne() {

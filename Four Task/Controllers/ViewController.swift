@@ -8,21 +8,20 @@
 import UIKit
 import Foundation
 
-
-
+//MARK: - ViewController
 class ViewController: UIViewController {
 //MARK: - IBOutlet
-    ///Navigation bar
+    ///Navigation bar buttons
     @IBOutlet weak var leftBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
-    ///IBOutlet View
+    ///IBOutlet Top View
     @IBOutlet weak var clockLabel: UILabel!
     @IBOutlet weak var firstTaskButton: UIButton!
     @IBOutlet weak var secondTaskButton: UIButton!
     @IBOutlet weak var thirdTaskButton: UIButton!
     @IBOutlet weak var fourTaskButton: UIButton!
     
-    
+    ///IBOutlet Leading View
     @IBOutlet weak var dayTimeLabel: UILabel!
     @IBOutlet weak var firstExtraLabel: UILabel!
     @IBOutlet weak var secondExtraLabel: UILabel!
@@ -32,75 +31,73 @@ class ViewController: UIViewController {
     //MARK: - Let/var
 
     var optionalTimer: Timer?
-  
     let format = DateFormatter()
     let now = NSDate()
     var count : Int = 0
  
 
-    //MARK: - Lifecycle
+    //MARK: - Lifecycle.
     override func viewDidLoad() {
         super.viewDidLoad()
         
         clockLabel.text = "Lets work"
         ///Установка верхнего лейбла - времени текущего дня. (12 Часовая)
         makeCurrentTime()
-        
+        //MARK: - Save keys to UserDefaults.
         ///FIRST KEYS
         startTimeOne = userDefaults.object(forKey: STARTING_KEYS[0]) as? Date
         stopTimeOne = userDefaults.object(forKey: STOP_KEYS[0]) as? Date
+        timerStarted.firstTimerStarted = userDefaults.bool(forKey: COUNTING_KEYS[0])
         ///SECOND KEYS
         startTimeSecond = userDefaults.object(forKey: STARTING_KEYS[1]) as? Date
         stopTimeSecond = userDefaults.object(forKey: STOP_KEYS[1]) as? Date
+        timerStarted.secondTimerStarted = userDefaults.bool(forKey: COUNTING_KEYS[1])
         ///THIRD KEYS
         startTimeThird = userDefaults.object(forKey: STARTING_KEYS[2]) as? Date
         stopTimeThird = userDefaults.object(forKey: STOP_KEYS[2]) as? Date
+        timerStarted.thirdTimerStarted = userDefaults.bool(forKey: COUNTING_KEYS[2])
         ///FOUR KEYS
-        startTimeSecond = userDefaults.object(forKey: STARTING_KEYS[3]) as? Date
-        stopTimeSecond = userDefaults.object(forKey: STOP_KEYS[3]) as? Date
+        startTimeFour = userDefaults.object(forKey: STARTING_KEYS[3]) as? Date
+        stopTimeFour = userDefaults.object(forKey: STOP_KEYS[3]) as? Date
+        timerStarted.fourTimerStarted = userDefaults.bool(forKey: COUNTING_KEYS[3])
         
-        
-        timerStarted.firstTimerStarted = userDefaults.bool(forKey: COUNTING_KEYS[0])
+       ///Запуск 1 бэкграунд-таймера если он был нажат последним
         if timerStarted.firstTimerStarted {
-            startTimerOne()
+            firstRefreshBackgroundTimer()
+            animateFirstViewStart()
+            print("1 бэкграунд таймер включился")
         } else {
-            stopTimerOne()
-            if let start = startTimeOne {
-                if let stop = stopTimeOne {
-                    let time = calcRestartTimeOne(start: start, stop: stop)
-                    let diff = Date().timeIntervalSince(time)
-                    setTimeLabelOne(Int(diff))
-                }
-            }
+            ///Запуск 2 бэкграунд-таймера если он был нажат последним
+            if timerStarted.secondTimerStarted   {
+                secondRefreshBackgroundTimer()
+                animateSecondViewStart()
+                print("2 бэкграунд таймер включился")
+        } else {
+            ///Запуск 3 бэкграунд-таймера если он был нажат последним
+            if timerStarted.thirdTimerStarted {
+                thirdRefreshBackgroundTimer()
+                animateThirdButtonStart()
+                print("3 бэкграунд таймер включился")
+        } else {
+            ///Запуск 4 бэкграунд-таймера если он был нажат последним
+            if timerStarted.fourTimerStarted  {
+                fourRefreshBackgroundTimer()
+                animateFourButtonStart()
+                print("4 бэкграунд таймер включился")
         }
-        
+            print("ERROR : Бэкграунд не сработал ")
+            return
+            
+        }
+        }
+        }
     }
-
     
     //MARK: - IBOutlet methods
     ///Первая жёлтая кнопка
     @IBAction func firstTaskButtonPressed(_ sender: Any) {
-            print("Нажатие первой кнопки")
-            if timerCounting == true {
-                print("TimerCounting = true в первой кнопке")
-                setStopTimeOne(date: Date())
-                firstTaskStop()
-                stopTimerOne()
-                print("первый таймер остановлен. UI отработал. ")
-            } else {
-                if let stop = stopTimeOne {
-                    let restartTime = calcRestartTimeOne(start: startTimeOne!, stop: stop)
-                    setStopTimeOne(date: nil)
-                    setStartTimeOne(date: restartTime)
-                } else {
-                    setStartTimeOne(date: Date())
-                }
-                
-                firstTaskStart()
-                startTimerOne()
-            }
-        }
-    
+        firstTask()
+    }
     ///Вторая красная кнопка
     @IBAction func secondTaskButtonPressed(_ sender: Any) {
         secondTask()
@@ -114,7 +111,7 @@ class ViewController: UIViewController {
         fourTask()
     }
     @IBAction func refreshButtonPressed(_ sender: UIButton) {
-        refreshValue()
+//        refreshValue()
     }
     
     //MARK: - Methods

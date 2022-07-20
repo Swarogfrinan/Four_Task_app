@@ -4,23 +4,40 @@
 //
 //  Created by Ilya Vasilev on 19.07.2022.
 //
-
+//MARK: - Second Logic Model
 import Foundation
+//MARK: - Let/Var
 var stopTimeSecond: Date?
 var startTimeSecond: Date?
 var scheduledTimerSecond: Timer!
 var timerCounting: Bool = false
-//MARK: - START
+//MARK: - Extension
 extension ViewController {
+    ///Подтягивание 2 таймера из бэкграунда если он был нажат последним.
+    func secondRefreshBackgroundTimer() {
+    if timerStarted.secondTimerStarted {
+        startTimerSecond()
+    } else {
+        stopTimerSecond()
+        if let start = startTimeSecond {
+            if let stop = stopTimeSecond {
+                let time = calcRestartTimeSecond (start: start, stop: stop)
+                let diff = Date().timeIntervalSince(time)
+                setTimeLabelSecond(Int(diff))
+            }
+            }
+            }
+            }
+//MARK: - Start
   func secondTask(){
-        print("Нажатие второй кнопки")
+        print("Нажатие 2 кнопки")
         if timerCounting == true {
-            print("TimerCounting = true во второй кнопке")
+            print("TimerCounting = true во 2 кнопке")
             setStopTimeSecond(date: Date())
             secondTaskStop()
             stopTimerSecond()
-            print("Второй таймер остановлен. UI отработал. ")
-        } else {
+            print("2 таймер остановлен. UI отработал. ")
+            } else {
             if let stop = stopTimeSecond {
                 let restartTime = calcRestartTimeSecond(start: startTimeSecond!, stop: stop)
                 setStopTimeSecond(date: nil)
@@ -28,24 +45,24 @@ extension ViewController {
             } else {
                 setStartTimeSecond(date: Date())
             }
-            
             secondTaskStart()
             startTimerSecond()
-        }
-    }
+            }
+            }
 ///Запуск Stop Action Timer с проверкой есть ли пауза.
     fileprivate  func startTimerSecond() {
-scheduledTimerSecond = Timer.scheduledTimer(timeInterval: 0.1 , target: self, selector: #selector(refreshValueSecond), userInfo: nil, repeats: true)
+        scheduledTimerSecond = Timer.scheduledTimer(timeInterval: 0.1 , target: self, selector: #selector(refreshValueSecond), userInfo: nil, repeats: true)
 setTimerCountingSecond(true)
+secondTaskStart()
 }
 //MARK: - STOP
     func stopActionSecond() {
-    if stopTimeSecond != nil {
         
-let restartTime = calcRestartTimeSecond(start: startTimeSecond!, stop: stopTimeSecond!)
-setStopTimeSecond(date: nil)
-setStartTimeSecond(date: restartTime)
-    } else {
+    if stopTimeSecond != nil {
+        let restartTime = calcRestartTimeSecond(start: startTimeSecond!, stop: stopTimeSecond!)
+        setStopTimeSecond(date: nil)
+        setStartTimeSecond(date: restartTime)
+        } else {
         setStartTimeSecond(date: Date())
         }
         startTimerSecond()
@@ -66,17 +83,17 @@ setStartTimeSecond(date: restartTime)
     fileprivate func setStopTimeSecond(date: Date?) {
     stopTimeSecond = date
     userDefaults.set(stopTimeSecond, forKey: STOP_KEYS[1])
-    print("Установлено значение setStopTimeSecond по Stop_keys1 в ButtonsModel.")
+    print("Установлено значение setStopTimeSecond по Stop_keys1 в SecondButtonLogic.")
 }
     fileprivate func setStartTimeSecond(date: Date?) {
     startTimeSecond = date
     userDefaults.set(startTimeSecond, forKey: STARTING_KEYS[1])
-    print("Установлено значение setStartTimeSecond по ключуStart_keys01 в ButtonsModel.")
+    print("Установлено значение setStartTimeSecond по ключуStart_keys01 в SecondButtonLogic.")
 }
     fileprivate func setTimerCountingSecond(_ value: Bool) {
     timerStarted.firstTimerStarted = value
     userDefaults.set(timerStarted.secondTimerStarted, forKey: COUNTING_KEYS[1])
-    print("Установлено значение setTimerCountingSecond по Counting_keys1 в ButtonsModel.")
+    print("Установлено значение setTimerCountingSecond по Counting_keys1 в SecondButtonLogic.")
 }
     fileprivate func setTimeLabelSecond(_ value: Int) {
     let time = secToHourMinutesSecondsSecond(seconds: value)
