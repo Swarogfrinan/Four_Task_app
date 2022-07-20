@@ -115,12 +115,10 @@ import UIKit
         }
         
         ///Функция четвёртой задачи.
-        func fourTask() {
-            if (timerStarted.fourTimerStarted) {
-                startAction()
-//        if (timerStarted) {
-//            timerStarted = false
-//            timer.invalidate()
+        func fourTaskStop() {
+            if (timerStarted.fourTimerStarted) == true {
+            timerStarted.fourTimerStarted = false
+            timerCounting = false
             UIView.animate(withDuration: 0.3) { [self] in
             firstTaskButton.backgroundColor = .systemYellow
             secondTaskButton.backgroundColor = .systemRed
@@ -130,13 +128,13 @@ import UIKit
             thirdTaskButton.isEnabled = true
             clockLabel.textColor = .systemGray
             }
-            
-        } else {
-            if stopTime != nil {
-        stopAction()
-//        timerStarted = true
-//        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
-//               UIView.animate(withDuration: 0.3) { [self] in
+            }
+        }
+        func fourTaskStart() {
+            if timerStarted.fourTimerStarted == false {
+                timerStarted.fourTimerStarted = true
+                timerCounting = true
+        UIView.animate(withDuration: 0.3) { [self] in
         firstTaskButton.backgroundColor = .systemGray
         secondTaskButton.backgroundColor = .systemGray2
         thirdTaskButton.backgroundColor = .systemGray3
@@ -148,4 +146,6 @@ import UIKit
         }
         }
         
+        
+    ///MARK : - END
     }

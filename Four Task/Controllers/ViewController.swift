@@ -46,15 +46,21 @@ class ViewController: UIViewController {
         ///Установка верхнего лейбла - времени текущего дня. (12 Часовая)
         makeCurrentTime()
         
-///first
-        startTimeOne = userDefaults.object(forKey: START_TIME_KEY) as? Date
-        stopTimeOne = userDefaults.object(forKey: STOP_TIME_KEY) as? Date
-        ///second
-        startTimeSecond = userDefaults.object(forKey: START_TIME_KEY_SECOND) as? Date
-        stopTimeSecond = userDefaults.object(forKey: STOP_TIME_KEY_SECOND) as? Date
+        ///FIRST KEYS
+        startTimeOne = userDefaults.object(forKey: STARTING_KEYS[0]) as? Date
+        stopTimeOne = userDefaults.object(forKey: STOP_KEYS[0]) as? Date
+        ///SECOND KEYS
+        startTimeSecond = userDefaults.object(forKey: STARTING_KEYS[1]) as? Date
+        stopTimeSecond = userDefaults.object(forKey: STOP_KEYS[1]) as? Date
+        ///THIRD KEYS
+        startTimeThird = userDefaults.object(forKey: STARTING_KEYS[2]) as? Date
+        stopTimeThird = userDefaults.object(forKey: STOP_KEYS[2]) as? Date
+        ///FOUR KEYS
+        startTimeSecond = userDefaults.object(forKey: STARTING_KEYS[3]) as? Date
+        stopTimeSecond = userDefaults.object(forKey: STOP_KEYS[3]) as? Date
         
         
-        timerStarted.firstTimerStarted = userDefaults.bool(forKey: COUNTING_KEY)
+        timerStarted.firstTimerStarted = userDefaults.bool(forKey: COUNTING_KEYS[0])
         if timerStarted.firstTimerStarted {
             startTimerOne()
         } else {

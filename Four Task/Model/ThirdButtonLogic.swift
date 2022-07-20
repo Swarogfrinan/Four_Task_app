@@ -65,7 +65,7 @@ setStartTimeThird(date: restartTime)
 }
 //MARK: - SET STOP_START_COUNTING_KEYS
     fileprivate func setStopTimeThird(date: Date?) {
-    stopTimeSecond = date
+    stopTimeThird = date
     userDefaults.set(stopTimeThird, forKey: STOP_KEYS[2])
     print("Установлено значение setStopTimeSecond по Stop_keys1 в ButtonsModel.")
 }

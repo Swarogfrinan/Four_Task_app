@@ -52,17 +52,17 @@ func calcRestartTimeOne(start: Date, stop: Date) -> Date {
 func setStopTimeOne(date: Date?) {
     stopTimeOne = date
     userDefaults.set(stopTimeOne, forKey: STOP_KEYS[0])
-    print("Установлен setStopTimeOne по Stop_keys0 в ButtonsModel.")
+    print("Установлен setStopTimeOne по Stop_keys0 в FirstButtonLogic.")
 }
 func setStartTimeOne(date: Date?) {
     startTimeOne = date
     userDefaults.set(startTimeOne, forKey: STARTING_KEYS[0])
-    print("Установлен setStartTimeOne по Start_keys0 в ButtonsModel.")
+    print("Установлен setStartTimeOne по Start_keys0 в FirstButtonLogic.")
 }
 func setTimerCountingOne(_ value: Bool) {
     timerStarted.firstTimerStarted = value
     userDefaults.set(timerStarted.firstTimerStarted, forKey: COUNTING_KEYS[0])
-    print("Установлен setTimerCountingOne по Counting_keys0 в ButtonsModel.")
+    print("Установлен setTimerCountingOne по Counting_keys0 в FirstButtonLogic.")
 }
 func setTimeLabelOne(_ value: Int) {
     let time = secToHourMinutesSecondsOne(seconds: value)
