@@ -7,12 +7,13 @@
 
 
 import Foundation
+//MARK: - Let/Var
 var stopTimeFour: Date?
 var startTimeFour: Date?
 var scheduledTimerFour: Timer!
-
 //MARK: - Extension
 extension ViewController {
+    ///Подтягивание 4 таймера из бэкграунда если он был нажат последним.
     func fourRefreshBackgroundTimer() {
     if timerStarted.fourTimerStarted {
         startTimerFour()
@@ -29,13 +30,13 @@ extension ViewController {
             }
     //MARK: - START
   func fourTask(){
-        print("Нажатие третьей кнопки")
+        print("Нажатие 4 кнопки")
         if timerCounting == true {
-            print("TimerCounting = true в третьей кнопке")
+            print("TimerCounting = true в 4 кнопке")
             setStopTimeFour(date: Date())
             fourTaskStop()
             stopTimerFour()
-            print("Третий таймер остановлен. UI отработал. ")
+            print("4 таймер остановлен. UI отработал. ")
         } else {
             if let stop = stopTimeFour {
                 let restartTime = calcRestartTimeFour(start: startTimeFour!, stop: stop)
@@ -43,39 +44,38 @@ extension ViewController {
                 setStartTimeFour(date: restartTime)
             } else {
                 setStartTimeFour(date: Date())
-            }
-            
+        }
             fourTaskStart()
             startTimerFour()
         }
-    }
+        }
 ///Запуск Stop Action Timer с проверкой есть ли пауза.
-    fileprivate  func startTimerFour() {
-scheduledTimerFour = Timer.scheduledTimer(timeInterval: 0.1 , target: self, selector: #selector(refreshValueFour), userInfo: nil, repeats: true)
-setTimerCountingFour(true)
-fourTaskStart()
+fileprivate  func startTimerFour() {
+        scheduledTimerFour = Timer.scheduledTimer(timeInterval: 0.1 , target: self, selector: #selector(refreshValueFour), userInfo: nil, repeats: true)
+        setTimerCountingFour(true)
+        fourTaskStart()
 }
 //MARK: - STOP
-    func stopActionFour() {
-    if stopTimeFour != nil {
+func stopActionFour() {
         
-let restartTime = calcRestartTimeFour(start: startTimeFour!, stop: stopTimeFour!)
-setStopTimeFour(date: nil)
-setStartTimeFour(date: restartTime)
-    } else {
+    if stopTimeFour != nil {
+        let restartTime = calcRestartTimeFour(start: startTimeFour!, stop: stopTimeFour!)
+        setStopTimeFour(date: nil)
+        setStartTimeFour(date: restartTime)
+        } else {
         setStartTimeFour(date: Date())
         }
         startTimerFour()
-}
+        }
 
-    fileprivate func stopTimerFour() {
+fileprivate func stopTimerFour() {
     if scheduledTimerFour != nil {
         scheduledTimerFour.invalidate()
         setTimerCountingFour(false)
     }
-}
+    }
 
-    fileprivate func calcRestartTimeFour(start: Date, stop: Date) -> Date {
+fileprivate func calcRestartTimeFour(start: Date, stop: Date) -> Date {
     let diff = start.timeIntervalSince(stop)
     return Date().addingTimeInterval(diff)
 }

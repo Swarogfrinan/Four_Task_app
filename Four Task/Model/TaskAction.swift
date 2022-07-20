@@ -13,9 +13,9 @@ import UIKit
     extension ViewController {
         ///СТАРТ ФУНКЦИЯ 1 задачи.
             func firstTaskStart() {
-            print("StoptimeOne не равен Nil.")
-            if timerStarted.firstTimerStarted == false {
-           animateFirstViewStop()
+            if (timerStarted.firstTimerStarted) == false {
+                print("StoptimeOne не равен Nil.")
+           animateFirstViewStart()
         }
         }
         ///СТАРТ АНИМАЦИЯ 1 задачи.
@@ -35,7 +35,7 @@ import UIKit
         }
         ///СТОП ФУНКЦИЯ 1 задачи.
         func firstTaskStop() {
-            if timerStarted.firstTimerStarted == true {
+            if (timerStarted.firstTimerStarted) == true {
                 animateFirstViewStop()
             }
             }
@@ -56,9 +56,7 @@ import UIKit
             timerCounting = false
             print("Все кнопки включены. Текст перекрашен в серый.")
             }
-        }
-       
-        
+            }
         /// СТОП второй задачи с проверкой.
         func secondTaskStop() {
             if (timerStarted.secondTimerStarted) == true {
@@ -67,7 +65,7 @@ import UIKit
             }
         ///СТАРТ второй задачи с проверкой.
         func secondTaskStart() {
-            if timerStarted.secondTimerStarted == false {
+            if (timerStarted.secondTimerStarted) == false {
                 animateSecondViewStart()
         }
         }
@@ -86,19 +84,19 @@ import UIKit
             }
             }
         ///Анимация старта второй кнопки.
-func animateSecondViewStart() {
-UIView.animate(withDuration: 0.3) { [self] in
-firstTaskButton.backgroundColor = .systemGray
-thirdTaskButton.backgroundColor = .systemGray2
-fourTaskButton.backgroundColor = .systemGray3
-firstTaskButton.isEnabled = false
-thirdTaskButton.isEnabled = false
-fourTaskButton.isEnabled = false
-clockLabel.textColor = .systemRed
-timerStarted.secondTimerStarted = true
-timerCounting = true
-}
-}
+        func animateSecondViewStart() {
+            UIView.animate(withDuration: 0.3) { [self] in
+                firstTaskButton.backgroundColor = .systemGray
+                thirdTaskButton.backgroundColor = .systemGray2
+                fourTaskButton.backgroundColor = .systemGray3
+                firstTaskButton.isEnabled = false
+                thirdTaskButton.isEnabled = false
+                fourTaskButton.isEnabled = false
+                clockLabel.textColor = .systemRed
+                timerStarted.secondTimerStarted = true
+                timerCounting = true
+            }
+            }
 
 ///Функция  третьей  задачи СТОП.
         func thirdTaskStop() {
@@ -123,7 +121,7 @@ timerCounting = true
         
 ///Функция третьей задачи СТАРТ.
         func thirdTaskStart() {
-        if timerStarted.thirdTimerStarted == false {
+        if (timerStarted.thirdTimerStarted) == false {
         animateThirdButtonStart()
         }
         }
@@ -146,8 +144,8 @@ func animateThirdButtonStart() {
             if (timerStarted.fourTimerStarted) == true {
             animateFourButtonStop()
             }
-        }
-        ///СТАРТ  анимация четвёртой кнопки.
+            }
+///СТАРТ  анимация четвёртой кнопки.
         func animateFourButtonStop() {
             UIView.animate(withDuration: 0.3) { [self] in
             firstTaskButton.backgroundColor = .systemYellow
@@ -162,13 +160,13 @@ func animateThirdButtonStart() {
             }
             }
         
-        ///СТАРТ  функция четвёртой задачи.
+///СТАРТ  функция четвёртой задачи.
         func fourTaskStart() {
-            if timerStarted.fourTimerStarted == false {
+            if (timerStarted.fourTimerStarted) == false {
                 animateFourButtonStart()
             }
             }
-        ///СТАРТ  анимация четвёртой кнопки.
+///СТАРТ  анимация четвёртой кнопки.
         func animateFourButtonStart() {
             UIView.animate(withDuration: 0.3) { [self] in
             firstTaskButton.backgroundColor = .systemGray
@@ -182,5 +180,5 @@ func animateThirdButtonStart() {
             timerCounting = true
             }
         }
-    ///MARK : - END
+///MARK : - END
     }

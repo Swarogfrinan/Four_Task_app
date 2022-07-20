@@ -264,7 +264,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "BE0EEA4F-EE75-46AE-9A70-63E8484D659D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Four Task/Model/TaskAction.swift"
@@ -273,6 +273,22 @@
             startingLineNumber = "22"
             endingLineNumber = "22"
             landmarkName = "animateFirstViewStart()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "19CD2E97-D915-4F97-8AB2-7A87A0300442"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Four Task/Model/FirstButtonLogic.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "firstRefreshBackgroundTimer()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

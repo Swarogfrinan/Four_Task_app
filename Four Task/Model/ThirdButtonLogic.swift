@@ -1,6 +1,6 @@
 //
 //  ThirdButtonLogic.swift
-//  Four Task
+//  Third Task logic model
 //
 //  Created by Ilya Vasilev on 20.07.2022.
 //

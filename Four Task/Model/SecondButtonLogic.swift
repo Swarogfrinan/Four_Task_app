@@ -51,8 +51,8 @@ extension ViewController {
 ///Запуск Stop Action Timer с проверкой есть ли пауза.
     fileprivate  func startTimerSecond() {
         scheduledTimerSecond = Timer.scheduledTimer(timeInterval: 0.1 , target: self, selector: #selector(refreshValueSecond), userInfo: nil, repeats: true)
-setTimerCountingSecond(true)
-secondTaskStart()
+        setTimerCountingSecond(true)
+        secondTaskStart()
 }
 //MARK: - STOP
     func stopActionSecond() {
