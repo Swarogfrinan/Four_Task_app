@@ -59,7 +59,7 @@
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="1"/>
                                                 <connections>
-                                                    <action selector="firstTaskButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8ib-PH-CJG"/>
+                                                    <action selector="firstTaskButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AVi-e4-5FU"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZqN-We-1cI">
@@ -70,7 +70,7 @@
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="2"/>
                                                 <connections>
-                                                    <action selector="secondTakeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fds-vL-6dl"/>
+                                                    <action selector="secondTaskButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zwj-DZ-UOk"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -139,6 +139,17 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQ3-PG-Fm2">
+                                <rect key="frame" x="173" y="831" width="70" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="refresh">
+                                    <color key="baseForegroundColor" red="0.32276153559999998" green="0.70235711339999995" blue="0.85615342859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="refreshButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yFG-z5-v33"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -177,10 +188,6 @@
                         <outlet property="secondTaskButton" destination="ZqN-We-1cI" id="hIF-St-vme"/>
                         <outlet property="thirdExtraLabel" destination="Udr-de-NO8" id="UOy-ZD-jbs"/>
                         <outlet property="thirdTaskButton" destination="IvU-63-XFN" id="OUH-M4-z9Z"/>
-                        <outletCollection property="buttonCollections" destination="Kqh-pN-Ofm" collectionClass="NSMutableArray" id="Ybp-2t-D0V"/>
-                        <outletCollection property="buttonCollections" destination="ZqN-We-1cI" collectionClass="NSMutableArray" id="mhx-Ao-jAZ"/>
-                        <outletCollection property="buttonCollections" destination="mZI-tz-jXf" collectionClass="NSMutableArray" id="tgH-KO-bFv"/>
-                        <outletCollection property="buttonCollections" destination="IvU-63-XFN" collectionClass="NSMutableArray" id="VtL-eK-zVa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

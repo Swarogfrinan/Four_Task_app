@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		43C590C02880196C00580253 /* Action Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C590BF2880196C00580253 /* Action Model.swift */; };
+		43A0B3342886FEED00C49695 /* SecondButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3332886FEED00C49695 /* SecondButtonLogic.swift */; };
+		43A0B3362887FE5E00C49695 /* ThirdButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3352887FE5E00C49695 /* ThirdButtonLogic.swift */; };
+		43A0B3382887FE6A00C49695 /* FourButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */; };
+		43C590C02880196C00580253 /* TaskAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C590BF2880196C00580253 /* TaskAction.swift */; };
+		43C815C328860577004B37C4 /* FirstButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C815C228860577004B37C4 /* FirstButtonLogic.swift */; };
 		43FE56BE287D7B680002BB51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE56BD287D7B680002BB51 /* AppDelegate.swift */; };
 		43FE56C0287D7B680002BB51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE56BF287D7B680002BB51 /* SceneDelegate.swift */; };
 		43FE56C2287D7B680002BB51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE56C1287D7B680002BB51 /* ViewController.swift */; };
@@ -18,7 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		43C590BF2880196C00580253 /* Action Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Action Model.swift"; sourceTree = "<group>"; };
+		43A0B3332886FEED00C49695 /* SecondButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondButtonLogic.swift; sourceTree = "<group>"; };
+		43A0B3352887FE5E00C49695 /* ThirdButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdButtonLogic.swift; sourceTree = "<group>"; };
+		43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourButtonLogic.swift; sourceTree = "<group>"; };
+		43C590BF2880196C00580253 /* TaskAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAction.swift; sourceTree = "<group>"; };
+		43C815C228860577004B37C4 /* FirstButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstButtonLogic.swift; sourceTree = "<group>"; };
 		43FE56BA287D7B680002BB51 /* Four Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Four Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FE56BD287D7B680002BB51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43FE56BF287D7B680002BB51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +53,11 @@
 			isa = PBXGroup;
 			children = (
 				43FE56D4287D8A7E0002BB51 /* TimerModel.swift */,
-				43C590BF2880196C00580253 /* Action Model.swift */,
+				43C590BF2880196C00580253 /* TaskAction.swift */,
+				43C815C228860577004B37C4 /* FirstButtonLogic.swift */,
+				43A0B3332886FEED00C49695 /* SecondButtonLogic.swift */,
+				43A0B3352887FE5E00C49695 /* ThirdButtonLogic.swift */,
+				43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,11 +188,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43A0B3382887FE6A00C49695 /* FourButtonLogic.swift in Sources */,
 				43FE56C2287D7B680002BB51 /* ViewController.swift in Sources */,
-				43C590C02880196C00580253 /* Action Model.swift in Sources */,
+				43C815C328860577004B37C4 /* FirstButtonLogic.swift in Sources */,
+				43C590C02880196C00580253 /* TaskAction.swift in Sources */,
 				43FE56D5287D8A7E0002BB51 /* TimerModel.swift in Sources */,
 				43FE56BE287D7B680002BB51 /* AppDelegate.swift in Sources */,
 				43FE56C0287D7B680002BB51 /* SceneDelegate.swift in Sources */,
+				43A0B3362887FE5E00C49695 /* ThirdButtonLogic.swift in Sources */,
+				43A0B3342886FEED00C49695 /* SecondButtonLogic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

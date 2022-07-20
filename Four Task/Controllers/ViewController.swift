@@ -22,7 +22,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var thirdTaskButton: UIButton!
     @IBOutlet weak var fourTaskButton: UIButton!
     
-    @IBOutlet var buttonCollections: [UIButton]!
     
     @IBOutlet weak var dayTimeLabel: UILabel!
     @IBOutlet weak var firstExtraLabel: UILabel!
@@ -31,16 +30,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var fourExtraLabel: UILabel!
     
     //MARK: - Let/var
-    var timer = Timer()
+
     var optionalTimer: Timer?
-    var firstTimer = Timer()
-    var secondTimer = Timer()
-    var thirdTimer = Timer()
-    var fourTimer = Timer()
-    
+  
     let format = DateFormatter()
     let now = NSDate()
     var count : Int = 0
+ 
 
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -50,19 +46,24 @@ class ViewController: UIViewController {
         ///Установка верхнего лейбла - времени текущего дня. (12 Часовая)
         makeCurrentTime()
         
+///first
+        startTimeOne = userDefaults.object(forKey: START_TIME_KEY) as? Date
+        stopTimeOne = userDefaults.object(forKey: STOP_TIME_KEY) as? Date
+        ///second
+        startTimeSecond = userDefaults.object(forKey: START_TIME_KEY_SECOND) as? Date
+        stopTimeSecond = userDefaults.object(forKey: STOP_TIME_KEY_SECOND) as? Date
         
-        startTime = userDefaults.object(forKey: START_TIME_KEY) as? Date
-        stopTime = userDefaults.object(forKey: STOP_TIME_KEY) as? Date
-        timerStarted = userDefaults.bool(forKey: COUNTING_KEY)
-        if timerStarted {
-            startTimer()
+        
+        timerStarted.firstTimerStarted = userDefaults.bool(forKey: COUNTING_KEY)
+        if timerStarted.firstTimerStarted {
+            startTimerOne()
         } else {
-            stopTimer()
-            if let start = startTime {
-                if let stop = stopTime {
-                    let time = calcRestartTime(start: start, stop: stop)
+            stopTimerOne()
+            if let start = startTimeOne {
+                if let stop = stopTimeOne {
+                    let time = calcRestartTimeOne(start: start, stop: stop)
                     let diff = Date().timeIntervalSince(time)
-                    setTimeLabel(Int(diff))
+                    setTimeLabelOne(Int(diff))
                 }
             }
         }
@@ -72,11 +73,30 @@ class ViewController: UIViewController {
     
     //MARK: - IBOutlet methods
     ///Первая жёлтая кнопка
-    @IBAction func firstTaskButtonPressed(_ sender: UIButton) {
-       firstTask()
-    }
+    @IBAction func firstTaskButtonPressed(_ sender: Any) {
+            print("Нажатие первой кнопки")
+            if timerCounting == true {
+                print("TimerCounting = true в первой кнопке")
+                setStopTimeOne(date: Date())
+                firstTaskStop()
+                stopTimerOne()
+                print("первый таймер остановлен. UI отработал. ")
+            } else {
+                if let stop = stopTimeOne {
+                    let restartTime = calcRestartTimeOne(start: startTimeOne!, stop: stop)
+                    setStopTimeOne(date: nil)
+                    setStartTimeOne(date: restartTime)
+                } else {
+                    setStartTimeOne(date: Date())
+                }
+                
+                firstTaskStart()
+                startTimerOne()
+            }
+        }
+    
     ///Вторая красная кнопка
-    @IBAction func secondTakeButtonPressed(_ sender: UIButton) {
+    @IBAction func secondTaskButtonPressed(_ sender: Any) {
         secondTask()
     }
     ///Третья синяя кнопка
@@ -87,213 +107,103 @@ class ViewController: UIViewController {
     @IBAction func fourTaskButtonPressed(_ sender: UIButton) {
         fourTask()
     }
+    @IBAction func refreshButtonPressed(_ sender: UIButton) {
+        refreshValue()
+    }
     
     //MARK: - Methods
-    ///Счётчик таймера (Старая версия)
-    @objc func timerCounter() -> Void {
-        count = count + 1
-        let time = secondToHourMinutesSeconds(seconds: count)
-        let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
-        clockLabel.text = timeString
-    }
+ 
     ///Четверг проба функций
-    func setStartTimers(date: Date?) {
-        if firstTaskButton.isEnabled == false {
-        startTime = date
-        userDefaults.set(startTime, forKey: START_TIME_KEY)
-            print("Установка Старт Время - первый кейс сработал")
-        } else {
-            if secondTaskButton.isEnabled == false {
-                startTime = date
-                userDefaults.set(startTime, forKey: START_TIME_KEY_SECOND)
-                print("Установка Старт Время - второй кейс сработал")
-            } else {
-                if thirdTaskButton.isEnabled == false {
-                    startTime = date
-                    userDefaults.set(startTime, forKey: START_TIME_KEY_THIRD)
-                    print("Установка Старт Время - третий кейс сработал")
-                } else {
-                    if fourTaskButton.isEnabled == false {
-                        startTime = date
-                        userDefaults.set(startTime, forKey: START_TIME_KEY_FOUR)
-                        print("Установка Старт Время - четвертый кейс сработал")
-                }
-    }
-    }
-}
-    }
-    func setStopTimers(date: Date?) {
-        if firstTaskButton.isEnabled == false {
-        stopTime = date
-        userDefaults.set(stopTime, forKey: STOP_TIME_KEY)
-            print("Установка СТОП Время - первый кейс сработал")
-        } else {
-            if secondTaskButton.isEnabled == false {
-                stopTime = date
-                userDefaults.set(stopTime, forKey: STOP_TIME_KEY_SECOND)
-                print("Установка СТОП Время - второй кейс сработал")
-            } else {
-                if thirdTaskButton.isEnabled == false {
-                    stopTime = date
-                    userDefaults.set(stopTime, forKey: STOP_TIME_KEY_THIRD)
-                    print("Установка СТОП Время - третий кейс сработал")
-                } else {
-                    if fourTaskButton.isEnabled == false {
-                        stopTime = date
-                        userDefaults.set(stopTime, forKey: STOP_TIME_KEY_FOUR)
-                        print("Установка СТОП Время - четвертый кейс сработал")
-                }
-    }
-    }
-}
-    }
-    func setTimerCountingsKeys(value: Bool) {
-        if clockLabel.textColor == .systemYellow {
-            timerStarted = value
-            userDefaults.set(timerStarted, forKey: COUNTING_KEY)
-            print("Установка СЧËТЧИК COUNTING Время - первый кейс сработал")
-        } else {
-            if clockLabel.textColor == .systemRed {
-                timerStarted = value
-                userDefaults.set(timerStarted, forKey: COUNTING_KEY_SECOND)
-                print("Установка СЧËТЧИК COUNTING Время - второй кейс сработал")
-            } else {
-                if clockLabel.textColor == .systemBlue {
-                    timerStarted = value
-                    userDefaults.set(timerStarted, forKey: COUNTING_KEY_THIRD)
-                    print("Установка СЧËТЧИК COUNTING Время - Третий кейс сработал")
-                } else {
-                    if clockLabel.textColor == .systemGreen {
-                        timerStarted = value
-                        userDefaults.set(timerStarted, forKey: COUNTING_KEY_FOUR)
-                        print("Установка СЧËТЧИК COUNTING Время - Четвертый кейс сработал")
-    }
-                }
-            }
-        }
-    }
+//    func setStartTimers(date: Date?) {
+//        if firstTaskButton.isEnabled == true {
+//        startTime = date
+//            userDefaults.set(startTime, forKey: STARTING_KEYS[0])
+//            print("Установка Старт Время - первый кейс сработал")
+//        } else {
+//            if secondTaskButton.isEnabled == true {
+//                startTime = date
+//                userDefaults.set(startTime, forKey: START_TIME_KEY_SECOND)
+//                print("Установка Старт Время - второй кейс сработал")
+//            } else {
+//                if thirdTaskButton.isEnabled == true {
+//                    startTime = date
+//                    userDefaults.set(startTime, forKey: START_TIME_KEY_THIRD)
+//                    print("Установка Старт Время - третий кейс сработал")
+//                } else {
+//                    if fourTaskButton.isEnabled == true {
+//                        startTime = date
+//                        userDefaults.set(startTime, forKey: START_TIME_KEY_FOUR)
+//                        print("Установка Старт Время - четвертый кейс сработал")
+//                }
+//    }
+//    }
+//}
+//    }
+//    func setStopTimers(date: Date?) {
+//        if firstTaskButton.isEnabled == false {
+//        userDefaults.set(stopTime, forKey: STOP_TIME_KEY)
+//            stopTime = date
+//            print("Установка СТОП Время - первый кейс сработал")
+//        } else {
+//            if secondTaskButton.isEnabled == false {
+//                stopTime = date
+//                userDefaults.set(stopTime, forKey: STOP_TIME_KEY_SECOND)
+//                print("Установка СТОП Время - второй кейс сработал")
+//            } else {
+//                if thirdTaskButton.isEnabled == false {
+//                    stopTime = date
+//                    userDefaults.set(stopTime, forKey: STOP_TIME_KEY_THIRD)
+//                    print("Установка СТОП Время - третий кейс сработал")
+//                } else {
+//                    if fourTaskButton.isEnabled == false {
+//                        stopTime = date
+//                        userDefaults.set(stopTime, forKey: STOP_TIME_KEY_FOUR)
+//                        print("Установка СТОП Время - четвертый кейс сработал")
+//                }
+//    }
+//    }
+//}
+//    }
+//    func setTimerCountingsKeys(value: Bool) {
+////        if clockLabel.textColor == .systemYellow || clockLabel.textColor == .systemGray {
+//            timerStarted = value
+//            userDefaults.set(timerStarted, forKey: COUNTING_KEY)
+//            print("Установка СЧËТЧИК COUNTING Время - первый кейс сработал")
+//        } else {
+//            if clockLabel.textColor == .systemRed {
+//                timerStarted = value
+//                userDefaults.set(timerStarted, forKey: COUNTING_KEY_SECOND)
+//                print("Установка СЧËТЧИК COUNTING Время - второй кейс сработал")
+//            } else {
+//                if clockLabel.textColor == .systemBlue {
+//                    timerStarted = value
+//                    userDefaults.set(timerStarted, forKey: COUNTING_KEY_THIRD)
+//                    print("Установка СЧËТЧИК COUNTING Время - Третий кейс сработал")
+//                } else {
+//                    if clockLabel.textColor == .systemGreen {
+//                        timerStarted = value
+//                        userDefaults.set(timerStarted, forKey: COUNTING_KEY_FOUR)
+//                        print("Установка СЧËТЧИК COUNTING Время - Четвертый кейс сработал")
+//    }
+//                }
+//            }
+//        }
+//    }
     
     
         //Четверг проба пера
 //конец
+    
+    
+    
+   
+    
+    
 }
-//MARK: - Extension + Methods
-    extension ViewController {
-        ///Функция первой задачи.
-        func firstTask() {
-        if (timerStarted) {
-            startAction()
-            UIView.animate(withDuration: 0.3) { [self] in
-            secondTaskButton.backgroundColor = .systemRed
-            thirdTaskButton.backgroundColor = .systemBlue
-            fourTaskButton.backgroundColor = .systemGreen
-            secondTaskButton.isEnabled = true
-            thirdTaskButton.isEnabled = true
-            fourTaskButton.isEnabled = true
-            clockLabel.textColor = .systemGray
-            }
-            } else {
-        if stopTime != nil {
-    stopAction()
-        UIView.animate(withDuration: 0.3) { [self] in
-        secondTaskButton.backgroundColor = .systemGray
-        thirdTaskButton.backgroundColor = .systemGray2
-        fourTaskButton.backgroundColor = .systemGray3
-            secondTaskButton.isEnabled = false
-            thirdTaskButton.isEnabled = false
-            fourTaskButton.isEnabled = false
-            clockLabel.textColor = .systemYellow
-         }
-        }
-            }
-        }
-            
-        
-        ///Функция второй задачи.
-        func secondTask() {
-            if (timerStarted) {
-                startAction()
-            UIView.animate(withDuration: 0.3) { [self] in
-            firstTaskButton.backgroundColor = .systemYellow
-            thirdTaskButton.backgroundColor = .systemBlue
-            fourTaskButton.backgroundColor = .systemGreen
-            firstTaskButton.isEnabled = true
-            thirdTaskButton.isEnabled = true
-            fourTaskButton.isEnabled = true
-            clockLabel.textColor = .systemGray
-            }
-        } else {
-            if stopTime != nil {
-        stopAction()
-            clockLabel.text = secondTimer.description
-        UIView.animate(withDuration: 0.3) { [self] in
-        firstTaskButton.backgroundColor = .systemGray
-        thirdTaskButton.backgroundColor = .systemGray2
-        fourTaskButton.backgroundColor = .systemGray3
-        firstTaskButton.isEnabled = false
-        thirdTaskButton.isEnabled = false
-        fourTaskButton.isEnabled = false
-        clockLabel.textColor = .systemRed
-        }
-        }
-        }
-        }
-        ///Функция  третьей  задачи.
-        func thirdTask() {
-        if (timerStarted) {
-            timerStarted = false
-            timer.invalidate()
-            UIView.animate(withDuration: 0.3) { [self] in
-            secondTaskButton.backgroundColor = .systemRed
-            firstTaskButton.backgroundColor = .systemYellow
-            fourTaskButton.backgroundColor = .systemGreen
-            firstTaskButton.isEnabled = true
-            secondTaskButton.isEnabled = true
-            fourTaskButton.isEnabled = true
-            clockLabel.textColor = .systemGray
-            }
-        } else {
-        timerStarted = true
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
-               UIView.animate(withDuration: 0.3) { [self] in
-        firstTaskButton.backgroundColor = .systemGray
-        secondTaskButton.backgroundColor = .systemGray2
-        fourTaskButton.backgroundColor = .systemGray3
-        firstTaskButton.isEnabled = false
-        secondTaskButton.isEnabled = false
-        fourTaskButton.isEnabled = false
-        clockLabel.textColor = .systemBlue
-         }
-        }
-        }
-        ///Функция четвёртой задачи.
-        func fourTask() {
-        if (timerStarted) {
-            timerStarted = false
-            timer.invalidate()
-            UIView.animate(withDuration: 0.3) { [self] in
-            firstTaskButton.backgroundColor = .systemYellow
-            secondTaskButton.backgroundColor = .systemRed
-            thirdTaskButton.backgroundColor = .systemBlue
-            firstTaskButton.isEnabled = true
-            secondTaskButton.isEnabled = true
-            thirdTaskButton.isEnabled = true
-            clockLabel.textColor = .systemGray
-            }
-            
-        } else {
-        timerStarted = true
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
-               UIView.animate(withDuration: 0.3) { [self] in
-        firstTaskButton.backgroundColor = .systemGray
-        secondTaskButton.backgroundColor = .systemGray2
-        thirdTaskButton.backgroundColor = .systemGray3
-        firstTaskButton.isEnabled = false
-        secondTaskButton.isEnabled = false
-        thirdTaskButton.isEnabled = false
-        clockLabel.textColor = .systemGreen
-         }
-        }
-        }
-        
-    }
+///Счётчик таймера (Старая версия)
+//    @objc func timerCounter() -> Void {
+//        count = count + 1
+//        let time = secondToHourMinutesSeconds(seconds: count)
+//        let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+//        clockLabel.text = timeString
+//    }
