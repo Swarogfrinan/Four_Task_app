@@ -98,7 +98,8 @@ extension ViewController {
     let time = secToHourMinutesSecondsOne(seconds: value)
     let timeString = makeTimeStringOne(hours: time.0, minutes: time.1, seconds: time.2)
     clockLabel.text = timeString
-        taskNumberFirstLabel.text = timeString
+    taskNumberFirstLabel.text = timeString
+    taskNumberFirstLabel.textColor = .systemYellow
 }
     ///Перевод секунд в час, минуту, секунду.
     fileprivate func secToHourMinutesSecondsOne(seconds: Int) -> (Int, Int, Int) {

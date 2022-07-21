@@ -1,0 +1,606 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03FF190AE361405C93CDC1A27F0848BE /* Pods-Four Task-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAFB72060344632FADDD1459B54BA1 /* Pods-Four Task-dummy.m */; };
+		10923872CBC55FF5756A39D7472F93BC /* CountableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E03E360676A9C288C96CF2D81153329 /* CountableLabel.swift */; };
+		2AD794A73FF1DF73E7FB283E0690AAF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		9204C374D9BEA4C3D0E14B1C447DE200 /* Pods-Four Task-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EA375055079FBA5036A50C0344AE2D0F /* Pods-Four Task-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EAA3D65FF34D528431C0FED01D3EC2BB /* CountableLabel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8690359C0AD92A93BAF7E460776DD354 /* CountableLabel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC7C25056D850EE25BAC205C9DB853A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		F2EAE41FCA6F8A4D9507BD0E64E927FA /* CountableLabel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 280410B08DA469FEBC2C7F37CE7F1DA1 /* CountableLabel-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE5E2E97A3C41794353764DE47B450FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56F16D57FD26717B8FCE1BB88E1AC88A;
+			remoteInfo = CountableLabel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04E9998AAE5FB5CC07A3853821AEBC52 /* CountableLabel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CountableLabel-prefix.pch"; sourceTree = "<group>"; };
+		140600708E40B4422468A928C0A69FA8 /* Pods-Four Task */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Four Task"; path = Pods_Four_Task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A99909BF896127AB8CB3FD2844BC49D /* Pods-Four Task-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Four Task-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1E03E360676A9C288C96CF2D81153329 /* CountableLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CountableLabel.swift; path = CountableLabel/Classes/CountableLabel.swift; sourceTree = "<group>"; };
+		22CAFB72060344632FADDD1459B54BA1 /* Pods-Four Task-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Four Task-dummy.m"; sourceTree = "<group>"; };
+		280410B08DA469FEBC2C7F37CE7F1DA1 /* CountableLabel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CountableLabel-dummy.m"; sourceTree = "<group>"; };
+		2D7A9A1623DFCF3EC3280D6841EDF181 /* CountableLabel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CountableLabel.modulemap; sourceTree = "<group>"; };
+		47DD265686861AF12CEF46F46FA2E02A /* Pods-Four Task-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Four Task-acknowledgements.plist"; sourceTree = "<group>"; };
+		64885792AA29CAB348DCBC57C68D2E41 /* Pods-Four Task-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Four Task-Info.plist"; sourceTree = "<group>"; };
+		6D37E9014F34AE6BD5309A51B1E6F46E /* CountableLabel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CountableLabel.release.xcconfig; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		8690359C0AD92A93BAF7E460776DD354 /* CountableLabel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CountableLabel-umbrella.h"; sourceTree = "<group>"; };
+		94E6DFA4D649BC6D857D7387458B39EC /* Pods-Four Task.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Four Task.modulemap"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AD60E5DDBFE4B5B964AB129AE87A1B89 /* Pods-Four Task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Four Task.debug.xcconfig"; sourceTree = "<group>"; };
+		CB7A80D94803B467151E533AF1745094 /* Pods-Four Task.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Four Task.release.xcconfig"; sourceTree = "<group>"; };
+		DE3BF9450BCF2717873DBC6B784D045D /* CountableLabel */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CountableLabel; path = CountableLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6288DEBF9503CFDC56F44736A7353DF /* Pods-Four Task-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Four Task-frameworks.sh"; sourceTree = "<group>"; };
+		EA375055079FBA5036A50C0344AE2D0F /* Pods-Four Task-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Four Task-umbrella.h"; sourceTree = "<group>"; };
+		EF78E33A019397F584642C465564AF1C /* CountableLabel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CountableLabel-Info.plist"; sourceTree = "<group>"; };
+		F28A75AE6BEF4ED3DC72CE209025EEBD /* CountableLabel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CountableLabel.debug.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C906EA075290A30878EB199A371A0514 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC7C25056D850EE25BAC205C9DB853A6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2B10FC4A8DFED5933718906C5B01C2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AD794A73FF1DF73E7FB283E0690AAF6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00D853D44DCDE1D8225C0B766C57256C /* CountableLabel */ = {
+			isa = PBXGroup;
+			children = (
+				1E03E360676A9C288C96CF2D81153329 /* CountableLabel.swift */,
+				FFEEBD8E049A8D884C49D3A2FB9E4B00 /* Support Files */,
+			);
+			name = CountableLabel;
+			path = CountableLabel;
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		8687493CF6876E184BA6D3804E7598A4 /* Pods-Four Task */ = {
+			isa = PBXGroup;
+			children = (
+				94E6DFA4D649BC6D857D7387458B39EC /* Pods-Four Task.modulemap */,
+				1A99909BF896127AB8CB3FD2844BC49D /* Pods-Four Task-acknowledgements.markdown */,
+				47DD265686861AF12CEF46F46FA2E02A /* Pods-Four Task-acknowledgements.plist */,
+				22CAFB72060344632FADDD1459B54BA1 /* Pods-Four Task-dummy.m */,
+				E6288DEBF9503CFDC56F44736A7353DF /* Pods-Four Task-frameworks.sh */,
+				64885792AA29CAB348DCBC57C68D2E41 /* Pods-Four Task-Info.plist */,
+				EA375055079FBA5036A50C0344AE2D0F /* Pods-Four Task-umbrella.h */,
+				AD60E5DDBFE4B5B964AB129AE87A1B89 /* Pods-Four Task.debug.xcconfig */,
+				CB7A80D94803B467151E533AF1745094 /* Pods-Four Task.release.xcconfig */,
+			);
+			name = "Pods-Four Task";
+			path = "Target Support Files/Pods-Four Task";
+			sourceTree = "<group>";
+		};
+		B0569BD4897A2DB0C744FAC131EEF17D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DE3BF9450BCF2717873DBC6B784D045D /* CountableLabel */,
+				140600708E40B4422468A928C0A69FA8 /* Pods-Four Task */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B0B3194B8725A0833628E8F5DD565935 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8687493CF6876E184BA6D3804E7598A4 /* Pods-Four Task */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				E753BFFF4671AFD9A8B1C689BF8DB822 /* Pods */,
+				B0569BD4897A2DB0C744FAC131EEF17D /* Products */,
+				B0B3194B8725A0833628E8F5DD565935 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E753BFFF4671AFD9A8B1C689BF8DB822 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				00D853D44DCDE1D8225C0B766C57256C /* CountableLabel */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FFEEBD8E049A8D884C49D3A2FB9E4B00 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2D7A9A1623DFCF3EC3280D6841EDF181 /* CountableLabel.modulemap */,
+				280410B08DA469FEBC2C7F37CE7F1DA1 /* CountableLabel-dummy.m */,
+				EF78E33A019397F584642C465564AF1C /* CountableLabel-Info.plist */,
+				04E9998AAE5FB5CC07A3853821AEBC52 /* CountableLabel-prefix.pch */,
+				8690359C0AD92A93BAF7E460776DD354 /* CountableLabel-umbrella.h */,
+				F28A75AE6BEF4ED3DC72CE209025EEBD /* CountableLabel.debug.xcconfig */,
+				6D37E9014F34AE6BD5309A51B1E6F46E /* CountableLabel.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/CountableLabel";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5734E495111893E9E9B297CF388C7AE1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9204C374D9BEA4C3D0E14B1C447DE200 /* Pods-Four Task-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF320C70979EFA88C2E14AFC584AC5EC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAA3D65FF34D528431C0FED01D3EC2BB /* CountableLabel-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		56F16D57FD26717B8FCE1BB88E1AC88A /* CountableLabel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 898CB775580E33D9AEB9DE37D320C1F2 /* Build configuration list for PBXNativeTarget "CountableLabel" */;
+			buildPhases = (
+				CF320C70979EFA88C2E14AFC584AC5EC /* Headers */,
+				85E264873FDB493917971B626FFBF36F /* Sources */,
+				C906EA075290A30878EB199A371A0514 /* Frameworks */,
+				0583DDE21391809F373D434CC7087D11 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CountableLabel;
+			productName = CountableLabel;
+			productReference = DE3BF9450BCF2717873DBC6B784D045D /* CountableLabel */;
+			productType = "com.apple.product-type.framework";
+		};
+		8484240D259C71999ECCC7EE577B9ABD /* Pods-Four Task */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 753B088D789036F62276738FCEF2783E /* Build configuration list for PBXNativeTarget "Pods-Four Task" */;
+			buildPhases = (
+				5734E495111893E9E9B297CF388C7AE1 /* Headers */,
+				78435A40953EFA6CF7916C141344C2DD /* Sources */,
+				F2B10FC4A8DFED5933718906C5B01C2E /* Frameworks */,
+				2E9BAD8C42C7CDE6945891BADC39EA75 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE74202677C8AF0BACFDD8BD91EA91A8 /* PBXTargetDependency */,
+			);
+			name = "Pods-Four Task";
+			productName = Pods_Four_Task;
+			productReference = 140600708E40B4422468A928C0A69FA8 /* Pods-Four Task */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = B0569BD4897A2DB0C744FAC131EEF17D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				56F16D57FD26717B8FCE1BB88E1AC88A /* CountableLabel */,
+				8484240D259C71999ECCC7EE577B9ABD /* Pods-Four Task */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0583DDE21391809F373D434CC7087D11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E9BAD8C42C7CDE6945891BADC39EA75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		78435A40953EFA6CF7916C141344C2DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03FF190AE361405C93CDC1A27F0848BE /* Pods-Four Task-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85E264873FDB493917971B626FFBF36F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10923872CBC55FF5756A39D7472F93BC /* CountableLabel.swift in Sources */,
+				F2EAE41FCA6F8A4D9507BD0E64E927FA /* CountableLabel-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BE74202677C8AF0BACFDD8BD91EA91A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CountableLabel;
+			target = 56F16D57FD26717B8FCE1BB88E1AC88A /* CountableLabel */;
+			targetProxy = BE5E2E97A3C41794353764DE47B450FD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		09909ECBA13E8F70A928465E7F7A9A92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		1D605CF50F9D70A3D17EA552BFC70E9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D37E9014F34AE6BD5309A51B1E6F46E /* CountableLabel.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CountableLabel/CountableLabel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CountableLabel/CountableLabel-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/CountableLabel/CountableLabel.modulemap";
+				PRODUCT_MODULE_NAME = CountableLabel;
+				PRODUCT_NAME = CountableLabel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2DE0D8898245310716431F92FA4989FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		75E06A66D395D9098775637813C36EA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F28A75AE6BEF4ED3DC72CE209025EEBD /* CountableLabel.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CountableLabel/CountableLabel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CountableLabel/CountableLabel-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/CountableLabel/CountableLabel.modulemap";
+				PRODUCT_MODULE_NAME = CountableLabel;
+				PRODUCT_NAME = CountableLabel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AF4FB2C9235296927B81E65EBAFDF6ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB7A80D94803B467151E533AF1745094 /* Pods-Four Task.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Four Task/Pods-Four Task-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Four Task/Pods-Four Task.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		ECBF72F6D0CDCF18AB3543BC74AD8539 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD60E5DDBFE4B5B964AB129AE87A1B89 /* Pods-Four Task.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Four Task/Pods-Four Task-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Four Task/Pods-Four Task.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09909ECBA13E8F70A928465E7F7A9A92 /* Debug */,
+				2DE0D8898245310716431F92FA4989FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		753B088D789036F62276738FCEF2783E /* Build configuration list for PBXNativeTarget "Pods-Four Task" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECBF72F6D0CDCF18AB3543BC74AD8539 /* Debug */,
+				AF4FB2C9235296927B81E65EBAFDF6ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		898CB775580E33D9AEB9DE37D320C1F2 /* Build configuration list for PBXNativeTarget "CountableLabel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75E06A66D395D9098775637813C36EA2 /* Debug */,
+				1D605CF50F9D70A3D17EA552BFC70E9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

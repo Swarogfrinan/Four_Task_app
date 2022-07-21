@@ -99,6 +99,7 @@ extension ViewController {
     let timeString = makeTimeStringSecond(hours: time.0, minutes: time.1, seconds: time.2)
     clockLabel.text = timeString
     taskNumberSecondLabel.text = timeString
+    taskNumberSecondLabel.textColor = .systemRed
 }
     ///Перевод секунд в час, минуту, секунду.
     fileprivate func secToHourMinutesSecondsSecond(seconds: Int) -> (Int, Int, Int) {

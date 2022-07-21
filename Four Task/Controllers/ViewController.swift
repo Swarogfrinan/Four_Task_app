@@ -7,7 +7,7 @@
 
 import UIKit
 import Foundation
-
+import CountableLabel
 //MARK: - ViewController
 class ViewController: UIViewController {
 //MARK: - IBOutlet
@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
     ///IBOutlet Top View
     @IBOutlet weak var dayTimeLabel: UILabel!
-    @IBOutlet weak var clockLabel: UILabel!
+    @IBOutlet weak var clockLabel: CountableLabel!
     @IBOutlet weak var firstTaskButton: UIButton!
     @IBOutlet weak var secondTaskButton: UIButton!
     @IBOutlet weak var thirdTaskButton: UIButton!
@@ -29,10 +29,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var ordinalThirdLabel: UILabel!
     @IBOutlet weak var fourOrdinalLabel: UILabel!
     
-    @IBOutlet weak var taskNumberFirstLabel: UILabel!
-    @IBOutlet weak var taskNumberSecondLabel: UILabel!
-    @IBOutlet weak var taskNumbersThirdLabel: UILabel!
-    @IBOutlet weak var taskNumbersFourLabel: UILabel!
+    @IBOutlet weak var taskNumberFirstLabel: CountableLabel!
+    @IBOutlet weak var taskNumberSecondLabel: CountableLabel!
+    @IBOutlet weak var taskNumbersThirdLabel: CountableLabel!
+    @IBOutlet weak var taskNumbersFourLabel: CountableLabel!
     //MARK: - Let/var
 
     var optionalTimer: Timer?

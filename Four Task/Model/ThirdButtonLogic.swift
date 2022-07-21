@@ -99,6 +99,7 @@ setStartTimeThird(date: restartTime)
     let timeString = makeTimeStringThird(hours: time.0, minutes: time.1, seconds: time.2)
     clockLabel.text = timeString
     taskNumbersThirdLabel.text = timeString
+    taskNumbersThirdLabel.textColor = .systemBlue
 ///    print("Установлен LABEl СLOCK с переводом цифрового значения в строку в ButtonsModel.")
 }
     ///Перевод секунд в час, минуту, секунду.

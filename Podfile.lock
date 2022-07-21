@@ -1,0 +1,16 @@
+PODS:
+  - CountableLabel (0.1.1)
+
+DEPENDENCIES:
+  - CountableLabel
+
+SPEC REPOS:
+  trunk:
+    - CountableLabel
+
+SPEC CHECKSUMS:
+  CountableLabel: 5e8bda9a2ec528bf68daf7d9306a47df0c88c2f8
+
+PODFILE CHECKSUM: 850ae3f3510d4fda347f0a18cc9f8f71cf54c18c
+
+COCOAPODS: 1.11.3

@@ -100,6 +100,7 @@ fileprivate func calcRestartTimeFour(start: Date, stop: Date) -> Date {
     let timeString = makeTimeStringFour(hours: time.0, minutes: time.1, seconds: time.2)
     clockLabel.text = timeString
     taskNumbersFourLabel.text = timeString
+    taskNumbersFourLabel.textColor = .systemGreen
 ///    print("Установлен LABEl СLOCK с переводом цифрового значения в строку в ButtonsModel.")
 }
     ///Перевод секунд в час, минуту, секунду.
