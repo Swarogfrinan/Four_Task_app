@@ -123,7 +123,7 @@ func resetActionOne() {
         setStartTimeOne(date: nil)
         clockLabel.text = makeTimeStringOne(hours: 0, minutes: 0, seconds: 0)
         stopTimerOne()
-    animateFirstViewStop()
+//    animateFirstViewStop()
     }
 //MARK: - RefreshValue
 ///Обновление данных, если что-то не так. Установка лейблу нуля.

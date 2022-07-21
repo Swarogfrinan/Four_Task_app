@@ -122,7 +122,7 @@ extension ViewController {
             setStartTimeSecond(date: nil)
             clockLabel.text = makeTimeStringSecond(hours: 0, minutes: 0, seconds: 0)
             stopTimerSecond()
-        animateSecondViewStop()
+//        animateSecondViewStop()
         }
 //MARK: - RefreshValue
 ///Обновление данных, если что-то не так. Установка лейблу нуля.

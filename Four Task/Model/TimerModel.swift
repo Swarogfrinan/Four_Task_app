@@ -46,7 +46,7 @@ let COUNTING_KEYS = [
 
 //MARK: - Extension
 extension ViewController {
-    
+
 public func makeCurrentTime() {
 Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (_) in
     let date = Date()

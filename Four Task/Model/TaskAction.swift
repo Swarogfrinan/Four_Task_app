@@ -101,11 +101,11 @@ import UIKit
 ///Функция  третьей  задачи СТОП.
         func thirdTaskStop() {
             if (timerStarted.thirdTimerStarted) == true {
-            animateThirdButtonStop()
+            animateThirdViewStop()
             }
             }
 ///СТОП анимация третьей кнопки.
-       func animateThirdButtonStop() {
+       func animateThirdViewStop() {
            UIView.animate(withDuration: 0.3) { [self] in
            secondTaskButton.backgroundColor = .systemRed
            firstTaskButton.backgroundColor = .systemYellow

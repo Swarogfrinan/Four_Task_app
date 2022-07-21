@@ -125,24 +125,29 @@ let alert = UIAlertController(title: "Нотайс", message: "Как насче
          if timerStarted.firstTimerStarted {
              alert.addAction(UIAlertAction(title: "Обнулить первую задачу", style: UIAlertAction.Style.default, handler: { action in
                  self.resetActionOne()
+                 self.animateFirstViewStop()
+
              }))
          } else {
              ///Запуск 2 алерта с предложением обнулить 2 задачу.
              if timerStarted.secondTimerStarted   {
                  alert.addAction(UIAlertAction(title: "Обнулить вторую задачу", style: UIAlertAction.Style.default, handler:  { action in
                      self.resetActionSecond()
+                     self.animateSecondViewStop()
                  }))
          } else {
              //Запуск 3 алерта с предложением обнулить 3 задачу.
              if timerStarted.thirdTimerStarted {
                  alert.addAction(UIAlertAction(title: "Обнулить третью задачу", style: UIAlertAction.Style.default, handler: { action in
                      self.resetActionThird()
+                     self.animateThirdViewStop()
                  }))
          } else {
              //Запуск 4 алерта с предложением обнулить 4 задачу.
              if timerStarted.fourTimerStarted  {
                  alert.addAction(UIAlertAction(title: "Обнулить четвертую задачу", style: UIAlertAction.Style.default, handler: { action in
                      self.resetActionFour()
+                     self.animateFourViewStop()
          }))
              }
          }
@@ -158,6 +163,8 @@ let alert = UIAlertController(title: "Нотайс", message: "Как насче
                 self.resetActionSecond()
                 self.resetActionThird()
                 self.resetActionFour()
+                self.animateAll()
+                
                  }))
          
          
@@ -165,7 +172,23 @@ let alert = UIAlertController(title: "Нотайс", message: "Как насче
     // show the alert
     self.present(alert, animated: true, completion: nil)
     }
-
+    
+    ///Animate ON ALL Buttons
+           func animateAll() {
+               UIView.animate(withDuration: 0.3) { [self] in
+                firstTaskButton.backgroundColor = .systemYellow
+               secondTaskButton.backgroundColor = .systemRed
+                thirdTaskButton.backgroundColor = .systemBlue
+               fourTaskButton.backgroundColor = .systemGreen
+               firstTaskButton.isEnabled = true
+               secondTaskButton.isEnabled = true
+                thirdTaskButton.isEnabled = true
+               fourTaskButton.isEnabled = true
+               clockLabel.textColor = .black
+                   (timerStarted.firstTimerStarted, timerStarted.secondTimerStarted, timerStarted.thirdTimerStarted, timerStarted.fourTimerStarted) = (false, false, false, false)
+               timerCounting = false
+            }
+           }
 }
 ///END
  

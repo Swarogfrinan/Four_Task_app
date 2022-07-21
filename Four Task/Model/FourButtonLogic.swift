@@ -125,7 +125,7 @@ fileprivate func calcRestartTimeFour(start: Date, stop: Date) -> Date {
             setStartTimeFour(date: nil)
             clockLabel.text = makeTimeStringFour(hours: 0, minutes: 0, seconds: 0)
             stopTimerFour()
-        animateFourViewStart()
+//        animateFourViewStart()
         }
 //MARK: - RefreshValue
 ///Обновление данных, если что-то не так. Установка лейблу нуля.

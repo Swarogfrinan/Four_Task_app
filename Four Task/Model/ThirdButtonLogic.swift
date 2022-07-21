@@ -124,7 +124,7 @@ setStartTimeThird(date: restartTime)
             setStartTimeThird(date: nil)
             clockLabel.text = makeTimeStringThird(hours: 0, minutes: 0, seconds: 0)
             stopTimerThird()
-            animateThirdViewStart()
+//            animateThirdViewStart()
         }
 //MARK: - RefreshValue
 ///Обновление данных, если что-то не так. Установка лейблу нуля.
