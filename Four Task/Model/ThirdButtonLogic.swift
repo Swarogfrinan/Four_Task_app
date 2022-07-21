@@ -118,6 +118,14 @@ setStartTimeThird(date: restartTime)
         timeString += String(format: "%02d", seconds)
         return timeString
     }
+    //MARK: - ResetAction
+    func resetActionThird() {
+            setStopTimeThird(date: nil)
+            setStartTimeThird(date: nil)
+            clockLabel.text = makeTimeStringThird(hours: 0, minutes: 0, seconds: 0)
+            stopTimerThird()
+            animateThirdViewStart()
+        }
 //MARK: - RefreshValue
 ///Обновление данных, если что-то не так. Установка лейблу нуля.
 @objc private func refreshValueThird() {

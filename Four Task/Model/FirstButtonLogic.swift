@@ -117,6 +117,14 @@ extension ViewController {
         timeString += String(format: "%02d", seconds)
         return timeString
     }
+//MARK: - ResetAction
+func resetActionOne() {
+        setStopTimeOne(date: nil)
+        setStartTimeOne(date: nil)
+        clockLabel.text = makeTimeStringOne(hours: 0, minutes: 0, seconds: 0)
+        stopTimerOne()
+    animateFirstViewStop()
+    }
 //MARK: - RefreshValue
 ///Обновление данных, если что-то не так. Установка лейблу нуля.
 @objc private func refreshValueOne() {

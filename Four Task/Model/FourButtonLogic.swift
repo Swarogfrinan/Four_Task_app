@@ -119,6 +119,14 @@ fileprivate func calcRestartTimeFour(start: Date, stop: Date) -> Date {
         timeString += String(format: "%02d", seconds)
         return timeString
     }
+    //MARK: - ResetAction
+    func resetActionFour() {
+            setStopTimeFour(date: nil)
+            setStartTimeFour(date: nil)
+            clockLabel.text = makeTimeStringFour(hours: 0, minutes: 0, seconds: 0)
+            stopTimerFour()
+        animateFourViewStart()
+        }
 //MARK: - RefreshValue
 ///Обновление данных, если что-то не так. Установка лейблу нуля.
 @objc private func refreshValueFour() {

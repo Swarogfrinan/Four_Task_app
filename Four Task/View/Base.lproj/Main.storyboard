@@ -202,12 +202,12 @@
                                 <rect key="frame" x="161" y="752" width="94" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" imagePadding="0.0" showsActivityIndicator="YES">
+                                <buttonConfiguration key="configuration" style="plain" imagePadding="2" cornerStyle="dynamic" titleAlignment="center">
                                     <imageReference key="image" image="gobackward.minus" catalog="system" symbolScale="large"/>
                                     <attributedString key="attributedTitle">
                                         <fragment content="Refresh">
                                             <attributes>
-                                                <font key="NSFont" metaFont="system" size="12"/>
+                                                <font key="NSFont" metaFont="cellTitle"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
@@ -246,15 +246,19 @@
                     <connections>
                         <outlet property="clockLabel" destination="hRs-Ff-ojV" id="G1E-77-otE"/>
                         <outlet property="dayTimeLabel" destination="qto-mJ-quI" id="a1a-IJ-NZC"/>
-                        <outlet property="firstExtraLabel" destination="Ylu-wM-2IO" id="H8k-my-c5F"/>
                         <outlet property="firstTaskButton" destination="Kqh-pN-Ofm" id="lF1-dX-wUz"/>
-                        <outlet property="fourExtraLabel" destination="kOw-9r-oz6" id="PUh-IY-CgI"/>
+                        <outlet property="fourOrdinalLabel" destination="kOw-9r-oz6" id="PUh-IY-CgI"/>
                         <outlet property="fourTaskButton" destination="mZI-tz-jXf" id="KIg-ge-PjG"/>
                         <outlet property="leftBarButtonItem" destination="MrI-D9-zXb" id="7bI-Vq-So3"/>
+                        <outlet property="ordinalFirstLabel" destination="Ylu-wM-2IO" id="H8k-my-c5F"/>
+                        <outlet property="ordinalSecondLabel" destination="78g-tM-Auj" id="NN3-hl-qVb"/>
+                        <outlet property="ordinalThirdLabel" destination="Udr-de-NO8" id="UOy-ZD-jbs"/>
                         <outlet property="rightBarButtonItem" destination="MK6-CV-OH6" id="nhr-jX-2Vx"/>
-                        <outlet property="secondExtraLabel" destination="78g-tM-Auj" id="NN3-hl-qVb"/>
                         <outlet property="secondTaskButton" destination="ZqN-We-1cI" id="hIF-St-vme"/>
-                        <outlet property="thirdExtraLabel" destination="Udr-de-NO8" id="UOy-ZD-jbs"/>
+                        <outlet property="taskNumberFirstLabel" destination="b7Z-NG-IqH" id="6Jy-3P-pBp"/>
+                        <outlet property="taskNumberSecondLabel" destination="LsO-d2-mn7" id="Uda-iB-41O"/>
+                        <outlet property="taskNumbersFourLabel" destination="eR2-Ui-SUJ" id="j19-eN-SP8"/>
+                        <outlet property="taskNumbersThirdLabel" destination="xtS-og-egP" id="0xI-Z9-Ncb"/>
                         <outlet property="thirdTaskButton" destination="IvU-63-XFN" id="OUH-M4-z9Z"/>
                     </connections>
                 </viewController>

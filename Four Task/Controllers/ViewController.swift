@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var leftBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
     ///IBOutlet Top View
+    @IBOutlet weak var dayTimeLabel: UILabel!
     @IBOutlet weak var clockLabel: UILabel!
     @IBOutlet weak var firstTaskButton: UIButton!
     @IBOutlet weak var secondTaskButton: UIButton!
@@ -22,12 +23,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var fourTaskButton: UIButton!
     
     ///IBOutlet Leading View
-    @IBOutlet weak var dayTimeLabel: UILabel!
-    @IBOutlet weak var firstExtraLabel: UILabel!
-    @IBOutlet weak var secondExtraLabel: UILabel!
-    @IBOutlet weak var thirdExtraLabel: UILabel!
-    @IBOutlet weak var fourExtraLabel: UILabel!
+
+    @IBOutlet weak var ordinalFirstLabel: UILabel!
+    @IBOutlet weak var ordinalSecondLabel: UILabel!
+    @IBOutlet weak var ordinalThirdLabel: UILabel!
+    @IBOutlet weak var fourOrdinalLabel: UILabel!
     
+    @IBOutlet weak var taskNumberFirstLabel: UILabel!
+    @IBOutlet weak var taskNumberSecondLabel: UILabel!
+    @IBOutlet weak var taskNumbersThirdLabel: UILabel!
+    @IBOutlet weak var taskNumbersFourLabel: UILabel!
     //MARK: - Let/var
 
     var optionalTimer: Timer?
@@ -76,13 +81,13 @@ class ViewController: UIViewController {
             ///Запуск 3 бэкграунд-таймера если он был нажат последним
             if timerStarted.thirdTimerStarted {
                 thirdRefreshBackgroundTimer()
-                animateThirdButtonStart()
+                animateThirdViewStart()
                 print("3 бэкграунд таймер включился")
         } else {
             ///Запуск 4 бэкграунд-таймера если он был нажат последним
             if timerStarted.fourTimerStarted  {
                 fourRefreshBackgroundTimer()
-                animateFourButtonStart()
+                animateFourViewStart()
                 print("4 бэкграунд таймер включился")
         }
             print("ERROR : Бэкграунд не сработал ")
@@ -110,8 +115,61 @@ class ViewController: UIViewController {
     @IBAction func fourTaskButtonPressed(_ sender: UIButton) {
         fourTask()
     }
-    @IBAction func refreshButtonPressed(_ sender: UIButton) {
-//        refreshValue()
-    }
     
+    @IBAction func refreshButtonPressed(_ sender: UIButton) {
+
+let alert = UIAlertController(title: "Нотайс", message: "Как насчет обнуления?", preferredStyle: UIAlertController.Style.alert)
+
+        // add the actions (buttons)
+        ///Запуск 1 алерта с предложением обнулить 1 задачу.
+         if timerStarted.firstTimerStarted {
+             alert.addAction(UIAlertAction(title: "Обнулить первую задачу", style: UIAlertAction.Style.default, handler: { action in
+                 self.resetActionOne()
+             }))
+         } else {
+             ///Запуск 2 алерта с предложением обнулить 2 задачу.
+             if timerStarted.secondTimerStarted   {
+                 alert.addAction(UIAlertAction(title: "Обнулить вторую задачу", style: UIAlertAction.Style.default, handler:  { action in
+                     self.resetActionSecond()
+                 }))
+         } else {
+             //Запуск 3 алерта с предложением обнулить 3 задачу.
+             if timerStarted.thirdTimerStarted {
+                 alert.addAction(UIAlertAction(title: "Обнулить третью задачу", style: UIAlertAction.Style.default, handler: { action in
+                     self.resetActionThird()
+                 }))
+         } else {
+             //Запуск 4 алерта с предложением обнулить 4 задачу.
+             if timerStarted.fourTimerStarted  {
+                 alert.addAction(UIAlertAction(title: "Обнулить четвертую задачу", style: UIAlertAction.Style.default, handler: { action in
+                     self.resetActionFour()
+         }))
+             }
+         }
+         }
+         }
+    
+         
+         ///close alert
+            alert.addAction(UIAlertAction(title: "Закрыть", style: UIAlertAction.Style.cancel, handler: nil))
+    ///RESET ALL timers alert-action.
+            alert.addAction(UIAlertAction(title: "Обнулить весь день", style: UIAlertAction.Style.destructive, handler: { action in
+                self.resetActionOne()
+                self.resetActionSecond()
+                self.resetActionThird()
+                self.resetActionFour()
+                 }))
+         
+         
+    
+    // show the alert
+    self.present(alert, animated: true, completion: nil)
+    }
+
 }
+///END
+ 
+
+    
+    
+

@@ -122,11 +122,11 @@ import UIKit
 ///Функция третьей задачи СТАРТ.
         func thirdTaskStart() {
         if (timerStarted.thirdTimerStarted) == false {
-        animateThirdButtonStart()
+        animateThirdViewStart()
         }
         }
 ///СТАРТ  анимация третьей кнопки.
-func animateThirdButtonStart() {
+func animateThirdViewStart() {
     UIView.animate(withDuration: 0.3) { [self] in
     firstTaskButton.backgroundColor = .systemGray
     secondTaskButton.backgroundColor = .systemGray2
@@ -142,11 +142,11 @@ func animateThirdButtonStart() {
 ///СТОП Функция четвёртой задачи.
         func fourTaskStop() {
             if (timerStarted.fourTimerStarted) == true {
-            animateFourButtonStop()
+            animateFourViewStop()
             }
             }
 ///СТАРТ  анимация четвёртой кнопки.
-        func animateFourButtonStop() {
+        func animateFourViewStop() {
             UIView.animate(withDuration: 0.3) { [self] in
             firstTaskButton.backgroundColor = .systemYellow
             secondTaskButton.backgroundColor = .systemRed
@@ -163,11 +163,11 @@ func animateThirdButtonStart() {
 ///СТАРТ  функция четвёртой задачи.
         func fourTaskStart() {
             if (timerStarted.fourTimerStarted) == false {
-                animateFourButtonStart()
+                animateFourViewStart()
             }
             }
 ///СТАРТ  анимация четвёртой кнопки.
-        func animateFourButtonStart() {
+        func animateFourViewStart() {
             UIView.animate(withDuration: 0.3) { [self] in
             firstTaskButton.backgroundColor = .systemGray
             secondTaskButton.backgroundColor = .systemGray2
