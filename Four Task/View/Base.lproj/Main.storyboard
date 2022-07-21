@@ -25,6 +25,44 @@
             </objects>
             <point key="canvasLocation" x="-886" y="84"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="jIq-DK-orF">
+            <objects>
+                <viewController id="S67-Ga-4rw" customClass="SettingsViewController" customModule="Four_Task" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8rJ-qf-L3x">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="vaG-gT-rmR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XDK-XJ-r49"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lsr-Mg-xrD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-555" y="802"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="XdL-cR-JM2">
+            <objects>
+                <viewController id="OOc-Yk-kom" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V8n-ql-SLu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Clw-Vc-klE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Gff-0c-uCY">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor.">
+                                <color key="value" systemColor="systemPurpleColor"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lhc-Pg-cyi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="190" y="802"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -241,9 +279,15 @@
                     <navigationItem key="navigationItem" id="Mkf-kV-VRP">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="gearshape.fill" catalog="system" id="MrI-D9-zXb">
                             <color key="tintColor" red="0.58993810420000004" green="0.077601097519999995" blue="0.74691337349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="S67-Ga-4rw" kind="show" id="M9J-bX-bxO"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="calendar" catalog="system" id="MK6-CV-OH6">
                             <color key="tintColor" red="0.58993810420000004" green="0.077601097519999995" blue="0.74691337349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="OOc-Yk-kom" kind="show" id="WnQ-dY-KFF"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -267,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28.985507246376812" y="83.705357142857139"/>
+            <point key="canvasLocation" x="-178" y="84"/>
         </scene>
     </scenes>
     <resources>
