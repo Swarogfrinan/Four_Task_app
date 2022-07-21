@@ -98,6 +98,7 @@ extension ViewController {
     let time = secToHourMinutesSecondsOne(seconds: value)
     let timeString = makeTimeStringOne(hours: time.0, minutes: time.1, seconds: time.2)
     clockLabel.text = timeString
+        taskNumberFirstLabel.text = timeString
 }
     ///Перевод секунд в час, минуту, секунду.
     fileprivate func secToHourMinutesSecondsOne(seconds: Int) -> (Int, Int, Int) {
@@ -122,6 +123,7 @@ func resetActionOne() {
         setStopTimeOne(date: nil)
         setStartTimeOne(date: nil)
         clockLabel.text = makeTimeStringOne(hours: 0, minutes: 0, seconds: 0)
+    taskNumberFirstLabel.text = makeTimeStringOne(hours: 0, minutes: 0, seconds: 0)
         stopTimerOne()
 //    animateFirstViewStop()
     }

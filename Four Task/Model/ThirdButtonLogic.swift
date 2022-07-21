@@ -98,6 +98,7 @@ setStartTimeThird(date: restartTime)
     let time = secToHourMinutesSecondsThird(seconds: value)
     let timeString = makeTimeStringThird(hours: time.0, minutes: time.1, seconds: time.2)
     clockLabel.text = timeString
+    taskNumbersThirdLabel.text = timeString
 ///    print("Установлен LABEl СLOCK с переводом цифрового значения в строку в ButtonsModel.")
 }
     ///Перевод секунд в час, минуту, секунду.
@@ -123,6 +124,7 @@ setStartTimeThird(date: restartTime)
             setStopTimeThird(date: nil)
             setStartTimeThird(date: nil)
             clockLabel.text = makeTimeStringThird(hours: 0, minutes: 0, seconds: 0)
+        taskNumbersThirdLabel.text = makeTimeStringThird(hours: 0, minutes: 0, seconds: 0)
             stopTimerThird()
 //            animateThirdViewStart()
         }
