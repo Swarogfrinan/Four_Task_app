@@ -12,6 +12,7 @@
 		43A0B3382887FE6A00C49695 /* FourButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */; };
 		43A184B12889C2DF00BAD964 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A184B02889C2DF00BAD964 /* SettingsViewController.swift */; };
 		43A184B32889D71200BAD964 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A184B22889D71200BAD964 /* SettingsTableViewCell.swift */; };
+		43BB9776288ACA48006E6159 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BB9775288ACA48006E6159 /* SwitchTableViewCell.swift */; };
 		43C590C02880196C00580253 /* TaskAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C590BF2880196C00580253 /* TaskAction.swift */; };
 		43C815C328860577004B37C4 /* FirstButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C815C228860577004B37C4 /* FirstButtonLogic.swift */; };
 		43FE56BE287D7B680002BB51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE56BD287D7B680002BB51 /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 		43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourButtonLogic.swift; sourceTree = "<group>"; };
 		43A184B02889C2DF00BAD964 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		43A184B22889D71200BAD964 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		43BB9775288ACA48006E6159 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		43C590BF2880196C00580253 /* TaskAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAction.swift; sourceTree = "<group>"; };
 		43C815C228860577004B37C4 /* FirstButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstButtonLogic.swift; sourceTree = "<group>"; };
 		43FE56BA287D7B680002BB51 /* Four Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Four Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +66,15 @@
 				9F2FC42A926BF3BEAB723742 /* Pods_Four_Task.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		43BB9772288ACA06006E6159 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				43A184B22889D71200BAD964 /* SettingsTableViewCell.swift */,
+				43BB9775288ACA48006E6159 /* SwitchTableViewCell.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		43BF6C46287EF27F005A5FBB /* Model */ = {
@@ -115,7 +126,7 @@
 			children = (
 				43FE56C1287D7B680002BB51 /* ViewController.swift */,
 				43A184B02889C2DF00BAD964 /* SettingsViewController.swift */,
-				43A184B22889D71200BAD964 /* SettingsTableViewCell.swift */,
+				43BB9772288ACA06006E6159 /* Settings */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -267,6 +278,7 @@
 				43C815C328860577004B37C4 /* FirstButtonLogic.swift in Sources */,
 				43A184B12889C2DF00BAD964 /* SettingsViewController.swift in Sources */,
 				43C590C02880196C00580253 /* TaskAction.swift in Sources */,
+				43BB9776288ACA48006E6159 /* SwitchTableViewCell.swift in Sources */,
 				43FE56D5287D8A7E0002BB51 /* TimerModel.swift in Sources */,
 				43A184B32889D71200BAD964 /* SettingsTableViewCell.swift in Sources */,
 				43FE56BE287D7B680002BB51 /* AppDelegate.swift in Sources */,
