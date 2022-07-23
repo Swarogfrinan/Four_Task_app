@@ -71,15 +71,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         ]))
             
             
-        models.append(Section(title: "General", options: [
-            .staticCell(model: SettingsOption(title: "Wifi", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemPink) {
-                print("First cell WIFI tapped")
+        models.append(Section(title: "Ticking sound", options: [
+            .switchCell(model: SettingsSwitchOption(title: "Silent mode", icon: UIImage(systemName:"square.grid.2x2.fill"), iconBackgroundColor: .systemIndigo, handler: {
+                
+            }, isOn: false)),
+            
+            .staticCell(model: SettingsOption(title: "Focus ticking", icon: UIImage(systemName: "speaker.wave.3.fill"), iconBackgroundColor: .systemPink) {
+                print("Ticking sound tapped")
         }),
-        .staticCell(model: SettingsOption(title: "Bluetooth", icon: UIImage(systemName: "bluetooth"), iconBackgroundColor: .link) {
-        }),
-        .staticCell(model: SettingsOption(title: "Airplane mood", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemGreen) {
-        }),
-        .staticCell(model: SettingsOption(title: "Icloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .systemOrange) {
+        .staticCell(model: SettingsOption(title: "Focus Alarm", icon: UIImage(systemName: "bell.and.waves.left.and.right.fill"), iconBackgroundColor: .systemPink) {
         }),
         ]))
                     

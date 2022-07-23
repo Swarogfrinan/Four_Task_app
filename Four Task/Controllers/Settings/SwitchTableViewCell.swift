@@ -35,9 +35,18 @@ class SwitchTableViewCell: UITableViewCell {
     private let mySwitch: UISwitch = {
         let mySwitch = UISwitch()
         mySwitch.onTintColor = .systemRed
+        mySwitch.addTarget(self, action: #selector(changeAppSwitchValue), for: .valueChanged)
         return mySwitch
     }()
     
+    @objc func changeAppSwitchValue() {
+        if mySwitch.isOn {
+            print("Start pomadoro timer")
+            
+        } else {
+            print("Start four-task timer")
+        }
+    }
         override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
             contentView.addSubview(label)

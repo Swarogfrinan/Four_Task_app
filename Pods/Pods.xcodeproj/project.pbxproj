@@ -7,17 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03FF190AE361405C93CDC1A27F0848BE /* Pods-Four Task-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAFB72060344632FADDD1459B54BA1 /* Pods-Four Task-dummy.m */; };
-		10923872CBC55FF5756A39D7472F93BC /* CountableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E03E360676A9C288C96CF2D81153329 /* CountableLabel.swift */; };
-		2AD794A73FF1DF73E7FB283E0690AAF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		9204C374D9BEA4C3D0E14B1C447DE200 /* Pods-Four Task-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EA375055079FBA5036A50C0344AE2D0F /* Pods-Four Task-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EAA3D65FF34D528431C0FED01D3EC2BB /* CountableLabel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8690359C0AD92A93BAF7E460776DD354 /* CountableLabel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01A151182051A4E4BBF9FC104D59B305 /* MultiProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF3FFB66BFC4D81022B4B1023757FC1 /* MultiProgressView.swift */; };
+		10923872CBC55FF5756A39D7472F93BC /* CountableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E00E7C53D45A0CF3D551E1D09D1799E /* CountableLabel.swift */; };
+		1D742F7EB91A317C3960D4D4D9716143 /* MultiProgressView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BB4C23ADB8193DE6685C99AF6C98EEB7 /* MultiProgressView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4C4BEE2B34E44CA709561403EDCE4D66 /* LayoutProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E519FCFB0E7DBDD88AB239F4545591 /* LayoutProvider.swift */; };
+		726136865425DAB65099DA674D5BED02 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		81D2CAA9FAEFE0E36A0794A51FF25F1B /* AlignmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B419560F4AEB5A95D1A3A5BF3EB688 /* AlignmentType.swift */; };
+		A26EBC7A38809684251676BCFB4B9FD7 /* MultiProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BB51BF9B1D8821CA4C049FE9C397481 /* MultiProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BEDBA9DDFD886DD6E23DDFFF2460BE4B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		D2BCD4F5B260D70526DD6C77860E7FE4 /* Pods-Four Task-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EA375055079FBA5036A50C0344AE2D0F /* Pods-Four Task-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D645B8AAEF1F0EC15B44B574467C8049 /* Pods-Four Task-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAFB72060344632FADDD1459B54BA1 /* Pods-Four Task-dummy.m */; };
+		EAA3D65FF34D528431C0FED01D3EC2BB /* CountableLabel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 947B786A7516EFEAD7AF70F6056DB81C /* CountableLabel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC7C25056D850EE25BAC205C9DB853A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		F2EAE41FCA6F8A4D9507BD0E64E927FA /* CountableLabel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 280410B08DA469FEBC2C7F37CE7F1DA1 /* CountableLabel-dummy.m */; };
+		F131E12D3BDA4E6211D69B9D0DD39E5A /* MultiProgressView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 56327B2D1AA800615B24E39E52A0C468 /* MultiProgressView-dummy.m */; };
+		F2EAE41FCA6F8A4D9507BD0E64E927FA /* CountableLabel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C0A0F1F6658FB6B09BA1655F6BFF73 /* CountableLabel-dummy.m */; };
+		FA7F3E308F27BEA44994256CC0A0BCA4 /* ProgressViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117080C1C9D6D0BA9D02EF6207AF967 /* ProgressViewSection.swift */; };
+		FBD14B1025FAE7798C03D6E7AC55F0A8 /* LineCapType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8807F387A0F1767591C146D025989AEC /* LineCapType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BE5E2E97A3C41794353764DE47B450FD /* PBXContainerItemProxy */ = {
+		9E65CBE7176820B77E09B431B5553659 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B873A6476768FC5172942E3D926EABF2;
+			remoteInfo = MultiProgressView;
+		};
+		D6C7DCAAE91A87309F963AB817D3D6B9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -27,30 +43,60 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04E9998AAE5FB5CC07A3853821AEBC52 /* CountableLabel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CountableLabel-prefix.pch"; sourceTree = "<group>"; };
 		140600708E40B4422468A928C0A69FA8 /* Pods-Four Task */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Four Task"; path = Pods_Four_Task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		15C0A0F1F6658FB6B09BA1655F6BFF73 /* CountableLabel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CountableLabel-dummy.m"; sourceTree = "<group>"; };
 		1A99909BF896127AB8CB3FD2844BC49D /* Pods-Four Task-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Four Task-acknowledgements.markdown"; sourceTree = "<group>"; };
-		1E03E360676A9C288C96CF2D81153329 /* CountableLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CountableLabel.swift; path = CountableLabel/Classes/CountableLabel.swift; sourceTree = "<group>"; };
 		22CAFB72060344632FADDD1459B54BA1 /* Pods-Four Task-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Four Task-dummy.m"; sourceTree = "<group>"; };
-		280410B08DA469FEBC2C7F37CE7F1DA1 /* CountableLabel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CountableLabel-dummy.m"; sourceTree = "<group>"; };
-		2D7A9A1623DFCF3EC3280D6841EDF181 /* CountableLabel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CountableLabel.modulemap; sourceTree = "<group>"; };
+		26A6E2DA8C1C122424856DF6A9B87CC9 /* CountableLabel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CountableLabel-prefix.pch"; sourceTree = "<group>"; };
+		2B812F912637046FCDB5A9C8A974BC82 /* CountableLabel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CountableLabel-Info.plist"; sourceTree = "<group>"; };
+		2DBC19E0436A3E8D2D3670C588B2B9BD /* MultiProgressView */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MultiProgressView; path = MultiProgressView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DF3FFB66BFC4D81022B4B1023757FC1 /* MultiProgressView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiProgressView.swift; path = Sources/MultiProgressView/MultiProgressView.swift; sourceTree = "<group>"; };
+		3796DD733326C9A4970E4859E0C4986D /* CountableLabel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CountableLabel.debug.xcconfig; sourceTree = "<group>"; };
+		3BB51BF9B1D8821CA4C049FE9C397481 /* MultiProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MultiProgressView.h; path = Sources/MultiProgressView.h; sourceTree = "<group>"; };
+		3C0F6F70C8118B85EF5A9B44F0465EF9 /* CountableLabel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CountableLabel.modulemap; sourceTree = "<group>"; };
 		47DD265686861AF12CEF46F46FA2E02A /* Pods-Four Task-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Four Task-acknowledgements.plist"; sourceTree = "<group>"; };
+		56327B2D1AA800615B24E39E52A0C468 /* MultiProgressView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MultiProgressView-dummy.m"; sourceTree = "<group>"; };
+		57DB908AA89876CC75F9F2ADD0500B2A /* MultiProgressView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MultiProgressView-Info.plist"; sourceTree = "<group>"; };
 		64885792AA29CAB348DCBC57C68D2E41 /* Pods-Four Task-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Four Task-Info.plist"; sourceTree = "<group>"; };
-		6D37E9014F34AE6BD5309A51B1E6F46E /* CountableLabel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CountableLabel.release.xcconfig; sourceTree = "<group>"; };
+		67E519FCFB0E7DBDD88AB239F4545591 /* LayoutProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutProvider.swift; path = Sources/MultiProgressView/LayoutProvider.swift; sourceTree = "<group>"; };
+		690A348AC024A280C1E270E61540B143 /* MultiProgressView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MultiProgressView-prefix.pch"; sourceTree = "<group>"; };
+		69B419560F4AEB5A95D1A3A5BF3EB688 /* AlignmentType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlignmentType.swift; path = Sources/MultiProgressView/AlignmentType.swift; sourceTree = "<group>"; };
+		6E00E7C53D45A0CF3D551E1D09D1799E /* CountableLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CountableLabel.swift; path = CountableLabel/Classes/CountableLabel.swift; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		8690359C0AD92A93BAF7E460776DD354 /* CountableLabel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CountableLabel-umbrella.h"; sourceTree = "<group>"; };
+		82A0C2EF8EDBC85B2649473CAD5F5127 /* CountableLabel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CountableLabel.release.xcconfig; sourceTree = "<group>"; };
+		8807F387A0F1767591C146D025989AEC /* LineCapType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LineCapType.swift; path = Sources/MultiProgressView/LineCapType.swift; sourceTree = "<group>"; };
+		90F746A08A3FCD4B04EA5BF0A2303C54 /* MultiProgressView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MultiProgressView.modulemap; sourceTree = "<group>"; };
+		947B786A7516EFEAD7AF70F6056DB81C /* CountableLabel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CountableLabel-umbrella.h"; sourceTree = "<group>"; };
 		94E6DFA4D649BC6D857D7387458B39EC /* Pods-Four Task.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Four Task.modulemap"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AD60E5DDBFE4B5B964AB129AE87A1B89 /* Pods-Four Task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Four Task.debug.xcconfig"; sourceTree = "<group>"; };
+		BB4C23ADB8193DE6685C99AF6C98EEB7 /* MultiProgressView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MultiProgressView-umbrella.h"; sourceTree = "<group>"; };
+		C117080C1C9D6D0BA9D02EF6207AF967 /* ProgressViewSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProgressViewSection.swift; path = Sources/MultiProgressView/ProgressViewSection.swift; sourceTree = "<group>"; };
+		C98B1D91D21B79C60E8BB24C20C22255 /* MultiProgressView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MultiProgressView.debug.xcconfig; sourceTree = "<group>"; };
 		CB7A80D94803B467151E533AF1745094 /* Pods-Four Task.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Four Task.release.xcconfig"; sourceTree = "<group>"; };
+		CCA7C9C18682B24FB133AF291D79A823 /* MultiProgressView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MultiProgressView.release.xcconfig; sourceTree = "<group>"; };
 		DE3BF9450BCF2717873DBC6B784D045D /* CountableLabel */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CountableLabel; path = CountableLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6288DEBF9503CFDC56F44736A7353DF /* Pods-Four Task-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Four Task-frameworks.sh"; sourceTree = "<group>"; };
 		EA375055079FBA5036A50C0344AE2D0F /* Pods-Four Task-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Four Task-umbrella.h"; sourceTree = "<group>"; };
-		EF78E33A019397F584642C465564AF1C /* CountableLabel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CountableLabel-Info.plist"; sourceTree = "<group>"; };
-		F28A75AE6BEF4ED3DC72CE209025EEBD /* CountableLabel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CountableLabel.debug.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		19BB4C2E9EB49093E66BC51F90BBD5F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEDBA9DDFD886DD6E23DDFFF2460BE4B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFCD3F994E7901A04D75B3A3C30C51FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				726136865425DAB65099DA674D5BED02 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C906EA075290A30878EB199A371A0514 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -59,25 +105,56 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F2B10FC4A8DFED5933718906C5B01C2E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2AD794A73FF1DF73E7FB283E0690AAF6 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00D853D44DCDE1D8225C0B766C57256C /* CountableLabel */ = {
+		00211DB03CC8A6CB2F9A04261EBF2B32 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1E03E360676A9C288C96CF2D81153329 /* CountableLabel.swift */,
-				FFEEBD8E049A8D884C49D3A2FB9E4B00 /* Support Files */,
+				E02B01C4E6E061A81B80E708AA2518C2 /* CountableLabel */,
+				291845D74BD67536B3D208D87295C5E5 /* MultiProgressView */,
 			);
-			name = CountableLabel;
-			path = CountableLabel;
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		25C3EC58D8B54116CB01AF44AD29AA44 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DE3BF9450BCF2717873DBC6B784D045D /* CountableLabel */,
+				2DBC19E0436A3E8D2D3670C588B2B9BD /* MultiProgressView */,
+				140600708E40B4422468A928C0A69FA8 /* Pods-Four Task */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		291845D74BD67536B3D208D87295C5E5 /* MultiProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				69B419560F4AEB5A95D1A3A5BF3EB688 /* AlignmentType.swift */,
+				67E519FCFB0E7DBDD88AB239F4545591 /* LayoutProvider.swift */,
+				8807F387A0F1767591C146D025989AEC /* LineCapType.swift */,
+				3BB51BF9B1D8821CA4C049FE9C397481 /* MultiProgressView.h */,
+				2DF3FFB66BFC4D81022B4B1023757FC1 /* MultiProgressView.swift */,
+				C117080C1C9D6D0BA9D02EF6207AF967 /* ProgressViewSection.swift */,
+				ED042B0754B868E8099384A76B88BA13 /* Support Files */,
+			);
+			name = MultiProgressView;
+			path = MultiProgressView;
+			sourceTree = "<group>";
+		};
+		2F0F783953D766B8CD37DF762437C63E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3C0F6F70C8118B85EF5A9B44F0465EF9 /* CountableLabel.modulemap */,
+				15C0A0F1F6658FB6B09BA1655F6BFF73 /* CountableLabel-dummy.m */,
+				2B812F912637046FCDB5A9C8A974BC82 /* CountableLabel-Info.plist */,
+				26A6E2DA8C1C122424856DF6A9B87CC9 /* CountableLabel-prefix.pch */,
+				947B786A7516EFEAD7AF70F6056DB81C /* CountableLabel-umbrella.h */,
+				3796DD733326C9A4970E4859E0C4986D /* CountableLabel.debug.xcconfig */,
+				82A0C2EF8EDBC85B2649473CAD5F5127 /* CountableLabel.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/CountableLabel";
 			sourceTree = "<group>";
 		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
@@ -105,15 +182,6 @@
 			path = "Target Support Files/Pods-Four Task";
 			sourceTree = "<group>";
 		};
-		B0569BD4897A2DB0C744FAC131EEF17D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DE3BF9450BCF2717873DBC6B784D045D /* CountableLabel */,
-				140600708E40B4422468A928C0A69FA8 /* Pods-Four Task */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		B0B3194B8725A0833628E8F5DD565935 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,8 +195,8 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				E753BFFF4671AFD9A8B1C689BF8DB822 /* Pods */,
-				B0569BD4897A2DB0C744FAC131EEF17D /* Products */,
+				00211DB03CC8A6CB2F9A04261EBF2B32 /* Pods */,
+				25C3EC58D8B54116CB01AF44AD29AA44 /* Products */,
 				B0B3194B8725A0833628E8F5DD565935 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -141,37 +209,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E753BFFF4671AFD9A8B1C689BF8DB822 /* Pods */ = {
+		E02B01C4E6E061A81B80E708AA2518C2 /* CountableLabel */ = {
 			isa = PBXGroup;
 			children = (
-				00D853D44DCDE1D8225C0B766C57256C /* CountableLabel */,
+				6E00E7C53D45A0CF3D551E1D09D1799E /* CountableLabel.swift */,
+				2F0F783953D766B8CD37DF762437C63E /* Support Files */,
 			);
-			name = Pods;
+			name = CountableLabel;
+			path = CountableLabel;
 			sourceTree = "<group>";
 		};
-		FFEEBD8E049A8D884C49D3A2FB9E4B00 /* Support Files */ = {
+		ED042B0754B868E8099384A76B88BA13 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				2D7A9A1623DFCF3EC3280D6841EDF181 /* CountableLabel.modulemap */,
-				280410B08DA469FEBC2C7F37CE7F1DA1 /* CountableLabel-dummy.m */,
-				EF78E33A019397F584642C465564AF1C /* CountableLabel-Info.plist */,
-				04E9998AAE5FB5CC07A3853821AEBC52 /* CountableLabel-prefix.pch */,
-				8690359C0AD92A93BAF7E460776DD354 /* CountableLabel-umbrella.h */,
-				F28A75AE6BEF4ED3DC72CE209025EEBD /* CountableLabel.debug.xcconfig */,
-				6D37E9014F34AE6BD5309A51B1E6F46E /* CountableLabel.release.xcconfig */,
+				90F746A08A3FCD4B04EA5BF0A2303C54 /* MultiProgressView.modulemap */,
+				56327B2D1AA800615B24E39E52A0C468 /* MultiProgressView-dummy.m */,
+				57DB908AA89876CC75F9F2ADD0500B2A /* MultiProgressView-Info.plist */,
+				690A348AC024A280C1E270E61540B143 /* MultiProgressView-prefix.pch */,
+				BB4C23ADB8193DE6685C99AF6C98EEB7 /* MultiProgressView-umbrella.h */,
+				C98B1D91D21B79C60E8BB24C20C22255 /* MultiProgressView.debug.xcconfig */,
+				CCA7C9C18682B24FB133AF291D79A823 /* MultiProgressView.release.xcconfig */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/CountableLabel";
+			path = "../Target Support Files/MultiProgressView";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		5734E495111893E9E9B297CF388C7AE1 /* Headers */ = {
+		1AE32B6F3022FB442C566D2FA6283D5C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9204C374D9BEA4C3D0E14B1C447DE200 /* Pods-Four Task-umbrella.h in Headers */,
+				D2BCD4F5B260D70526DD6C77860E7FE4 /* Pods-Four Task-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +250,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAA3D65FF34D528431C0FED01D3EC2BB /* CountableLabel-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8F1A8D53D405DC76207BCD4E6DBF1D8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A26EBC7A38809684251676BCFB4B9FD7 /* MultiProgressView.h in Headers */,
+				1D742F7EB91A317C3960D4D4D9716143 /* MultiProgressView-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,21 +285,40 @@
 		};
 		8484240D259C71999ECCC7EE577B9ABD /* Pods-Four Task */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 753B088D789036F62276738FCEF2783E /* Build configuration list for PBXNativeTarget "Pods-Four Task" */;
+			buildConfigurationList = F6B6150A7CA34B36EB063164C33A3806 /* Build configuration list for PBXNativeTarget "Pods-Four Task" */;
 			buildPhases = (
-				5734E495111893E9E9B297CF388C7AE1 /* Headers */,
-				78435A40953EFA6CF7916C141344C2DD /* Sources */,
-				F2B10FC4A8DFED5933718906C5B01C2E /* Frameworks */,
-				2E9BAD8C42C7CDE6945891BADC39EA75 /* Resources */,
+				1AE32B6F3022FB442C566D2FA6283D5C /* Headers */,
+				B2106FF21DECB83A669CC33A0976E486 /* Sources */,
+				BFCD3F994E7901A04D75B3A3C30C51FB /* Frameworks */,
+				1075470E1A2F828E3B62F120908AD9BA /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BE74202677C8AF0BACFDD8BD91EA91A8 /* PBXTargetDependency */,
+				48CC5BFECA17E2C827A4AFD64A1DB535 /* PBXTargetDependency */,
+				C713FED700A9804AACFEF209388000FC /* PBXTargetDependency */,
 			);
 			name = "Pods-Four Task";
 			productName = Pods_Four_Task;
 			productReference = 140600708E40B4422468A928C0A69FA8 /* Pods-Four Task */;
+			productType = "com.apple.product-type.framework";
+		};
+		B873A6476768FC5172942E3D926EABF2 /* MultiProgressView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BED82769B2B6D421054E3349B321064 /* Build configuration list for PBXNativeTarget "MultiProgressView" */;
+			buildPhases = (
+				D8F1A8D53D405DC76207BCD4E6DBF1D8 /* Headers */,
+				4D8ED8BB86F29B15944328B503309E8C /* Sources */,
+				19BB4C2E9EB49093E66BC51F90BBD5F9 /* Frameworks */,
+				DCDBB38421C919C9E3A20945DA46CBC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MultiProgressView;
+			productName = MultiProgressView;
+			productReference = 2DBC19E0436A3E8D2D3670C588B2B9BD /* MultiProgressView */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -241,11 +339,12 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = B0569BD4897A2DB0C744FAC131EEF17D /* Products */;
+			productRefGroup = 25C3EC58D8B54116CB01AF44AD29AA44 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				56F16D57FD26717B8FCE1BB88E1AC88A /* CountableLabel */,
+				B873A6476768FC5172942E3D926EABF2 /* MultiProgressView */,
 				8484240D259C71999ECCC7EE577B9ABD /* Pods-Four Task */,
 			);
 		};
@@ -259,7 +358,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2E9BAD8C42C7CDE6945891BADC39EA75 /* Resources */ = {
+		1075470E1A2F828E3B62F120908AD9BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCDBB38421C919C9E3A20945DA46CBC6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -269,11 +375,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		78435A40953EFA6CF7916C141344C2DD /* Sources */ = {
+		4D8ED8BB86F29B15944328B503309E8C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03FF190AE361405C93CDC1A27F0848BE /* Pods-Four Task-dummy.m in Sources */,
+				81D2CAA9FAEFE0E36A0794A51FF25F1B /* AlignmentType.swift in Sources */,
+				4C4BEE2B34E44CA709561403EDCE4D66 /* LayoutProvider.swift in Sources */,
+				FBD14B1025FAE7798C03D6E7AC55F0A8 /* LineCapType.swift in Sources */,
+				01A151182051A4E4BBF9FC104D59B305 /* MultiProgressView.swift in Sources */,
+				F131E12D3BDA4E6211D69B9D0DD39E5A /* MultiProgressView-dummy.m in Sources */,
+				FA7F3E308F27BEA44994256CC0A0BCA4 /* ProgressViewSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,14 +397,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B2106FF21DECB83A669CC33A0976E486 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D645B8AAEF1F0EC15B44B574467C8049 /* Pods-Four Task-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BE74202677C8AF0BACFDD8BD91EA91A8 /* PBXTargetDependency */ = {
+		48CC5BFECA17E2C827A4AFD64A1DB535 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CountableLabel;
 			target = 56F16D57FD26717B8FCE1BB88E1AC88A /* CountableLabel */;
-			targetProxy = BE5E2E97A3C41794353764DE47B450FD /* PBXContainerItemProxy */;
+			targetProxy = D6C7DCAAE91A87309F963AB817D3D6B9 /* PBXContainerItemProxy */;
+		};
+		C713FED700A9804AACFEF209388000FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MultiProgressView;
+			target = B873A6476768FC5172942E3D926EABF2 /* MultiProgressView */;
+			targetProxy = 9E65CBE7176820B77E09B431B5553659 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -366,7 +491,7 @@
 		};
 		1D605CF50F9D70A3D17EA552BFC70E9F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D37E9014F34AE6BD5309A51B1E6F46E /* CountableLabel.release.xcconfig */;
+			baseConfigurationReference = 82A0C2EF8EDBC85B2649473CAD5F5127 /* CountableLabel.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -461,9 +586,46 @@
 			};
 			name = Release;
 		};
+		421C980951F415BBA3DF400336D93CD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD60E5DDBFE4B5B964AB129AE87A1B89 /* Pods-Four Task.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Four Task/Pods-Four Task-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Four Task/Pods-Four Task.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		75E06A66D395D9098775637813C36EA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F28A75AE6BEF4ED3DC72CE209025EEBD /* CountableLabel.debug.xcconfig */;
+			baseConfigurationReference = 3796DD733326C9A4970E4859E0C4986D /* CountableLabel.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -495,7 +657,7 @@
 			};
 			name = Debug;
 		};
-		AF4FB2C9235296927B81E65EBAFDF6ED /* Release */ = {
+		893DC0EAC47F442247722C4B17F1C969 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CB7A80D94803B467151E533AF1745094 /* Pods-Four Task.release.xcconfig */;
 			buildSettings = {
@@ -533,12 +695,10 @@
 			};
 			name = Release;
 		};
-		ECBF72F6D0CDCF18AB3543BC74AD8539 /* Debug */ = {
+		B0E4451FD862A291F486443EFA4A4496 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD60E5DDBFE4B5B964AB129AE87A1B89 /* Pods-Four Task.debug.xcconfig */;
+			baseConfigurationReference = CCA7C9C18682B24FB133AF291D79A823 /* MultiProgressView.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -547,23 +707,57 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Four Task/Pods-Four Task-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/MultiProgressView/MultiProgressView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MultiProgressView/MultiProgressView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Four Task/Pods-Four Task.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/MultiProgressView/MultiProgressView.modulemap";
+				PRODUCT_MODULE_NAME = MultiProgressView;
+				PRODUCT_NAME = MultiProgressView;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DFCD3DFBF5D8EE0B525D45BD0B5867BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C98B1D91D21B79C60E8BB24C20C22255 /* MultiProgressView.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MultiProgressView/MultiProgressView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MultiProgressView/MultiProgressView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/MultiProgressView/MultiProgressView.modulemap";
+				PRODUCT_MODULE_NAME = MultiProgressView;
+				PRODUCT_NAME = MultiProgressView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -582,20 +776,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		753B088D789036F62276738FCEF2783E /* Build configuration list for PBXNativeTarget "Pods-Four Task" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ECBF72F6D0CDCF18AB3543BC74AD8539 /* Debug */,
-				AF4FB2C9235296927B81E65EBAFDF6ED /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		898CB775580E33D9AEB9DE37D320C1F2 /* Build configuration list for PBXNativeTarget "CountableLabel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75E06A66D395D9098775637813C36EA2 /* Debug */,
 				1D605CF50F9D70A3D17EA552BFC70E9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BED82769B2B6D421054E3349B321064 /* Build configuration list for PBXNativeTarget "MultiProgressView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFCD3DFBF5D8EE0B525D45BD0B5867BF /* Debug */,
+				B0E4451FD862A291F486443EFA4A4496 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6B6150A7CA34B36EB063164C33A3806 /* Build configuration list for PBXNativeTarget "Pods-Four Task" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				421C980951F415BBA3DF400336D93CD3 /* Debug */,
+				893DC0EAC47F442247722C4B17F1C969 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

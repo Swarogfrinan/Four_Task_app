@@ -9,7 +9,7 @@ import UIKit
 
 class SettingsTableViewCell: UITableViewCell {
 static let identifier = "SettingsTableViewCell"
-    
+    ///Фоновой цвет позади иконки.
     private let iconContainer: UIView = {
         let view = UIView()
         view.clipsToBounds = true
@@ -17,14 +17,14 @@ static let identifier = "SettingsTableViewCell"
         view.layer.masksToBounds = true
         return view
     }()
-    
+    ///Иконка.
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.tintColor = .white
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    
+    ///Текстовое описание настройки
     private let label: UILabel = {
        let label = UILabel()
         label.numberOfLines = 1

@@ -7,4 +7,5 @@ target 'Four Task' do
 
   # Pods for Four Task
 pod 'CountableLabel'
+pod 'MultiProgressView'
 end

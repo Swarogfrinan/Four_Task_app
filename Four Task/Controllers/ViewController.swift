@@ -23,12 +23,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var fourTaskButton: UIButton!
     
     ///IBOutlet Leading View
-
+    ///Неизменяемые лейблы нумерации
     @IBOutlet weak var ordinalFirstLabel: UILabel!
     @IBOutlet weak var ordinalSecondLabel: UILabel!
     @IBOutlet weak var ordinalThirdLabel: UILabel!
     @IBOutlet weak var fourOrdinalLabel: UILabel!
-    
+    ///Изменяемые лейблы таймера. (Анимированные) 
     @IBOutlet weak var taskNumberFirstLabel: CountableLabel!
     @IBOutlet weak var taskNumberSecondLabel: CountableLabel!
     @IBOutlet weak var taskNumbersThirdLabel: CountableLabel!
@@ -164,15 +164,12 @@ let alert = UIAlertController(title: "Нотайс", message: "Как насче
                 self.resetActionThird()
                 self.resetActionFour()
                 self.animateAll()
-                
                  }))
-         
-         
-    
     // show the alert
     self.present(alert, animated: true, completion: nil)
     }
     
+    //MARK: - Methods
     ///Animate ON ALL Buttons
            func animateAll() {
                UIView.animate(withDuration: 0.3) { [self] in

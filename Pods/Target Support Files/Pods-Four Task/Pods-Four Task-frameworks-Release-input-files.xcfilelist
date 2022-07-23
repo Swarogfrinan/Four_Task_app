@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-Four Task/Pods-Four Task-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/CountableLabel/CountableLabel.framework
+${BUILT_PRODUCTS_DIR}/MultiProgressView/MultiProgressView.framework
