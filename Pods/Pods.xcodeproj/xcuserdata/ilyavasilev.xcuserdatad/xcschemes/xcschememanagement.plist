@@ -14,7 +14,7 @@
 		<key>MultiProgressView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<true/>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
@@ -27,6 +27,17 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict/>
+	<dict>
+		<key>56F16D57FD26717B8FCE1BB88E1AC88A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B873A6476768FC5172942E3D926EABF2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
 </dict>
 </plist>
