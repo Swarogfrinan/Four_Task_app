@@ -49,7 +49,7 @@
 		22CAFB72060344632FADDD1459B54BA1 /* Pods-Four Task-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Four Task-dummy.m"; sourceTree = "<group>"; };
 		26A6E2DA8C1C122424856DF6A9B87CC9 /* CountableLabel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CountableLabel-prefix.pch"; sourceTree = "<group>"; };
 		2B812F912637046FCDB5A9C8A974BC82 /* CountableLabel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CountableLabel-Info.plist"; sourceTree = "<group>"; };
-		2DBC19E0436A3E8D2D3670C588B2B9BD /* MultiProgressView */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MultiProgressView; path = MultiProgressView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DBC19E0436A3E8D2D3670C588B2B9BD /* MultiProgressView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MultiProgressView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DF3FFB66BFC4D81022B4B1023757FC1 /* MultiProgressView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiProgressView.swift; path = Sources/MultiProgressView/MultiProgressView.swift; sourceTree = "<group>"; };
 		3796DD733326C9A4970E4859E0C4986D /* CountableLabel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CountableLabel.debug.xcconfig; sourceTree = "<group>"; };
 		3BB51BF9B1D8821CA4C049FE9C397481 /* MultiProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MultiProgressView.h; path = Sources/MultiProgressView.h; sourceTree = "<group>"; };
@@ -68,14 +68,14 @@
 		90F746A08A3FCD4B04EA5BF0A2303C54 /* MultiProgressView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MultiProgressView.modulemap; sourceTree = "<group>"; };
 		947B786A7516EFEAD7AF70F6056DB81C /* CountableLabel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CountableLabel-umbrella.h"; sourceTree = "<group>"; };
 		94E6DFA4D649BC6D857D7387458B39EC /* Pods-Four Task.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Four Task.modulemap"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AD60E5DDBFE4B5B964AB129AE87A1B89 /* Pods-Four Task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Four Task.debug.xcconfig"; sourceTree = "<group>"; };
 		BB4C23ADB8193DE6685C99AF6C98EEB7 /* MultiProgressView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MultiProgressView-umbrella.h"; sourceTree = "<group>"; };
 		C117080C1C9D6D0BA9D02EF6207AF967 /* ProgressViewSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProgressViewSection.swift; path = Sources/MultiProgressView/ProgressViewSection.swift; sourceTree = "<group>"; };
 		C98B1D91D21B79C60E8BB24C20C22255 /* MultiProgressView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MultiProgressView.debug.xcconfig; sourceTree = "<group>"; };
 		CB7A80D94803B467151E533AF1745094 /* Pods-Four Task.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Four Task.release.xcconfig"; sourceTree = "<group>"; };
 		CCA7C9C18682B24FB133AF291D79A823 /* MultiProgressView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MultiProgressView.release.xcconfig; sourceTree = "<group>"; };
-		DE3BF9450BCF2717873DBC6B784D045D /* CountableLabel */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CountableLabel; path = CountableLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE3BF9450BCF2717873DBC6B784D045D /* CountableLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CountableLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6288DEBF9503CFDC56F44736A7353DF /* Pods-Four Task-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Four Task-frameworks.sh"; sourceTree = "<group>"; };
 		EA375055079FBA5036A50C0344AE2D0F /* Pods-Four Task-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Four Task-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,8 +120,8 @@
 		25C3EC58D8B54116CB01AF44AD29AA44 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DE3BF9450BCF2717873DBC6B784D045D /* CountableLabel */,
-				2DBC19E0436A3E8D2D3670C588B2B9BD /* MultiProgressView */,
+				DE3BF9450BCF2717873DBC6B784D045D /* CountableLabel.framework */,
+				2DBC19E0436A3E8D2D3670C588B2B9BD /* MultiProgressView.framework */,
 				140600708E40B4422468A928C0A69FA8 /* Pods-Four Task */,
 			);
 			name = Products;
@@ -138,7 +138,6 @@
 				C117080C1C9D6D0BA9D02EF6207AF967 /* ProgressViewSection.swift */,
 				ED042B0754B868E8099384A76B88BA13 /* Support Files */,
 			);
-			name = MultiProgressView;
 			path = MultiProgressView;
 			sourceTree = "<group>";
 		};
@@ -215,7 +214,6 @@
 				6E00E7C53D45A0CF3D551E1D09D1799E /* CountableLabel.swift */,
 				2F0F783953D766B8CD37DF762437C63E /* Support Files */,
 			);
-			name = CountableLabel;
 			path = CountableLabel;
 			sourceTree = "<group>";
 		};
@@ -280,7 +278,7 @@
 			);
 			name = CountableLabel;
 			productName = CountableLabel;
-			productReference = DE3BF9450BCF2717873DBC6B784D045D /* CountableLabel */;
+			productReference = DE3BF9450BCF2717873DBC6B784D045D /* CountableLabel.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		8484240D259C71999ECCC7EE577B9ABD /* Pods-Four Task */ = {
@@ -318,7 +316,7 @@
 			);
 			name = MultiProgressView;
 			productName = MultiProgressView;
-			productReference = 2DBC19E0436A3E8D2D3670C588B2B9BD /* MultiProgressView */;
+			productReference = 2DBC19E0436A3E8D2D3670C588B2B9BD /* MultiProgressView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -328,7 +326,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					56F16D57FD26717B8FCE1BB88E1AC88A = {
+						LastSwiftMigration = 1340;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -504,7 +507,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CountableLabel/CountableLabel-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CountableLabel/CountableLabel-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -516,7 +519,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -638,7 +641,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/CountableLabel/CountableLabel-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/CountableLabel/CountableLabel-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -650,7 +653,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -710,7 +713,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/MultiProgressView/MultiProgressView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/MultiProgressView/MultiProgressView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -745,7 +748,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/MultiProgressView/MultiProgressView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/MultiProgressView/MultiProgressView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -22,7 +22,9 @@ var timerStarted = (
     firstTimerStarted: false,
     secondTimerStarted: false,
     thirdTimerStarted: false,
-    fourTimerStarted: false
+    fourTimerStarted: false,
+    tomatoTimerStarted: false,
+    tomatoRestTimerStarted : false
 )
 let STARTING_KEYS = [
     "startTimeFirstKey",
