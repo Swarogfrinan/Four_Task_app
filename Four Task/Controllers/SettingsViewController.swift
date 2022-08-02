@@ -8,7 +8,7 @@
 import UIKit
 // MARK: - Settings View Controller
 struct Section {
-let title: String
+    let title: String
     let options: [SettingsOptionType]
 }
 enum SettingsOptionType {
@@ -31,7 +31,7 @@ struct SettingsOption {
     let handler: (() -> Void)
 }
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-// MARK: - Let-var
+    // MARK: - Let-var
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.identifier)
@@ -39,7 +39,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         return table
     }()
     var models = [Section]()
-// MARK: - Lifecycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,42 +60,42 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         models.append(Section(title: "Таймеры", options: [
             .switchCell(model: SettingsSwitchOption(title: "Томат", icon: UIImage(named: "tomatoTimer"), iconBackgroundColor: .systemIndigo, handler: {
             }, isOn: false)),
-//            ]))
-        
-//        models.append(Section(title: "Таймер 4 задач", options: [
+            //            ]))
+            
+            //        models.append(Section(title: "Таймер 4 задач", options: [
                 .switchCell(model: SettingsSwitchOption(title: "4 задачи", icon: UIImage(systemName:"square.grid.2x2.fill"), iconBackgroundColor: .systemIndigo, handler: {
                     
                 }, isOn: false))
-                
-        
+            
+            
         ]))
-            
-            
+        
+        
         models.append(Section(title: "Ticking sound", options: [
             .switchCell(model: SettingsSwitchOption(title: "Silent mode", icon: UIImage(systemName:"square.grid.2x2.fill"), iconBackgroundColor: .systemIndigo, handler: {
                 
             }, isOn: false)),
             
-            .staticCell(model: SettingsOption(title: "Focus ticking", icon: UIImage(systemName: "speaker.wave.3.fill"), iconBackgroundColor: .systemPink) {
-                print("Ticking sound tapped")
-        }),
-        .staticCell(model: SettingsOption(title: "Focus Alarm", icon: UIImage(systemName: "bell.and.waves.left.and.right.fill"), iconBackgroundColor: .systemPink) {
-        }),
+                .staticCell(model: SettingsOption(title: "Focus ticking", icon: UIImage(systemName: "speaker.wave.3.fill"), iconBackgroundColor: .systemPink) {
+                    print("Ticking sound tapped")
+                }),
+            .staticCell(model: SettingsOption(title: "Focus Alarm", icon: UIImage(systemName: "bell.and.waves.left.and.right.fill"), iconBackgroundColor: .systemPink) {
+            }),
         ]))
-                    
+        
         models.append(Section(title: "Help & feedback", options: [
-        .staticCell(model: SettingsOption(title: "Email us", icon: UIImage(systemName: "mail"), iconBackgroundColor: .systemPink) {
+            .staticCell(model: SettingsOption(title: "Email us", icon: UIImage(systemName: "mail"), iconBackgroundColor: .systemPink) {
                 print("Help & feedback tapped")
-        }),
-        .staticCell(model: SettingsOption(title: "How timer works", icon: UIImage(systemName: "timer"), iconBackgroundColor: .systemPink) {
-        }),
-        .staticCell(model: SettingsOption(title: "Airplane mood", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemGreen) {
-        }),
-        .staticCell(model: SettingsOption(title: "Icloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .systemOrange) {
-        }),
+            }),
+            .staticCell(model: SettingsOption(title: "How timer works", icon: UIImage(systemName: "timer"), iconBackgroundColor: .systemPink) {
+            }),
+            .staticCell(model: SettingsOption(title: "Airplane mood", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemGreen) {
+            }),
+            .staticCell(model: SettingsOption(title: "Icloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .systemOrange) {
+            }),
         ]))
-            
-        }
+        
+    }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let section = models[section]
         return section.title
@@ -115,23 +115,23 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             
         case .staticCell(let model):
             guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: SettingsTableViewCell.identifier,
-            for: indexPath
+                withIdentifier: SettingsTableViewCell.identifier,
+                for: indexPath
             ) as? SettingsTableViewCell else {
                 return UITableViewCell()
-                }
+            }
             
             cell.configure(with: model)
             return cell
-        
+            
             
         case .switchCell(let model):
             guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: SwitchTableViewCell.identifier,
-            for: indexPath
+                withIdentifier: SwitchTableViewCell.identifier,
+                for: indexPath
             ) as? SwitchTableViewCell else {
                 return UITableViewCell()
-                }
+            }
             
             cell.configure(with: model)
             return cell
@@ -148,9 +148,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             model.handler()
         }
     }
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 0
-//    }
+    //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    //        return 0
+    //    }
 }
-    
+
 

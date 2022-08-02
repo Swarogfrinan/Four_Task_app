@@ -8,7 +8,7 @@
 import UIKit
 
 class SettingsTableViewCell: UITableViewCell {
-static let identifier = "SettingsTableViewCell"
+    static let identifier = "SettingsTableViewCell"
     ///Фоновой цвет позади иконки.
     private let iconContainer: UIView = {
         let view = UIView()
@@ -26,7 +26,7 @@ static let identifier = "SettingsTableViewCell"
     }()
     ///Текстовое описание настройки
     private let label: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.numberOfLines = 1
         return label
     }()
@@ -51,13 +51,13 @@ static let identifier = "SettingsTableViewCell"
         iconContainer.frame = CGRect(x: 15, y: 6, width: size, height: size)
         
         iconImageView.frame = CGRect(x: (size - imageSize)/2, y: (size - imageSize)/2, width: imageSize, height: imageSize)
-//        iconImageView.center = iconContainer.center
+        //        iconImageView.center = iconContainer.center
         
         label.frame = CGRect(
-        x: 25 + iconContainer.frame.size.width,
-        y: 0,
-        width: contentView.frame.size.width - 20 - iconContainer.frame.size.width,
-        height: contentView.frame.size.height
+            x: 25 + iconContainer.frame.size.width,
+            y: 0,
+            width: contentView.frame.size.width - 20 - iconContainer.frame.size.width,
+            height: contentView.frame.size.height
         )
     }
     override func prepareForReuse() {
@@ -70,8 +70,8 @@ static let identifier = "SettingsTableViewCell"
         label.text = model.title
         iconImageView.image = model.icon
         iconImageView.backgroundColor = model.iconBackgroundColor
-}
-
-
-
+    }
+    
+    
+    
 }

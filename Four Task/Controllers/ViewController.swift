@@ -10,7 +10,7 @@ import Foundation
 import CountableLabel
 //MARK: - ViewController
 class ViewController: UIViewController {
-//MARK: - IBOutlet
+    //MARK: - IBOutlet
     ///Navigation bar buttons
     @IBOutlet weak var leftBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
@@ -28,19 +28,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var ordinalSecondLabel: UILabel!
     @IBOutlet weak var ordinalThirdLabel: UILabel!
     @IBOutlet weak var fourOrdinalLabel: UILabel!
-    ///Изменяемые лейблы таймера. (Анимированные) 
+    ///Изменяемые лейблы таймера. (Анимированные)
     @IBOutlet weak var taskNumberFirstLabel: CountableLabel!
     @IBOutlet weak var taskNumberSecondLabel: CountableLabel!
     @IBOutlet weak var taskNumbersThirdLabel: CountableLabel!
     @IBOutlet weak var taskNumbersFourLabel: CountableLabel!
     //MARK: - Let/var
-
+    
     var optionalTimer: Timer?
     let format = DateFormatter()
     let now = NSDate()
     var count : Int = 0
- 
-
+    
+    
     //MARK: - Lifecycle.
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +66,7 @@ class ViewController: UIViewController {
         stopTimeFour = userDefaults.object(forKey: STOP_KEYS[3]) as? Date
         timerStarted.fourTimerStarted = userDefaults.bool(forKey: COUNTING_KEYS[3])
         
-       ///Запуск 1 бэкграунд-таймера если он был нажат последним
+        ///Запуск 1 бэкграунд-таймера если он был нажат последним
         if timerStarted.firstTimerStarted {
             firstRefreshBackgroundTimer()
             animateFirstViewStart()
@@ -77,24 +77,24 @@ class ViewController: UIViewController {
                 secondRefreshBackgroundTimer()
                 animateSecondViewStart()
                 print("2 бэкграунд таймер включился")
-        } else {
-            ///Запуск 3 бэкграунд-таймера если он был нажат последним
-            if timerStarted.thirdTimerStarted {
-                thirdRefreshBackgroundTimer()
-                animateThirdViewStart()
-                print("3 бэкграунд таймер включился")
-        } else {
-            ///Запуск 4 бэкграунд-таймера если он был нажат последним
-            if timerStarted.fourTimerStarted  {
-                fourRefreshBackgroundTimer()
-                animateFourViewStart()
-                print("4 бэкграунд таймер включился")
-        }
-            print("ERROR : Бэкграунд не сработал ")
-            return
-            
-        }
-        }
+            } else {
+                ///Запуск 3 бэкграунд-таймера если он был нажат последним
+                if timerStarted.thirdTimerStarted {
+                    thirdRefreshBackgroundTimer()
+                    animateThirdViewStart()
+                    print("3 бэкграунд таймер включился")
+                } else {
+                    ///Запуск 4 бэкграунд-таймера если он был нажат последним
+                    if timerStarted.fourTimerStarted  {
+                        fourRefreshBackgroundTimer()
+                        animateFourViewStart()
+                        print("4 бэкграунд таймер включился")
+                    }
+                    print("ERROR : Бэкграунд не сработал ")
+                    return
+                    
+                }
+            }
         }
     }
     
@@ -117,79 +117,91 @@ class ViewController: UIViewController {
     }
     
     @IBAction func refreshButtonPressed(_ sender: UIButton) {
-
-let alert = UIAlertController(title: "Нотайс", message: "Как насчет обнуления?", preferredStyle: UIAlertController.Style.alert)
-
+        
+        let alert = UIAlertController(title: "Нотайс", message: "Как насчет обнуления?", preferredStyle: UIAlertController.Style.alert)
+        
         // add the actions (buttons)
         ///Запуск 1 алерта с предложением обнулить 1 задачу.
-         if timerStarted.firstTimerStarted {
-             alert.addAction(UIAlertAction(title: "Обнулить первую задачу", style: UIAlertAction.Style.default, handler: { action in
-                 self.resetActionOne()
-                 self.animateFirstViewStop()
-
-             }))
-         } else {
-             ///Запуск 2 алерта с предложением обнулить 2 задачу.
-             if timerStarted.secondTimerStarted   {
-                 alert.addAction(UIAlertAction(title: "Обнулить вторую задачу", style: UIAlertAction.Style.default, handler:  { action in
-                     self.resetActionSecond()
-                     self.animateSecondViewStop()
-                 }))
-         } else {
-             //Запуск 3 алерта с предложением обнулить 3 задачу.
-             if timerStarted.thirdTimerStarted {
-                 alert.addAction(UIAlertAction(title: "Обнулить третью задачу", style: UIAlertAction.Style.default, handler: { action in
-                     self.resetActionThird()
-                     self.animateThirdViewStop()
-                 }))
-         } else {
-             //Запуск 4 алерта с предложением обнулить 4 задачу.
-             if timerStarted.fourTimerStarted  {
-                 alert.addAction(UIAlertAction(title: "Обнулить четвертую задачу", style: UIAlertAction.Style.default, handler: { action in
-                     self.resetActionFour()
-                     self.animateFourViewStop()
-         }))
-             }
-         }
-         }
-         }
-    
-         
-         ///close alert
-            alert.addAction(UIAlertAction(title: "Закрыть", style: UIAlertAction.Style.cancel, handler: nil))
-    ///RESET ALL timers alert-action.
-            alert.addAction(UIAlertAction(title: "Обнулить весь день", style: UIAlertAction.Style.destructive, handler: { action in
+        if timerStarted.firstTimerStarted {
+            alert.addAction(UIAlertAction(title: "Обнулить первую задачу", style: UIAlertAction.Style.default, handler: { action in
                 self.resetActionOne()
-                self.resetActionSecond()
-                self.resetActionThird()
-                self.resetActionFour()
-                self.animateAll()
-                 }))
-    // show the alert
-    self.present(alert, animated: true, completion: nil)
+                self.animateFirstViewStop()
+                
+            }))
+        } else {
+            ///Запуск 2 алерта с предложением обнулить 2 задачу.
+            if timerStarted.secondTimerStarted   {
+                alert.addAction(UIAlertAction(title: "Обнулить вторую задачу", style: UIAlertAction.Style.default, handler:  { action in
+                    self.resetActionSecond()
+                    self.animateSecondViewStop()
+                }))
+            } else {
+                //Запуск 3 алерта с предложением обнулить 3 задачу.
+                if timerStarted.thirdTimerStarted {
+                    alert.addAction(UIAlertAction(title: "Обнулить третью задачу", style: UIAlertAction.Style.default, handler: { action in
+                        self.resetActionThird()
+                        self.animateThirdViewStop()
+                    }))
+                } else {
+                    //Запуск 4 алерта с предложением обнулить 4 задачу.
+                    if timerStarted.fourTimerStarted  {
+                        alert.addAction(UIAlertAction(title: "Обнулить четвертую задачу", style: UIAlertAction.Style.default, handler: { action in
+                            self.resetActionFour()
+                            self.animateFourViewStop()
+                        }))
+                    }
+                }
+            }
+        }
+        
+        
+        ///close alert
+        alert.addAction(UIAlertAction(title: "Закрыть", style: UIAlertAction.Style.cancel, handler: nil))
+        ///RESET ALL timers alert-action.
+        alert.addAction(UIAlertAction(title: "Обнулить весь день", style: UIAlertAction.Style.destructive, handler: { action in
+            self.resetActionOne()
+            self.resetActionSecond()
+            self.resetActionThird()
+            self.resetActionFour()
+            self.animateAll()
+        }))
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
     
     //MARK: - Methods
     ///Animate ON ALL Buttons
-           func animateAll() {
-               UIView.animate(withDuration: 0.3) { [self] in
-                firstTaskButton.backgroundColor = .systemYellow
-               secondTaskButton.backgroundColor = .systemRed
-                thirdTaskButton.backgroundColor = .systemBlue
-               fourTaskButton.backgroundColor = .systemGreen
-               firstTaskButton.isEnabled = true
-               secondTaskButton.isEnabled = true
-                thirdTaskButton.isEnabled = true
-               fourTaskButton.isEnabled = true
-               clockLabel.textColor = .black
-                   (timerStarted.firstTimerStarted, timerStarted.secondTimerStarted, timerStarted.thirdTimerStarted, timerStarted.fourTimerStarted) = (false, false, false, false)
-               timerCounting = false
-            }
-           }
+    func animateAll() {
+        UIView.animate(withDuration: 0.3) { [self] in
+            firstTaskButton.backgroundColor = .systemYellow
+            secondTaskButton.backgroundColor = .systemRed
+            thirdTaskButton.backgroundColor = .systemBlue
+            fourTaskButton.backgroundColor = .systemGreen
+            firstTaskButton.isEnabled = true
+            secondTaskButton.isEnabled = true
+            thirdTaskButton.isEnabled = true
+            fourTaskButton.isEnabled = true
+            clockLabel.textColor = .black
+            (timerStarted.firstTimerStarted, timerStarted.secondTimerStarted, timerStarted.thirdTimerStarted, timerStarted.fourTimerStarted) = (false, false, false, false)
+            timerCounting = false
+        }
+    }
 }
 ///END
- 
+//MARK: - Extension
+extension ViewController {
+    
+    public func makeCurrentTime() {
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (_) in
+            let date = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "hh:MM:ss"
+            let currentTime = dateFormatter.string(from: date)
+            self.dayTimeLabel.text = currentTime
+        })
+    }
+}
 
-    
-    
+
+
 

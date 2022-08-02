@@ -46,16 +46,3 @@ let COUNTING_KEYS = [
     "countingKeyFourKey"
 ]
 
-//MARK: - Extension
-extension ViewController {
-
-public func makeCurrentTime() {
-Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (_) in
-    let date = Date()
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "hh:MM:ss"
-    let currentTime = dateFormatter.string(from: date)
-    self.dayTimeLabel.text = currentTime
-})
-}
-}
