@@ -82,17 +82,17 @@ extension ViewController {
     //MARK: - SET STOP_START_COUNTING_KEYS
     fileprivate func setStopTimeFour(date: Date?) {
         stopTimeFour = date
-        userDefaults.set(stopTimeFour, forKey: STOP_KEYS[3])
+        userDefaults.set(stopTimeFour, forKey: fourKeys.Stop.rawValue)
         print("Установлено значение setStopTimeSecond по Stop_keys1 в ButtonsModel.")
     }
     fileprivate func setStartTimeFour(date: Date?) {
         startTimeFour = date
-        userDefaults.set(startTimeFour, forKey: STARTING_KEYS[3])
+        userDefaults.set(startTimeFour, forKey: fourKeys.Start.rawValue)
         print("Установлено значение setStartTimeSecond по ключуStart_keys01 в ButtonsModel.")
     }
     fileprivate func setTimerCountingFour(_ value: Bool) {
         timerStarted.fourTimerStarted = value
-        userDefaults.set(timerStarted.fourTimerStarted, forKey: COUNTING_KEYS[3])
+        userDefaults.set(timerStarted.fourTimerStarted, forKey: fourKeys.Counting.rawValue)
         print("Установлено значение setTimerCountingSecond по Counting_keys1 в ButtonsModel.")
     }
     fileprivate func setTimeLabelFour(_ value: Int) {
