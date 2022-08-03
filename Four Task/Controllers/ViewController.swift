@@ -19,17 +19,17 @@ class ViewController: UIViewController {
     ///IBOutlet Top View
     @IBOutlet weak var dayTimeLabel: UILabel!
     @IBOutlet weak var clockLabel: CountableLabel!
-    @IBOutlet weak var firstTaskButton: UIButton!
-    @IBOutlet weak var secondTaskButton: UIButton!
-    @IBOutlet weak var thirdTaskButton: UIButton!
-    @IBOutlet weak var fourTaskButton: UIButton!
+    @IBOutlet weak var firstButton: UIButton!
+    @IBOutlet weak var secondButton: UIButton!
+    @IBOutlet weak var thirdButton: UIButton!
+    @IBOutlet weak var fourButton: UIButton!
     
     ///IBOutlet Leading View
     ///Неизменяемые лейблы нумерации
     @IBOutlet weak var ordinalFirstLabel: UILabel!
     @IBOutlet weak var ordinalSecondLabel: UILabel!
     @IBOutlet weak var ordinalThirdLabel: UILabel!
-    @IBOutlet weak var fourOrdinalLabel: UILabel!
+    @IBOutlet weak var ordinalFourLabel: UILabel!
     ///Изменяемые лейблы таймера. (Анимированные)
     @IBOutlet weak var taskNumberFirstLabel: CountableLabel!
     @IBOutlet weak var taskNumberSecondLabel: CountableLabel!
@@ -177,24 +177,24 @@ class ViewController: UIViewController {
     ///Animate ON ALL Buttons
     func animateAll() {
         UIView.animate(withDuration: 0.3) { [self] in
-            firstTaskButton.backgroundColor = .systemYellow
-            secondTaskButton.backgroundColor = .systemRed
-            thirdTaskButton.backgroundColor = .systemBlue
-            fourTaskButton.backgroundColor = .systemGreen
-            firstTaskButton.isEnabled = true
-            secondTaskButton.isEnabled = true
-            thirdTaskButton.isEnabled = true
-            fourTaskButton.isEnabled = true
+            firstButton.backgroundColor = .systemYellow
+            secondButton.backgroundColor = .systemRed
+            thirdButton.backgroundColor = .systemBlue
+            fourButton.backgroundColor = .systemGreen
+            firstButton.isEnabled = true
+            secondButton.isEnabled = true
+            thirdButton.isEnabled = true
+            fourButton.isEnabled = true
             clockLabel.textColor = .black
+         
             (timerStarted.firstTimerStarted, timerStarted.secondTimerStarted, timerStarted.thirdTimerStarted, timerStarted.fourTimerStarted) = (false, false, false, false)
             timerCounting = false
         }
     }
-    func enableButtons() {
-        for buttons in buttonCollection {
-            buttons.isEnabled = true
-        }
+    @IBAction func PressedButtons(_ sender: UIButton) {
+            
     }
+
 }
 ///END
 //MARK: - Extension

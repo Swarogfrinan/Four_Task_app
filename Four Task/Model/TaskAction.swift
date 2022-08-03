@@ -15,7 +15,7 @@ extension ViewController {
     
     ///СТАРТ ФУНКЦИЯ 1 задачи.
     func firstTaskStart() {
-        if (timerStarted.firstTimerStarted) == false {
+        if !timerStarted.firstTimerStarted {
             print("StoptimeOne не равен Nil.")
             animateFirstViewStart()
         }
@@ -24,20 +24,20 @@ extension ViewController {
     func animateFirstViewStart() {
         UIView.animate(withDuration: 0.3) { [self] in
             print("Выполнение анимации первого сценария, второй кейс (старт)")
-            secondTaskButton.backgroundColor = .systemGray
-            thirdTaskButton.backgroundColor = .systemGray2
-            fourTaskButton.backgroundColor = .systemGray3
-            secondTaskButton.isEnabled = false
-            thirdTaskButton.isEnabled = false
-            fourTaskButton.isEnabled = false
+            secondButton.backgroundColor = .systemGray
+            thirdButton.backgroundColor = .systemGray2
+            fourButton.backgroundColor = .systemGray3
+            secondButton.isEnabled = false
+            thirdButton.isEnabled = false
+            fourButton.isEnabled = false
             clockLabel.textColor = .systemYellow
-            timerStarted.firstTimerStarted = true
+//            timerStarted.firstTimerStarted = true
             timerCounting = true
         }
     }
     ///СТОП ФУНКЦИЯ 1 задачи.
     func firstTaskStop() {
-        if (timerStarted.firstTimerStarted) == true {
+        if timerStarted.firstTimerStarted{
             animateFirstViewStop()
         }
     }
@@ -47,138 +47,138 @@ extension ViewController {
         print("Старт акшен ван. Таймер-стартед переведен в TRUE")
         UIView.animate(withDuration: 0.3) { [self] in
             print("Пошло выполнение анимации первого сценария, первый кейс (стоп)")
-            secondTaskButton.backgroundColor = .systemRed
-            thirdTaskButton.backgroundColor = .systemBlue
-            fourTaskButton.backgroundColor = .systemGreen
-            secondTaskButton.isEnabled = true
-            thirdTaskButton.isEnabled = true
-            fourTaskButton.isEnabled = true
+            secondButton.backgroundColor = .systemRed
+            thirdButton.backgroundColor = .systemBlue
+            fourButton.backgroundColor = .systemGreen
+            secondButton.isEnabled = true
+            thirdButton.isEnabled = true
+            fourButton.isEnabled = true
             clockLabel.textColor = .systemGray
-            timerStarted.firstTimerStarted = false
+//            timerStarted.firstTimerStarted = false
             timerCounting = false
             print("Все кнопки включены. Текст перекрашен в серый.")
         }
     }
     /// СТОП второй задачи с проверкой.
     func secondTaskStop() {
-        if (timerStarted.secondTimerStarted) == true {
+        if timerStarted.secondTimerStarted {
             animateSecondViewStop()
         }
     }
     ///СТАРТ второй задачи с проверкой.
     func secondTaskStart() {
-        if (timerStarted.secondTimerStarted) == false {
+        if !timerStarted.secondTimerStarted {
             animateSecondViewStart()
         }
     }
     ///Анимация стопа второй кнопки.
     func animateSecondViewStop() {
         UIView.animate(withDuration: 0.3) { [self] in
-            firstTaskButton.backgroundColor = .systemYellow
-            thirdTaskButton.backgroundColor = .systemBlue
-            fourTaskButton.backgroundColor = .systemGreen
-            firstTaskButton.isEnabled = true
-            thirdTaskButton.isEnabled = true
-            fourTaskButton.isEnabled = true
+            firstButton.backgroundColor = .systemYellow
+            thirdButton.backgroundColor = .systemBlue
+            fourButton.backgroundColor = .systemGreen
+            firstButton.isEnabled = true
+            thirdButton.isEnabled = true
+            fourButton.isEnabled = true
             clockLabel.textColor = .systemGray
-            timerStarted.secondTimerStarted = false
+//            timerStarted.secondTimerStarted = false
             timerCounting = false
         }
     }
     ///Анимация старта второй кнопки.
     func animateSecondViewStart() {
         UIView.animate(withDuration: 0.3) { [self] in
-            firstTaskButton.backgroundColor = .systemGray
-            thirdTaskButton.backgroundColor = .systemGray2
-            fourTaskButton.backgroundColor = .systemGray3
-            firstTaskButton.isEnabled = false
-            thirdTaskButton.isEnabled = false
-            fourTaskButton.isEnabled = false
+            firstButton.backgroundColor = .systemGray
+            thirdButton.backgroundColor = .systemGray2
+            fourButton.backgroundColor = .systemGray3
+            firstButton.isEnabled = false
+            thirdButton.isEnabled = false
+            fourButton.isEnabled = false
             clockLabel.textColor = .systemRed
-            timerStarted.secondTimerStarted = true
+//            timerStarted.secondTimerStarted = true
             timerCounting = true
         }
     }
     
     ///Функция  третьей  задачи СТОП.
     func thirdTaskStop() {
-        if (timerStarted.thirdTimerStarted) == true {
+        if timerStarted.thirdTimerStarted {
             animateThirdViewStop()
         }
     }
     ///СТОП анимация третьей кнопки.
     func animateThirdViewStop() {
         UIView.animate(withDuration: 0.3) { [self] in
-            secondTaskButton.backgroundColor = .systemRed
-            firstTaskButton.backgroundColor = .systemYellow
-            fourTaskButton.backgroundColor = .systemGreen
-            firstTaskButton.isEnabled = true
-            secondTaskButton.isEnabled = true
-            fourTaskButton.isEnabled = true
+            secondButton.backgroundColor = .systemRed
+            firstButton.backgroundColor = .systemYellow
+            fourButton.backgroundColor = .systemGreen
+            firstButton.isEnabled = true
+            secondButton.isEnabled = true
+            fourButton.isEnabled = true
             clockLabel.textColor = .systemGray
-            timerStarted.thirdTimerStarted = false
+//            timerStarted.thirdTimerStarted = false
             timerCounting = false
         }
     }
     
     ///Функция третьей задачи СТАРТ.
     func thirdTaskStart() {
-        if (timerStarted.thirdTimerStarted) == false {
+        if !timerStarted.thirdTimerStarted {
             animateThirdViewStart()
         }
     }
     ///СТАРТ  анимация третьей кнопки.
     func animateThirdViewStart() {
         UIView.animate(withDuration: 0.3) { [self] in
-            firstTaskButton.backgroundColor = .systemGray
-            secondTaskButton.backgroundColor = .systemGray2
-            fourTaskButton.backgroundColor = .systemGray3
-            firstTaskButton.isEnabled = false
-            secondTaskButton.isEnabled = false
-            fourTaskButton.isEnabled = false
+            firstButton.backgroundColor = .systemGray
+            secondButton.backgroundColor = .systemGray2
+            fourButton.backgroundColor = .systemGray3
+            firstButton.isEnabled = false
+            secondButton.isEnabled = false
+            fourButton.isEnabled = false
             clockLabel.textColor = .systemBlue
-            timerStarted.thirdTimerStarted = true
+//            timerStarted.thirdTimerStarted = true
             timerCounting = true
         }
     }
     ///СТОП Функция четвёртой задачи.
     func fourTaskStop() {
-        if (timerStarted.fourTimerStarted) == true {
+        if timerStarted.fourTimerStarted {
             animateFourViewStop()
         }
     }
     ///СТАРТ  анимация четвёртой кнопки.
     func animateFourViewStop() {
         UIView.animate(withDuration: 0.3) { [self] in
-            firstTaskButton.backgroundColor = .systemYellow
-            secondTaskButton.backgroundColor = .systemRed
-            thirdTaskButton.backgroundColor = .systemBlue
-            firstTaskButton.isEnabled = true
-            secondTaskButton.isEnabled = true
-            thirdTaskButton.isEnabled = true
+            firstButton.backgroundColor = .systemYellow
+            secondButton.backgroundColor = .systemRed
+            thirdButton.backgroundColor = .systemBlue
+            firstButton.isEnabled = true
+            secondButton.isEnabled = true
+            thirdButton.isEnabled = true
             clockLabel.textColor = .systemGray
-            timerStarted.fourTimerStarted = false
+//            timerStarted.fourTimerStarted = false
             timerCounting = false
         }
     }
     
     ///СТАРТ  функция четвёртой задачи.
     func fourTaskStart() {
-        if (timerStarted.fourTimerStarted) == false {
+        if !timerStarted.fourTimerStarted {
             animateFourViewStart()
         }
     }
     ///СТАРТ  анимация четвёртой кнопки.
     func animateFourViewStart() {
         UIView.animate(withDuration: 0.3) { [self] in
-            firstTaskButton.backgroundColor = .systemGray
-            secondTaskButton.backgroundColor = .systemGray2
-            thirdTaskButton.backgroundColor = .systemGray3
-            firstTaskButton.isEnabled = false
-            secondTaskButton.isEnabled = false
-            thirdTaskButton.isEnabled = false
+            firstButton.backgroundColor = .systemGray
+            secondButton.backgroundColor = .systemGray2
+            thirdButton.backgroundColor = .systemGray3
+            firstButton.isEnabled = false
+            secondButton.isEnabled = false
+            thirdButton.isEnabled = false
             clockLabel.textColor = .systemGreen
-            timerStarted.fourTimerStarted = true
+//            timerStarted.fourTimerStarted = true
             timerCounting = true
         }
     }

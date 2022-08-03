@@ -14,6 +14,7 @@ class TotalTableViewCell: UITableViewCell {
     private let label: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
+        label.text = "Date"
         return label
     }()
     ///progressViewBar
