@@ -1,20 +1,16 @@
 PODS:
   - CountableLabel (0.1.1)
-  - MultiProgressView (1.3.0)
 
 DEPENDENCIES:
   - CountableLabel
-  - MultiProgressView
 
 SPEC REPOS:
   trunk:
     - CountableLabel
-    - MultiProgressView
 
 SPEC CHECKSUMS:
   CountableLabel: 5e8bda9a2ec528bf68daf7d9306a47df0c88c2f8
-  MultiProgressView: 65e5bb8181687099ade56d16d85d245a92fafa96
 
-PODFILE CHECKSUM: fafce3df3f7f5ef0dafc6df779e2760c281f194b
+PODFILE CHECKSUM: 1df7759780d46fc18c5ceafb84829b4d79263d96
 
 COCOAPODS: 1.11.3

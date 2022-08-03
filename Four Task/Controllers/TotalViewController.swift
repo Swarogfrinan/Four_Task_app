@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import MultiProgressView
 
 struct TotalSection {
     let title: String
@@ -19,7 +18,7 @@ enum TotalOptionType {
 
 struct TotalOption {
     let title: String
-    let progressView: MultiProgressView
+    let progressView: UIProgressView
     let handler: (() -> Void)
 }
 

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import MultiProgressView
 
 class TotalTableViewCell: UITableViewCell {
     
@@ -18,7 +17,7 @@ class TotalTableViewCell: UITableViewCell {
         return label
     }()
     ///progressViewBar
-    let progressView = MultiProgressView()
+    let progressView = UIProgressView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -35,7 +34,7 @@ class TotalTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         let size: CGFloat = contentView.frame.size.height - 12
-        let imageSize: CGFloat = size/1.5
+//        let imageSize: CGFloat = size/1.5
         
         label.frame = CGRect(x: 15, y: 6, width: size, height: size)
         

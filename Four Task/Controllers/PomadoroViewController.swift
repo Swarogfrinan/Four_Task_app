@@ -118,8 +118,7 @@ class PomadoroViewController: UIViewController {
             startButton.tintColor = .systemGreen
             noticeLabel.textColor = .systemGreen
             }
-        default:
-            break
+
         }
         
     }

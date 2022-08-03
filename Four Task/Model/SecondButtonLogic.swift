@@ -81,17 +81,17 @@ extension ViewController {
     //MARK: - SET STOP_START_COUNTING_KEYS
     fileprivate func setStopTimeSecond(date: Date?) {
         stopTimeSecond = date
-        userDefaults.set(stopTimeSecond, forKey: secondKeys.Stop.rawValue)
+        userDefaults.set(stopTimeSecond, forKey: SecondKeys.stop.rawValue)
         print("Установлено значение setStopTimeSecond по Stop_keys1 в SecondButtonLogic.")
     }
     fileprivate func setStartTimeSecond(date: Date?) {
         startTimeSecond = date
-        userDefaults.set(startTimeSecond, forKey: secondKeys.Start.rawValue)
+        userDefaults.set(startTimeSecond, forKey: SecondKeys.start.rawValue)
         print("Установлено значение setStartTimeSecond по ключуStart_keys01 в SecondButtonLogic.")
     }
     fileprivate func setTimerCountingSecond(_ value: Bool) {
         timerStarted.secondTimerStarted = value
-        userDefaults.set(timerStarted.secondTimerStarted, forKey: secondKeys.Counting.rawValue)
+        userDefaults.set(timerStarted.secondTimerStarted, forKey: SecondKeys.counting.rawValue)
         print("Установлено значение setTimerCountingSecond по Counting_keys1 в SecondButtonLogic.")
     }
     fileprivate func setTimeLabelSecond(_ value: Int) {

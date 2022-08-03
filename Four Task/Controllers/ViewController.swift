@@ -11,6 +11,8 @@ import CountableLabel
 //MARK: - ViewController
 class ViewController: UIViewController {
     //MARK: - IBOutlet
+    
+    @IBOutlet var buttonCollection: [UIButton]!
     ///Navigation bar buttons
     @IBOutlet weak var leftBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
@@ -50,21 +52,21 @@ class ViewController: UIViewController {
         makeCurrentTime()
         //MARK: - Save keys to UserDefaults.
         ///FIRST KEYS
-        startTimeOne = userDefaults.object(forKey: firstKeys.Start.rawValue) as? Date
-        stopTimeOne = userDefaults.object(forKey: firstKeys.Stop.rawValue) as? Date
-        timerStarted.firstTimerStarted = userDefaults.bool(forKey: firstKeys.Counting.rawValue)
+        startTimeOne = userDefaults.object(forKey: FirstKeys.start.rawValue) as? Date
+        stopTimeOne = userDefaults.object(forKey: FirstKeys.stop.rawValue) as? Date
+        timerStarted.firstTimerStarted = userDefaults.bool(forKey: FirstKeys.counting.rawValue)
         ///SECOND KEYS
-        startTimeSecond = userDefaults.object(forKey: secondKeys.Start.rawValue) as? Date
-        stopTimeSecond = userDefaults.object(forKey: secondKeys.Stop.rawValue) as? Date
-        timerStarted.secondTimerStarted = userDefaults.bool(forKey: secondKeys.Counting.rawValue)
+        startTimeSecond = userDefaults.object(forKey: SecondKeys.start.rawValue) as? Date
+        stopTimeSecond = userDefaults.object(forKey: SecondKeys.stop.rawValue) as? Date
+        timerStarted.secondTimerStarted = userDefaults.bool(forKey: SecondKeys.counting.rawValue)
         ///THIRD KEYS
-        startTimeThird = userDefaults.object(forKey: thirdKeys.Start.rawValue) as? Date
-        stopTimeThird = userDefaults.object(forKey: thirdKeys.Stop.rawValue) as? Date
-        timerStarted.thirdTimerStarted = userDefaults.bool(forKey: thirdKeys.Counting.rawValue)
+        startTimeThird = userDefaults.object(forKey: ThirdKeys.start.rawValue) as? Date
+        stopTimeThird = userDefaults.object(forKey: ThirdKeys.stop.rawValue) as? Date
+        timerStarted.thirdTimerStarted = userDefaults.bool(forKey: ThirdKeys.counting.rawValue)
         ///FOUR KEYS
-        startTimeFour = userDefaults.object(forKey: fourKeys.Start.rawValue) as? Date
-        stopTimeFour = userDefaults.object(forKey: fourKeys.Stop.rawValue) as? Date
-        timerStarted.fourTimerStarted = userDefaults.bool(forKey: fourKeys.Counting.rawValue)
+        startTimeFour = userDefaults.object(forKey: FourKeys.start.rawValue) as? Date
+        stopTimeFour = userDefaults.object(forKey: FourKeys.stop.rawValue) as? Date
+        timerStarted.fourTimerStarted = userDefaults.bool(forKey: FourKeys.counting.rawValue)
         
         ///Запуск 1 бэкграунд-таймера если он был нажат последним
         if timerStarted.firstTimerStarted {
@@ -186,6 +188,11 @@ class ViewController: UIViewController {
             clockLabel.textColor = .black
             (timerStarted.firstTimerStarted, timerStarted.secondTimerStarted, timerStarted.thirdTimerStarted, timerStarted.fourTimerStarted) = (false, false, false, false)
             timerCounting = false
+        }
+    }
+    func enableButtons() {
+        for buttons in buttonCollection {
+            buttons.isEnabled = true
         }
     }
 }

@@ -11,6 +11,8 @@ import UIKit
 
 //MARK: - Extension + Methods
 extension ViewController {
+   
+    
     ///СТАРТ ФУНКЦИЯ 1 задачи.
     func firstTaskStart() {
         if (timerStarted.firstTimerStarted) == false {

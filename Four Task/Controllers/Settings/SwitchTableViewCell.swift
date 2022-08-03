@@ -35,7 +35,7 @@ class SwitchTableViewCell: UITableViewCell {
     private let mySwitch: UISwitch = {
         let mySwitch = UISwitch()
         mySwitch.onTintColor = .systemRed
-        mySwitch.addTarget(self, action: #selector(changeAppSwitchValue), for: .valueChanged)
+        mySwitch.addTarget(SwitchTableViewCell.self, action: #selector(changeAppSwitchValue), for: .valueChanged)
         return mySwitch
     }()
     
