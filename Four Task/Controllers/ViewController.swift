@@ -10,8 +10,7 @@ import Foundation
 import CountableLabel
 //MARK: - ViewController
 class ViewController: UIViewController {
-    //MARK: - IBOutlet
-    
+    //MARK: - IBOutlets
     @IBOutlet var buttonCollection: [UIButton]!
     ///Navigation bar buttons
     @IBOutlet weak var leftBarButtonItem: UIBarButtonItem!
@@ -19,6 +18,7 @@ class ViewController: UIViewController {
     ///IBOutlet Top View
     @IBOutlet weak var dayTimeLabel: UILabel!
     @IBOutlet weak var clockLabel: CountableLabel!
+    ///IBOutlet Top View Buttons
     @IBOutlet weak var firstButton: UIButton!
     @IBOutlet weak var secondButton: UIButton!
     @IBOutlet weak var thirdButton: UIButton!
@@ -36,20 +36,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var taskNumbersThirdLabel: CountableLabel!
     @IBOutlet weak var taskNumbersFourLabel: CountableLabel!
     //MARK: - Let/var
-    
-    var optionalTimer: Timer?
-    let format = DateFormatter()
-    let now = NSDate()
-    var count : Int = 0
-    
-    
+    let userDefaults = UserDefaults.standard
+ 
     //MARK: - Lifecycle.
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        clockLabel.text = "Lets work"
-        ///Установка верхнего лейбла - времени текущего дня. (12 Часовая)
+        setupLabel()
         makeCurrentTime()
+        
         //MARK: - Save keys to UserDefaults.
         ///FIRST KEYS
         startTimeOne = userDefaults.object(forKey: FirstKeys.start.rawValue) as? Date
@@ -100,7 +94,7 @@ class ViewController: UIViewController {
         }
     }
     
-   
+    
     
     //MARK: - IBOutlet methods
     ///Первая жёлтая кнопка
@@ -121,9 +115,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func refreshButtonPressed(_ sender: UIButton) {
-        
         let alert = UIAlertController(title: "Нотайс", message: "Как насчет обнуления?", preferredStyle: UIAlertController.Style.alert)
-        
         // add the actions (buttons)
         ///Запуск 1 алерта с предложением обнулить 1 задачу.
         if timerStarted.firstTimerStarted {
@@ -157,8 +149,6 @@ class ViewController: UIViewController {
                 }
             }
         }
-        
-        
         ///close alert
         alert.addAction(UIAlertAction(title: "Закрыть", style: UIAlertAction.Style.cancel, handler: nil))
         ///RESET ALL timers alert-action.
@@ -167,7 +157,7 @@ class ViewController: UIViewController {
             self.resetActionSecond()
             self.resetActionThird()
             self.resetActionFour()
-            self.animateAll()
+            self.animateAllButtons()
         }))
         // show the alert
         self.present(alert, animated: true, completion: nil)
@@ -175,7 +165,7 @@ class ViewController: UIViewController {
     
     //MARK: - Methods
     ///Animate ON ALL Buttons
-    func animateAll() {
+    func animateAllButtons() {
         UIView.animate(withDuration: 0.3) { [self] in
             firstButton.backgroundColor = .systemYellow
             secondButton.backgroundColor = .systemRed
@@ -186,18 +176,21 @@ class ViewController: UIViewController {
             thirdButton.isEnabled = true
             fourButton.isEnabled = true
             clockLabel.textColor = .black
-         
+            
             (timerStarted.firstTimerStarted, timerStarted.secondTimerStarted, timerStarted.thirdTimerStarted, timerStarted.fourTimerStarted) = (false, false, false, false)
             timerCounting = false
         }
     }
-    @IBAction func PressedButtons(_ sender: UIButton) {
-            
+    func setupLabel() {
+        clockLabel.text = "Lets work"
     }
-
+    
+        @IBAction func PressedButtons(_ sender: UIButton) {
+    
+        }
+    
 }
-///END
-//MARK: - Extension
+//MARK: - Extension + ViewController
 extension ViewController {
     
     public func makeCurrentTime() {

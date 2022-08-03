@@ -7,60 +7,94 @@
 
 import UIKit
 import CountableLabel
-///Кейсы анимаций
+
+//MARK: - Enums
 enum setupAnimate {
     case stop
     case start
     case recycle
-    }
+}
 
-
+//MARK: - ResetAction
 class PomadoroViewController: UIViewController {
-
+    //MARK: - IBOutlets
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var pomadoroLabel: CountableLabel!
     @IBOutlet weak var noticeLabel: UILabel!
-    
-
+    //MARK: - let/var
     var tomatoTimer = Timer()
     var time = 100
-    
+    //MARK: - lifecycle ViewController
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        pomadoroLabel.text = "Lets go studing"
-//        "Lets go styding"
-  
+        setupGreetingsLabel()
     }
-    
-///Нажатие кнопки
+    //MARK: - IBA Methods
+    ///Нажатие кнопки
     @IBAction func actionButtonPressed(_ sender: UIButton) {
-///Старт таймера
+        ///Старт таймера
         if  timerStarted.tomatoTimerStarted == false {
             setupUi(for: .stop)
             startTimer()
-///Стоп таймера
+            ///Стоп таймера
         } else if timerStarted.tomatoTimerStarted == true {
             setupUi(for: .start)
             stopTimer()
         }
     }
-///Функция запуска таймера
-    func startTimer() {
+    //MARK: - Methods
+    ///Функция запуска таймера
+   private func startTimer() {
         tomatoTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         timerStarted.tomatoTimerStarted = true
     }
-///Функция стоп-таймера
-    func stopTimer() {
+    ///Функция стоп-таймера
+   private func stopTimer() {
         tomatoTimer.invalidate()
         timerStarted.tomatoTimerStarted = false
     }
-        
+    private func setupGreetingsLabel() {
+        pomadoroLabel.text = "Lets go studing"
+    }
+    
+    func formatTime() -> String {
+        let minutes = Int(time) / 60 % 60
+        let seconds = Int(time) % 60
+        return String(format:"%02i:%02i", minutes, seconds)
+    }
     
     
-    
-    
-///Ежесекундный счётчик Update Таймера.
+    func setupUi(for animate: setupAnimate) {
+        switch animate {
+        case .stop:
+            UIView.animate(withDuration: 0.3) { [self] in
+                startButton.setImage(UIImage(systemName: "stop.fill"), for: .normal)
+                startButton.setTitle("Стоп", for: .normal)
+                noticeLabel.text = "тик-так-так-тик"
+                startButton.tintColor = .systemRed
+                noticeLabel.textColor = .systemRed
+            }
+            
+            
+        case .start:
+            UIView.animate(withDuration: 0.3) { [self] in
+                startButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+                startButton.setTitle("Старт", for: .normal)
+                noticeLabel.text = "Усерден твой путь!"
+                startButton.tintColor = .systemBlue
+                noticeLabel.textColor = .systemBlue
+            }
+        case .recycle:
+            UIView.animate(withDuration: 0.3) { [self] in
+                startButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+                startButton.setTitle("Отдых!", for: .normal)
+                
+                startButton.tintColor = .systemGreen
+                noticeLabel.textColor = .systemGreen
+            }
+        }
+    }
+    ///Ежесекундный счётчик Update Таймера.
     @objc func updateTimer() {
         if time > 0 {
             time -= 1
@@ -82,47 +116,6 @@ class PomadoroViewController: UIViewController {
             pomadoroLabel.text = "25:00"
         }
     }
-    
-        func formatTime() -> String {
-            let minutes = Int(time) / 60 % 60
-            let seconds = Int(time) % 60
-            return String(format:"%02i:%02i", minutes, seconds)
-        }
-    
-    
-    func setupUi(for animate: setupAnimate) {
-        switch animate {
-        case .stop:
-            UIView.animate(withDuration: 0.3) { [self] in
-                startButton.setImage(UIImage(systemName: "stop.fill"), for: .normal)
-                startButton.setTitle("Стоп", for: .normal)
-                noticeLabel.text = "тик-так"
-                startButton.tintColor = .systemRed
-                noticeLabel.textColor = .systemRed
-            }
-          
-            
-        case .start:
-            UIView.animate(withDuration: 0.3) { [self] in
-            startButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-            startButton.setTitle("Старт", for: .normal)
-            noticeLabel.text = "Чем длиннее путь тем короче яйца!"
-            startButton.tintColor = .systemBlue
-            noticeLabel.textColor = .systemBlue
-            }
-        case .recycle:
-            UIView.animate(withDuration: 0.3) { [self] in
-            startButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-            startButton.setTitle("Перекур", for: .normal)
-            
-            startButton.tintColor = .systemGreen
-            noticeLabel.textColor = .systemGreen
-            }
-
-        }
-        
-    }
-   
     ///end
-    }
+}
 
