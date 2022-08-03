@@ -95,35 +95,19 @@ extension ViewController {
         print("Установлено значение setTimerCountingSecond по Counting_keys1 в SecondButtonLogic.")
     }
     fileprivate func setTimeLabelSecond(_ value: Int) {
-        let time = secToHourMinutesSecondsSecond(seconds: value)
-        let timeString = makeTimeStringSecond(hours: time.0, minutes: time.1, seconds: time.2)
+        let time = secToHourMinutesSeconds(seconds: value)
+        let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
         clockLabel.text = timeString
         taskNumberSecondLabel.text = timeString
         taskNumberSecondLabel.textColor = .systemRed
     }
-    ///Перевод секунд в час, минуту, секунду.
-    fileprivate func secToHourMinutesSecondsSecond(seconds: Int) -> (Int, Int, Int) {
-        let hour =  (seconds / 3600)
-        let mm = (seconds % 3600) / 60
-        let sec = (seconds % 3600) % 60
-        return (hour, mm, sec)
-    }
-    /// Перевод численных значений часы/минуты/секунды в формат String
-    fileprivate  func makeTimeStringSecond(hours: Int, minutes: Int, seconds: Int) -> String {
-        var timeString = ""
-        timeString += String(format: "%02d", hours)
-        timeString += ":"
-        timeString += String(format: "%02d", minutes)
-        timeString += ":"
-        timeString += String(format: "%02d", seconds)
-        return timeString
-    }
+
     //MARK: - ResetAction
     func resetActionSecond() {
         setStopTimeSecond(date: nil)
         setStartTimeSecond(date: nil)
-        clockLabel.text = makeTimeStringSecond(hours: 0, minutes: 0, seconds: 0)
-        taskNumberSecondLabel.text = makeTimeStringSecond(hours: 0, minutes: 0, seconds: 0)
+        clockLabel.text = makeTimeString(hours: 0, minutes: 0, seconds: 0)
+        taskNumberSecondLabel.text = makeTimeString(hours: 0, minutes: 0, seconds: 0)
         stopTimerSecond()
         //        animateSecondViewStop()
     }

@@ -31,7 +31,6 @@ extension ViewController {
             thirdButton.isEnabled = false
             fourButton.isEnabled = false
             clockLabel.textColor = .systemYellow
-//            timerStarted.firstTimerStarted = true
             timerCounting = true
         }
     }
@@ -54,7 +53,6 @@ extension ViewController {
             thirdButton.isEnabled = true
             fourButton.isEnabled = true
             clockLabel.textColor = .systemGray
-//            timerStarted.firstTimerStarted = false
             timerCounting = false
             print("Все кнопки включены. Текст перекрашен в серый.")
         }
@@ -81,7 +79,6 @@ extension ViewController {
             thirdButton.isEnabled = true
             fourButton.isEnabled = true
             clockLabel.textColor = .systemGray
-//            timerStarted.secondTimerStarted = false
             timerCounting = false
         }
     }
@@ -95,7 +92,6 @@ extension ViewController {
             thirdButton.isEnabled = false
             fourButton.isEnabled = false
             clockLabel.textColor = .systemRed
-//            timerStarted.secondTimerStarted = true
             timerCounting = true
         }
     }
@@ -116,7 +112,6 @@ extension ViewController {
             secondButton.isEnabled = true
             fourButton.isEnabled = true
             clockLabel.textColor = .systemGray
-//            timerStarted.thirdTimerStarted = false
             timerCounting = false
         }
     }
@@ -137,7 +132,6 @@ extension ViewController {
             secondButton.isEnabled = false
             fourButton.isEnabled = false
             clockLabel.textColor = .systemBlue
-//            timerStarted.thirdTimerStarted = true
             timerCounting = true
         }
     }
@@ -157,7 +151,6 @@ extension ViewController {
             secondButton.isEnabled = true
             thirdButton.isEnabled = true
             clockLabel.textColor = .systemGray
-//            timerStarted.fourTimerStarted = false
             timerCounting = false
         }
     }
@@ -178,7 +171,6 @@ extension ViewController {
             secondButton.isEnabled = false
             thirdButton.isEnabled = false
             clockLabel.textColor = .systemGreen
-//            timerStarted.fourTimerStarted = true
             timerCounting = true
         }
     }

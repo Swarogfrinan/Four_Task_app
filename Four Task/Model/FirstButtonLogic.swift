@@ -95,36 +95,19 @@ extension ViewController {
         print("Установлен setTimerCountingOne по Counting_keys0 в FirstButtonLogic.")
     }
     fileprivate func setTimeLabelOne(_ value: Int) {
-        let time = secToHourMinutesSecondsOne(seconds: value)
-        let timeString = makeTimeStringOne(hours: time.0, minutes: time.1, seconds: time.2)
+        let time = secToHourMinutesSeconds(seconds: value)
+        let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
         clockLabel.text = timeString
         taskNumberFirstLabel.text = timeString
         taskNumberFirstLabel.textColor = .systemYellow
     }
-    ///Перевод секунд в час, минуту, секунду.
-    fileprivate func secToHourMinutesSecondsOne(seconds: Int) -> (Int, Int, Int) {
-        let hour =  (seconds / 3600)
-        let mm = (seconds % 3600) / 60
-        let sec = (seconds % 3600) % 60
-        return (hour, mm, sec)
-        
-    }
-    /// Перевод численных значений часы/минуты/секунды в формат String
-    fileprivate func makeTimeStringOne(hours: Int, minutes: Int, seconds: Int) -> String {
-        var timeString = ""
-        timeString += String(format: "%02d", hours)
-        timeString += ":"
-        timeString += String(format: "%02d", minutes)
-        timeString += ":"
-        timeString += String(format: "%02d", seconds)
-        return timeString
-    }
+  
     //MARK: - ResetAction
     func resetActionOne() {
         setStopTimeOne(date: nil)
         setStartTimeOne(date: nil)
-        clockLabel.text = makeTimeStringOne(hours: 0, minutes: 0, seconds: 0)
-        taskNumberFirstLabel.text = makeTimeStringOne(hours: 0, minutes: 0, seconds: 0)
+        clockLabel.text = makeTimeString(hours: 0, minutes: 0, seconds: 0)
+        taskNumberFirstLabel.text = makeTimeString(hours: 0, minutes: 0, seconds: 0)
         stopTimerOne()
         //    animateFirstViewStop()
     }

@@ -95,37 +95,20 @@ extension ViewController {
         print("Установлено значение setTimerCountingThird по Counting_keys2 в ThirdButtonLogic.")
     }
     fileprivate func setTimeLabelThird(_ value: Int) {
-        let time = secToHourMinutesSecondsThird(seconds: value)
-        let timeString = makeTimeStringThird(hours: time.0, minutes: time.1, seconds: time.2)
+        let time = secToHourMinutesSeconds(seconds: value)
+        let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
         clockLabel.text = timeString
         taskNumbersThirdLabel.text = timeString
         taskNumbersThirdLabel.textColor = .systemBlue
         ///    print("Установлен LABEl СLOCK с переводом цифрового значения в строку в ButtonsModel.")
     }
-    ///Перевод секунд в час, минуту, секунду.
-    fileprivate func secToHourMinutesSecondsThird(seconds: Int) -> (Int, Int, Int) {
-        let hour =  (seconds / 3600)
-        let mm = (seconds % 3600) / 60
-        let sec = (seconds % 3600) % 60
-        return (hour, mm, sec)
-        
-    }
-    /// Перевод численных значений часы/минуты/секунды в формат String
-    fileprivate  func makeTimeStringThird(hours: Int, minutes: Int, seconds: Int) -> String {
-        var timeString = ""
-        timeString += String(format: "%02d", hours)
-        timeString += ":"
-        timeString += String(format: "%02d", minutes)
-        timeString += ":"
-        timeString += String(format: "%02d", seconds)
-        return timeString
-    }
+
     //MARK: - ResetAction
     func resetActionThird() {
         setStopTimeThird(date: nil)
         setStartTimeThird(date: nil)
-        clockLabel.text = makeTimeStringThird(hours: 0, minutes: 0, seconds: 0)
-        taskNumbersThirdLabel.text = makeTimeStringThird(hours: 0, minutes: 0, seconds: 0)
+        clockLabel.text = makeTimeString(hours: 0, minutes: 0, seconds: 0)
+        taskNumbersThirdLabel.text = makeTimeString(hours: 0, minutes: 0, seconds: 0)
         stopTimerThird()
         //            animateThirdViewStart()
     }
