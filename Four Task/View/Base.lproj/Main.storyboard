@@ -111,7 +111,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZO-eZ-ejA" customClass="CountableLabel" customModule="CountableLabel">
-                                <rect key="frame" x="131.5" y="427" width="151" height="42"/>
+                                <rect key="frame" x="100" y="427" width="214" height="42"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -131,7 +131,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Начнём труд!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FX6-0C-n1X">
-                                <rect key="frame" x="159.5" y="484" width="95.5" height="18"/>
+                                <rect key="frame" x="100" y="484" width="214" height="18"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -140,6 +140,7 @@
                         <viewLayoutGuide key="safeArea" id="U99-Ce-Ll6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="U99-Ce-Ll6" firstAttribute="trailing" secondItem="FX6-0C-n1X" secondAttribute="trailing" constant="100" id="5m0-pl-XIQ"/>
                             <constraint firstItem="iZO-eZ-ejA" firstAttribute="centerY" secondItem="3KJ-9f-GEV" secondAttribute="centerY" id="5oI-FJ-e42"/>
                             <constraint firstItem="tzt-Xe-pu4" firstAttribute="leading" secondItem="U99-Ce-Ll6" secondAttribute="leading" constant="25" id="7Wn-VC-Cnt"/>
                             <constraint firstItem="U99-Ce-Ll6" firstAttribute="trailing" secondItem="tzt-Xe-pu4" secondAttribute="trailing" constant="25" id="E1T-e7-utD"/>
@@ -147,6 +148,9 @@
                             <constraint firstItem="FX6-0C-n1X" firstAttribute="top" secondItem="iZO-eZ-ejA" secondAttribute="bottom" constant="15" id="Twm-hm-8un"/>
                             <constraint firstItem="U99-Ce-Ll6" firstAttribute="bottom" secondItem="tzt-Xe-pu4" secondAttribute="bottom" constant="140" id="Tx5-eY-xBK"/>
                             <constraint firstItem="FX6-0C-n1X" firstAttribute="centerX" secondItem="3KJ-9f-GEV" secondAttribute="centerX" id="ihu-mg-fui"/>
+                            <constraint firstItem="U99-Ce-Ll6" firstAttribute="trailing" secondItem="iZO-eZ-ejA" secondAttribute="trailing" constant="100" id="qMB-Ov-Dif"/>
+                            <constraint firstItem="iZO-eZ-ejA" firstAttribute="leading" secondItem="U99-Ce-Ll6" secondAttribute="leading" constant="100" id="qe4-Ky-AyK"/>
+                            <constraint firstItem="FX6-0C-n1X" firstAttribute="leading" secondItem="U99-Ce-Ll6" secondAttribute="leading" constant="100" id="qmM-7d-cEd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="b8c-zl-WRq"/>

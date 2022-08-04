@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import AVFoundation
 import CountableLabel
 
 //MARK: - Enums
-enum setupAnimate {
+enum SetupAnimate {
     case stop
     case start
     case recycle
@@ -22,6 +23,8 @@ class PomadoroViewController: UIViewController {
     @IBOutlet weak var pomadoroLabel: CountableLabel!
     @IBOutlet weak var noticeLabel: UILabel!
     //MARK: - let/var
+    var audioPlayer = AVAudioPlayer()
+    let endOfTomatoSound: SystemSoundID = 1328
     var tomatoTimer = Timer()
     var time = 100
     //MARK: - lifecycle ViewController
@@ -44,12 +47,12 @@ class PomadoroViewController: UIViewController {
     }
     //MARK: - Methods
     ///Функция запуска таймера
-   private func startTimer() {
+    private func startTimer() {
         tomatoTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         timerStarted.tomatoTimerStarted = true
     }
     ///Функция стоп-таймера
-   private func stopTimer() {
+    private func stopTimer() {
         tomatoTimer.invalidate()
         timerStarted.tomatoTimerStarted = false
     }
@@ -62,9 +65,12 @@ class PomadoroViewController: UIViewController {
         let seconds = Int(time) % 60
         return String(format:"%02i:%02i", minutes, seconds)
     }
+    func playAlarmSound() {
+        AudioServicesPlaySystemSound(endOfTomatoSound)
+        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+    }
     
-    
-    func setupUi(for animate: setupAnimate) {
+    func setupUi(for animate: SetupAnimate) {
         switch animate {
         case .stop:
             UIView.animate(withDuration: 0.3) { [self] in
@@ -74,7 +80,6 @@ class PomadoroViewController: UIViewController {
                 startButton.tintColor = .systemRed
                 noticeLabel.textColor = .systemRed
             }
-            
             
         case .start:
             UIView.animate(withDuration: 0.3) { [self] in
@@ -100,6 +105,7 @@ class PomadoroViewController: UIViewController {
             time -= 1
             pomadoroLabel.text = formatTime()
         }  else if time == 0 && timerStarted.tomatoRestTimerStarted == false {
+            playAlarmSound()
             print("Таймер отдыха")
             setupUi(for: .recycle)
             time = 30
