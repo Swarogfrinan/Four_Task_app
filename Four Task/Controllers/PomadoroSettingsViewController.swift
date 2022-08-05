@@ -8,32 +8,37 @@
 import UIKit
 
 class PomadoroSettingsViewController: UIViewController {
-    // define lazy views
+    // MARK: - Let-var
+    var models = [Section]()
+    /// Constants
+    let defaultHeight: CGFloat = 300
+    let dismissibleHeight: CGFloat = 200
+    let maximumContainerHeight: CGFloat = UIScreen.main.bounds.height - 64
+    // keep current new height, initial is default height
+    var currentContainerHeight: CGFloat = 300
+    
+    // Dynamic container constraint
+    var containerViewHeightConstraint: NSLayoutConstraint?
+    var containerViewBottomConstraint: NSLayoutConstraint?
+    
+    /// define lazy views
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Настройки 🍅"
         label.font = .boldSystemFont(ofSize: 20)
         return label
     }()
-    lazy var settingsView: UIView() {
-        let view = UIView()
-        view.backgroundColor = .systemYellow
-        view.layer.cornerRadius = 16
-        view.clipsToBounds = true
-        return view
-    }
-    lazy var notesLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sem fringilla ut morbi tincidunt augue interdum. \n\nUt morbi tincidunt augue interdum velit euismod in pellentesque massa. Pulvinar etiam non quam lacus suspendisse faucibus interdum posuere. Mi in nulla posuere sollicitudin aliquam ultrices sagittis orci a. Eget nullam non nisi est sit amet. Odio pellentesque diam volutpat commodo. Id eu nisl nunc mi ipsum faucibus vitae.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sem fringilla ut morbi tincidunt augue interdum. Ut morbi tincidunt augue interdum velit euismod in pellentesque massa."
-        label.font = .systemFont(ofSize: 16)
-        label.textColor = .darkGray
-        label.numberOfLines = 0
-        return label
+    
+    private let tableView: UITableView = {
+        let table = UITableView(frame: .zero, style: .grouped)
+        table.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.identifier)
+        table.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
+        return table
     }()
     
     lazy var contentStackView: UIStackView = {
         let spacer = UIView()
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, notesLabel, spacer])
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, tableView, spacer])
         stackView.axis = .vertical
         stackView.spacing = 12.0
         return stackView
@@ -55,21 +60,16 @@ class PomadoroSettingsViewController: UIViewController {
         return view
     }()
     
-    // Constants
-    let defaultHeight: CGFloat = 300
-    let dismissibleHeight: CGFloat = 200
-    let maximumContainerHeight: CGFloat = UIScreen.main.bounds.height - 64
-    // keep current new height, initial is default height
-    var currentContainerHeight: CGFloat = 300
     
-    // Dynamic container constraint
-    var containerViewHeightConstraint: NSLayoutConstraint?
-    var containerViewBottomConstraint: NSLayoutConstraint?
     
+    // MARK: - Lifecycle ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         setupView()
         setupConstraints()
+        configure()
         // tap gesture on dimmed view to dismiss
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleCloseAction))
         dimmedView.addGestureRecognizer(tapGesture)
@@ -80,13 +80,13 @@ class PomadoroSettingsViewController: UIViewController {
     @objc func handleCloseAction() {
         animateDismissView()
     }
-    
+    // MARK: - Lifecycle viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animateShowDimmedView()
         animatePresentContainer()
     }
-    
+    // MARK: - Methods
     func setupView() {
         view.backgroundColor = .clear
     }
@@ -232,5 +232,84 @@ class PomadoroSettingsViewController: UIViewController {
             // call this to trigger refresh constraint
             self.view.layoutIfNeeded()
         }
+    }
+    func configure() {
+        models.append(Section(title: "Итоги томата", options: [
+            
+            .staticCell(model: SettingsOption(title: "Фокус : 50:00, Отдыха: 25:00", icon: UIImage(named: "tomatoTimer"), iconBackgroundColor: .systemIndigo) {
+            })
+        ]))
+        
+        models.append(Section(title: "Звуки", options: [
+            .switchCell(model: SettingsSwitchOption(title: "Звук", icon: UIImage(systemName:"speaker.wave.3.fill"), iconBackgroundColor: .systemIndigo, handler: {
+                
+            }, isOn: true)),
+            
+                .switchCell(model: SettingsSwitchOption(title: "Уведомления", icon: UIImage(systemName: "bell.badge.fill"), iconBackgroundColor: .systemPink, handler: {
+                    print("Notificati,on in PomadoroTimer ON")
+                }, isOn: true)),
+            
+                .staticCell(model: SettingsOption(title: "Фоновая работа", icon: UIImage(systemName: "bag"), iconBackgroundColor: .systemPink) {
+                }),
+        ]))
+    }
+}
+
+// MARK: - Extension Table Delegate/DataSource
+extension PomadoroSettingsViewController : UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let section = models[section]
+        return section.title
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return models.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return models[section].options.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let model = models[indexPath.section].options[indexPath.row]
+        
+        switch model.self {
+            
+        case .staticCell(let model):
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: SettingsTableViewCell.identifier,
+                for: indexPath
+            ) as? SettingsTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            cell.configure(with: model)
+            return cell
+            
+            
+        case .switchCell(let model):
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: SwitchTableViewCell.identifier,
+                for: indexPath
+            ) as? SwitchTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            cell.configure(with: model)
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let type = models[indexPath.section].options[indexPath.row]
+        switch type.self {
+        case .switchCell(let model):
+            model.handler()
+        case .staticCell(let model):
+            model.handler()
+        }
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 }

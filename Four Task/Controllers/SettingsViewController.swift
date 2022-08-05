@@ -30,7 +30,7 @@ struct SettingsOption {
     let iconBackgroundColor: UIColor
     let handler: (() -> Void)
 }
-class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SettingsViewController: UIViewController {
     // MARK: - Let-var
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -60,9 +60,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         models.append(Section(title: "Таймеры", options: [
             .switchCell(model: SettingsSwitchOption(title: "Томат", icon: UIImage(named: "tomatoTimer"), iconBackgroundColor: .systemIndigo, handler: {
             }, isOn: false)),
-            //            ]))
-            
-            //        models.append(Section(title: "Таймер 4 задач", options: [
                 .switchCell(model: SettingsSwitchOption(title: "4 задачи", icon: UIImage(systemName:"square.grid.2x2.fill"), iconBackgroundColor: .systemIndigo, handler: {
                     
                 }, isOn: false))
@@ -96,6 +93,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         ]))
         
     }
+}
+// MARK: - Extension Table Delegate/DataSource
+extension SettingsViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let section = models[section]
         return section.title
@@ -148,9 +148,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             model.handler()
         }
     }
-    //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    //        return 0
-    //    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
 }
 
 

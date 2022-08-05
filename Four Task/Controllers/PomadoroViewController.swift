@@ -10,36 +10,41 @@ import AVFoundation
 import CountableLabel
 
 //MARK: - Enums
+///Кейсы анимаций кнопки "Старт"
 enum SetupAnimate {
     case stop
     case start
     case relax
 }
 
-//MARK: - ResetAction
+//MARK: - PomadoroViewController
 class PomadoroViewController: UIViewController {
     //MARK: - IBOutlets
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var pomadoroLabel: CountableLabel!
     @IBOutlet weak var pomadoroSettingsButton: UIButton!
     @IBOutlet weak var noticeLabel: UILabel!
+    @IBOutlet weak var pomadoroImage: UIImageView!
+    
     //MARK: - let/var
-    var audioPlayer = AVAudioPlayer()
     let endOfTomatoSound: SystemSoundID = 1328
-    var tomatoTimer = Timer()
-    var defaultTime = 1500
     let concetrationTime = 1500
     let relaxTime = 300
     
-    
+    var audioPlayer = AVAudioPlayer()
+    var tomatoTimer = Timer()
+    var defaultTime = 1500
+    //Notification after timers work.
     var notificationManager = NotificationManager()
     
+    //MARK: - lifecycle viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         notificationManager.checkAuthorizationNotification()
     }
+    //MARK: - lifecycle ViewDidDisappear
     override func viewDidDisappear(_ animated: Bool) {
         stopTimer()
-        print("Pomadoro timer уничтожен так как VC закрылся. ")
+        print("Pomadoro timer уничтожен так как VC закрылся.")
     }
     //MARK: - lifecycle ViewController
     override func viewDidLoad() {
@@ -48,7 +53,7 @@ class PomadoroViewController: UIViewController {
         
     }
     //MARK: - IBA Methods
-    ///Нажатие кнопки
+    ///Нажатие кнопки старта
     @IBAction func actionButtonPressed(_ sender: UIButton) {
         ///Старт таймера
         if  timerStarted.tomatoTimerStarted == false {
@@ -60,11 +65,12 @@ class PomadoroViewController: UIViewController {
             stopTimer()
         }
     }
+    ///Нажатие картинки Помидора после чего появляется half-screen с настройками.
     @IBAction func pomadoroButtonPressed(_ sender: UIButton) {
         let controller = PomadoroSettingsViewController()
         controller.modalPresentationStyle = .overCurrentContext
         self.present(controller, animated: false)
-
+        
     }
     //MARK: - Methods
     ///Функция запуска таймера
@@ -77,15 +83,17 @@ class PomadoroViewController: UIViewController {
         tomatoTimer.invalidate()
         timerStarted.tomatoTimerStarted = false
     }
+    ///Приветственный лейбл-заглушка
     private func setupGreetingsLabel() {
         pomadoroLabel.text = "Lets go studing"
     }
-    
+    ///Форматирование времени
     func formatTime() -> String {
         let minutes = Int(defaultTime) / 60 % 60
         let seconds = Int(defaultTime) % 60
         return String(format:"%02i:%02i", minutes, seconds)
     }
+    ///Проигрывание звука Alarm и вибрации после завершения 25 минутного периода.
     func playAlarmSound() {
         AudioServicesPlaySystemSound(endOfTomatoSound)
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)

@@ -13,7 +13,7 @@ class SettingsTableViewCell: UITableViewCell {
     private let iconContainer: UIView = {
         let view = UIView()
         view.clipsToBounds = true
-        view.layer.cornerRadius = 8
+        view.layer.cornerRadius = 10
         view.layer.masksToBounds = true
         return view
     }()
@@ -21,6 +21,7 @@ class SettingsTableViewCell: UITableViewCell {
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.tintColor = .white
+        imageView.layer.cornerRadius = 10
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
