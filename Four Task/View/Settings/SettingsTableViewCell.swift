@@ -9,6 +9,7 @@ import UIKit
 
 class SettingsTableViewCell: UITableViewCell {
     static let identifier = "SettingsTableViewCell"
+    //MARK: - PomadoroViewController
     ///Фоновой цвет позади иконки.
     private let iconContainer: UIView = {
         let view = UIView()
@@ -17,7 +18,7 @@ class SettingsTableViewCell: UITableViewCell {
         view.layer.masksToBounds = true
         return view
     }()
-    ///Иконка.
+    ///Иконка-картинка в ячейке.
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.tintColor = .white
@@ -31,6 +32,7 @@ class SettingsTableViewCell: UITableViewCell {
         label.numberOfLines = 1
         return label
     }()
+    //MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(label)
@@ -44,6 +46,7 @@ class SettingsTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    //MARK: - Layout
     override func layoutSubviews() {
         super.layoutSubviews()
         let size: CGFloat = contentView.frame.size.height - 12
@@ -61,12 +64,14 @@ class SettingsTableViewCell: UITableViewCell {
             height: contentView.frame.size.height
         )
     }
+    //MARK: - PrepareForReuse
     override func prepareForReuse() {
         super.prepareForReuse()
         iconContainer.backgroundColor = nil
         label.text = nil
         iconImageView.image = nil
     }
+    //MARK: - Configure
     public func configure(with model: SettingsOption) {
         label.text = model.title
         iconImageView.image = model.icon

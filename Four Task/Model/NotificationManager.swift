@@ -9,18 +9,20 @@ import Foundation
 import UserNotifications
 
 final class NotificationManager {
+    //MARK: - let/var
+    let notificationCenter = UNUserNotificationCenter.current()
     
-let notificationCenter = UNUserNotificationCenter.current()
-    
+    //MARK: - Methods
     func checkAuthorizationNotification() {
-notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
-    guard granted else { return }
-    self.notificationCenter.getNotificationSettings { (settings) in
-        print(settings)
-        guard settings.authorizationStatus == .authorized else { return }
+        notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            guard granted else { return }
+            self.notificationCenter.getNotificationSettings { (settings) in
+                print(settings)
+                guard settings.authorizationStatus == .authorized else { return }
+            }
+        }
     }
-}
-}
+    ///Отправить уведомление юзеру что "Фокус" закончен.
     func sendNotificationToRelax() {
         
         let content = UNMutableNotificationContent()
@@ -35,6 +37,7 @@ notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { (gr
             print(error?.localizedDescription as Any)
         }
     }
+    ///Отправить уведомление юзеру что "Отдых" закончен.
     func sendNotificationToWork() {
         
         let content = UNMutableNotificationContent()
@@ -51,11 +54,13 @@ notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { (gr
     }
     
 }
+//MARK: - Extension AppDelegate
 extension AppDelegate : UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert, .badge, .sound])
     }
+    ///Нажатие на уведомление при открытом приложении.
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print(#function)
         print("Сработало уведомление не в бэкграунде")

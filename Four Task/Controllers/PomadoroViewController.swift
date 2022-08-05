@@ -16,7 +16,8 @@ enum SetupAnimate {
     case start
     case relax
 }
-
+var focusCount = 0
+var relaxCount = 0
 //MARK: - PomadoroViewController
 class PomadoroViewController: UIViewController {
     //MARK: - IBOutlets
@@ -50,17 +51,16 @@ class PomadoroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupGreetingsLabel()
-        
     }
     //MARK: - IBA Methods
     ///Нажатие кнопки старта
     @IBAction func actionButtonPressed(_ sender: UIButton) {
         ///Старт таймера
-        if  timerStarted.tomatoTimerStarted == false {
+        if  !timerStarted.tomatoTimerStarted  {
             setupUi(for: .stop)
             startTimer()
             ///Стоп таймера
-        } else if timerStarted.tomatoTimerStarted == true {
+        } else if timerStarted.tomatoTimerStarted {
             setupUi(for: .start)
             stopTimer()
         }
@@ -88,7 +88,7 @@ class PomadoroViewController: UIViewController {
         pomadoroLabel.text = "Lets go studing"
     }
     ///Форматирование времени
-    func formatTime() -> String {
+    public func formatTime() -> String {
         let minutes = Int(defaultTime) / 60 % 60
         let seconds = Int(defaultTime) % 60
         return String(format:"%02i:%02i", minutes, seconds)
@@ -98,9 +98,11 @@ class PomadoroViewController: UIViewController {
         AudioServicesPlaySystemSound(endOfTomatoSound)
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
     }
-    
+
+    ///Установка UI кнопки "Старт".
     func setupUi(for animate: SetupAnimate) {
         switch animate {
+            ///Надписи красные, время паузы.
         case .stop:
             UIView.animate(withDuration: 0.3) { [self] in
                 startButton.setImage(UIImage(systemName: "stop.fill"), for: .normal)
@@ -109,7 +111,7 @@ class PomadoroViewController: UIViewController {
                 startButton.tintColor = .systemRed
                 noticeLabel.textColor = .systemRed
             }
-            
+            ///Надписи синие, время фокуса.
         case .start:
             UIView.animate(withDuration: 0.3) { [self] in
                 startButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
@@ -118,6 +120,7 @@ class PomadoroViewController: UIViewController {
                 startButton.tintColor = .systemBlue
                 noticeLabel.textColor = .systemBlue
             }
+        ///Надписи зеленые, время отдыха.
         case .relax:
             UIView.animate(withDuration: 0.3) { [self] in
                 startButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
@@ -133,7 +136,8 @@ class PomadoroViewController: UIViewController {
         if defaultTime > 0 {
             defaultTime -= 1
             pomadoroLabel.text = formatTime()
-        }  else if defaultTime == 0 && timerStarted.tomatoRestTimerStarted == false {
+        }  else if defaultTime == 0 && !timerStarted.tomatoRestTimerStarted  {
+            focusCount += 1
             playAlarmSound()
             print("Таймер отдыха сработал")
             setupUi(for: .relax)
@@ -141,8 +145,10 @@ class PomadoroViewController: UIViewController {
             timerStarted.tomatoRestTimerStarted = true
             pomadoroLabel.text = "5:00"
             noticeLabel.text = "Повод сделать зарядку!"
+            
             stopTimer()
-        } else if defaultTime == 0 && timerStarted.tomatoRestTimerStarted == true {
+        } else if defaultTime == 0 && timerStarted.tomatoRestTimerStarted  {
+            relaxCount += 1
             timerStarted.tomatoRestTimerStarted = false
             stopTimer()
             print("Таймер концентрации после таймера отдыха")

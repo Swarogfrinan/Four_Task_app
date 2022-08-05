@@ -78,7 +78,7 @@ extension ViewController {
         let diff = start.timeIntervalSince(stop)
         return Date().addingTimeInterval(diff)
     }
-    //MARK: - SET STOP_START_COUNTING_KEYS
+    //MARK: - Set userdefaults Keys.
     fileprivate func setStopTimeOne(date: Date?) {
         stopTimeOne = date
         userDefaults.set(stopTimeOne, forKey: FirstKeys.stop.rawValue)
@@ -94,6 +94,7 @@ extension ViewController {
         userDefaults.set(timerStarted.firstTimerStarted, forKey: FirstKeys.counting.rawValue)
         print("Установлен setTimerCountingOne по Counting_keys0 в FirstButtonLogic.")
     }
+    ///Установить лейблы и цвета по отформатированному времени.
     fileprivate func setTimeLabelOne(_ value: Int) {
         let time = secToHourMinutesSeconds(seconds: value)
         let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
@@ -103,6 +104,7 @@ extension ViewController {
     }
   
     //MARK: - ResetAction
+    ///Сбросить Date  и выставить лейблы на 0
     func resetActionOne() {
         setStopTimeOne(date: nil)
         setStartTimeOne(date: nil)

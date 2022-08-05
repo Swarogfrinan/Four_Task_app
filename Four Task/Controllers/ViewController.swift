@@ -23,7 +23,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var secondButton: UIButton!
     @IBOutlet weak var thirdButton: UIButton!
     @IBOutlet weak var fourButton: UIButton!
-    
     ///IBOutlet Leading View
     ///Неизменяемые лейблы нумерации
     @IBOutlet weak var ordinalFirstLabel: UILabel!
@@ -41,6 +40,7 @@ class ViewController: UIViewController {
     //MARK: - Lifecycle.
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupLabel()
         makeCurrentTime()
         
@@ -181,6 +181,7 @@ class ViewController: UIViewController {
             timerCounting = false
         }
     }
+    ///Установка приветственного лейбла-заглушки
     func setupLabel() {
         clockLabel.text = "Lets work"
     }
@@ -192,7 +193,7 @@ class ViewController: UIViewController {
 }
 //MARK: - Extension + ViewController
 extension ViewController {
-    
+    ///Выставление текущего времени дня.
     public func makeCurrentTime() {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (_) in
             let date = Date()

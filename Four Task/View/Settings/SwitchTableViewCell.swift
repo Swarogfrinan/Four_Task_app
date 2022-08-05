@@ -8,9 +8,9 @@
 import UIKit
 
 class SwitchTableViewCell: UITableViewCell {
-    
+    //MARK: - Let/var
     static let identifier = "SwitchTableViewCell"
-    
+    ///Фоновой цвет позади иконки.
     private let iconContainer: UIView = {
         let view = UIView()
         view.clipsToBounds = true
@@ -18,20 +18,20 @@ class SwitchTableViewCell: UITableViewCell {
         view.layer.masksToBounds = true
         return view
     }()
-    
+    ///Иконка-картинка в ячейке.
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.tintColor = .white
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    
+    ///Текстовое описание настройки
     private let label: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
         return label
     }()
-    
+    ///Switch кнопка смена состояния.
     private let mySwitch: UISwitch = {
         let mySwitch = UISwitch()
         mySwitch.onTintColor = .systemRed
@@ -41,12 +41,13 @@ class SwitchTableViewCell: UITableViewCell {
     
     @objc func changeAppSwitchValue() {
         if mySwitch.isOn {
-            print("Start pomadoro timer")
+            print("mySwith is ON switched")
             
         } else {
-            print("Start four-task timer")
+            print("mySwith is OF switched")
         }
     }
+    //MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(label)
@@ -61,6 +62,7 @@ class SwitchTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    //MARK: - Layout
     override func layoutSubviews() {
         super.layoutSubviews()
         let size: CGFloat = contentView.frame.size.height - 12
@@ -92,7 +94,7 @@ class SwitchTableViewCell: UITableViewCell {
             height: contentView.frame.size.height
         )
     }
-    
+    //MARK: - PrepareForReuse
     override func prepareForReuse() {
         super.prepareForReuse()
         iconContainer.backgroundColor = nil
@@ -100,7 +102,7 @@ class SwitchTableViewCell: UITableViewCell {
         iconImageView.image = nil
         mySwitch.isOn = false
     }
-    
+    //MARK: - Configure
     public func configure(with model: SettingsSwitchOption) {
         label.text = model.title
         iconImageView.image = model.icon

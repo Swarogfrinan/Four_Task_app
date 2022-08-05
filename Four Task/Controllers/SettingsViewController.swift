@@ -56,44 +56,81 @@ class SettingsViewController: UIViewController {
     }
     // MARK: - Methods
     func configure() {
-        
         models.append(Section(title: "Таймеры", options: [
-            .switchCell(model: SettingsSwitchOption(title: "Томат", icon: UIImage(named: "tomatoTimer"), iconBackgroundColor: .systemIndigo, handler: {
-            }, isOn: false)),
-                .switchCell(model: SettingsSwitchOption(title: "4 задачи", icon: UIImage(systemName:"square.grid.2x2.fill"), iconBackgroundColor: .systemIndigo, handler: {
+            .switchCell(model: SettingsSwitchOption(
+                title: "Томат",
+                icon: UIImage(named: "tomatoTimer"),
+                iconBackgroundColor: .systemIndigo,
+                handler: {
+            
+            },
+                isOn: false)),
+            
+                .switchCell(model: SettingsSwitchOption(
+                    title: "4 задачи",
+                    icon: UIImage(systemName:"square.grid.2x2.fill"),
+                    iconBackgroundColor: .systemIndigo,
+                    handler: {
                     
-                }, isOn: false))
-            
-            
+                },
+                    isOn: false))
         ]))
         
         
         models.append(Section(title: "Ticking sound", options: [
-            .switchCell(model: SettingsSwitchOption(title: "Silent mode", icon: UIImage(systemName:"square.grid.2x2.fill"), iconBackgroundColor: .systemIndigo, handler: {
-                
-            }, isOn: false)),
+           
+            .switchCell(model: SettingsSwitchOption(
+                title: "Silent mode", icon: UIImage(systemName:"square.grid.2x2.fill"),
+                iconBackgroundColor: .systemIndigo,
+                handler: {
+            },
+                isOn: false)),
             
-                .staticCell(model: SettingsOption(title: "Focus ticking", icon: UIImage(systemName: "speaker.wave.3.fill"), iconBackgroundColor: .systemPink) {
+                .staticCell(model: SettingsOption(
+                    title: "Focus ticking",
+                    icon: UIImage(systemName: "speaker.wave.3.fill"),
+                    iconBackgroundColor: .systemPink) {
                     print("Ticking sound tapped")
                 }),
-            .staticCell(model: SettingsOption(title: "Focus Alarm", icon: UIImage(systemName: "bell.and.waves.left.and.right.fill"), iconBackgroundColor: .systemPink) {
+            
+            .staticCell(model: SettingsOption(
+                title: "Focus Alarm",
+                icon: UIImage(systemName: "bell.and.waves.left.and.right.fill"),
+                iconBackgroundColor: .systemPink) {
             }),
         ]))
         
         models.append(Section(title: "Help & feedback", options: [
-            .staticCell(model: SettingsOption(title: "Email us", icon: UIImage(systemName: "mail"), iconBackgroundColor: .systemPink) {
+            
+            .staticCell(model: SettingsOption(
+                title: "Email us",
+                icon: UIImage(systemName: "mail"),
+                iconBackgroundColor: .systemPink) {
                 print("Help & feedback tapped")
             }),
-            .staticCell(model: SettingsOption(title: "How timer works", icon: UIImage(systemName: "timer"), iconBackgroundColor: .systemPink) {
+            
+            .staticCell(model: SettingsOption(
+                title: "How timer works",
+                icon: UIImage(systemName: "timer"),
+                iconBackgroundColor: .systemPink) {
             }),
-            .staticCell(model: SettingsOption(title: "Airplane mood", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemGreen) {
+            
+            .staticCell(model: SettingsOption(
+                title: "Airplane mood",
+                icon: UIImage(systemName: "airplane"),
+                iconBackgroundColor: .systemGreen) {
             }),
-            .staticCell(model: SettingsOption(title: "Icloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .systemOrange) {
+            
+            .staticCell(model: SettingsOption(
+                title: "Icloud",
+                icon: UIImage(systemName: "cloud"),
+                iconBackgroundColor: .systemOrange) {
             }),
+            
         ]))
-        
     }
 }
+
 // MARK: - Extension Table Delegate/DataSource
 extension SettingsViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

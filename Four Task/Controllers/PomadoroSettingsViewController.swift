@@ -28,14 +28,14 @@ class PomadoroSettingsViewController: UIViewController {
         label.font = .boldSystemFont(ofSize: 20)
         return label
     }()
-    
+    ///TableView с статичной и свитч ячейкой.
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.identifier)
         table.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
         return table
     }()
-    
+    ///Стак-вью содержащий лейбл и таблицу с ячейками.
     lazy var contentStackView: UIStackView = {
         let spacer = UIView()
         let stackView = UIStackView(arrangedSubviews: [titleLabel, tableView, spacer])
@@ -43,7 +43,7 @@ class PomadoroSettingsViewController: UIViewController {
         stackView.spacing = 12.0
         return stackView
     }()
-    
+    ///Контейнер-Вью на половину экрана.
     lazy var containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -65,15 +65,18 @@ class PomadoroSettingsViewController: UIViewController {
     // MARK: - Lifecycle ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        ///Подписываемся на delegat и dataSource
         tableView.delegate = self
         tableView.dataSource = self
+        ///Устанавливаем Вью, конфигурируем ячейки таблицы.
         setupView()
         setupConstraints()
-        configure()
+        configureCells()
+        
+        // MARK: - TapGesture
         // tap gesture on dimmed view to dismiss
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleCloseAction))
         dimmedView.addGestureRecognizer(tapGesture)
-        
         setupPanGesture()
     }
     
@@ -83,56 +86,15 @@ class PomadoroSettingsViewController: UIViewController {
     // MARK: - Lifecycle viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         animateShowDimmedView()
         animatePresentContainer()
     }
     // MARK: - Methods
-    func setupView() {
+    private func setupView() {
         view.backgroundColor = .clear
     }
-    
-    func setupConstraints() {
-        // Add subviews
-        view.addSubview(dimmedView)
-        view.addSubview(containerView)
-        dimmedView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        
-        containerView.addSubview(contentStackView)
-        contentStackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        // Set static constraints
-        NSLayoutConstraint.activate([
-            // set dimmedView edges to superview
-            dimmedView.topAnchor.constraint(equalTo: view.topAnchor),
-            dimmedView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            dimmedView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            dimmedView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            // set container static constraint (trailing & leading)
-            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            // content stackView
-            contentStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 32),
-            contentStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20),
-            contentStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
-            contentStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
-        ])
-        
-        // Set dynamic constraints
-        // First, set container to default height
-        // after panning, the height can expand
-        containerViewHeightConstraint = containerView.heightAnchor.constraint(equalToConstant: defaultHeight)
-        
-        // By setting the height to default height, the container will be hide below the bottom anchor view
-        // Later, will bring it up by set it to 0
-        // set the constant to default height to bring it down again
-        containerViewBottomConstraint = containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: defaultHeight)
-        // Activate constraints
-        containerViewHeightConstraint?.isActive = true
-        containerViewBottomConstraint?.isActive = true
-    }
-    
-    func setupPanGesture() {
+   private func setupPanGesture() {
         // add pan gesture recognizer to the view controller's view (the whole screen)
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.handlePanGesture(gesture:)))
         // change to false to immediately listen on gesture movement
@@ -189,7 +151,7 @@ class PomadoroSettingsViewController: UIViewController {
         }
     }
     
-    func animateContainerHeight(_ height: CGFloat) {
+   private func animateContainerHeight(_ height: CGFloat) {
         UIView.animate(withDuration: 0.4) {
             // Update container height
             self.containerViewHeightConstraint?.constant = height
@@ -201,7 +163,7 @@ class PomadoroSettingsViewController: UIViewController {
     }
     
     // MARK: Present and dismiss animation
-    func animatePresentContainer() {
+   private func animatePresentContainer() {
         // update bottom constraint in animation block
         UIView.animate(withDuration: 0.3) {
             self.containerViewBottomConstraint?.constant = 0
@@ -210,7 +172,7 @@ class PomadoroSettingsViewController: UIViewController {
         }
     }
     
-    func animateShowDimmedView() {
+   private func animateShowDimmedView() {
         dimmedView.alpha = 0
         UIView.animate(withDuration: 0.4) {
             self.dimmedView.alpha = self.maxDimmedAlpha
@@ -233,25 +195,93 @@ class PomadoroSettingsViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
-    func configure() {
+    
+    private func formatTimeFocus() -> String {
+         let minutes = Int(focusCount * 25) / 60 % 60
+         let seconds = Int(focusCount * 25) % 60
+         return String(format:"%02i:%02i", minutes, seconds)
+     }
+    private func formatTimeRelax() -> String {
+        let minutes = Int(relaxCount * 5) / 60 % 60
+        let seconds = Int(relaxCount * 5) % 60
+         return String(format:"%02i:%02i", minutes, seconds)
+     }
+    ///Установка ячеек таблиц
+   private func configureCells() {
         models.append(Section(title: "Итоги томата", options: [
             
-            .staticCell(model: SettingsOption(title: "Фокус : 50:00, Отдыха: 25:00", icon: UIImage(named: "tomatoTimer"), iconBackgroundColor: .systemIndigo) {
+        .staticCell(model: SettingsOption(
+            title: "Фокус = \(formatTimeFocus()), Отдых = \(formatTimeRelax())",
+//
+            icon: UIImage(named: "tomatoTimer"),
+            iconBackgroundColor: .systemIndigo) {
             })
         ]))
         
         models.append(Section(title: "Звуки", options: [
-            .switchCell(model: SettingsSwitchOption(title: "Звук", icon: UIImage(systemName:"speaker.wave.3.fill"), iconBackgroundColor: .systemIndigo, handler: {
+            .switchCell(model: SettingsSwitchOption(
+                title: "Звук",
+                icon: UIImage(systemName:"speaker.wave.3.fill"),
+                iconBackgroundColor: .systemIndigo,
+                handler: {
                 
-            }, isOn: true)),
+            },
+                isOn: true)),
             
-                .switchCell(model: SettingsSwitchOption(title: "Уведомления", icon: UIImage(systemName: "bell.badge.fill"), iconBackgroundColor: .systemPink, handler: {
+            .switchCell(model: SettingsSwitchOption(
+                title: "Уведомления",
+                icon: UIImage(systemName: "bell.badge.fill"),
+                iconBackgroundColor: .systemPink,
+                handler: {
                     print("Notificati,on in PomadoroTimer ON")
-                }, isOn: true)),
+                },
+                isOn: true)),
             
-                .staticCell(model: SettingsOption(title: "Фоновая работа", icon: UIImage(systemName: "bag"), iconBackgroundColor: .systemPink) {
+                .staticCell(model: SettingsOption(
+                    title: "Фоновая работа",
+                    icon: UIImage(systemName: "bag"),
+                    iconBackgroundColor: .systemPink) {
                 }),
         ]))
+    }
+    ///Layout
+    func setupConstraints() {
+        // Add subviews
+        view.addSubview(dimmedView)
+        view.addSubview(containerView)
+        dimmedView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        containerView.addSubview(contentStackView)
+        contentStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Устанавливаем статичные констрейны.
+        NSLayoutConstraint.activate([
+            // set dimmedView edges to superview
+            dimmedView.topAnchor.constraint(equalTo: view.topAnchor),
+            dimmedView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            dimmedView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            dimmedView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            // set container static constraint (trailing & leading)
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            // content stackView
+            contentStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 32),
+            contentStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20),
+            contentStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
+            contentStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
+        ])
+        // Устанавливаем динамичные констрейны.
+        // Сначала, устанавливаем контейнеру дефолт высоту.
+        // После чего высота может увеличиваться.
+        containerViewHeightConstraint = containerView.heightAnchor.constraint(equalToConstant: defaultHeight)
+        // By setting the height to default height, the container will be hide below the bottom anchor view
+        // Later, will bring it up by set it to 0
+        // set the constant to default height to bring it down again
+        containerViewBottomConstraint = containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: defaultHeight)
+        // Activate constraints
+        containerViewHeightConstraint?.isActive = true
+        containerViewBottomConstraint?.isActive = true
     }
 }
 
