@@ -13,7 +13,7 @@ import CountableLabel
 enum SetupAnimate {
     case stop
     case start
-    case recycle
+    case relax
 }
 
 //MARK: - ResetAction
@@ -21,16 +21,31 @@ class PomadoroViewController: UIViewController {
     //MARK: - IBOutlets
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var pomadoroLabel: CountableLabel!
+    @IBOutlet weak var pomadoroSettingsButton: UIButton!
     @IBOutlet weak var noticeLabel: UILabel!
     //MARK: - let/var
     var audioPlayer = AVAudioPlayer()
     let endOfTomatoSound: SystemSoundID = 1328
     var tomatoTimer = Timer()
-    var time = 100
+    var defaultTime = 1500
+    let concetrationTime = 1500
+    let relaxTime = 300
+    
+    
+    var notificationManager = NotificationManager()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        notificationManager.checkAuthorizationNotification()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        stopTimer()
+        print("Pomadoro timer уничтожен так как VC закрылся. ")
+    }
     //MARK: - lifecycle ViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         setupGreetingsLabel()
+        
     }
     //MARK: - IBA Methods
     ///Нажатие кнопки
@@ -45,10 +60,16 @@ class PomadoroViewController: UIViewController {
             stopTimer()
         }
     }
+    @IBAction func pomadoroButtonPressed(_ sender: UIButton) {
+        let controller = PomadoroSettingsViewController()
+        controller.modalPresentationStyle = .overCurrentContext
+        self.present(controller, animated: false)
+
+    }
     //MARK: - Methods
     ///Функция запуска таймера
     private func startTimer() {
-        tomatoTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        tomatoTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         timerStarted.tomatoTimerStarted = true
     }
     ///Функция стоп-таймера
@@ -61,8 +82,8 @@ class PomadoroViewController: UIViewController {
     }
     
     func formatTime() -> String {
-        let minutes = Int(time) / 60 % 60
-        let seconds = Int(time) % 60
+        let minutes = Int(defaultTime) / 60 % 60
+        let seconds = Int(defaultTime) % 60
         return String(format:"%02i:%02i", minutes, seconds)
     }
     func playAlarmSound() {
@@ -89,7 +110,7 @@ class PomadoroViewController: UIViewController {
                 startButton.tintColor = .systemBlue
                 noticeLabel.textColor = .systemBlue
             }
-        case .recycle:
+        case .relax:
             UIView.animate(withDuration: 0.3) { [self] in
                 startButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
                 startButton.setTitle("Отдых!", for: .normal)
@@ -101,24 +122,24 @@ class PomadoroViewController: UIViewController {
     }
     ///Ежесекундный счётчик Update Таймера.
     @objc func updateTimer() {
-        if time > 0 {
-            time -= 1
+        if defaultTime > 0 {
+            defaultTime -= 1
             pomadoroLabel.text = formatTime()
-        }  else if time == 0 && timerStarted.tomatoRestTimerStarted == false {
+        }  else if defaultTime == 0 && timerStarted.tomatoRestTimerStarted == false {
             playAlarmSound()
-            print("Таймер отдыха")
-            setupUi(for: .recycle)
-            time = 30
+            print("Таймер отдыха сработал")
+            setupUi(for: .relax)
+            defaultTime = relaxTime
             timerStarted.tomatoRestTimerStarted = true
             pomadoroLabel.text = "5:00"
             noticeLabel.text = "Повод сделать зарядку!"
             stopTimer()
-        } else if time == 0 && timerStarted.tomatoRestTimerStarted == true {
+        } else if defaultTime == 0 && timerStarted.tomatoRestTimerStarted == true {
             timerStarted.tomatoRestTimerStarted = false
             stopTimer()
-            print("Таймер старта после таймера отдыха")
+            print("Таймер концентрации после таймера отдыха")
             setupUi(for: .start)
-            time = 200
+            defaultTime = concetrationTime
             pomadoroLabel.text = "25:00"
         }
     }
