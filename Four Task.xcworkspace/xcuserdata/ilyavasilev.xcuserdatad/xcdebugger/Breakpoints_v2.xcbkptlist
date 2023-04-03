@@ -20,5 +20,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5E29BC68-19DA-4CD3-A12A-E8271593C85D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Four Task/Model/ButtonsLogic/FirstButtonLogic.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "firstRefreshBackgroundTimer()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5E29BC68-19DA-4CD3-A12A-E8271593C85D - f0f8d078931494cf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Four_Task.ViewController.pressedButton(Four_Task.Button) -&gt; ()"
+                  moduleName = "Four Task"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ilyavasilev/Documents/GitHub/Four%20Task/Four%20Task/Model/ButtonsLogic/FirstButtonLogic.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "251">
+               </Location>
+               <Location
+                  uuid = "5E29BC68-19DA-4CD3-A12A-E8271593C85D - ef99d4b5054cfbac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Four_Task.Button) -&gt; () in Four_Task.ViewController.pressedButton(Four_Task.Button) -&gt; ()"
+                  moduleName = "Four Task"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ilyavasilev/Documents/GitHub/Four%20Task/Four%20Task/Model/ButtonsLogic/FirstButtonLogic.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "124">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

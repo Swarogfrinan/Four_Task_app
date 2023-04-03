@@ -10,9 +10,8 @@ import UIKit
 
 
 //MARK: - Extension + Methods
-extension ViewController {
+extension FourTaskViewController {
    
-    
     ///СТАРТ ФУНКЦИЯ 1 задачи.
     func firstTaskStart() {
         if !timerStarted.firstTimerStarted {

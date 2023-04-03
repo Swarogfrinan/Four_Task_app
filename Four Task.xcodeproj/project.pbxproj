@@ -18,13 +18,12 @@
 		43BB9778288C0997006E6159 /* TotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BB9777288C0997006E6159 /* TotalViewController.swift */; };
 		43BB977A288C0A02006E6159 /* TotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BB9779288C0A02006E6159 /* TotalTableViewCell.swift */; };
 		43C590C02880196C00580253 /* TaskAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C590BF2880196C00580253 /* TaskAction.swift */; };
-		43C6D6BC289A69DB00672ADD /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6D6BB289A69DB00672ADD /* GameModel.swift */; };
 		43C6D6BE289A6A4D00672ADD /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6D6BD289A6A4D00672ADD /* TimerModel.swift */; };
 		43C815C328860577004B37C4 /* FirstButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C815C228860577004B37C4 /* FirstButtonLogic.swift */; };
 		43E3BF39289BC8E6002484F0 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3BF38289BC8E6002484F0 /* NotificationManager.swift */; };
 		43FE56BE287D7B680002BB51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE56BD287D7B680002BB51 /* AppDelegate.swift */; };
 		43FE56C0287D7B680002BB51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE56BF287D7B680002BB51 /* SceneDelegate.swift */; };
-		43FE56C2287D7B680002BB51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE56C1287D7B680002BB51 /* ViewController.swift */; };
+		43FE56C2287D7B680002BB51 /* FourTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE56C1287D7B680002BB51 /* FourTaskViewController.swift */; };
 		43FE56C5287D7B680002BB51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43FE56C3287D7B680002BB51 /* Main.storyboard */; };
 		43FE56C7287D7B6A0002BB51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43FE56C6287D7B6A0002BB51 /* Assets.xcassets */; };
 		43FE56CA287D7B6A0002BB51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43FE56C8287D7B6A0002BB51 /* LaunchScreen.storyboard */; };
@@ -44,7 +43,6 @@
 		43BB9777288C0997006E6159 /* TotalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalViewController.swift; sourceTree = "<group>"; };
 		43BB9779288C0A02006E6159 /* TotalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalTableViewCell.swift; sourceTree = "<group>"; };
 		43C590BF2880196C00580253 /* TaskAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAction.swift; sourceTree = "<group>"; };
-		43C6D6BB289A69DB00672ADD /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		43C6D6BD289A6A4D00672ADD /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		43C815C228860577004B37C4 /* FirstButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstButtonLogic.swift; sourceTree = "<group>"; };
 		43D09752288F24DC006D7390 /* PomadoroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PomadoroViewController.swift; path = "/Users/ilyavasilev/Documents/GitHub/Four Task/Four Task/Controllers/PomadoroViewController.swift"; sourceTree = "<absolute>"; };
@@ -52,7 +50,7 @@
 		43FE56BA287D7B680002BB51 /* Four Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Four Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FE56BD287D7B680002BB51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43FE56BF287D7B680002BB51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		43FE56C1287D7B680002BB51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		43FE56C1287D7B680002BB51 /* FourTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourTaskViewController.swift; sourceTree = "<group>"; };
 		43FE56C4287D7B680002BB51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43FE56C6287D7B6A0002BB51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43FE56C9287D7B6A0002BB51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -75,6 +73,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4303DCB029DAF3C600328D57 /* Pomadoro */ = {
+			isa = PBXGroup;
+			children = (
+				43B27436289D104D0051C3D9 /* PomadoroSettingsViewController.swift */,
+				430C9AC32899BF8700BF5A8B /* PomadoroViewController.swift */,
+				43D09752288F24DC006D7390 /* PomadoroViewController.swift */,
+			);
+			path = Pomadoro;
+			sourceTree = "<group>";
+		};
+		4303DCB129DB07C800328D57 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				43A184B22889D71200BAD964 /* SettingsTableViewCell.swift */,
+				43BB9775288ACA48006E6159 /* SwitchTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		4303DCB229DB07D400328D57 /* TotalViewController */ = {
+			isa = PBXGroup;
+			children = (
+				43BB9777288C0997006E6159 /* TotalViewController.swift */,
+				4303DCB329DB07DF00328D57 /* Cells */,
+			);
+			path = TotalViewController;
+			sourceTree = "<group>";
+		};
+		4303DCB329DB07DF00328D57 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				43BB9779288C0A02006E6159 /* TotalTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		439FCAF3753081288F422E2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,14 +117,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		43BB9772288ACA06006E6159 /* Settings */ = {
+		43BB9772288ACA06006E6159 /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				43BB9779288C0A02006E6159 /* TotalTableViewCell.swift */,
-				43A184B22889D71200BAD964 /* SettingsTableViewCell.swift */,
-				43BB9775288ACA48006E6159 /* SwitchTableViewCell.swift */,
+				43A184B02889C2DF00BAD964 /* SettingsViewController.swift */,
+				4303DCB129DB07C800328D57 /* Cells */,
 			);
-			path = Settings;
+			path = SettingsViewController;
 			sourceTree = "<group>";
 		};
 		43BF6C46287EF27F005A5FBB /* Model */ = {
@@ -99,14 +132,13 @@
 				43FE56D4287D8A7E0002BB51 /* KeysBrain.swift */,
 				43C590BF2880196C00580253 /* TaskAction.swift */,
 				43C6D6BD289A6A4D00672ADD /* TimerModel.swift */,
-				43C6D6BB289A69DB00672ADD /* GameModel.swift */,
 				43E3BF38289BC8E6002484F0 /* NotificationManager.swift */,
-				43C7B636289AE49B003201B3 /* ButtonsLogic */,
+				43C7B636289AE49B003201B3 /* AnimationBrain */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		43C7B636289AE49B003201B3 /* ButtonsLogic */ = {
+		43C7B636289AE49B003201B3 /* AnimationBrain */ = {
 			isa = PBXGroup;
 			children = (
 				43C815C228860577004B37C4 /* FirstButtonLogic.swift */,
@@ -114,7 +146,7 @@
 				43A0B3352887FE5E00C49695 /* ThirdButtonLogic.swift */,
 				43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */,
 			);
-			path = ButtonsLogic;
+			path = AnimationBrain;
 			sourceTree = "<group>";
 		};
 		43FE56B1287D7B680002BB51 = {
@@ -151,12 +183,9 @@
 		43FE56D1287D7B790002BB51 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				43FE56C1287D7B680002BB51 /* ViewController.swift */,
-				43A184B02889C2DF00BAD964 /* SettingsViewController.swift */,
-				43B27436289D104D0051C3D9 /* PomadoroSettingsViewController.swift */,
-				43D09752288F24DC006D7390 /* PomadoroViewController.swift */,
-				430C9AC32899BF8700BF5A8B /* PomadoroViewController.swift */,
-				43BB9777288C0997006E6159 /* TotalViewController.swift */,
+				43FE56C1287D7B680002BB51 /* FourTaskViewController.swift */,
+				4303DCB029DAF3C600328D57 /* Pomadoro */,
+				4303DCB229DB07D400328D57 /* TotalViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -175,7 +204,7 @@
 			children = (
 				43FE56C3287D7B680002BB51 /* Main.storyboard */,
 				43FE56C8287D7B6A0002BB51 /* LaunchScreen.storyboard */,
-				43BB9772288ACA06006E6159 /* Settings */,
+				43BB9772288ACA06006E6159 /* SettingsViewController */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -308,7 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43A0B3382887FE6A00C49695 /* FourButtonLogic.swift in Sources */,
-				43FE56C2287D7B680002BB51 /* ViewController.swift in Sources */,
+				43FE56C2287D7B680002BB51 /* FourTaskViewController.swift in Sources */,
 				43C815C328860577004B37C4 /* FirstButtonLogic.swift in Sources */,
 				43BB9778288C0997006E6159 /* TotalViewController.swift in Sources */,
 				43A184B12889C2DF00BAD964 /* SettingsViewController.swift in Sources */,
@@ -322,7 +351,6 @@
 				43BB977A288C0A02006E6159 /* TotalTableViewCell.swift in Sources */,
 				43E3BF39289BC8E6002484F0 /* NotificationManager.swift in Sources */,
 				43FE56C0287D7B680002BB51 /* SceneDelegate.swift in Sources */,
-				43C6D6BC289A69DB00672ADD /* GameModel.swift in Sources */,
 				43C6D6BE289A6A4D00672ADD /* TimerModel.swift in Sources */,
 				43A0B3362887FE5E00C49695 /* ThirdButtonLogic.swift in Sources */,
 				43A0B3342886FEED00C49695 /* SecondButtonLogic.swift in Sources */,
