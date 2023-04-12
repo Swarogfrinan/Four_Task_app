@@ -1,14 +1,8 @@
-//
-//  PomadoroSettings.swift
-//  Four Task
-//
-//  Created by Ilya Vasilev on 05.08.2022.
-//
-
 import UIKit
 
 class PomadoroSettingsViewController: UIViewController {
-    // MARK: - Let-var
+    
+    // MARK: - Properties
     var models = [Section]()
     /// Constants
     let defaultHeight: CGFloat = 300
@@ -22,12 +16,14 @@ class PomadoroSettingsViewController: UIViewController {
     var containerViewBottomConstraint: NSLayoutConstraint?
     
     /// define lazy views
+    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Настройки 🍅"
         label.font = .boldSystemFont(ofSize: 20)
         return label
     }()
+    
     ///TableView с статичной и свитч ячейкой.
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -35,6 +31,7 @@ class PomadoroSettingsViewController: UIViewController {
         table.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
         return table
     }()
+    
     ///Стак-вью содержащий лейбл и таблицу с ячейками.
     lazy var contentStackView: UIStackView = {
         let spacer = UIView()
@@ -43,6 +40,7 @@ class PomadoroSettingsViewController: UIViewController {
         stackView.spacing = 12.0
         return stackView
     }()
+    
     ///Контейнер-Вью на половину экрана.
     lazy var containerView: UIView = {
         let view = UIView()
@@ -59,10 +57,9 @@ class PomadoroSettingsViewController: UIViewController {
         view.alpha = maxDimmedAlpha
         return view
     }()
-    
-    
-    
+ 
     // MARK: - Lifecycle ViewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ///Подписываемся на delegat и dataSource
