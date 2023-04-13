@@ -43,23 +43,28 @@ class FourTaskViewController: UIViewController {
     
     //MARK: - IBOutlet methods
 
-    @IBAction func firstTaskButtonPressed(_ sender: Any) {
+    @IBAction func firstTaskButtonPressed(_ sender: UIButton) {
+        sender.tapScale(sender: sender)
         firstTask()
     }
 
-    @IBAction func secondTaskButtonPressed(_ sender: Any) {
+    @IBAction func secondTaskButtonPressed(_ sender: UIButton) {
+        sender.tapScale(sender: sender)
         secondTask()
     }
 
     @IBAction func thirdTaskButtonPressed(_ sender: UIButton) {
+        sender.tapScale(sender: sender)
         thirdTask()
     }
 
     @IBAction func fourTaskButtonPressed(_ sender: UIButton) {
+        sender.tapScale(sender: sender)
         fourTask()
     }
     
     @IBAction func refreshButtonPressed(_ sender: UIButton) {
+        sender.tapScale(sender: sender)
         setupRefreshAlert()
     }
 }
