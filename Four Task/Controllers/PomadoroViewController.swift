@@ -2,8 +2,6 @@ import UIKit
 import AVFoundation
 import CountableLabel
 
-//MARK: - PomadoroViewController
-
 class PomadoroViewController: UIViewController {
 
     //MARK: - IBOutlets
@@ -14,17 +12,15 @@ class PomadoroViewController: UIViewController {
     @IBOutlet weak var pomadoroImage: UIImageView!
     
     //MARK: - Properties
-    var audioPlayer = AVAudioPlayer()
-    var tomatoTimer = Timer()
+    private var audioPlayer = AVAudioPlayer()
+    private var tomatoTimer = Timer()
+    private  let count = Count()
+    private var notificationManager = NotificationManager()
     
-    let count = Count()
     private let endOfTomatoSound = SystemSoundID(Constants.Pomadoro.tomatoSoundID)
-    var defaultTime = Constants.Pomadoro.defaultDuration
+    private  var defaultTime = Constants.Pomadoro.defaultDuration
     private  let relaxTime = Constants.Pomadoro.durationRelax
 
-    //Notification after timers work.
-    var notificationManager = NotificationManager()
-    
     //MARK: - ViewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         notificationManager.checkAuthorizationNotification()
@@ -35,13 +31,14 @@ class PomadoroViewController: UIViewController {
         stopTimer()
         print(Constants.Pomadoro.dissappearMessage)
     }
-    //MARK: - viewDidLoad
+    
+    //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDefaultGreetingsLabel()
     }
     
-    //MARK: - IBA Methods
+    //MARK: - IBAction Methods
     @IBAction func actionButtonPressed(_ sender: UIButton) {
         if  !timerStarted.tomatoTimerStarted  {
             setupUi(for: .stop)
@@ -51,6 +48,7 @@ class PomadoroViewController: UIViewController {
             stopTimer()
         }
     }
+    
     @IBAction func pomadoroButtonPressed(_ sender: UIButton) {
         let controller = PomadoroSettingsViewController()
         controller.modalPresentationStyle = .overCurrentContext
@@ -112,8 +110,6 @@ private extension PomadoroViewController {
             }
         }
     }
-    
-    ///Ежесекундный счётчик Update Таймера.
     @objc func updateTimer() {
         if defaultTime > .zero {
             defaultTime -= .sec
