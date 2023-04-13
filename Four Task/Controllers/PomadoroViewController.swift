@@ -16,6 +16,7 @@ class PomadoroViewController: UIViewController {
     private var tomatoTimer = Timer()
     private  let count = Count()
     private var notificationManager = NotificationManager()
+    private var pomadoroBrain = PomadoroBrain()
     
     private let endOfTomatoSound = SystemSoundID(Constants.Pomadoro.tomatoSoundID)
     private  var defaultTime = Constants.Pomadoro.defaultDuration
@@ -40,10 +41,10 @@ class PomadoroViewController: UIViewController {
     
     //MARK: - IBAction Methods
     @IBAction func actionButtonPressed(_ sender: UIButton) {
-        if  !timerStarted.tomatoTimerStarted  {
+        if  !pomadoroBrain.timerStarted  {
             setupUi(for: .stop)
             startTimer()
-        } else if timerStarted.tomatoTimerStarted {
+        } else if pomadoroBrain.timerStarted {
             setupUi(for: .start)
             stopTimer()
         }
@@ -60,12 +61,12 @@ private extension PomadoroViewController {
     //MARK: - Private methods
      func startTimer() {
          tomatoTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-        timerStarted.tomatoTimerStarted = true
+         pomadoroBrain.timerStarted = true
     }
     
     func stopTimer() {
         tomatoTimer.invalidate()
-        timerStarted.tomatoTimerStarted = false
+        pomadoroBrain.timerStarted = false
     }
     
     private func formatTime() -> String {
@@ -82,8 +83,8 @@ private extension PomadoroViewController {
         AudioServicesPlaySystemSound(endOfTomatoSound)
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
     }
-    func setupUi(for animate: startedKeys) {
-        switch animate {
+    func setupUi(for animation: startedKeys) {
+        switch animation {
         case .stop:
             UIView.animate(withDuration: 0.3) { [self] in
                 startButton.setImage(UIImage(systemName: "stop.fill"), for: .normal)
@@ -110,24 +111,25 @@ private extension PomadoroViewController {
             }
         }
     }
+    
     @objc func updateTimer() {
         if defaultTime > .zero {
             defaultTime -= .sec
             pomadoroLabel.text = formatTime()
-        }  else if defaultTime == .zero && !timerStarted.tomatoRestTimerStarted  {
+        }  else if defaultTime == .zero && !pomadoroBrain.timerStarted  {
             count.focusCount += .sec
             playAlarmSound()
             print("Таймер отдыха сработал")
             setupUi(for: .relax)
             defaultTime = relaxTime
-            timerStarted.tomatoRestTimerStarted = true
+            pomadoroBrain.restTimerStarted = true
             pomadoroLabel.text = Constants.Titles.defaultRelaxLabel
             noticeLabel.text = Constants.Titles.callToRelaxLabel
             
             stopTimer()
-        } else if defaultTime == .zero && timerStarted.tomatoRestTimerStarted  {
+        } else if defaultTime == .zero &&  pomadoroBrain.restTimerStarted  {
             count.relaxCount += .sec
-            timerStarted.tomatoRestTimerStarted = false
+            pomadoroBrain.restTimerStarted = false
             stopTimer()
             print("Таймер концентрации после таймера отдыха")
             setupUi(for: .start)
