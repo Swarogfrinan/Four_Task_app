@@ -57,7 +57,7 @@ private extension PomadoroSettingsViewController {
         }
         Constants.currentContainerHeight = height
     }
-    
+    //TODO: Узнать зачем умножение на 25 и 5
     func formatTimeFocus() -> String {
         let minutes = Int(count.focusCount * 25) / 60 % 60
         let seconds = Int(count.focusCount * 25) % 60
