@@ -13,6 +13,7 @@
 		435784C329E8293700BDB495 /* UIFont+AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435784C229E8293700BDB495 /* UIFont+AppFonts.swift */; };
 		435784C529E8498A00BDB495 /* Int + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435784C429E8498A00BDB495 /* Int + Extension.swift */; };
 		435784C729E8500000BDB495 /* StartedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435784C629E8500000BDB495 /* StartedKeys.swift */; };
+		43917A5529E8BED10020A325 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43917A5429E8BED10020A325 /* UIButton+Extension.swift */; };
 		43A0B3342886FEED00C49695 /* SecondButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3332886FEED00C49695 /* SecondButtonLogic.swift */; };
 		43A0B3362887FE5E00C49695 /* ThirdButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3352887FE5E00C49695 /* ThirdButtonLogic.swift */; };
 		43A0B3382887FE6A00C49695 /* FourButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */; };
@@ -45,6 +46,7 @@
 		435784C229E8293700BDB495 /* UIFont+AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+AppFonts.swift"; sourceTree = "<group>"; };
 		435784C429E8498A00BDB495 /* Int + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int + Extension.swift"; sourceTree = "<group>"; };
 		435784C629E8500000BDB495 /* StartedKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartedKeys.swift; sourceTree = "<group>"; };
+		43917A5429E8BED10020A325 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		43A0B3332886FEED00C49695 /* SecondButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondButtonLogic.swift; sourceTree = "<group>"; };
 		43A0B3352887FE5E00C49695 /* ThirdButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdButtonLogic.swift; sourceTree = "<group>"; };
 		43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourButtonLogic.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			children = (
 				435784BD29E7F52300BDB495 /* Constants.swift */,
 				435784C229E8293700BDB495 /* UIFont+AppFonts.swift */,
+				43917A5429E8BED10020A325 /* UIButton+Extension.swift */,
 				435784C429E8498A00BDB495 /* Int + Extension.swift */,
 			);
 			name = Constants;
@@ -414,6 +417,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43A0B3382887FE6A00C49695 /* FourButtonLogic.swift in Sources */,
+				43917A5529E8BED10020A325 /* UIButton+Extension.swift in Sources */,
 				435784BE29E7F52300BDB495 /* Constants.swift in Sources */,
 				43FE56C2287D7B680002BB51 /* FourTaskViewController.swift in Sources */,
 				43C815C328860577004B37C4 /* FirstButtonLogic.swift in Sources */,
