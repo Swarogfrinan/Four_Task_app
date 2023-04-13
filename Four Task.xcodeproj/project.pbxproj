@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		430C9AC42899BF8700BF5A8B /* PomadoroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430C9AC32899BF8700BF5A8B /* PomadoroViewController.swift */; };
 		435784BE29E7F52300BDB495 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435784BD29E7F52300BDB495 /* Constants.swift */; };
+		435784C129E8255100BDB495 /* Count.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435784C029E8255100BDB495 /* Count.swift */; };
 		43A0B3342886FEED00C49695 /* SecondButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3332886FEED00C49695 /* SecondButtonLogic.swift */; };
 		43A0B3362887FE5E00C49695 /* ThirdButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3352887FE5E00C49695 /* ThirdButtonLogic.swift */; };
 		43A0B3382887FE6A00C49695 /* FourButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		430C9AC32899BF8700BF5A8B /* PomadoroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PomadoroViewController.swift; path = "/Users/ilyavasilev/Documents/GitHub/Four Task/Four Task/Controllers/PomadoroViewController.swift"; sourceTree = "<absolute>"; };
 		435784BD29E7F52300BDB495 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		435784C029E8255100BDB495 /* Count.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Count.swift; sourceTree = "<group>"; };
 		43A0B3332886FEED00C49695 /* SecondButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondButtonLogic.swift; sourceTree = "<group>"; };
 		43A0B3352887FE5E00C49695 /* ThirdButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdButtonLogic.swift; sourceTree = "<group>"; };
 		43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourButtonLogic.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			children = (
 				43B27436289D104D0051C3D9 /* PomadoroSettingsViewController.swift */,
 				430C9AC32899BF8700BF5A8B /* PomadoroViewController.swift */,
+				435784C029E8255100BDB495 /* Count.swift */,
 				43D09752288F24DC006D7390 /* PomadoroViewController.swift */,
 			);
 			path = Pomadoro;
@@ -94,13 +97,13 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		4303DCB229DB07D400328D57 /* TotalViewController */ = {
+		4303DCB229DB07D400328D57 /* ResultViewController */ = {
 			isa = PBXGroup;
 			children = (
 				43BB9777288C0997006E6159 /* TotalViewController.swift */,
 				4303DCB329DB07DF00328D57 /* Cells */,
 			);
-			path = TotalViewController;
+			path = ResultViewController;
 			sourceTree = "<group>";
 		};
 		4303DCB329DB07DF00328D57 /* Cells */ = {
@@ -115,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				43FE56C1287D7B680002BB51 /* FourTaskViewController.swift */,
+				43BB9772288ACA06006E6159 /* SettingsViewController */,
 			);
 			name = FourTaskController;
 			sourceTree = "<group>";
@@ -134,6 +138,14 @@
 				435784BD29E7F52300BDB495 /* Constants.swift */,
 			);
 			name = Constants;
+			sourceTree = "<group>";
+		};
+		435784BF29E803C400BDB495 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				43E3BF38289BC8E6002484F0 /* NotificationManager.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		439FCAF3753081288F422E2D /* Frameworks */ = {
@@ -159,7 +171,7 @@
 				43FE56D4287D8A7E0002BB51 /* KeysBrain.swift */,
 				43C590BF2880196C00580253 /* TaskAction.swift */,
 				43C6D6BD289A6A4D00672ADD /* TimerModel.swift */,
-				43E3BF38289BC8E6002484F0 /* NotificationManager.swift */,
+				435784BF29E803C400BDB495 /* Notification */,
 				43C7B636289AE49B003201B3 /* AnimationBrain */,
 			);
 			path = Model;
@@ -211,9 +223,8 @@
 			isa = PBXGroup;
 			children = (
 				435784BA29E7F4AE00BDB495 /* FourTaskController */,
-				43BB9772288ACA06006E6159 /* SettingsViewController */,
 				4303DCB029DAF3C600328D57 /* Pomadoro */,
-				4303DCB229DB07D400328D57 /* TotalViewController */,
+				4303DCB229DB07D400328D57 /* ResultViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -374,6 +385,7 @@
 				430C9AC42899BF8700BF5A8B /* PomadoroViewController.swift in Sources */,
 				43FE56D5287D8A7E0002BB51 /* KeysBrain.swift in Sources */,
 				43A184B32889D71200BAD964 /* SettingsTableViewCell.swift in Sources */,
+				435784C129E8255100BDB495 /* Count.swift in Sources */,
 				43FE56BE287D7B680002BB51 /* AppDelegate.swift in Sources */,
 				43B27437289D104D0051C3D9 /* PomadoroSettingsViewController.swift in Sources */,
 				43BB977A288C0A02006E6159 /* TotalTableViewCell.swift in Sources */,
