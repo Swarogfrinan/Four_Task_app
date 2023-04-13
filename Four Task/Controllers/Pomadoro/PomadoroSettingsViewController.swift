@@ -202,16 +202,18 @@ class PomadoroSettingsViewController: UIViewController {
                     }),
         ]))
     }
-    ///Layout
+}
+
+//MARK: - Layout
+
+private extension PomadoroSettingsViewController {
     func setupConstraints() {
-        // Add subviews
         view.addSubview(dimmedView)
         view.addSubview(containerView)
         
         dimmedView.translatesAutoresizingMaskIntoConstraints = false
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
-        //        let stackView = UIStackView(arrangedSubviews: [titleLabel, tableView, spacer])
         containerView.addSubview(contentStackView)
         contentStackView.addArrangedSubview(titleLabel)
         contentStackView.addArrangedSubview(tableView)
@@ -259,13 +261,12 @@ class PomadoroSettingsViewController: UIViewController {
         return table
     }
     static func makeContentStackView() -> UIStackView {
-        let spacer = UIView()
-//        let stackView = UIStackView(arrangedSubviews: [titleLabel, tableView, spacer])
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = Constants.Inset.spacing
         return stackView
     }
+     
     static func makeContainerView() -> UIView {
         let view = UIView()
         view.backgroundColor = .white
@@ -273,6 +274,7 @@ class PomadoroSettingsViewController: UIViewController {
         view.clipsToBounds = true
         return view
     }
+     
     static func makeDimmedView() -> UIView {
         let view = UIView()
         view.backgroundColor = .black
