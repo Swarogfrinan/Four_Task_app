@@ -20,17 +20,11 @@ class PomadoroSettingsViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-       
         setupTableView()
         setupView()
-        setupConstraints()
+        setViewPosition()
         configureCells()
-        
-        // MARK: - TapGesture
-        // tap gesture on dimmed view to dismiss
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleCloseAction))
-        dimmedView.addGestureRecognizer(tapGesture)
+        setupTapGesture()
         setupPanGesture()
     }
     
@@ -52,62 +46,10 @@ class PomadoroSettingsViewController: UIViewController {
     private func setupView() {
         view.backgroundColor = .clear
     }
-    private func setupPanGesture() {
-        // add pan gesture recognizer to the view controller's view (the whole screen)
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.handlePanGesture(gesture:)))
-        // change to false to immediately listen on gesture movement
-        panGesture.delaysTouchesBegan = false
-        panGesture.delaysTouchesEnded = false
-        view.addGestureRecognizer(panGesture)
-    }
     
-    // MARK: Pan gesture handler
-    @objc func handlePanGesture(gesture: UIPanGestureRecognizer) {
-        let translation = gesture.translation(in: view)
-        // Drag to top will be minus value and vice versa
-        print("Pan gesture y offset: \(translation.y)")
-        
-        // Get drag direction
-        let isDraggingDown = translation.y > .zero
-        print("Dragging direction: \(isDraggingDown ? "going down" : "going up")")
-        
-        // New height is based on value of dragging plus current container height
-        let newHeight = Constants.currentContainerHeight - translation.y
-        
-        // Handle based on gesture state
-        switch gesture.state {
-        case .changed:
-            // This state will occur when user is dragging
-            if newHeight < Constants.maximumContainerHeight {
-                // Keep updating the height constraint
-                containerViewHeightConstraint?.constant = newHeight
-                // refresh layout
-                view.layoutIfNeeded()
-            }
-        case .ended:
-            // This happens when user stop drag,
-            // so we will get the last height of container
-            
-            // Condition 1: If new height is below min, dismiss controller
-            if newHeight < Constants.dismissibleHeight {
-                self.animateDismissView()
-            }
-            else if newHeight < Constants.defaultHeight {
-                // Condition 2: If new height is below default, animate back to default
-                animateContainerHeight(Constants.defaultHeight)
-            }
-            else if newHeight < Constants.maximumContainerHeight && isDraggingDown {
-                // Condition 3: If new height is below max and going down, set to default height
-                animateContainerHeight(Constants.defaultHeight)
-            }
-            else if newHeight > Constants.defaultHeight && !isDraggingDown {
-                // Condition 4: If new height is below max and going up, set to max height at top
-                animateContainerHeight(Constants.maximumContainerHeight)
-            }
-        default:
-            break
-        }
-    }
+    
+    
+    
     
     private func animateContainerHeight(_ height: CGFloat) {
         UIView.animate(withDuration: 0.4) {
@@ -203,11 +145,75 @@ class PomadoroSettingsViewController: UIViewController {
         ]))
     }
 }
+// MARK: Pan gesture handler
+private extension PomadoroSettingsViewController {
+    
+    func setupTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleCloseAction))
+        dimmedView.addGestureRecognizer(tapGesture)
+    }
+    func setupPanGesture() {
+        // add pan gesture recognizer to the view controller's view (the whole screen)
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.handlePanGesture(gesture:)))
+        // change to false to immediately listen on gesture movement
+        panGesture.delaysTouchesBegan = false
+        panGesture.delaysTouchesEnded = false
+        view.addGestureRecognizer(panGesture)
+    }
+    
+    @objc func handlePanGesture(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: view)
+        // Drag to top will be minus value and vice versa
+        print("Pan gesture y offset: \(translation.y)")
+        
+        // Get drag direction
+        let isDraggingDown = translation.y > .zero
+        print("Dragging direction: \(isDraggingDown ? "going down" : "going up")")
+        
+        // New height is based on value of dragging plus current container height
+        let newHeight = Constants.currentContainerHeight - translation.y
+        
+        // Handle based on gesture state
+        switch gesture.state {
+        case .changed:
+            // This state will occur when user is dragging
+            if newHeight < Constants.maximumContainerHeight {
+                // Keep updating the height constraint
+                containerViewHeightConstraint?.constant = newHeight
+                // refresh layout
+                view.layoutIfNeeded()
+            }
+        case .ended:
+            // This happens when user stop drag,
+            // so we will get the last height of container
+            
+            // Condition 1: If new height is below min, dismiss controller
+            if newHeight < Constants.dismissibleHeight {
+                self.animateDismissView()
+            }
+            else if newHeight < Constants.defaultHeight {
+                // Condition 2: If new height is below default, animate back to default
+                animateContainerHeight(Constants.defaultHeight)
+            }
+            else if newHeight < Constants.maximumContainerHeight && isDraggingDown {
+                // Condition 3: If new height is below max and going down, set to default height
+                animateContainerHeight(Constants.defaultHeight)
+            }
+            else if newHeight > Constants.defaultHeight && !isDraggingDown {
+                // Condition 4: If new height is below max and going up, set to max height at top
+                animateContainerHeight(Constants.maximumContainerHeight)
+            }
+        default:
+            break
+        }
+    }
+}
+
 
 //MARK: - Layout
 
 private extension PomadoroSettingsViewController {
-    func setupConstraints() {
+    func setViewPosition() {
         view.addSubview(dimmedView)
         view.addSubview(containerView)
         
@@ -225,19 +231,19 @@ private extension PomadoroSettingsViewController {
             dimmedView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             dimmedView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             dimmedView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            ])
+        ])
         
         NSLayoutConstraint.activate([
             containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-  ])
+        ])
         NSLayoutConstraint.activate([
             contentStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: Constants.Inset.huge),
             contentStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -Constants.Inset.classic),
             contentStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: Constants.Inset.classic),
             contentStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -Constants.Inset.classic),
         ])
-
+        
         containerViewHeightConstraint = containerView.heightAnchor.constraint(equalToConstant: Constants.defaultHeight)
         containerViewBottomConstraint = containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: Constants.defaultHeight)
         containerViewHeightConstraint?.isActive = true
@@ -247,7 +253,7 @@ private extension PomadoroSettingsViewController {
 
 // MARK: - Creating SubViews
 
- extension PomadoroSettingsViewController {
+extension PomadoroSettingsViewController {
     static func makeTitleLabel() -> UILabel {
         let label = UILabel()
         label.text = Constants.titleLabel
@@ -266,7 +272,7 @@ private extension PomadoroSettingsViewController {
         stackView.spacing = Constants.Inset.spacing
         return stackView
     }
-     
+    
     static func makeContainerView() -> UIView {
         let view = UIView()
         view.backgroundColor = .white
@@ -274,7 +280,7 @@ private extension PomadoroSettingsViewController {
         view.clipsToBounds = true
         return view
     }
-     
+    
     static func makeDimmedView() -> UIView {
         let view = UIView()
         view.backgroundColor = .black
@@ -305,7 +311,7 @@ extension PomadoroSettingsViewController : UITableViewDataSource {
         let section = models[section]
         return section.title
     }
-   
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = models[indexPath.section].options[indexPath.row]
         
@@ -358,7 +364,7 @@ private extension Constants {
     static let titleLabel = "Настройки 🍅"
     
     struct Cells {
-       static let tomatoTitle = "Итоги томата"
+        static let tomatoTitle = "Итоги томата"
         static let fokusTitle = "Фокус ="
         static let  relaxTitle = "Отдых ="
         static let soundTitle = "Звуки"

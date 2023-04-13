@@ -37,6 +37,7 @@
 		430C9AC32899BF8700BF5A8B /* PomadoroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PomadoroViewController.swift; path = "/Users/ilyavasilev/Documents/GitHub/Four Task/Four Task/Controllers/PomadoroViewController.swift"; sourceTree = "<absolute>"; };
 		435784BD29E7F52300BDB495 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		435784C029E8255100BDB495 /* Count.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Count.swift; sourceTree = "<group>"; };
+		435784C229E8293700BDB495 /* UIFont+AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+AppFonts.swift"; sourceTree = "<group>"; };
 		43A0B3332886FEED00C49695 /* SecondButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondButtonLogic.swift; sourceTree = "<group>"; };
 		43A0B3352887FE5E00C49695 /* ThirdButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdButtonLogic.swift; sourceTree = "<group>"; };
 		43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourButtonLogic.swift; sourceTree = "<group>"; };
