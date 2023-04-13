@@ -21,7 +21,7 @@ class PomadoroViewController: UIViewController {
     @IBOutlet weak var pomadoroImage: UIImageView!
     
     //MARK: - Properties
-    
+    let count = Count()
     private let endOfTomatoSound = SystemSoundID(Constants.Pomadoro.tomatoSoundID)
     private let concetrationTime = Constants.Pomadoro.durationConcetration
     private  let relaxTime = Constants.Pomadoro.durationRelax
@@ -137,7 +137,7 @@ private extension PomadoroViewController {
             defaultTime -= 1
             pomadoroLabel.text = formatTime()
         }  else if defaultTime == 0 && !timerStarted.tomatoRestTimerStarted  {
-            focusCount += 1
+            count.focusCount += 1
             playAlarmSound()
             print("Таймер отдыха сработал")
             setupUi(for: .relax)
@@ -148,7 +148,7 @@ private extension PomadoroViewController {
             
             stopTimer()
         } else if defaultTime == 0 && timerStarted.tomatoRestTimerStarted  {
-            relaxCount += 1
+            count.relaxCount += 1
             timerStarted.tomatoRestTimerStarted = false
             stopTimer()
             print("Таймер концентрации после таймера отдыха")
