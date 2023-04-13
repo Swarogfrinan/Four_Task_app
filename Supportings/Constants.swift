@@ -3,18 +3,20 @@ import UIKit
 struct Constants {
     
     struct Design {
-        static let cornerRadiusError = CGFloat(22)
-        static let cornerRadiusMain = CGFloat(15)
-        static let spacingMain = CGFloat(22)
-        static let basicInset = CGFloat(20)
-        static let borderWidth = CGFloat(1)
+        static let cornerRadiusError: CGFloat = 22
+        static let cornerRadiusMain: CGFloat = 16
+        static let spacingMain: CGFloat = 22
+        static let basicInset: CGFloat = 20
+        static let borderWidth: CGFloat = 1
+        static let maxDimmedAplha: CGFloat = 16
     }
     
     struct Inset {
-        static let huge = CGFloat(30)
-        static let classic = CGFloat(20)
-        static let small = CGFloat(18)
-        static let tiny = CGFloat(15)
+        static let huge: CGFloat = 32
+        static let classic: CGFloat = 20
+        static let small: CGFloat = 18
+        static let tiny: CGFloat = 15
+        static let spacing: CGFloat = 12
     }
     
     struct NavigationBarTitle {
