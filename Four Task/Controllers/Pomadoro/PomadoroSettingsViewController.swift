@@ -10,6 +10,7 @@ import UIKit
 class PomadoroSettingsViewController: UIViewController {
     // MARK: - Let-var
     var models = [Section]()
+    var count = Count()
     /// Constants
     let defaultHeight: CGFloat = 300
     let dismissibleHeight: CGFloat = 200
@@ -197,13 +198,13 @@ class PomadoroSettingsViewController: UIViewController {
     }
     
     private func formatTimeFocus() -> String {
-         let minutes = Int(focusCount * 25) / 60 % 60
-         let seconds = Int(focusCount * 25) % 60
+        let minutes = Int(count.focusCount * 25) / 60 % 60
+         let seconds = Int(count.focusCount * 25) % 60
          return String(format:"%02i:%02i", minutes, seconds)
      }
     private func formatTimeRelax() -> String {
-        let minutes = Int(relaxCount * 5) / 60 % 60
-        let seconds = Int(relaxCount * 5) % 60
+        let minutes = Int(count.relaxCount * 5) / 60 % 60
+        let seconds = Int(count.relaxCount * 5) % 60
          return String(format:"%02i:%02i", minutes, seconds)
      }
     ///Установка ячеек таблиц
