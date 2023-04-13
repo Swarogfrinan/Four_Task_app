@@ -13,8 +13,8 @@ class PomadoroSettingsViewController: UIViewController {
     /// define lazy views
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Настройки 🍅"
-        label.font = .boldSystemFont(ofSize: 20)
+        label.text = Constants.titleLabel
+        label.font = .bold
         return label
     }()
     ///TableView с статичной и свитч ячейкой.
@@ -29,23 +29,22 @@ class PomadoroSettingsViewController: UIViewController {
         let spacer = UIView()
         let stackView = UIStackView(arrangedSubviews: [titleLabel, tableView, spacer])
         stackView.axis = .vertical
-        stackView.spacing = 12.0
+        stackView.spacing = Constants.Inset.spacing
         return stackView
     }()
     ///Контейнер-Вью на половину экрана.
     lazy var containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
-        view.layer.cornerRadius = 16
+        view.layer.cornerRadius = Constants.Design.cornerRadiusMain
         view.clipsToBounds = true
         return view
     }()
     
-    let maxDimmedAlpha: CGFloat = 0.6
     lazy var dimmedView: UIView = {
         let view = UIView()
         view.backgroundColor = .black
-        view.alpha = maxDimmedAlpha
+        view.alpha = Constants.Design.maxDimmedAplha
         return view
     }()
     
@@ -99,7 +98,7 @@ class PomadoroSettingsViewController: UIViewController {
         print("Pan gesture y offset: \(translation.y)")
         
         // Get drag direction
-        let isDraggingDown = translation.y > 0
+        let isDraggingDown = translation.y > .zero
         print("Dragging direction: \(isDraggingDown ? "going down" : "going up")")
         
         // New height is based on value of dragging plus current container height
@@ -155,7 +154,7 @@ class PomadoroSettingsViewController: UIViewController {
     private func animatePresentContainer() {
         // update bottom constraint in animation block
         UIView.animate(withDuration: 0.3) {
-            self.containerViewBottomConstraint?.constant = 0
+            self.containerViewBottomConstraint?.constant = .zero
             // call this to trigger refresh constraint
             self.view.layoutIfNeeded()
         }
@@ -164,13 +163,13 @@ class PomadoroSettingsViewController: UIViewController {
     private func animateShowDimmedView() {
         dimmedView.alpha = 0
         UIView.animate(withDuration: 0.4) {
-            self.dimmedView.alpha = self.maxDimmedAlpha
+            self.dimmedView.alpha = Constants.Design.maxDimmedAplha
         }
     }
     
     func animateDismissView() {
         // hide blur view
-        dimmedView.alpha = maxDimmedAlpha
+        dimmedView.alpha = Constants.Design.maxDimmedAplha
         UIView.animate(withDuration: 0.4) {
             self.dimmedView.alpha = 0
         } completion: { _ in
@@ -197,17 +196,17 @@ class PomadoroSettingsViewController: UIViewController {
     }
     ///Установка ячеек таблиц
     private func configureCells() {
-        models.append(Section(title: "Итоги томата", options: [
+        models.append(Section(title: Constants.Cells.tomatoTitle, options: [
             
             .staticCell(model: SettingsOption(
-                title: "Фокус = \(formatTimeFocus()), Отдых = \(formatTimeRelax())",
+                title: "\(Constants.Cells.fokusTitle) \(formatTimeFocus()), \(Constants.Cells.relaxTitle) = \(formatTimeRelax())",
                 //
                 icon: UIImage(named: "tomatoTimer"),
                 iconBackgroundColor: .systemIndigo) {
                 })
         ]))
         
-        models.append(Section(title: "Звуки", options: [
+        models.append(Section(title: Constants.Cells.soundTitle, options: [
             .switchCell(model: SettingsSwitchOption(
                 title: "Звук",
                 icon: UIImage(systemName:"speaker.wave.3.fill"),
@@ -218,16 +217,16 @@ class PomadoroSettingsViewController: UIViewController {
                 isOn: true)),
             
                 .switchCell(model: SettingsSwitchOption(
-                    title: "Уведомления",
+                    title: Constants.Cells.notificationTitle,
                     icon: UIImage(systemName: "bell.badge.fill"),
                     iconBackgroundColor: .systemPink,
                     handler: {
-                        print("Notificati,on in PomadoroTimer ON")
+                        print("Notificati, in PomadoroTimer ON")
                     },
                     isOn: true)),
             
                 .staticCell(model: SettingsOption(
-                    title: "Фоновая работа",
+                    title: Constants.Cells.backgroundWorkTitle,
                     icon: UIImage(systemName: "bag"),
                     iconBackgroundColor: .systemPink) {
                     }),
@@ -238,48 +237,41 @@ class PomadoroSettingsViewController: UIViewController {
         // Add subviews
         view.addSubview(dimmedView)
         view.addSubview(containerView)
+        
         dimmedView.translatesAutoresizingMaskIntoConstraints = false
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
         containerView.addSubview(contentStackView)
         contentStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        // Устанавливаем статичные констрейны.
         NSLayoutConstraint.activate([
-            // set dimmedView edges to superview
             dimmedView.topAnchor.constraint(equalTo: view.topAnchor),
             dimmedView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             dimmedView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             dimmedView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            // set container static constraint (trailing & leading)
+            ])
+        
+        NSLayoutConstraint.activate([
             containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            // content stackView
-            contentStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 32),
-            contentStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20),
-            contentStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
-            contentStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
+  ])
+        NSLayoutConstraint.activate([
+            contentStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: Constants.Inset.huge),
+            contentStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -Constants.Inset.classic),
+            contentStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: Constants.Inset.classic),
+            contentStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -Constants.Inset.classic),
         ])
-        // Устанавливаем динамичные констрейны.
-        // Сначала, устанавливаем контейнеру дефолт высоту.
-        // После чего высота может увеличиваться.
+
         containerViewHeightConstraint = containerView.heightAnchor.constraint(equalToConstant: Constants.defaultHeight)
-        // By setting the height to default height, the container will be hide below the bottom anchor view
-        // Later, will bring it up by set it to 0
-        // set the constant to default height to bring it down again
         containerViewBottomConstraint = containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: Constants.defaultHeight)
-        // Activate constraints
         containerViewHeightConstraint?.isActive = true
         containerViewBottomConstraint?.isActive = true
     }
 }
 
-// MARK: - Extension Table Delegate/DataSource
-extension PomadoroSettingsViewController : UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let section = models[section]
-        return section.title
-    }
+// MARK: - UITableViewDelegate
+
+extension PomadoroSettingsViewController : UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return models.count
     }
@@ -287,7 +279,19 @@ extension PomadoroSettingsViewController : UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models[section].options.count
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Constants.heightForRow
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension PomadoroSettingsViewController : UITableViewDataSource {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let section = models[section]
+        return section.title
+    }
+   
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = models[indexPath.section].options[indexPath.row]
         
@@ -328,16 +332,23 @@ extension PomadoroSettingsViewController : UITableViewDelegate, UITableViewDataS
             model.handler()
         }
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
 }
 
 private extension Constants {
+    
     static let defaultHeight: CGFloat = 300
     static let dismissibleHeight: CGFloat = 200
     static let maximumContainerHeight: CGFloat = UIScreen.main.bounds.height - 64
     static var currentContainerHeight: CGFloat = 300
     static let heightForRow: CGFloat = 80
+    static let titleLabel = "Настройки 🍅"
     
+    struct Cells {
+       static let tomatoTitle = "Итоги томата"
+        static let fokusTitle = "Фокус ="
+        static let  relaxTitle = "Отдых ="
+        static let soundTitle = "Звуки"
+        static let notificationTitle = "Уведомления"
+        static let backgroundWorkTitle = "Фоновая работа"
+    }
 }
