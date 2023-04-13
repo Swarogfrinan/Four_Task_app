@@ -26,7 +26,8 @@ class FourTaskViewController: UIViewController {
     @IBOutlet weak var taskNumberSecondLabel: CountableLabel!
     @IBOutlet weak var taskNumbersThirdLabel: CountableLabel!
     @IBOutlet weak var taskNumbersFourLabel: CountableLabel!
-    //MARK: - Constants
+    
+ 
     let userDefaults = UserDefaults.standard
  
     //MARK: - Lifecycle
@@ -87,8 +88,6 @@ class FourTaskViewController: UIViewController {
         }
     }
     
-    
-    
     //MARK: - IBOutlet methods
 
     @IBAction func firstTaskButtonPressed(_ sender: Any) {
@@ -141,32 +140,32 @@ extension FourTaskViewController {
         }
     }
     func setupLabel() {
-        clockLabel.text = "Lets work"
+        clockLabel.text = Constants.greetings
     }
     
     func setupRefreshAlert() {
-        let alert = UIAlertController(title: "Сброс задачи", message: "Какую задачу вы хотите сбросить?", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: Constants.Alert.cancelTitle, message: Constants.Alert.alertMessage, preferredStyle: UIAlertController.Style.alert)
         if timerStarted.firstTimerStarted {
-            alert.addAction(UIAlertAction(title: "Первую задачу", style: UIAlertAction.Style.default, handler: { action in
+            alert.addAction(UIAlertAction(title: Constants.Alert.firstTask, style: UIAlertAction.Style.default, handler: { action in
                 self.resetActionOne()
                 self.animateFirstViewStop()
                 
             }))
         } else {
             if timerStarted.secondTimerStarted   {
-                alert.addAction(UIAlertAction(title: "Вторую задачу", style: UIAlertAction.Style.default, handler:  { action in
+                alert.addAction(UIAlertAction(title: Constants.Alert.secondTask , style: UIAlertAction.Style.default, handler:  { action in
                     self.resetActionSecond()
                     self.animateSecondViewStop()
                 }))
             } else {
                 if timerStarted.thirdTimerStarted {
-                    alert.addAction(UIAlertAction(title: "Третью задачу", style: UIAlertAction.Style.default, handler: { action in
+                    alert.addAction(UIAlertAction(title:Constants.Alert.thirdTask , style: UIAlertAction.Style.default, handler: { action in
                         self.resetActionThird()
                         self.animateThirdViewStop()
                     }))
                 } else {
                     if timerStarted.fourTimerStarted  {
-                        alert.addAction(UIAlertAction(title: "Четвертую задачу", style: UIAlertAction.Style.default, handler: { action in
+                        alert.addAction(UIAlertAction(title: Constants.Alert.fourTask, style: UIAlertAction.Style.default, handler: { action in
                             self.resetActionFour()
                             self.animateFourViewStop()
                         }))
@@ -174,8 +173,8 @@ extension FourTaskViewController {
                 }
             }
         }
-        alert.addAction(UIAlertAction(title: "Отмена", style: UIAlertAction.Style.cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Весь день", style: UIAlertAction.Style.destructive, handler: { action in
+        alert.addAction(UIAlertAction(title: Constants.Alert.cancelTitle, style: UIAlertAction.Style.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: Constants.Alert.resetAllDay, style: UIAlertAction.Style.destructive, handler: { action in
             self.resetActionOne()
             self.resetActionSecond()
             self.resetActionThird()
@@ -183,6 +182,21 @@ extension FourTaskViewController {
             self.animateAllButtons()
         }))
         self.present(alert, animated: true, completion: nil)
+    }
+}
+//MARK: - Constants
+private extension Constants {
+    static let greetings = "Lets work!"
+    struct Alert {
+        static let cancelTitle = "Отмена"
+        static let resetAllDay = "Весь день"
+        static let alertReset = "Сброс задачи"
+        static let alertMessage = "Какую задачу вы хотите сбросить?"
+        static let firstTask = "Первую задачу"
+        static let secondTask = "Вторую задачу"
+        static let thirdTask = "Третью задачу"
+        static let fourTask = "Четвертую задачу"
+        
     }
 }
 
