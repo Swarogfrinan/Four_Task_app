@@ -28,91 +28,81 @@ class PomadoroSettingsViewController: UIViewController {
         setupPanGesture()
     }
     
-    @objc func handleCloseAction() {
-        animateDismissView()
-    }
-    // MARK: - Lifecycle viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         animateShowDimmedView()
         animatePresentContainer()
     }
-    // MARK: - Methods
-    private func setupTableView() {
+    @objc func handleCloseAction() {
+        animateDismissView()
+    }
+}
+// MARK: - Private methods
+
+private extension PomadoroSettingsViewController {
+    
+    func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
     }
-    private func setupView() {
+    
+    func setupView() {
         view.backgroundColor = .clear
     }
     
-    
-    
-    
-    
-    private func animateContainerHeight(_ height: CGFloat) {
+    func animateContainerHeight(_ height: CGFloat) {
         UIView.animate(withDuration: 0.4) {
-            // Update container height
             self.containerViewHeightConstraint?.constant = height
-            // Call this to trigger refresh constraint
             self.view.layoutIfNeeded()
         }
-        // Save current height
         Constants.currentContainerHeight = height
     }
     
+    func formatTimeFocus() -> String {
+        let minutes = Int(count.focusCount * 25) / 60 % 60
+        let seconds = Int(count.focusCount * 25) % 60
+        return String(format:"%02i:%02i", minutes, seconds)
+    }
+    func formatTimeRelax() -> String {
+        let minutes = Int(count.relaxCount * 5) / 60 % 60
+        let seconds = Int(count.relaxCount * 5) % 60
+        return String(format:"%02i:%02i", minutes, seconds)
+    }
+    
     // MARK: Present and dismiss animation
-    private func animatePresentContainer() {
-        // update bottom constraint in animation block
+    
+    func animatePresentContainer() {
         UIView.animate(withDuration: 0.3) {
             self.containerViewBottomConstraint?.constant = .zero
-            // call this to trigger refresh constraint
             self.view.layoutIfNeeded()
         }
     }
-    
-    private func animateShowDimmedView() {
-        dimmedView.alpha = 0
+    func animateShowDimmedView() {
+        dimmedView.alpha = .zero
         UIView.animate(withDuration: 0.4) {
             self.dimmedView.alpha = Constants.Design.maxDimmedAplha
         }
     }
     
     func animateDismissView() {
-        // hide blur view
         dimmedView.alpha = Constants.Design.maxDimmedAplha
         UIView.animate(withDuration: 0.4) {
             self.dimmedView.alpha = 0
         } completion: { _ in
-            // once done, dismiss without animation
             self.dismiss(animated: false)
         }
-        // hide main view by updating bottom constraint in animation block
         UIView.animate(withDuration: 0.3) {
             self.containerViewBottomConstraint?.constant = Constants.defaultHeight
-            // call this to trigger refresh constraint
             self.view.layoutIfNeeded()
         }
     }
     
-    private func formatTimeFocus() -> String {
-        let minutes = Int(count.focusCount * 25) / 60 % 60
-        let seconds = Int(count.focusCount * 25) % 60
-        return String(format:"%02i:%02i", minutes, seconds)
-    }
-    private func formatTimeRelax() -> String {
-        let minutes = Int(count.relaxCount * 5) / 60 % 60
-        let seconds = Int(count.relaxCount * 5) % 60
-        return String(format:"%02i:%02i", minutes, seconds)
-    }
-    ///Установка ячеек таблиц
-    private func configureCells() {
+    // MARK: ConfigureCells
+    func configureCells() {
         models.append(Section(title: Constants.Cells.tomatoTitle, options: [
             
             .staticCell(model: SettingsOption(
                 title: "\(Constants.Cells.fokusTitle) \(formatTimeFocus()), \(Constants.Cells.relaxTitle) = \(formatTimeRelax())",
-                //
                 icon: UIImage(named: "tomatoTimer"),
                 iconBackgroundColor: .systemIndigo) {
                 })
@@ -124,7 +114,6 @@ class PomadoroSettingsViewController: UIViewController {
                 icon: UIImage(systemName:"speaker.wave.3.fill"),
                 iconBackgroundColor: .systemIndigo,
                 handler: {
-                    
                 },
                 isOn: true)),
             
@@ -145,17 +134,19 @@ class PomadoroSettingsViewController: UIViewController {
         ]))
     }
 }
-// MARK: Pan gesture handler
+
+// MARK: PanGesture handler
+
 private extension PomadoroSettingsViewController {
     
     func setupTapGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleCloseAction))
         dimmedView.addGestureRecognizer(tapGesture)
     }
+    
     func setupPanGesture() {
-        // add pan gesture recognizer to the view controller's view (the whole screen)
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.handlePanGesture(gesture:)))
-        // change to false to immediately listen on gesture movement
+        
         panGesture.delaysTouchesBegan = false
         panGesture.delaysTouchesEnded = false
         view.addGestureRecognizer(panGesture)
@@ -186,7 +177,6 @@ private extension PomadoroSettingsViewController {
         case .ended:
             // This happens when user stop drag,
             // so we will get the last height of container
-            
             // Condition 1: If new height is below min, dismiss controller
             if newHeight < Constants.dismissibleHeight {
                 self.animateDismissView()
