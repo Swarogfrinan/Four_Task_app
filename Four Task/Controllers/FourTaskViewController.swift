@@ -37,55 +37,8 @@ class FourTaskViewController: UIViewController {
         
         setupLabel()
         makeCurrentTime()
+        loadTimerFromUserDefaults()
         
-        //MARK: - Save keys to UserDefaults.
-        ///FIRST KEYS
-        startDateFirst = userDefaults.object(forKey: FirstKeys.start.rawValue) as? Date
-        stopDateFirst = userDefaults.object(forKey: FirstKeys.stop.rawValue) as? Date
-        timerStarted.firstTimerStarted = userDefaults.bool(forKey: FirstKeys.counting.rawValue)
-        ///SECOND KEYS
-        startedDateSecond = userDefaults.object(forKey: SecondKeys.start.rawValue) as? Date
-        stoppedDateSecond = userDefaults.object(forKey: SecondKeys.stop.rawValue) as? Date
-        timerStarted.secondTimerStarted = userDefaults.bool(forKey: SecondKeys.counting.rawValue)
-        ///THIRD KEYS
-        startTimeThird = userDefaults.object(forKey: ThirdKeys.start.rawValue) as? Date
-        stopTimeThird = userDefaults.object(forKey: ThirdKeys.stop.rawValue) as? Date
-        timerStarted.thirdTimerStarted = userDefaults.bool(forKey: ThirdKeys.counting.rawValue)
-        ///FOUR KEYS
-        startTimeFour = userDefaults.object(forKey: FourKeys.start.rawValue) as? Date
-        stopTimeFour = userDefaults.object(forKey: FourKeys.stop.rawValue) as? Date
-        timerStarted.fourTimerStarted = userDefaults.bool(forKey: FourKeys.counting.rawValue)
-        
-        ///Запуск 1 бэкграунд-таймера если он был нажат последним
-        if timerStarted.firstTimerStarted {
-            firstRefreshBackgroundTimer()
-            animateFirstViewStart()
-            print("1 бэкграунд таймер включился")
-        } else {
-            ///Запуск 2 бэкграунд-таймера если он был нажат последним
-            if timerStarted.secondTimerStarted   {
-                secondRefreshBackgroundTimer()
-                animateSecondViewStart()
-                print("2 бэкграунд таймер включился")
-            } else {
-                ///Запуск 3 бэкграунд-таймера если он был нажат последним
-                if timerStarted.thirdTimerStarted {
-                    thirdRefreshBackgroundTimer()
-                    animateThirdViewStart()
-                    print("3 бэкграунд таймер включился")
-                } else {
-                    ///Запуск 4 бэкграунд-таймера если он был нажат последним
-                    if timerStarted.fourTimerStarted  {
-                        fourRefreshBackgroundTimer()
-                        animateFourViewStart()
-                        print("4 бэкграунд таймер включился")
-                    }
-                    print("ERROR : Бэкграунд не сработал ")
-                    return
-                    
-                }
-            }
-        }
     }
     
     //MARK: - IBOutlet methods
@@ -108,6 +61,65 @@ class FourTaskViewController: UIViewController {
     
     @IBAction func refreshButtonPressed(_ sender: UIButton) {
         setupRefreshAlert()
+    }
+}
+private extension FourTaskViewController {
+    
+    func loadTimerFromUserDefaults() {
+        firstLoadFromUserDefaults()
+        secondLoadFromUserDefaults()
+        thirdLoadFromUserDefaults()
+        fourLoadFromUserDefaults()
+    }
+    
+    func firstLoadFromUserDefaults() {
+        startDateFirst = userDefaults.object(forKey: FirstKeys.start.rawValue) as? Date
+        stopDateFirst = userDefaults.object(forKey: FirstKeys.stop.rawValue) as? Date
+        timerStarted.firstTimerStarted = userDefaults.bool(forKey: FirstKeys.counting.rawValue)
+        if timerStarted.firstTimerStarted {
+            firstRefreshBackgroundTimer()
+            animateFirstViewStart()
+            print("1 бэкграунд таймер включился")
+        } else {
+            print("ERROR : 1 Бэкграунд не сработал ")
+        }
+    }
+    func secondLoadFromUserDefaults() {
+        startedDateSecond = userDefaults.object(forKey: SecondKeys.start.rawValue) as? Date
+        stoppedDateSecond = userDefaults.object(forKey: SecondKeys.stop.rawValue) as? Date
+        timerStarted.secondTimerStarted = userDefaults.bool(forKey: SecondKeys.counting.rawValue)
+        if timerStarted.secondTimerStarted   {
+            secondRefreshBackgroundTimer()
+            animateSecondViewStart()
+            print("2 бэкграунд таймер включился")
+        } else {
+            print("ERROR : 2 Бэкграунд не сработал ")
+        }
+    }
+    func thirdLoadFromUserDefaults() {
+        startTimeThird = userDefaults.object(forKey: ThirdKeys.start.rawValue) as? Date
+        stopTimeThird = userDefaults.object(forKey: ThirdKeys.stop.rawValue) as? Date
+        timerStarted.thirdTimerStarted = userDefaults.bool(forKey: ThirdKeys.counting.rawValue)
+        if timerStarted.thirdTimerStarted {
+            thirdRefreshBackgroundTimer()
+            animateThirdViewStart()
+            print("3 бэкграунд таймер включился")
+        } else {
+            print("ERROR : 3 Бэкграунд не сработал ")
+        }
+    }
+    func fourLoadFromUserDefaults() {
+        startTimeFour = userDefaults.object(forKey: FourKeys.start.rawValue) as? Date
+        stopTimeFour = userDefaults.object(forKey: FourKeys.stop.rawValue) as? Date
+        timerStarted.fourTimerStarted = userDefaults.bool(forKey: FourKeys.counting.rawValue)
+        ///Запуск 4 бэкграунд-таймера если он был нажат последним
+        if timerStarted.fourTimerStarted  {
+            fourRefreshBackgroundTimer()
+            animateFourViewStart()
+            print("4 бэкграунд таймер включился")
+        } else {
+            print("ERROR : 4 Бэкграунд не сработал ")
+        }
     }
 }
 
