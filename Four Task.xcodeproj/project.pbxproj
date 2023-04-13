@@ -25,9 +25,11 @@
 		43C590C02880196C00580253 /* TaskAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C590BF2880196C00580253 /* TaskAction.swift */; };
 		43C6D6BE289A6A4D00672ADD /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6D6BD289A6A4D00672ADD /* TimerModel.swift */; };
 		43C815C328860577004B37C4 /* FirstButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C815C228860577004B37C4 /* FirstButtonLogic.swift */; };
+		43D3AF9329E898FB003943D0 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D3AF9229E898FB003943D0 /* SplashViewController.swift */; };
+		43D3AF9729E89A2C003943D0 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D3AF9629E89A2C003943D0 /* SplashPresenter.swift */; };
+		43D3AF9929E89B12003943D0 /* SplashAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D3AF9829E89B12003943D0 /* SplashAnimator.swift */; };
 		43E3BF39289BC8E6002484F0 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3BF38289BC8E6002484F0 /* NotificationManager.swift */; };
 		43FE56BE287D7B680002BB51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE56BD287D7B680002BB51 /* AppDelegate.swift */; };
-		43FE56C0287D7B680002BB51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE56BF287D7B680002BB51 /* SceneDelegate.swift */; };
 		43FE56C2287D7B680002BB51 /* FourTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE56C1287D7B680002BB51 /* FourTaskViewController.swift */; };
 		43FE56C5287D7B680002BB51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43FE56C3287D7B680002BB51 /* Main.storyboard */; };
 		43FE56C7287D7B6A0002BB51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43FE56C6287D7B6A0002BB51 /* Assets.xcassets */; };
@@ -56,10 +58,12 @@
 		43C6D6BD289A6A4D00672ADD /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		43C815C228860577004B37C4 /* FirstButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstButtonLogic.swift; sourceTree = "<group>"; };
 		43D09752288F24DC006D7390 /* PomadoroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PomadoroViewController.swift; path = "/Users/ilyavasilev/Documents/GitHub/Four Task/Four Task/Controllers/PomadoroViewController.swift"; sourceTree = "<absolute>"; };
+		43D3AF9229E898FB003943D0 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		43D3AF9629E89A2C003943D0 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
+		43D3AF9829E89B12003943D0 /* SplashAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimator.swift; sourceTree = "<group>"; };
 		43E3BF38289BC8E6002484F0 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		43FE56BA287D7B680002BB51 /* Four Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Four Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FE56BD287D7B680002BB51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		43FE56BF287D7B680002BB51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		43FE56C1287D7B680002BB51 /* FourTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourTaskViewController.swift; sourceTree = "<group>"; };
 		43FE56C4287D7B680002BB51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43FE56C6287D7B6A0002BB51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,14 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4303DCB029DAF3C600328D57 /* Pomadoro */ = {
+		4303DCB029DAF3C600328D57 /* PomadoroScreen */ = {
 			isa = PBXGroup;
 			children = (
 				435784C829E8501900BDB495 /* Controllers */,
 				435784C929E8502E00BDB495 /* Model */,
 				43D09752288F24DC006D7390 /* PomadoroViewController.swift */,
 			);
-			path = Pomadoro;
+			path = PomadoroScreen;
 			sourceTree = "<group>";
 		};
 		4303DCB129DB07C800328D57 /* Cells */ = {
@@ -102,13 +106,13 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		4303DCB229DB07D400328D57 /* ResultViewController */ = {
+		4303DCB229DB07D400328D57 /* ResultScreen */ = {
 			isa = PBXGroup;
 			children = (
 				43BB9777288C0997006E6159 /* TotalViewController.swift */,
 				4303DCB329DB07DF00328D57 /* Cells */,
 			);
-			path = ResultViewController;
+			path = ResultScreen;
 			sourceTree = "<group>";
 		};
 		4303DCB329DB07DF00328D57 /* Cells */ = {
@@ -119,19 +123,18 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		435784BA29E7F4AE00BDB495 /* FourTaskController */ = {
+		435784BA29E7F4AE00BDB495 /* FourTaskScreen */ = {
 			isa = PBXGroup;
 			children = (
 				43FE56C1287D7B680002BB51 /* FourTaskViewController.swift */,
-				43BB9772288ACA06006E6159 /* SettingsViewController */,
+				43BB9772288ACA06006E6159 /* SettingsScreen */,
 			);
-			name = FourTaskController;
+			name = FourTaskScreen;
 			sourceTree = "<group>";
 		};
 		435784BB29E7F4DF00BDB495 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				43FE56BF287D7B680002BB51 /* SceneDelegate.swift */,
 				43FE56BD287D7B680002BB51 /* AppDelegate.swift */,
 			);
 			name = Application;
@@ -181,13 +184,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		43BB9772288ACA06006E6159 /* SettingsViewController */ = {
+		43BB9772288ACA06006E6159 /* SettingsScreen */ = {
 			isa = PBXGroup;
 			children = (
 				43A184B02889C2DF00BAD964 /* SettingsViewController.swift */,
 				4303DCB129DB07C800328D57 /* Cells */,
 			);
-			path = SettingsViewController;
+			path = SettingsScreen;
 			sourceTree = "<group>";
 		};
 		43BF6C46287EF27F005A5FBB /* Model */ = {
@@ -211,6 +214,16 @@
 				43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */,
 			);
 			path = AnimationBrain;
+			sourceTree = "<group>";
+		};
+		43D3AF9A29E8A0DF003943D0 /* SplashLaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				43D3AF9229E898FB003943D0 /* SplashViewController.swift */,
+				43D3AF9629E89A2C003943D0 /* SplashPresenter.swift */,
+				43D3AF9829E89B12003943D0 /* SplashAnimator.swift */,
+			);
+			path = SplashLaunchScreen;
 			sourceTree = "<group>";
 		};
 		43FE56B1287D7B680002BB51 = {
@@ -247,9 +260,10 @@
 		43FE56D1287D7B790002BB51 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				435784BA29E7F4AE00BDB495 /* FourTaskController */,
-				4303DCB029DAF3C600328D57 /* Pomadoro */,
-				4303DCB229DB07D400328D57 /* ResultViewController */,
+				43D3AF9A29E8A0DF003943D0 /* SplashLaunchScreen */,
+				435784BA29E7F4AE00BDB495 /* FourTaskScreen */,
+				4303DCB029DAF3C600328D57 /* PomadoroScreen */,
+				4303DCB229DB07D400328D57 /* ResultScreen */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -410,15 +424,17 @@
 				43BB9776288ACA48006E6159 /* SwitchTableViewCell.swift in Sources */,
 				430C9AC42899BF8700BF5A8B /* PomadoroViewController.swift in Sources */,
 				43FE56D5287D8A7E0002BB51 /* KeysBrain.swift in Sources */,
+				43D3AF9729E89A2C003943D0 /* SplashPresenter.swift in Sources */,
 				43A184B32889D71200BAD964 /* SettingsTableViewCell.swift in Sources */,
+				43D3AF9929E89B12003943D0 /* SplashAnimator.swift in Sources */,
 				435784C129E8255100BDB495 /* Count.swift in Sources */,
 				43FE56BE287D7B680002BB51 /* AppDelegate.swift in Sources */,
 				435784C529E8498A00BDB495 /* Int + Extension.swift in Sources */,
+				43D3AF9329E898FB003943D0 /* SplashViewController.swift in Sources */,
 				43B27437289D104D0051C3D9 /* PomadoroSettingsViewController.swift in Sources */,
 				43BB977A288C0A02006E6159 /* TotalTableViewCell.swift in Sources */,
 				43E3BF39289BC8E6002484F0 /* NotificationManager.swift in Sources */,
 				435784C329E8293700BDB495 /* UIFont+AppFonts.swift in Sources */,
-				43FE56C0287D7B680002BB51 /* SceneDelegate.swift in Sources */,
 				43C6D6BE289A6A4D00672ADD /* TimerModel.swift in Sources */,
 				43A0B3362887FE5E00C49695 /* ThirdButtonLogic.swift in Sources */,
 				43A0B3342886FEED00C49695 /* SecondButtonLogic.swift in Sources */,

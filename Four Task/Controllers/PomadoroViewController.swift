@@ -59,7 +59,7 @@ class PomadoroViewController: UIViewController {
 private extension PomadoroViewController {
     //MARK: - Private methods
      func startTimer() {
-         tomatoTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+         tomatoTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         timerStarted.tomatoTimerStarted = true
     }
     
