@@ -1,18 +1,14 @@
-//
-//  NotificationManager.swift
-//  Four Task
-//
-//  Created by Ilya Vasilev on 04.08.2022.
-//
-
 import Foundation
 import UserNotifications
 
 final class NotificationManager {
-    //MARK: - let/var
+    
+    //MARK: - Properties
+    
     let notificationCenter = UNUserNotificationCenter.current()
     
-    //MARK: - Methods
+    //MARK: - Public Methods
+    
     func checkAuthorizationNotification() {
         notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
             guard granted else { return }
@@ -23,30 +19,30 @@ final class NotificationManager {
         }
     }
     ///Отправить уведомление юзеру что "Фокус" закончен.
-    func sendNotificationToRelax() {
+  func sendNotificationToRelax() {
         
         let content = UNMutableNotificationContent()
-        content.title = "Tomato task"
-        content.body = "Фокус на концентрации завёршен, возьмите небольшой перерыв!"
+        content.title = Constants.Notification.title
+        content.body = Constants.Notification.bodyRelaxMessage
         content.sound = UNNotificationSound.default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        let request = UNNotificationRequest(identifier: "NotificationToRelax", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: Constants.Notification.relaxIdentifier, content: content, trigger: trigger)
         
         notificationCenter.add(request) { (error) in
             print(error?.localizedDescription as Any)
         }
     }
     ///Отправить уведомление юзеру что "Отдых" закончен.
-    func sendNotificationToWork() {
+   func sendNotificationToWork() {
         
         let content = UNMutableNotificationContent()
-        content.title = "Tomato task"
-        content.body = "Отдохнули? Продолжим работу!"
+        content.title = Constants.Notification.title
+        content.body = Constants.Notification.bodyWorkMessage
         content.sound = UNNotificationSound.default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        let request = UNNotificationRequest(identifier: "NotificationToWork", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: Constants.Notification.workIdentifier, content: content, trigger: trigger)
         
         notificationCenter.add(request) { (error) in
             print(error?.localizedDescription as Any)
@@ -54,7 +50,8 @@ final class NotificationManager {
     }
     
 }
-//MARK: - Extension AppDelegate
+//MARK: -  AppDelegate
+
 extension AppDelegate : UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
@@ -64,5 +61,17 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print(#function)
         print("Сработало уведомление не в бэкграунде")
+    }
+}
+
+// MARK: - Constants
+
+private extension Constants {
+    struct Notification {
+        static let title = "Tomato task"
+        static let bodyWorkMessage = "Фокус на концентрации завёршен, возьмите небольшой перерыв!"
+        static let bodyRelaxMessage = "Отдохнули? Вернитесь в приложение чтобы продолжить"
+        static let workIdentifier = "NotificationToWork"
+        static let relaxIdentifier = "NotificationToRelax"
     }
 }
