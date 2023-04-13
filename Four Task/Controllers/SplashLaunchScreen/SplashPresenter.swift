@@ -27,9 +27,9 @@ final class SplashPresenter: SplashPresenterDescription {
     }()
     
     private lazy var textImage: UIImage? = {
-        let textsCount = 3
+        let textsCount = 4
         
-        let imageNumber = Int.random(in: 1...textsCount)
+        let imageNumber = Int.random(in: 2...textsCount)
         let imageName = "i-splash-text-\(imageNumber)"
         
         return UIImage(named: imageName)
