@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -403,20 +402,20 @@
                                     <constraint firstItem="6Ml-XO-V2a" firstAttribute="top" secondItem="CQ6-W2-brb" secondAttribute="top" id="icg-P0-Ha9"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQ3-PG-Fm2">
-                                <rect key="frame" x="160" y="769" width="108" height="43"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQ3-PG-Fm2">
+                                <rect key="frame" x="20" y="812" width="374" height="50"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" imagePadding="2" cornerStyle="dynamic" titleAlignment="center">
-                                    <imageReference key="image" image="gobackward.minus" catalog="system" symbolScale="large"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="dynamic" titleAlignment="center">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Refresh">
                                             <attributes>
-                                                <font key="NSFont" metaFont="cellTitle"/>
+                                                <font key="NSFont" size="25" name="AppleMyungjo"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseForegroundColor" systemColor="systemPurpleColor"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="refreshButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yFG-z5-v33"/>
@@ -430,12 +429,13 @@
                             <constraint firstItem="qto-mJ-quI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CZu-xt-XJW"/>
                             <constraint firstItem="hRs-Ff-ojV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="Mn9-X1-Bw9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hRs-Ff-ojV" secondAttribute="trailing" constant="25" id="Rk4-l0-pu0"/>
-                            <constraint firstItem="OQ3-PG-Fm2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="160" id="SXG-eS-VQ0"/>
+                            <constraint firstItem="OQ3-PG-Fm2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="SXG-eS-VQ0"/>
                             <constraint firstItem="qto-mJ-quI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="VAa-TB-nyE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qto-mJ-quI" secondAttribute="trailing" constant="25" id="Vzf-Um-Tip"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3gU-YA-yS6" secondAttribute="bottom" constant="350" id="W1r-gx-i7m"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OQ3-PG-Fm2" secondAttribute="bottom" constant="50" id="chr-BD-IbB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OQ3-PG-Fm2" secondAttribute="trailing" constant="146" id="cqe-VN-d8i"/>
+                            <constraint firstItem="OQ3-PG-Fm2" firstAttribute="top" secondItem="CQ6-W2-brb" secondAttribute="bottom" constant="80" id="cHh-rU-1wF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OQ3-PG-Fm2" secondAttribute="bottom" id="chr-BD-IbB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OQ3-PG-Fm2" secondAttribute="trailing" constant="20" id="cqe-VN-d8i"/>
                             <constraint firstItem="CQ6-W2-brb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="n7y-dl-a10"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CQ6-W2-brb" secondAttribute="trailing" constant="20" id="rxv-eL-VOK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3gU-YA-yS6" secondAttribute="trailing" constant="25" id="tNy-Zu-nkc"/>
@@ -482,13 +482,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-296" y="84"/>
+            <point key="canvasLocation" x="-297.10144927536237" y="83.705357142857139"/>
         </scene>
     </scenes>
     <resources>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
-        <image name="gobackward.minus" catalog="system" width="119" height="128"/>
         <image name="logo" width="135.33332824707031" height="98"/>
         <image name="play.fill" catalog="system" width="117" height="128"/>
         <image name="tomatoTimer" width="170.66667175292969" height="170.66667175292969"/>
