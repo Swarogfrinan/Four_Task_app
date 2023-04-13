@@ -8,7 +8,7 @@ struct Constants {
         static let spacingMain: CGFloat = 22
         static let basicInset: CGFloat = 20
         static let borderWidth: CGFloat = 1
-        static let maxDimmedAplha: CGFloat = 16
+        static let maxDimmedAplha: CGFloat = 0.6
     }
     
     struct Inset {
