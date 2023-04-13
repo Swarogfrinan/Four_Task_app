@@ -60,7 +60,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     ///Нажатие на уведомление при открытом приложении.
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print(#function)
-        print("Сработало уведомление не в бэкграунде")
+        print(Constants.Notification.touchNotificationInAppb)
     }
 }
 
@@ -73,5 +73,6 @@ private extension Constants {
         static let bodyRelaxMessage = "Отдохнули? Вернитесь в приложение чтобы продолжить"
         static let workIdentifier = "NotificationToWork"
         static let relaxIdentifier = "NotificationToRelax"
+        static let touchNotificationInApp = "Сработало уведомление не в бэкграунде"
     }
 }
