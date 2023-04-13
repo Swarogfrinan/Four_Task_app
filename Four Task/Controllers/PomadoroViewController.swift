@@ -1,25 +1,18 @@
-//
-//  PomadoroViewController.swift
-//  
-//
-//  Created by Ilya Vasilev on 25.07.2022.
-//
-
 import UIKit
 import AVFoundation
 import CountableLabel
 
 //MARK: - Enums
-///Кейсы анимаций кнопки "Старт"
 enum SetupAnimate {
     case stop
     case start
     case relax
 }
-var focusCount = 0
-var relaxCount = 0
+
 //MARK: - PomadoroViewController
+
 class PomadoroViewController: UIViewController {
+
     //MARK: - IBOutlets
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var pomadoroLabel: CountableLabel!
@@ -27,10 +20,11 @@ class PomadoroViewController: UIViewController {
     @IBOutlet weak var noticeLabel: UILabel!
     @IBOutlet weak var pomadoroImage: UIImageView!
     
-    //MARK: - let/var
-    let endOfTomatoSound: SystemSoundID = 1328
-    let concetrationTime = 1500
-    let relaxTime = 300
+    //MARK: - Properties
+    
+    private let endOfTomatoSound = SystemSoundID(Constants.Pomadoro.tomatoSoundID)
+    private let concetrationTime = Constants.Pomadoro.durationConcetration
+    private  let relaxTime = Constants.Pomadoro.durationRelax
     
     var audioPlayer = AVAudioPlayer()
     var tomatoTimer = Timer()
@@ -38,20 +32,22 @@ class PomadoroViewController: UIViewController {
     //Notification after timers work.
     var notificationManager = NotificationManager()
     
-    //MARK: - lifecycle viewWillAppear
+    //MARK: - ViewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         notificationManager.checkAuthorizationNotification()
     }
-    //MARK: - lifecycle ViewDidDisappear
+    
+    //MARK: - ViewDidDisappear
     override func viewDidDisappear(_ animated: Bool) {
         stopTimer()
-        print("Pomadoro timer уничтожен так как VC закрылся.")
+        print(Constants.Pomadoro.dissappearMessage)
     }
-    //MARK: - lifecycle ViewController
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupGreetingsLabel()
+        setupDefaultGreetingsLabel()
     }
+    
     //MARK: - IBA Methods
     ///Нажатие кнопки старта
     @IBAction func actionButtonPressed(_ sender: UIButton) {
@@ -72,33 +68,37 @@ class PomadoroViewController: UIViewController {
         self.present(controller, animated: false)
         
     }
-    //MARK: - Methods
-    ///Функция запуска таймера
-    private func startTimer() {
+    
+   
+}
+private extension PomadoroViewController {
+    //MARK: - Private methods
+    
+     func startTimer() {
         tomatoTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         timerStarted.tomatoTimerStarted = true
     }
-    ///Функция стоп-таймера
-    private func stopTimer() {
+    
+    func stopTimer() {
         tomatoTimer.invalidate()
         timerStarted.tomatoTimerStarted = false
     }
-    ///Приветственный лейбл-заглушка
-    private func setupGreetingsLabel() {
-        pomadoroLabel.text = "Lets go studing"
-    }
-    ///Форматирование времени
-    public func formatTime() -> String {
+    
+    private func formatTime() -> String {
         let minutes = Int(defaultTime) / 60 % 60
         let seconds = Int(defaultTime) % 60
         return String(format:"%02i:%02i", minutes, seconds)
     }
-    ///Проигрывание звука Alarm и вибрации после завершения 25 минутного периода.
-    func playAlarmSound() {
+    
+   func setupDefaultGreetingsLabel() {
+        pomadoroLabel.text = Constants.Pomadoro.defaultTitle
+    }
+   
+     func playAlarmSound() {
         AudioServicesPlaySystemSound(endOfTomatoSound)
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
     }
-
+    
     ///Установка UI кнопки "Старт".
     func setupUi(for animate: SetupAnimate) {
         switch animate {
@@ -120,7 +120,7 @@ class PomadoroViewController: UIViewController {
                 startButton.tintColor = .systemBlue
                 noticeLabel.textColor = .systemBlue
             }
-        ///Надписи зеленые, время отдыха.
+            ///Надписи зеленые, время отдыха.
         case .relax:
             UIView.animate(withDuration: 0.3) { [self] in
                 startButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
@@ -157,6 +157,15 @@ class PomadoroViewController: UIViewController {
             pomadoroLabel.text = "25:00"
         }
     }
-    ///end
 }
 
+
+private extension Constants {
+    struct Pomadoro {
+        static let tomatoSoundID = 1328
+        static let durationConcetration = 1500
+        static let durationRelax = 300
+        static let dissappearMessage = "Pomodoro timer disappear"
+        static let defaultTitle = "Lets go studing"
+    }
+}
