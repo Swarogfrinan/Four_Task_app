@@ -14,8 +14,8 @@
             filePath = "Four Task/Model/TimerModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "makeTimeString(hours:minutes:seconds:)"
             landmarkType = "9">
             <Locations>
@@ -209,22 +209,6 @@
             startingLineNumber = "31"
             endingLineNumber = "31"
             landmarkName = "firstTask()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BE0EEA4F-EE75-46AE-9A70-63E8484D659D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Four Task/Model/TaskAction.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "animateFirstViewStart()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

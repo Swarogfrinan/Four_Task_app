@@ -10,6 +10,9 @@
 		430C9AC42899BF8700BF5A8B /* PomadoroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430C9AC32899BF8700BF5A8B /* PomadoroViewController.swift */; };
 		435784BE29E7F52300BDB495 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435784BD29E7F52300BDB495 /* Constants.swift */; };
 		435784C129E8255100BDB495 /* Count.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435784C029E8255100BDB495 /* Count.swift */; };
+		435784C329E8293700BDB495 /* UIFont+AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435784C229E8293700BDB495 /* UIFont+AppFonts.swift */; };
+		435784C529E8498A00BDB495 /* Int + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435784C429E8498A00BDB495 /* Int + Extension.swift */; };
+		435784C729E8500000BDB495 /* StartedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435784C629E8500000BDB495 /* StartedKeys.swift */; };
 		43A0B3342886FEED00C49695 /* SecondButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3332886FEED00C49695 /* SecondButtonLogic.swift */; };
 		43A0B3362887FE5E00C49695 /* ThirdButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3352887FE5E00C49695 /* ThirdButtonLogic.swift */; };
 		43A0B3382887FE6A00C49695 /* FourButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */; };
@@ -38,6 +41,8 @@
 		435784BD29E7F52300BDB495 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		435784C029E8255100BDB495 /* Count.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Count.swift; sourceTree = "<group>"; };
 		435784C229E8293700BDB495 /* UIFont+AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+AppFonts.swift"; sourceTree = "<group>"; };
+		435784C429E8498A00BDB495 /* Int + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int + Extension.swift"; sourceTree = "<group>"; };
+		435784C629E8500000BDB495 /* StartedKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartedKeys.swift; sourceTree = "<group>"; };
 		43A0B3332886FEED00C49695 /* SecondButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondButtonLogic.swift; sourceTree = "<group>"; };
 		43A0B3352887FE5E00C49695 /* ThirdButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdButtonLogic.swift; sourceTree = "<group>"; };
 		43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourButtonLogic.swift; sourceTree = "<group>"; };
@@ -81,9 +86,8 @@
 		4303DCB029DAF3C600328D57 /* Pomadoro */ = {
 			isa = PBXGroup;
 			children = (
-				43B27436289D104D0051C3D9 /* PomadoroSettingsViewController.swift */,
-				430C9AC32899BF8700BF5A8B /* PomadoroViewController.swift */,
-				435784C029E8255100BDB495 /* Count.swift */,
+				435784C829E8501900BDB495 /* Controllers */,
+				435784C929E8502E00BDB495 /* Model */,
 				43D09752288F24DC006D7390 /* PomadoroViewController.swift */,
 			);
 			path = Pomadoro;
@@ -137,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				435784BD29E7F52300BDB495 /* Constants.swift */,
+				435784C229E8293700BDB495 /* UIFont+AppFonts.swift */,
+				435784C429E8498A00BDB495 /* Int + Extension.swift */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -147,6 +153,24 @@
 				43E3BF38289BC8E6002484F0 /* NotificationManager.swift */,
 			);
 			path = Notification;
+			sourceTree = "<group>";
+		};
+		435784C829E8501900BDB495 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				43B27436289D104D0051C3D9 /* PomadoroSettingsViewController.swift */,
+				430C9AC32899BF8700BF5A8B /* PomadoroViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		435784C929E8502E00BDB495 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				435784C629E8500000BDB495 /* StartedKeys.swift */,
+				435784C029E8255100BDB495 /* Count.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		439FCAF3753081288F422E2D /* Frameworks */ = {
@@ -381,6 +405,7 @@
 				43C815C328860577004B37C4 /* FirstButtonLogic.swift in Sources */,
 				43BB9778288C0997006E6159 /* TotalViewController.swift in Sources */,
 				43A184B12889C2DF00BAD964 /* SettingsViewController.swift in Sources */,
+				435784C729E8500000BDB495 /* StartedKeys.swift in Sources */,
 				43C590C02880196C00580253 /* TaskAction.swift in Sources */,
 				43BB9776288ACA48006E6159 /* SwitchTableViewCell.swift in Sources */,
 				430C9AC42899BF8700BF5A8B /* PomadoroViewController.swift in Sources */,
@@ -388,9 +413,11 @@
 				43A184B32889D71200BAD964 /* SettingsTableViewCell.swift in Sources */,
 				435784C129E8255100BDB495 /* Count.swift in Sources */,
 				43FE56BE287D7B680002BB51 /* AppDelegate.swift in Sources */,
+				435784C529E8498A00BDB495 /* Int + Extension.swift in Sources */,
 				43B27437289D104D0051C3D9 /* PomadoroSettingsViewController.swift in Sources */,
 				43BB977A288C0A02006E6159 /* TotalTableViewCell.swift in Sources */,
 				43E3BF39289BC8E6002484F0 /* NotificationManager.swift in Sources */,
+				435784C329E8293700BDB495 /* UIFont+AppFonts.swift in Sources */,
 				43FE56C0287D7B680002BB51 /* SceneDelegate.swift in Sources */,
 				43C6D6BE289A6A4D00672ADD /* TimerModel.swift in Sources */,
 				43A0B3362887FE5E00C49695 /* ThirdButtonLogic.swift in Sources */,
