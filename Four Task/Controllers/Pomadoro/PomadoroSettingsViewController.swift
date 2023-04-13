@@ -3,60 +3,26 @@ import UIKit
 class PomadoroSettingsViewController: UIViewController {
     
     // MARK: - Properties
+    
     var models = [Section]()
     var count = Count()
+    let titleLabel = makeTitleLabel()
+    let tableView = makeTableView()
+    let contentStackView = makeContentStackView()
+    let spacer = UIView()
+    let containerView = makeContainerView()
+    let dimmedView = makeDimmedView()
     
     // Dynamic container constraint
     var containerViewHeightConstraint: NSLayoutConstraint?
     var containerViewBottomConstraint: NSLayoutConstraint?
     
-    /// define lazy views
-    lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = Constants.titleLabel
-        label.font = .bold
-        return label
-    }()
-    ///TableView с статичной и свитч ячейкой.
-    private let tableView: UITableView = {
-        let table = UITableView(frame: .zero, style: .grouped)
-        table.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.identifier)
-        table.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
-        return table
-    }()
-    ///Стак-вью содержащий лейбл и таблицу с ячейками.
-    lazy var contentStackView: UIStackView = {
-        let spacer = UIView()
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, tableView, spacer])
-        stackView.axis = .vertical
-        stackView.spacing = Constants.Inset.spacing
-        return stackView
-    }()
-    ///Контейнер-Вью на половину экрана.
-    lazy var containerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.layer.cornerRadius = Constants.Design.cornerRadiusMain
-        view.clipsToBounds = true
-        return view
-    }()
-    
-    lazy var dimmedView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .black
-        view.alpha = Constants.Design.maxDimmedAplha
-        return view
-    }()
-    
-    
-    
-    // MARK: - Lifecycle ViewDidLoad
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        ///Подписываемся на delegat и dataSource
-        tableView.delegate = self
-        tableView.dataSource = self
-        ///Устанавливаем Вью, конфигурируем ячейки таблицы.
+    
+       
+        setupTableView()
         setupView()
         setupConstraints()
         configureCells()
@@ -79,6 +45,10 @@ class PomadoroSettingsViewController: UIViewController {
         animatePresentContainer()
     }
     // MARK: - Methods
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
     private func setupView() {
         view.backgroundColor = .clear
     }
@@ -241,7 +211,11 @@ class PomadoroSettingsViewController: UIViewController {
         dimmedView.translatesAutoresizingMaskIntoConstraints = false
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
+        //        let stackView = UIStackView(arrangedSubviews: [titleLabel, tableView, spacer])
         containerView.addSubview(contentStackView)
+        contentStackView.addArrangedSubview(titleLabel)
+        contentStackView.addArrangedSubview(tableView)
+        contentStackView.addArrangedSubview(spacer)
         contentStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -266,6 +240,44 @@ class PomadoroSettingsViewController: UIViewController {
         containerViewBottomConstraint = containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: Constants.defaultHeight)
         containerViewHeightConstraint?.isActive = true
         containerViewBottomConstraint?.isActive = true
+    }
+}
+
+// MARK: - Creating SubViews
+
+ extension PomadoroSettingsViewController {
+    static func makeTitleLabel() -> UILabel {
+        let label = UILabel()
+        label.text = Constants.titleLabel
+        label.font = .bold
+        return label
+    }
+    static func makeTableView() -> UITableView {
+        let table = UITableView(frame: .zero, style: .grouped)
+        table.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.identifier)
+        table.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
+        return table
+    }
+    static func makeContentStackView() -> UIStackView {
+        let spacer = UIView()
+//        let stackView = UIStackView(arrangedSubviews: [titleLabel, tableView, spacer])
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = Constants.Inset.spacing
+        return stackView
+    }
+    static func makeContainerView() -> UIView {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = Constants.Design.cornerRadiusMain
+        view.clipsToBounds = true
+        return view
+    }
+    static func makeDimmedView() -> UIView {
+        let view = UIView()
+        view.backgroundColor = .black
+        view.alpha = Constants.Design.maxDimmedAplha
+        return view
     }
 }
 
