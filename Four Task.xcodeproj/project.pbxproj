@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		430C9AC42899BF8700BF5A8B /* PomadoroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430C9AC32899BF8700BF5A8B /* PomadoroViewController.swift */; };
+		435784BE29E7F52300BDB495 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435784BD29E7F52300BDB495 /* Constants.swift */; };
 		43A0B3342886FEED00C49695 /* SecondButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3332886FEED00C49695 /* SecondButtonLogic.swift */; };
 		43A0B3362887FE5E00C49695 /* ThirdButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3352887FE5E00C49695 /* ThirdButtonLogic.swift */; };
 		43A0B3382887FE6A00C49695 /* FourButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		430C9AC32899BF8700BF5A8B /* PomadoroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PomadoroViewController.swift; path = "/Users/ilyavasilev/Documents/GitHub/Four Task/Four Task/Controllers/PomadoroViewController.swift"; sourceTree = "<absolute>"; };
+		435784BD29E7F52300BDB495 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		43A0B3332886FEED00C49695 /* SecondButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondButtonLogic.swift; sourceTree = "<group>"; };
 		43A0B3352887FE5E00C49695 /* ThirdButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdButtonLogic.swift; sourceTree = "<group>"; };
 		43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourButtonLogic.swift; sourceTree = "<group>"; };
@@ -109,6 +111,31 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		435784BA29E7F4AE00BDB495 /* FourTaskController */ = {
+			isa = PBXGroup;
+			children = (
+				43FE56C1287D7B680002BB51 /* FourTaskViewController.swift */,
+			);
+			name = FourTaskController;
+			sourceTree = "<group>";
+		};
+		435784BB29E7F4DF00BDB495 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				43FE56BF287D7B680002BB51 /* SceneDelegate.swift */,
+				43FE56BD287D7B680002BB51 /* AppDelegate.swift */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		435784BC29E7F51600BDB495 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				435784BD29E7F52300BDB495 /* Constants.swift */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
 		439FCAF3753081288F422E2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				43FE56BC287D7B680002BB51 /* Four Task */,
-				43FE56D2287D7B860002BB51 /* SupportFiles */,
+				43FE56D2287D7B860002BB51 /* Supportings */,
 				43FE56BB287D7B680002BB51 /* Products */,
 				E94813624ED87F1E426A0C06 /* Pods */,
 				439FCAF3753081288F422E2D /* Frameworks */,
@@ -183,20 +210,21 @@
 		43FE56D1287D7B790002BB51 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				43FE56C1287D7B680002BB51 /* FourTaskViewController.swift */,
+				435784BA29E7F4AE00BDB495 /* FourTaskController */,
+				43BB9772288ACA06006E6159 /* SettingsViewController */,
 				4303DCB029DAF3C600328D57 /* Pomadoro */,
 				4303DCB229DB07D400328D57 /* TotalViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		43FE56D2287D7B860002BB51 /* SupportFiles */ = {
+		43FE56D2287D7B860002BB51 /* Supportings */ = {
 			isa = PBXGroup;
 			children = (
-				43FE56BD287D7B680002BB51 /* AppDelegate.swift */,
-				43FE56BF287D7B680002BB51 /* SceneDelegate.swift */,
+				435784BC29E7F51600BDB495 /* Constants */,
+				435784BB29E7F4DF00BDB495 /* Application */,
 			);
-			path = SupportFiles;
+			path = Supportings;
 			sourceTree = "<group>";
 		};
 		43FE56D3287D7B930002BB51 /* View */ = {
@@ -204,7 +232,6 @@
 			children = (
 				43FE56C3287D7B680002BB51 /* Main.storyboard */,
 				43FE56C8287D7B6A0002BB51 /* LaunchScreen.storyboard */,
-				43BB9772288ACA06006E6159 /* SettingsViewController */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -337,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43A0B3382887FE6A00C49695 /* FourButtonLogic.swift in Sources */,
+				435784BE29E7F52300BDB495 /* Constants.swift in Sources */,
 				43FE56C2287D7B680002BB51 /* FourTaskViewController.swift in Sources */,
 				43C815C328860577004B37C4 /* FirstButtonLogic.swift in Sources */,
 				43BB9778288C0997006E6159 /* TotalViewController.swift in Sources */,
