@@ -1,22 +1,10 @@
-//
-//  PomadoroSettings.swift
-//  Four Task
-//
-//  Created by Ilya Vasilev on 05.08.2022.
-//
-
 import UIKit
 
 class PomadoroSettingsViewController: UIViewController {
-    // MARK: - Let-var
+    
+    // MARK: - Properties
     var models = [Section]()
     var count = Count()
-    /// Constants
-    let defaultHeight: CGFloat = 300
-    let dismissibleHeight: CGFloat = 200
-    let maximumContainerHeight: CGFloat = UIScreen.main.bounds.height - 64
-    // keep current new height, initial is default height
-    var currentContainerHeight: CGFloat = 300
     
     // Dynamic container constraint
     var containerViewHeightConstraint: NSLayoutConstraint?
@@ -95,7 +83,7 @@ class PomadoroSettingsViewController: UIViewController {
     private func setupView() {
         view.backgroundColor = .clear
     }
-   private func setupPanGesture() {
+    private func setupPanGesture() {
         // add pan gesture recognizer to the view controller's view (the whole screen)
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.handlePanGesture(gesture:)))
         // change to false to immediately listen on gesture movement
@@ -115,13 +103,13 @@ class PomadoroSettingsViewController: UIViewController {
         print("Dragging direction: \(isDraggingDown ? "going down" : "going up")")
         
         // New height is based on value of dragging plus current container height
-        let newHeight = currentContainerHeight - translation.y
+        let newHeight = Constants.currentContainerHeight - translation.y
         
         // Handle based on gesture state
         switch gesture.state {
         case .changed:
             // This state will occur when user is dragging
-            if newHeight < maximumContainerHeight {
+            if newHeight < Constants.maximumContainerHeight {
                 // Keep updating the height constraint
                 containerViewHeightConstraint?.constant = newHeight
                 // refresh layout
@@ -132,27 +120,27 @@ class PomadoroSettingsViewController: UIViewController {
             // so we will get the last height of container
             
             // Condition 1: If new height is below min, dismiss controller
-            if newHeight < dismissibleHeight {
+            if newHeight < Constants.dismissibleHeight {
                 self.animateDismissView()
             }
-            else if newHeight < defaultHeight {
+            else if newHeight < Constants.defaultHeight {
                 // Condition 2: If new height is below default, animate back to default
-                animateContainerHeight(defaultHeight)
+                animateContainerHeight(Constants.defaultHeight)
             }
-            else if newHeight < maximumContainerHeight && isDraggingDown {
+            else if newHeight < Constants.maximumContainerHeight && isDraggingDown {
                 // Condition 3: If new height is below max and going down, set to default height
-                animateContainerHeight(defaultHeight)
+                animateContainerHeight(Constants.defaultHeight)
             }
-            else if newHeight > defaultHeight && !isDraggingDown {
+            else if newHeight > Constants.defaultHeight && !isDraggingDown {
                 // Condition 4: If new height is below max and going up, set to max height at top
-                animateContainerHeight(maximumContainerHeight)
+                animateContainerHeight(Constants.maximumContainerHeight)
             }
         default:
             break
         }
     }
     
-   private func animateContainerHeight(_ height: CGFloat) {
+    private func animateContainerHeight(_ height: CGFloat) {
         UIView.animate(withDuration: 0.4) {
             // Update container height
             self.containerViewHeightConstraint?.constant = height
@@ -160,11 +148,11 @@ class PomadoroSettingsViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
         // Save current height
-        currentContainerHeight = height
+        Constants.currentContainerHeight = height
     }
     
     // MARK: Present and dismiss animation
-   private func animatePresentContainer() {
+    private func animatePresentContainer() {
         // update bottom constraint in animation block
         UIView.animate(withDuration: 0.3) {
             self.containerViewBottomConstraint?.constant = 0
@@ -173,7 +161,7 @@ class PomadoroSettingsViewController: UIViewController {
         }
     }
     
-   private func animateShowDimmedView() {
+    private func animateShowDimmedView() {
         dimmedView.alpha = 0
         UIView.animate(withDuration: 0.4) {
             self.dimmedView.alpha = self.maxDimmedAlpha
@@ -191,7 +179,7 @@ class PomadoroSettingsViewController: UIViewController {
         }
         // hide main view by updating bottom constraint in animation block
         UIView.animate(withDuration: 0.3) {
-            self.containerViewBottomConstraint?.constant = self.defaultHeight
+            self.containerViewBottomConstraint?.constant = Constants.defaultHeight
             // call this to trigger refresh constraint
             self.view.layoutIfNeeded()
         }
@@ -199,24 +187,24 @@ class PomadoroSettingsViewController: UIViewController {
     
     private func formatTimeFocus() -> String {
         let minutes = Int(count.focusCount * 25) / 60 % 60
-         let seconds = Int(count.focusCount * 25) % 60
-         return String(format:"%02i:%02i", minutes, seconds)
-     }
+        let seconds = Int(count.focusCount * 25) % 60
+        return String(format:"%02i:%02i", minutes, seconds)
+    }
     private func formatTimeRelax() -> String {
         let minutes = Int(count.relaxCount * 5) / 60 % 60
         let seconds = Int(count.relaxCount * 5) % 60
-         return String(format:"%02i:%02i", minutes, seconds)
-     }
+        return String(format:"%02i:%02i", minutes, seconds)
+    }
     ///Установка ячеек таблиц
-   private func configureCells() {
+    private func configureCells() {
         models.append(Section(title: "Итоги томата", options: [
             
-        .staticCell(model: SettingsOption(
-            title: "Фокус = \(formatTimeFocus()), Отдых = \(formatTimeRelax())",
-//
-            icon: UIImage(named: "tomatoTimer"),
-            iconBackgroundColor: .systemIndigo) {
-            })
+            .staticCell(model: SettingsOption(
+                title: "Фокус = \(formatTimeFocus()), Отдых = \(formatTimeRelax())",
+                //
+                icon: UIImage(named: "tomatoTimer"),
+                iconBackgroundColor: .systemIndigo) {
+                })
         ]))
         
         models.append(Section(title: "Звуки", options: [
@@ -225,24 +213,24 @@ class PomadoroSettingsViewController: UIViewController {
                 icon: UIImage(systemName:"speaker.wave.3.fill"),
                 iconBackgroundColor: .systemIndigo,
                 handler: {
-                
-            },
-                isOn: true)),
-            
-            .switchCell(model: SettingsSwitchOption(
-                title: "Уведомления",
-                icon: UIImage(systemName: "bell.badge.fill"),
-                iconBackgroundColor: .systemPink,
-                handler: {
-                    print("Notificati,on in PomadoroTimer ON")
+                    
                 },
                 isOn: true)),
+            
+                .switchCell(model: SettingsSwitchOption(
+                    title: "Уведомления",
+                    icon: UIImage(systemName: "bell.badge.fill"),
+                    iconBackgroundColor: .systemPink,
+                    handler: {
+                        print("Notificati,on in PomadoroTimer ON")
+                    },
+                    isOn: true)),
             
                 .staticCell(model: SettingsOption(
                     title: "Фоновая работа",
                     icon: UIImage(systemName: "bag"),
                     iconBackgroundColor: .systemPink) {
-                }),
+                    }),
         ]))
     }
     ///Layout
@@ -275,11 +263,11 @@ class PomadoroSettingsViewController: UIViewController {
         // Устанавливаем динамичные констрейны.
         // Сначала, устанавливаем контейнеру дефолт высоту.
         // После чего высота может увеличиваться.
-        containerViewHeightConstraint = containerView.heightAnchor.constraint(equalToConstant: defaultHeight)
+        containerViewHeightConstraint = containerView.heightAnchor.constraint(equalToConstant: Constants.defaultHeight)
         // By setting the height to default height, the container will be hide below the bottom anchor view
         // Later, will bring it up by set it to 0
         // set the constant to default height to bring it down again
-        containerViewBottomConstraint = containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: defaultHeight)
+        containerViewBottomConstraint = containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: Constants.defaultHeight)
         // Activate constraints
         containerViewHeightConstraint?.isActive = true
         containerViewBottomConstraint?.isActive = true
@@ -343,4 +331,13 @@ extension PomadoroSettingsViewController : UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
+}
+
+private extension Constants {
+    static let defaultHeight: CGFloat = 300
+    static let dismissibleHeight: CGFloat = 200
+    static let maximumContainerHeight: CGFloat = UIScreen.main.bounds.height - 64
+    static var currentContainerHeight: CGFloat = 300
+    static let heightForRow: CGFloat = 80
+    
 }
