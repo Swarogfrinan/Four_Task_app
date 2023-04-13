@@ -60,7 +60,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     ///Нажатие на уведомление при открытом приложении.
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print(#function)
-        print(Constants.Notification.touchNotificationInAppb)
+        print(Constants.Notification.touchNotificationInApp)
     }
 }
 
