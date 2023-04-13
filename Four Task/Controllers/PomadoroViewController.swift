@@ -2,13 +2,6 @@ import UIKit
 import AVFoundation
 import CountableLabel
 
-//MARK: - Enums
-enum SetupAnimate {
-    case stop
-    case start
-    case relax
-}
-
 //MARK: - PomadoroViewController
 
 class PomadoroViewController: UIViewController {
@@ -21,14 +14,14 @@ class PomadoroViewController: UIViewController {
     @IBOutlet weak var pomadoroImage: UIImageView!
     
     //MARK: - Properties
-    let count = Count()
-    private let endOfTomatoSound = SystemSoundID(Constants.Pomadoro.tomatoSoundID)
-    private let concetrationTime = Constants.Pomadoro.durationConcetration
-    private  let relaxTime = Constants.Pomadoro.durationRelax
-    
     var audioPlayer = AVAudioPlayer()
     var tomatoTimer = Timer()
-    var defaultTime = 1500
+    
+    let count = Count()
+    private let endOfTomatoSound = SystemSoundID(Constants.Pomadoro.tomatoSoundID)
+    var defaultTime = Constants.Pomadoro.defaultDuration
+    private  let relaxTime = Constants.Pomadoro.durationRelax
+
     //Notification after timers work.
     var notificationManager = NotificationManager()
     
@@ -42,40 +35,33 @@ class PomadoroViewController: UIViewController {
         stopTimer()
         print(Constants.Pomadoro.dissappearMessage)
     }
-    //MARK: - Lifecycle
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDefaultGreetingsLabel()
     }
     
     //MARK: - IBA Methods
-    ///Нажатие кнопки старта
     @IBAction func actionButtonPressed(_ sender: UIButton) {
-        ///Старт таймера
         if  !timerStarted.tomatoTimerStarted  {
             setupUi(for: .stop)
             startTimer()
-            ///Стоп таймера
         } else if timerStarted.tomatoTimerStarted {
             setupUi(for: .start)
             stopTimer()
         }
     }
-    ///Нажатие картинки Помидора после чего появляется half-screen с настройками.
     @IBAction func pomadoroButtonPressed(_ sender: UIButton) {
         let controller = PomadoroSettingsViewController()
         controller.modalPresentationStyle = .overCurrentContext
         self.present(controller, animated: false)
-        
     }
-    
-   
 }
+
 private extension PomadoroViewController {
     //MARK: - Private methods
-    
      func startTimer() {
-        tomatoTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+         tomatoTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         timerStarted.tomatoTimerStarted = true
     }
     
@@ -85,8 +71,8 @@ private extension PomadoroViewController {
     }
     
     private func formatTime() -> String {
-        let minutes = Int(defaultTime) / 60 % 60
-        let seconds = Int(defaultTime) % 60
+        let minutes = Int(defaultTime) / .minute % .minute
+        let seconds = Int(defaultTime) % .minute
         return String(format:"%02i:%02i", minutes, seconds)
     }
     
@@ -98,63 +84,59 @@ private extension PomadoroViewController {
         AudioServicesPlaySystemSound(endOfTomatoSound)
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
     }
-    
-    ///Установка UI кнопки "Старт".
-    func setupUi(for animate: SetupAnimate) {
+    func setupUi(for animate: startedKeys) {
         switch animate {
-            ///Надписи красные, время паузы.
         case .stop:
             UIView.animate(withDuration: 0.3) { [self] in
                 startButton.setImage(UIImage(systemName: "stop.fill"), for: .normal)
-                startButton.setTitle("Стоп", for: .normal)
-                noticeLabel.text = "тик-так-так-тик"
+                startButton.setTitle(Constants.Titles.ButtonTitles.stopLabel, for: .normal)
+                noticeLabel.text = Constants.Titles.countingLabel
                 startButton.tintColor = .systemRed
                 noticeLabel.textColor = .systemRed
             }
-            ///Надписи синие, время фокуса.
         case .start:
             UIView.animate(withDuration: 0.3) { [self] in
                 startButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-                startButton.setTitle("Старт", for: .normal)
-                noticeLabel.text = "Усерден твой путь!"
+                startButton.setTitle(Constants.Titles.ButtonTitles.startLabel, for: .normal)
+                noticeLabel.text = Constants.Titles.motivationLabel
                 startButton.tintColor = .systemBlue
                 noticeLabel.textColor = .systemBlue
             }
-            ///Надписи зеленые, время отдыха.
         case .relax:
             UIView.animate(withDuration: 0.3) { [self] in
                 startButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-                startButton.setTitle("Отдых!", for: .normal)
+                startButton.setTitle(Constants.Titles.relaxLabel, for: .normal)
                 
                 startButton.tintColor = .systemGreen
                 noticeLabel.textColor = .systemGreen
             }
         }
     }
+    
     ///Ежесекундный счётчик Update Таймера.
     @objc func updateTimer() {
-        if defaultTime > 0 {
-            defaultTime -= 1
+        if defaultTime > .zero {
+            defaultTime -= .sec
             pomadoroLabel.text = formatTime()
-        }  else if defaultTime == 0 && !timerStarted.tomatoRestTimerStarted  {
-            count.focusCount += 1
+        }  else if defaultTime == .zero && !timerStarted.tomatoRestTimerStarted  {
+            count.focusCount += .sec
             playAlarmSound()
             print("Таймер отдыха сработал")
             setupUi(for: .relax)
             defaultTime = relaxTime
             timerStarted.tomatoRestTimerStarted = true
-            pomadoroLabel.text = "5:00"
-            noticeLabel.text = "Повод сделать зарядку!"
+            pomadoroLabel.text = Constants.Titles.defaultRelaxLabel
+            noticeLabel.text = Constants.Titles.callToRelaxLabel
             
             stopTimer()
-        } else if defaultTime == 0 && timerStarted.tomatoRestTimerStarted  {
-            count.relaxCount += 1
+        } else if defaultTime == .zero && timerStarted.tomatoRestTimerStarted  {
+            count.relaxCount += .sec
             timerStarted.tomatoRestTimerStarted = false
             stopTimer()
             print("Таймер концентрации после таймера отдыха")
             setupUi(for: .start)
-            defaultTime = concetrationTime
-            pomadoroLabel.text = "25:00"
+            defaultTime = Constants.Pomadoro.defaultDuration
+            pomadoroLabel.text = Constants.Titles.defaultConcetrationLabel
         }
     }
 }
@@ -163,9 +145,23 @@ private extension PomadoroViewController {
 private extension Constants {
     struct Pomadoro {
         static let tomatoSoundID = 1328
-        static let durationConcetration = 1500
+        static let defaultDuration = 1500
         static let durationRelax = 300
         static let dissappearMessage = "Pomodoro timer disappear"
         static let defaultTitle = "Lets go studing"
+    }
+    
+    struct Titles {
+        static let callToRelaxLabel = "Повод сделать зарядку!"
+        static let defaultRelaxLabel = "5:00"
+        static let defaultConcetrationLabel = "25:00"
+        static let relaxLabel = "Отдых!"
+        static let motivationLabel = "Усерден твой путь!"
+        static let countingLabel = "тик-так-так-тик"
+        
+        struct ButtonTitles {
+            static let stopLabel = "Стоп!"
+            static let startLabel = "Старт!"
+        }
     }
 }
