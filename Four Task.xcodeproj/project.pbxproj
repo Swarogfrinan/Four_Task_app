@@ -14,7 +14,7 @@
 		435784C529E8498A00BDB495 /* Int + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435784C429E8498A00BDB495 /* Int + Extension.swift */; };
 		435784C729E8500000BDB495 /* StartedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435784C629E8500000BDB495 /* StartedKeys.swift */; };
 		43917A5529E8BED10020A325 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43917A5429E8BED10020A325 /* UIButton+Extension.swift */; };
-		43917A5729E8C3220020A325 /* TomatoBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43917A5629E8C3220020A325 /* TomatoBrain.swift */; };
+		43917A5729E8C3220020A325 /* PomadoroBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43917A5629E8C3220020A325 /* PomadoroBrain.swift */; };
 		43A0B3342886FEED00C49695 /* SecondButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3332886FEED00C49695 /* SecondButtonLogic.swift */; };
 		43A0B3362887FE5E00C49695 /* ThirdButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3352887FE5E00C49695 /* ThirdButtonLogic.swift */; };
 		43A0B3382887FE6A00C49695 /* FourButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */; };
@@ -48,7 +48,7 @@
 		435784C429E8498A00BDB495 /* Int + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int + Extension.swift"; sourceTree = "<group>"; };
 		435784C629E8500000BDB495 /* StartedKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartedKeys.swift; sourceTree = "<group>"; };
 		43917A5429E8BED10020A325 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
-		43917A5629E8C3220020A325 /* TomatoBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatoBrain.swift; sourceTree = "<group>"; };
+		43917A5629E8C3220020A325 /* PomadoroBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomadoroBrain.swift; sourceTree = "<group>"; };
 		43A0B3332886FEED00C49695 /* SecondButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondButtonLogic.swift; sourceTree = "<group>"; };
 		43A0B3352887FE5E00C49695 /* ThirdButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdButtonLogic.swift; sourceTree = "<group>"; };
 		43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourButtonLogic.swift; sourceTree = "<group>"; };
@@ -95,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				435784C829E8501900BDB495 /* Controllers */,
-				435784C929E8502E00BDB495 /* Model */,
 				43D09752288F24DC006D7390 /* PomadoroViewController.swift */,
 			);
 			path = PomadoroScreen;
@@ -110,13 +109,13 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		4303DCB229DB07D400328D57 /* ResultScreen */ = {
+		4303DCB229DB07D400328D57 /* TotalViewController */ = {
 			isa = PBXGroup;
 			children = (
 				43BB9777288C0997006E6159 /* TotalViewController.swift */,
 				4303DCB329DB07DF00328D57 /* Cells */,
 			);
-			path = ResultScreen;
+			path = TotalViewController;
 			sourceTree = "<group>";
 		};
 		4303DCB329DB07DF00328D57 /* Cells */ = {
@@ -130,7 +129,7 @@
 		435784BA29E7F4AE00BDB495 /* FourTaskScreen */ = {
 			isa = PBXGroup;
 			children = (
-				43FE56C1287D7B680002BB51 /* FourTaskViewController.swift */,
+				43917A5829E8C65D0020A325 /* Controller */,
 				43BB9772288ACA06006E6159 /* SettingsScreen */,
 			);
 			name = FourTaskScreen;
@@ -166,8 +165,8 @@
 		435784C829E8501900BDB495 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				43B27436289D104D0051C3D9 /* PomadoroSettingsViewController.swift */,
 				430C9AC32899BF8700BF5A8B /* PomadoroViewController.swift */,
+				43B27436289D104D0051C3D9 /* PomadoroSettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -175,10 +174,19 @@
 		435784C929E8502E00BDB495 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				435784C629E8500000BDB495 /* StartedKeys.swift */,
-				435784C029E8255100BDB495 /* Count.swift */,
+				43BF6C46287EF27F005A5FBB /* FourTask */,
+				43B60ADB29E93C7400420B8D /* Pomadoro */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		43917A5829E8C65D0020A325 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				43C7B636289AE49B003201B3 /* AnimationBrain */,
+				43FE56C1287D7B680002BB51 /* FourTaskViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		439FCAF3753081288F422E2D /* Frameworks */ = {
@@ -187,6 +195,25 @@
 				9F2FC42A926BF3BEAB723742 /* Pods_Four_Task.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		43B60ADB29E93C7400420B8D /* Pomadoro */ = {
+			isa = PBXGroup;
+			children = (
+				43917A5629E8C3220020A325 /* PomadoroBrain.swift */,
+				435784C629E8500000BDB495 /* StartedKeys.swift */,
+				435784C029E8255100BDB495 /* Count.swift */,
+			);
+			path = Pomadoro;
+			sourceTree = "<group>";
+		};
+		43B60ADC29E93CDA00420B8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				43D3AF9629E89A2C003943D0 /* SplashPresenter.swift */,
+				43D3AF9829E89B12003943D0 /* SplashAnimator.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		43BB9772288ACA06006E6159 /* SettingsScreen */ = {
@@ -198,17 +225,15 @@
 			path = SettingsScreen;
 			sourceTree = "<group>";
 		};
-		43BF6C46287EF27F005A5FBB /* Model */ = {
+		43BF6C46287EF27F005A5FBB /* FourTask */ = {
 			isa = PBXGroup;
 			children = (
 				43FE56D4287D8A7E0002BB51 /* KeysBrain.swift */,
 				43C590BF2880196C00580253 /* TaskAction.swift */,
 				43C6D6BD289A6A4D00672ADD /* TimerModel.swift */,
-				43917A5629E8C3220020A325 /* TomatoBrain.swift */,
 				435784BF29E803C400BDB495 /* Notification */,
-				43C7B636289AE49B003201B3 /* AnimationBrain */,
 			);
-			path = Model;
+			path = FourTask;
 			sourceTree = "<group>";
 		};
 		43C7B636289AE49B003201B3 /* AnimationBrain */ = {
@@ -226,8 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				43D3AF9229E898FB003943D0 /* SplashViewController.swift */,
-				43D3AF9629E89A2C003943D0 /* SplashPresenter.swift */,
-				43D3AF9829E89B12003943D0 /* SplashAnimator.swift */,
+				43B60ADC29E93CDA00420B8D /* Model */,
 			);
 			path = SplashLaunchScreen;
 			sourceTree = "<group>";
@@ -254,7 +278,7 @@
 		43FE56BC287D7B680002BB51 /* Four Task */ = {
 			isa = PBXGroup;
 			children = (
-				43BF6C46287EF27F005A5FBB /* Model */,
+				435784C929E8502E00BDB495 /* Model */,
 				43FE56D3287D7B930002BB51 /* View */,
 				43FE56D1287D7B790002BB51 /* Controllers */,
 				43FE56C6287D7B6A0002BB51 /* Assets.xcassets */,
@@ -269,7 +293,7 @@
 				43D3AF9A29E8A0DF003943D0 /* SplashLaunchScreen */,
 				435784BA29E7F4AE00BDB495 /* FourTaskScreen */,
 				4303DCB029DAF3C600328D57 /* PomadoroScreen */,
-				4303DCB229DB07D400328D57 /* ResultScreen */,
+				4303DCB229DB07D400328D57 /* TotalViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -442,7 +466,7 @@
 				43BB977A288C0A02006E6159 /* TotalTableViewCell.swift in Sources */,
 				43E3BF39289BC8E6002484F0 /* NotificationManager.swift in Sources */,
 				435784C329E8293700BDB495 /* UIFont+AppFonts.swift in Sources */,
-				43917A5729E8C3220020A325 /* TomatoBrain.swift in Sources */,
+				43917A5729E8C3220020A325 /* PomadoroBrain.swift in Sources */,
 				43C6D6BE289A6A4D00672ADD /* TimerModel.swift in Sources */,
 				43A0B3362887FE5E00C49695 /* ThirdButtonLogic.swift in Sources */,
 				43A0B3342886FEED00C49695 /* SecondButtonLogic.swift in Sources */,
