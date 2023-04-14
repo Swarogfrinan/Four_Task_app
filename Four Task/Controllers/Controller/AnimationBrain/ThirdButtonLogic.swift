@@ -31,7 +31,7 @@ extension FourTaskViewController {
         if timerCounting == true {
             print("TimerCounting = true в 3 кнопке")
             setStopTimeThird(date: Date())
-            thirdTaskStop()
+            canThirdAnimatedStopped()
             stopTimerThird()
             print("3 таймер остановлен. UI отработал. ")
         } else {
@@ -43,7 +43,7 @@ extension FourTaskViewController {
                 setStartTimeThird(date: Date())
             }
             
-            thirdTaskStart()
+            canThirdAnimatedStart()
             startTimerThird()
         }
     }
@@ -52,7 +52,7 @@ extension FourTaskViewController {
         scheduledTimerThird = Timer.scheduledTimer(timeInterval: 0.1 , target: self, selector: #selector(refreshValueThird), userInfo: nil, repeats: true)
         setTimerCountingThird(true)
         //        clockLabel.textColor = .systemBlue
-        thirdTaskStart()
+        canThirdAnimatedStart()
     }
     //MARK: - STOP
     func stopActionThird() {
