@@ -29,7 +29,7 @@ extension FourTaskViewController {
         if timerCounting == true {
             print("TimerCounting = true в 1 кнопке")
             setStopTimeOne(date: Date())
-            firstTaskStop()
+            canFirstButtonAnimatedStopped()
             stopTimerOne()
             print("1 таймер остановлен. UI отработал. ")
         } else {
@@ -40,7 +40,7 @@ extension FourTaskViewController {
             } else {
                 setStartTimeOne(date: Date())
             }
-            firstTaskStart()
+            canFirstButtonAnimatedStarted()
             startTimerOne()
         }
     }
@@ -48,7 +48,7 @@ extension FourTaskViewController {
     fileprivate func startTimerOne() {
         scheduledTimerFirst = Timer.scheduledTimer(timeInterval: 0.1 , target: self, selector:    #selector(refreshValueOne), userInfo: nil, repeats: true)
         setTimerCountingOne(true)
-        firstTaskStart()
+        canFirstButtonAnimatedStarted()
     }
     //MARK: - STOP
     fileprivate func stopActionOne() {
