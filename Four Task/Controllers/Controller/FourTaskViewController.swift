@@ -45,7 +45,7 @@ class FourTaskViewController: UIViewController {
 
     @IBAction func firstTaskButtonPressed(_ sender: UIButton) {
         sender.tapScale(sender: sender)
-        firstTask()
+        fullStartFirstTimer()
     }
 
     @IBAction func secondTaskButtonPressed(_ sender: UIButton) {
@@ -82,8 +82,8 @@ private extension FourTaskViewController {
         stopDateFirst = userDefaults.object(forKey: FirstKeys.stop.rawValue) as? Date
         timerStarted.firstTimerStarted = userDefaults.bool(forKey: FirstKeys.counting.rawValue)
         if timerStarted.firstTimerStarted {
-            firstRefreshBackgroundTimer()
-            animateFirstViewStart()
+            refreshFirstBackgroundTimer()
+        firstButtonStartAnimation()
             print("1 бэкграунд таймер включился")
         } else {
             print("ERROR : 1 Бэкграунд не сработал ")
@@ -95,7 +95,7 @@ private extension FourTaskViewController {
         timerStarted.secondTimerStarted = userDefaults.bool(forKey: SecondKeys.counting.rawValue)
         if timerStarted.secondTimerStarted   {
             secondRefreshBackgroundTimer()
-            animateSecondViewStart()
+            secondButtonStartedAnimation()
             print("2 бэкграунд таймер включился")
         } else {
             print("ERROR : 2 Бэкграунд не сработал ")
@@ -107,7 +107,7 @@ private extension FourTaskViewController {
         timerStarted.thirdTimerStarted = userDefaults.bool(forKey: ThirdKeys.counting.rawValue)
         if timerStarted.thirdTimerStarted {
             thirdRefreshBackgroundTimer()
-            animateThirdViewStart()
+            thirdButtonStartAnimation()
             print("3 бэкграунд таймер включился")
         } else {
             print("ERROR : 3 Бэкграунд не сработал ")
@@ -120,7 +120,7 @@ private extension FourTaskViewController {
         ///Запуск 4 бэкграунд-таймера если он был нажат последним
         if timerStarted.fourTimerStarted  {
             fourRefreshBackgroundTimer()
-            animateFourViewStart()
+            fourButtonStartedAnimation()
             print("4 бэкграунд таймер включился")
         } else {
             print("ERROR : 4 Бэкграунд не сработал ")
@@ -164,27 +164,27 @@ extension FourTaskViewController {
         let alert = UIAlertController(title: Constants.Alert.cancelTitle, message: Constants.Alert.alertMessage, preferredStyle: UIAlertController.Style.alert)
         if timerStarted.firstTimerStarted {
             alert.addAction(UIAlertAction(title: Constants.Alert.firstTask, style: UIAlertAction.Style.default, handler: { action in
-                self.resetActionOne()
-                self.animateFirstViewStop()
+                self.resetFirstActionToDefault()
+                self.firstButtonPauseAnimation()
                 
             }))
         } else {
             if timerStarted.secondTimerStarted   {
                 alert.addAction(UIAlertAction(title: Constants.Alert.secondTask , style: UIAlertAction.Style.default, handler:  { action in
                     self.resetActionSecond()
-                    self.animateSecondViewStop()
+                    self.secondButtonPauseAnimation()
                 }))
             } else {
                 if timerStarted.thirdTimerStarted {
                     alert.addAction(UIAlertAction(title:Constants.Alert.thirdTask , style: UIAlertAction.Style.default, handler: { action in
                         self.resetActionThird()
-                        self.animateThirdViewStop()
+                        self.thirdButtonPauseAnimation()
                     }))
                 } else {
                     if timerStarted.fourTimerStarted  {
                         alert.addAction(UIAlertAction(title: Constants.Alert.fourTask, style: UIAlertAction.Style.default, handler: { action in
                             self.resetActionFour()
-                            self.animateFourViewStop()
+                            self.fourButtonPauseAnimation()
                         }))
                     }
                 }
@@ -192,7 +192,7 @@ extension FourTaskViewController {
         }
         alert.addAction(UIAlertAction(title: Constants.Alert.cancelTitle, style: UIAlertAction.Style.cancel, handler: nil))
         alert.addAction(UIAlertAction(title: Constants.Alert.resetAllDay, style: UIAlertAction.Style.destructive, handler: { action in
-            self.resetActionOne()
+            self.resetFirstActionToDefault()
             self.resetActionSecond()
             self.resetActionThird()
             self.resetActionFour()
