@@ -1,36 +1,46 @@
 import Foundation
-protocol AnimationProtocol {
-    func canButtonHaveAnimatedStart()
-    func canButtonHaveAnimatedStop()
-    func buttonStartedAnimation()
-    func buttonPauseAnimation()
-}
-
- protocol SetupKeysProtocol {
-    func setKeyPause()
-    func setKeyStart()
-    func setKeyCounting()
-}
-
-protocol SetupLabelProtocol {
-func setupDefaultLabel()
-    
-}
-
- protocol ResetProtocol {
-func resetActionToDefault()
-}
 
 protocol PropertyProtocol {
     var stopDate : Date? { get set }
     var startDate: Date? { get set }
-    var scheduletTimer: Timer! { get set }
+    var scheduledTimer: Timer! { get set }
 }
 
-protocol ButtonLogicProtocol : PropertyProtocol,AnimationProtocol, SetupLabelProtocol, SetupKeysProtocol, ResetProtocol {
+protocol AnimationProtocol {
+    func canButtonHaveAnimatedStart()
+    func canButtonHaveAnimatedStop()
+    func buttonStartAnimation()
+    func buttonPauseAnimation()
+}
+
+ protocol SetupKeysProtocol {
+    func setKeyPause(date: Date?)
+    func setKeyStart(date: Date?)
+    func setKeyCounting(_ value: Bool)
+}
+
+protocol SetupLabelProtocol {
+func setupDefaultLabel(_ value: Int)
+}
+
+protocol CalculatedTimeProtocol {
+    func calculatedRestartDate(start: Date, stop: Date) -> Date
+}
+
+protocol ResetProtocol {
+func resetActionToDefault()
+}
+
+@objc protocol RefreshDefaultValue {
+    func refreshDefaultValue()
+}
+
+
+
+protocol ButtonLogicProtocol : PropertyProtocol,AnimationProtocol, SetupLabelProtocol, SetupKeysProtocol, CalculatedTimeProtocol, ResetProtocol, RefreshDefaultValue {
+    
    func refreshBackgroundTimer()
     func fullLauchTimer()
-    func startTimer()
     func pauseAction()
     func pauseTimer()
 }
