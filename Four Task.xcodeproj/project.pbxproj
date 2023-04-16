@@ -15,6 +15,8 @@
 		435784C729E8500000BDB495 /* StartedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435784C629E8500000BDB495 /* StartedKeys.swift */; };
 		43917A5529E8BED10020A325 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43917A5429E8BED10020A325 /* UIButton+Extension.swift */; };
 		43917A5729E8C3220020A325 /* PomadoroBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43917A5629E8C3220020A325 /* PomadoroBrain.swift */; };
+		4395389129EBEBB400F0CA12 /* ButtonsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4395389029EBEBB400F0CA12 /* ButtonsProtocol.swift */; };
+		4395389329EBFA0100F0CA12 /* FirstButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4395389229EBFA0100F0CA12 /* FirstButton.swift */; };
 		43A0B3342886FEED00C49695 /* SecondButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3332886FEED00C49695 /* SecondButtonLogic.swift */; };
 		43A0B3362887FE5E00C49695 /* ThirdButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3352887FE5E00C49695 /* ThirdButtonLogic.swift */; };
 		43A0B3382887FE6A00C49695 /* FourButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */; };
@@ -49,6 +51,8 @@
 		435784C629E8500000BDB495 /* StartedKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartedKeys.swift; sourceTree = "<group>"; };
 		43917A5429E8BED10020A325 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		43917A5629E8C3220020A325 /* PomadoroBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomadoroBrain.swift; sourceTree = "<group>"; };
+		4395389029EBEBB400F0CA12 /* ButtonsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsProtocol.swift; sourceTree = "<group>"; };
+		4395389229EBFA0100F0CA12 /* FirstButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstButton.swift; sourceTree = "<group>"; };
 		43A0B3332886FEED00C49695 /* SecondButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondButtonLogic.swift; sourceTree = "<group>"; };
 		43A0B3352887FE5E00C49695 /* ThirdButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdButtonLogic.swift; sourceTree = "<group>"; };
 		43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourButtonLogic.swift; sourceTree = "<group>"; };
@@ -240,6 +244,8 @@
 			isa = PBXGroup;
 			children = (
 				43C815C228860577004B37C4 /* FirstButtonLogic.swift */,
+				4395389029EBEBB400F0CA12 /* ButtonsProtocol.swift */,
+				4395389229EBFA0100F0CA12 /* FirstButton.swift */,
 				43A0B3332886FEED00C49695 /* SecondButtonLogic.swift */,
 				43A0B3352887FE5E00C49695 /* ThirdButtonLogic.swift */,
 				43A0B3372887FE6A00C49695 /* FourButtonLogic.swift */,
@@ -444,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43A0B3382887FE6A00C49695 /* FourButtonLogic.swift in Sources */,
+				4395389329EBFA0100F0CA12 /* FirstButton.swift in Sources */,
 				43917A5529E8BED10020A325 /* UIButton+Extension.swift in Sources */,
 				435784BE29E7F52300BDB495 /* Constants.swift in Sources */,
 				43FE56C2287D7B680002BB51 /* FourTaskViewController.swift in Sources */,
@@ -452,6 +459,7 @@
 				43A184B12889C2DF00BAD964 /* SettingsViewController.swift in Sources */,
 				435784C729E8500000BDB495 /* StartedKeys.swift in Sources */,
 				43C590C02880196C00580253 /* TaskAction.swift in Sources */,
+				4395389129EBEBB400F0CA12 /* ButtonsProtocol.swift in Sources */,
 				43BB9776288ACA48006E6159 /* SwitchTableViewCell.swift in Sources */,
 				430C9AC42899BF8700BF5A8B /* PomadoroViewController.swift in Sources */,
 				43FE56D5287D8A7E0002BB51 /* KeysBrain.swift in Sources */,
