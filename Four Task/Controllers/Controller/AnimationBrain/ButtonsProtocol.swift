@@ -6,13 +6,6 @@ protocol PropertyProtocol {
     var scheduledTimer: Timer! { get set }
 }
 
-protocol AnimationProtocol {
-    func canButtonHaveAnimatedStart()
-    func canButtonHaveAnimatedStop()
-    func buttonStartAnimation()
-    func buttonPauseAnimation()
-}
-
  protocol SetupKeysProtocol {
     func setKeyPause(date: Date?)
     func setKeyStart(date: Date?)
@@ -22,6 +15,7 @@ protocol AnimationProtocol {
 protocol SetupLabelProtocol {
 func setupDefaultLabel(_ value: Int)
 }
+
 
 protocol CalculatedTimeProtocol {
     func calculatedRestartDate(start: Date, stop: Date) -> Date
@@ -35,9 +29,7 @@ func resetActionToDefault()
     func refreshDefaultValue()
 }
 
-
-
-protocol ButtonLogicProtocol : PropertyProtocol,AnimationProtocol, SetupLabelProtocol, SetupKeysProtocol, CalculatedTimeProtocol, ResetProtocol, RefreshDefaultValue {
+protocol ButtonLogicProtocol : PropertyProtocol, SetupLabelProtocol, SetupKeysProtocol, CalculatedTimeProtocol, ResetProtocol, RefreshDefaultValue {
     
    func refreshBackgroundTimer()
     func fullLauchTimer()
