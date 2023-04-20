@@ -13,6 +13,7 @@
 		435784C329E8293700BDB495 /* UIFont+AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435784C229E8293700BDB495 /* UIFont+AppFonts.swift */; };
 		435784C529E8498A00BDB495 /* Int + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435784C429E8498A00BDB495 /* Int + Extension.swift */; };
 		435784C729E8500000BDB495 /* StartedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435784C629E8500000BDB495 /* StartedKeys.swift */; };
+		43630B0629F16BA5000CA0DA /* FirstAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43630B0529F16BA5000CA0DA /* FirstAnimation.swift */; };
 		43917A5529E8BED10020A325 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43917A5429E8BED10020A325 /* UIButton+Extension.swift */; };
 		43917A5729E8C3220020A325 /* PomadoroBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43917A5629E8C3220020A325 /* PomadoroBrain.swift */; };
 		4395389129EBEBB400F0CA12 /* ButtonsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4395389029EBEBB400F0CA12 /* ButtonsProtocol.swift */; };
@@ -26,7 +27,7 @@
 		43BB9776288ACA48006E6159 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BB9775288ACA48006E6159 /* SwitchTableViewCell.swift */; };
 		43BB9778288C0997006E6159 /* TotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BB9777288C0997006E6159 /* TotalViewController.swift */; };
 		43BB977A288C0A02006E6159 /* TotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BB9779288C0A02006E6159 /* TotalTableViewCell.swift */; };
-		43C590C02880196C00580253 /* TaskAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C590BF2880196C00580253 /* TaskAction.swift */; };
+		43C590C02880196C00580253 /* Animation Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C590BF2880196C00580253 /* Animation Extension.swift */; };
 		43C6D6BE289A6A4D00672ADD /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6D6BD289A6A4D00672ADD /* TimerModel.swift */; };
 		43C815C328860577004B37C4 /* FirstButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C815C228860577004B37C4 /* FirstButtonLogic.swift */; };
 		43D3AF9329E898FB003943D0 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D3AF9229E898FB003943D0 /* SplashViewController.swift */; };
@@ -49,6 +50,7 @@
 		435784C229E8293700BDB495 /* UIFont+AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+AppFonts.swift"; sourceTree = "<group>"; };
 		435784C429E8498A00BDB495 /* Int + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int + Extension.swift"; sourceTree = "<group>"; };
 		435784C629E8500000BDB495 /* StartedKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartedKeys.swift; sourceTree = "<group>"; };
+		43630B0529F16BA5000CA0DA /* FirstAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAnimation.swift; sourceTree = "<group>"; };
 		43917A5429E8BED10020A325 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		43917A5629E8C3220020A325 /* PomadoroBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomadoroBrain.swift; sourceTree = "<group>"; };
 		4395389029EBEBB400F0CA12 /* ButtonsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsProtocol.swift; sourceTree = "<group>"; };
@@ -62,7 +64,7 @@
 		43BB9775288ACA48006E6159 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		43BB9777288C0997006E6159 /* TotalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalViewController.swift; sourceTree = "<group>"; };
 		43BB9779288C0A02006E6159 /* TotalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalTableViewCell.swift; sourceTree = "<group>"; };
-		43C590BF2880196C00580253 /* TaskAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAction.swift; sourceTree = "<group>"; };
+		43C590BF2880196C00580253 /* Animation Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animation Extension.swift"; sourceTree = "<group>"; };
 		43C6D6BD289A6A4D00672ADD /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		43C815C228860577004B37C4 /* FirstButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstButtonLogic.swift; sourceTree = "<group>"; };
 		43D09752288F24DC006D7390 /* PomadoroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PomadoroViewController.swift; path = "/Users/ilyavasilev/Documents/GitHub/Four Task/Four Task/Controllers/PomadoroViewController.swift"; sourceTree = "<absolute>"; };
@@ -184,6 +186,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		43630B0429F14706000CA0DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4395389029EBEBB400F0CA12 /* ButtonsProtocol.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		43917A5829E8C65D0020A325 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,7 +243,8 @@
 			isa = PBXGroup;
 			children = (
 				43FE56D4287D8A7E0002BB51 /* KeysBrain.swift */,
-				43C590BF2880196C00580253 /* TaskAction.swift */,
+				43C590BF2880196C00580253 /* Animation Extension.swift */,
+				43630B0529F16BA5000CA0DA /* FirstAnimation.swift */,
 				43C6D6BD289A6A4D00672ADD /* TimerModel.swift */,
 				435784BF29E803C400BDB495 /* Notification */,
 			);
@@ -244,7 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				43C815C228860577004B37C4 /* FirstButtonLogic.swift */,
-				4395389029EBEBB400F0CA12 /* ButtonsProtocol.swift */,
+				43630B0429F14706000CA0DA /* Model */,
 				4395389229EBFA0100F0CA12 /* FirstButton.swift */,
 				43A0B3332886FEED00C49695 /* SecondButtonLogic.swift */,
 				43A0B3352887FE5E00C49695 /* ThirdButtonLogic.swift */,
@@ -458,12 +469,13 @@
 				43BB9778288C0997006E6159 /* TotalViewController.swift in Sources */,
 				43A184B12889C2DF00BAD964 /* SettingsViewController.swift in Sources */,
 				435784C729E8500000BDB495 /* StartedKeys.swift in Sources */,
-				43C590C02880196C00580253 /* TaskAction.swift in Sources */,
+				43C590C02880196C00580253 /* Animation Extension.swift in Sources */,
 				4395389129EBEBB400F0CA12 /* ButtonsProtocol.swift in Sources */,
 				43BB9776288ACA48006E6159 /* SwitchTableViewCell.swift in Sources */,
 				430C9AC42899BF8700BF5A8B /* PomadoroViewController.swift in Sources */,
 				43FE56D5287D8A7E0002BB51 /* KeysBrain.swift in Sources */,
 				43D3AF9729E89A2C003943D0 /* SplashPresenter.swift in Sources */,
+				43630B0629F16BA5000CA0DA /* FirstAnimation.swift in Sources */,
 				43A184B32889D71200BAD964 /* SettingsTableViewCell.swift in Sources */,
 				43D3AF9929E89B12003943D0 /* SplashAnimator.swift in Sources */,
 				435784C129E8255100BDB495 /* Count.swift in Sources */,
