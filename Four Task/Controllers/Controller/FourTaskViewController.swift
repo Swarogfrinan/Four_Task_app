@@ -5,36 +5,36 @@ class FourTaskViewController: UIViewController {
     
     //MARK: - IBOutlets
     @IBOutlet var buttonCollection: [UIButton]!
-
+    
     @IBOutlet weak var leftBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
- 
+    
     @IBOutlet weak var dayTimeLabel: UILabel!
     @IBOutlet weak var clockLabel: CountableLabel!
-  
+    
     @IBOutlet weak var firstButton: UIButton!
     @IBOutlet weak var secondButton: UIButton!
     @IBOutlet weak var thirdButton: UIButton!
     @IBOutlet weak var fourButton: UIButton!
-
+    
     @IBOutlet weak var ordinalFirstLabel: UILabel!
     @IBOutlet weak var ordinalSecondLabel: UILabel!
     @IBOutlet weak var ordinalThirdLabel: UILabel!
     @IBOutlet weak var ordinalFourLabel: UILabel!
-
+    
     @IBOutlet weak var taskNumberFirstLabel: CountableLabel!
     @IBOutlet weak var taskNumberSecondLabel: CountableLabel!
     @IBOutlet weak var taskNumbersThirdLabel: CountableLabel!
     @IBOutlet weak var taskNumbersFourLabel: CountableLabel!
     
- 
-    let userDefaults = UserDefaults.standard
- 
-    //MARK: - Lifecycle
     
+    let userDefaults = UserDefaults.standard
+    let firstButtonLogic = FirstButton()
+    
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupDelegates()
         setupLabel()
         makeCurrentTime()
         loadTimerFromUserDefaults()
@@ -42,22 +42,26 @@ class FourTaskViewController: UIViewController {
     }
     
     //MARK: - IBOutlet methods
-
+    func setupDelegates() {
+        firstButtonLogic.buttonDelegate = self
+        firstButtonLogic.animationDelegate = self
+    }
+    
     @IBAction func firstTaskButtonPressed(_ sender: UIButton) {
         sender.tapScale(sender: sender)
-        fullStartFirstTimer()
+        firstButtonLogic.fullLauchTimer()
     }
-
+    
     @IBAction func secondTaskButtonPressed(_ sender: UIButton) {
         sender.tapScale(sender: sender)
         secondTask()
     }
-
+    
     @IBAction func thirdTaskButtonPressed(_ sender: UIButton) {
         sender.tapScale(sender: sender)
         thirdTask()
     }
-
+    
     @IBAction func fourTaskButtonPressed(_ sender: UIButton) {
         sender.tapScale(sender: sender)
         fourTask()
@@ -71,24 +75,12 @@ class FourTaskViewController: UIViewController {
 private extension FourTaskViewController {
     
     func loadTimerFromUserDefaults() {
-        firstLoadFromUserDefaults()
+        firstButtonLogic.firstLoadFromUserDefaults()
         secondLoadFromUserDefaults()
         thirdLoadFromUserDefaults()
         fourLoadFromUserDefaults()
     }
     
-    func firstLoadFromUserDefaults() {
-        startDateFirst = userDefaults.object(forKey: FirstKeys.start.rawValue) as? Date
-        stopDateFirst = userDefaults.object(forKey: FirstKeys.stop.rawValue) as? Date
-        timerStarted.firstTimerStarted = userDefaults.bool(forKey: FirstKeys.counting.rawValue)
-        if timerStarted.firstTimerStarted {
-            refreshFirstBackgroundTimer()
-        firstButtonStartAnimation()
-            print("1 бэкграунд таймер включился")
-        } else {
-            print("ERROR : 1 Бэкграунд не сработал ")
-        }
-    }
     func secondLoadFromUserDefaults() {
         startedDateSecond = userDefaults.object(forKey: SecondKeys.start.rawValue) as? Date
         stoppedDateSecond = userDefaults.object(forKey: SecondKeys.stop.rawValue) as? Date
@@ -160,13 +152,19 @@ extension FourTaskViewController {
         clockLabel.text = Constants.greetings
     }
     
+    func setupDefaultLabel(timeString : String) {
+        if timeString != "" {
+            clockLabel.text = timeString
+            taskNumberFirstLabel.text = timeString
+            taskNumberFirstLabel.textColor = .systemYellow
+        }
+    }
     func setupRefreshAlert() {
         let alert = UIAlertController(title: Constants.Alert.cancelTitle, message: Constants.Alert.alertMessage, preferredStyle: UIAlertController.Style.alert)
         if timerStarted.firstTimerStarted {
             alert.addAction(UIAlertAction(title: Constants.Alert.firstTask, style: UIAlertAction.Style.default, handler: { action in
-                self.resetFirstActionToDefault()
-                self.firstButtonPauseAnimation()
-                
+                self.firstButtonLogic.resetActionToDefault()
+                self.buttonPauseAnimation()
             }))
         } else {
             if timerStarted.secondTimerStarted   {
@@ -192,7 +190,7 @@ extension FourTaskViewController {
         }
         alert.addAction(UIAlertAction(title: Constants.Alert.cancelTitle, style: UIAlertAction.Style.cancel, handler: nil))
         alert.addAction(UIAlertAction(title: Constants.Alert.resetAllDay, style: UIAlertAction.Style.destructive, handler: { action in
-            self.resetFirstActionToDefault()
+            self.firstButtonLogic.resetActionToDefault()
             self.resetActionSecond()
             self.resetActionThird()
             self.resetActionFour()
