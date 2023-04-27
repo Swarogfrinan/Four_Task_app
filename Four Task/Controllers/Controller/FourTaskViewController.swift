@@ -4,8 +4,6 @@ import CountableLabel
 class FourTaskViewController: UIViewController {
     
     //MARK: - IBOutlets
-    @IBOutlet var buttonCollection: [UIButton]!
-
     @IBOutlet weak var leftBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
  

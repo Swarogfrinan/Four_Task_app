@@ -474,10 +474,6 @@
                         <outlet property="taskNumbersFourLabel" destination="eR2-Ui-SUJ" id="j19-eN-SP8"/>
                         <outlet property="taskNumbersThirdLabel" destination="xtS-og-egP" id="0xI-Z9-Ncb"/>
                         <outlet property="thirdButton" destination="IvU-63-XFN" id="OUH-M4-z9Z"/>
-                        <outletCollection property="buttonCollection" destination="Kqh-pN-Ofm" collectionClass="NSMutableArray" id="yd2-M7-hME"/>
-                        <outletCollection property="buttonCollection" destination="IvU-63-XFN" collectionClass="NSMutableArray" id="F34-Rj-GWS"/>
-                        <outletCollection property="buttonCollection" destination="ZqN-We-1cI" collectionClass="NSMutableArray" id="yqM-ld-pxi"/>
-                        <outletCollection property="buttonCollection" destination="mZI-tz-jXf" collectionClass="NSMutableArray" id="ScN-Pc-420"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
