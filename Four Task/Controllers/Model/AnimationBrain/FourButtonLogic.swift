@@ -90,8 +90,8 @@ extension FourTaskViewController {
         let time = secToHourMinutesSeconds(seconds: value)
         let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
         clockLabel.text = timeString
-        taskNumbersFourLabel.text = timeString
-        taskNumbersFourLabel.textColor = .systemGreen
+        fourCountableLabel.text = timeString
+        fourCountableLabel.textColor = .systemGreen
 
     }
 
@@ -100,7 +100,7 @@ extension FourTaskViewController {
         setStopTimeFour(date: nil)
         setStartTimeFour(date: nil)
         clockLabel.text = makeTimeString(hours: 0, minutes: 0, seconds: 0)
-        taskNumbersFourLabel.text = makeTimeString(hours: 0, minutes: 0, seconds: 0)
+        fourCountableLabel.text = makeTimeString(hours: 0, minutes: 0, seconds: 0)
         
         stopTimerFour()
         //        animateFourViewStart()

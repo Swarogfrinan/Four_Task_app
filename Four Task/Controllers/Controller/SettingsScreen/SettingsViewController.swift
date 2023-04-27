@@ -191,7 +191,7 @@ extension SettingsViewController : UITableViewDataSource {
             return cell
         }
     }
-   
+    
 }
 // MARK: - UITableViewDelegate
 

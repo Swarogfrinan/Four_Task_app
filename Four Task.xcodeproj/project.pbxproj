@@ -137,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				435784C929E8502E00BDB495 /* Model */,
+				43B4BFFE29FA82BA0016877C /* TimerModel */,
 				43917A5829E8C65D0020A325 /* Controller */,
 			);
 			name = FourTaskScreen;
@@ -219,7 +220,6 @@
 				43B4BFF829FA81700016877C /* SecondAnimation.swift */,
 				43B4BFFA29FA81920016877C /* ThirdAnimation.swift */,
 				43B4BFFC29FA81E40016877C /* FourAnimation.swift */,
-				43B4BFFE29FA82BA0016877C /* TimerModel */,
 			);
 			path = AnimationModel;
 			sourceTree = "<group>";

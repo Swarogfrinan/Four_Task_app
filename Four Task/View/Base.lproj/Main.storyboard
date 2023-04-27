@@ -461,19 +461,19 @@
                         <outlet property="clockLabel" destination="hRs-Ff-ojV" id="G1E-77-otE"/>
                         <outlet property="dayTimeLabel" destination="qto-mJ-quI" id="a1a-IJ-NZC"/>
                         <outlet property="firstButton" destination="Kqh-pN-Ofm" id="lF1-dX-wUz"/>
+                        <outlet property="firstCountableLabel" destination="b7Z-NG-IqH" id="6Jy-3P-pBp"/>
+                        <outlet property="firstOrdinalLabel" destination="Ylu-wM-2IO" id="H8k-my-c5F"/>
                         <outlet property="fourButton" destination="mZI-tz-jXf" id="KIg-ge-PjG"/>
+                        <outlet property="fourCountableLabel" destination="eR2-Ui-SUJ" id="j19-eN-SP8"/>
+                        <outlet property="fourOrdinalLabel" destination="kOw-9r-oz6" id="PUh-IY-CgI"/>
                         <outlet property="leftBarButtonItem" destination="MrI-D9-zXb" id="7bI-Vq-So3"/>
-                        <outlet property="ordinalFirstLabel" destination="Ylu-wM-2IO" id="H8k-my-c5F"/>
-                        <outlet property="ordinalFourLabel" destination="kOw-9r-oz6" id="PUh-IY-CgI"/>
-                        <outlet property="ordinalSecondLabel" destination="78g-tM-Auj" id="NN3-hl-qVb"/>
-                        <outlet property="ordinalThirdLabel" destination="Udr-de-NO8" id="UOy-ZD-jbs"/>
                         <outlet property="rightBarButtonItem" destination="MK6-CV-OH6" id="nhr-jX-2Vx"/>
                         <outlet property="secondButton" destination="ZqN-We-1cI" id="hIF-St-vme"/>
-                        <outlet property="taskNumberFirstLabel" destination="b7Z-NG-IqH" id="6Jy-3P-pBp"/>
-                        <outlet property="taskNumberSecondLabel" destination="LsO-d2-mn7" id="Uda-iB-41O"/>
-                        <outlet property="taskNumbersFourLabel" destination="eR2-Ui-SUJ" id="j19-eN-SP8"/>
-                        <outlet property="taskNumbersThirdLabel" destination="xtS-og-egP" id="0xI-Z9-Ncb"/>
+                        <outlet property="secondCountableLabel" destination="LsO-d2-mn7" id="Uda-iB-41O"/>
+                        <outlet property="secondOrdinalLabel" destination="78g-tM-Auj" id="NN3-hl-qVb"/>
                         <outlet property="thirdButton" destination="IvU-63-XFN" id="OUH-M4-z9Z"/>
+                        <outlet property="thirdCountableLabel" destination="xtS-og-egP" id="0xI-Z9-Ncb"/>
+                        <outlet property="thirdOrdinalLabel" destination="Udr-de-NO8" id="UOy-ZD-jbs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -93,8 +93,8 @@ extension FourTaskViewController {
         let time = secToHourMinutesSeconds(seconds: value)
         let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
         clockLabel.text = timeString
-        taskNumberSecondLabel.text = timeString
-        taskNumberSecondLabel.textColor = .systemRed
+        secondCountableLabel.text = timeString
+        secondCountableLabel.textColor = .systemRed
     }
 
     //MARK: - ResetAction
@@ -102,7 +102,7 @@ extension FourTaskViewController {
         setStopTimeSecond(date: nil)
         setStartTimeSecond(date: nil)
         clockLabel.text = makeTimeString(hours: 0, minutes: 0, seconds: 0)
-        taskNumberSecondLabel.text = makeTimeString(hours: 0, minutes: 0, seconds: 0)
+        secondCountableLabel.text = makeTimeString(hours: 0, minutes: 0, seconds: 0)
         stopTimerSecond()
         //        animateSecondViewStop()
     }

@@ -97,8 +97,8 @@ extension FourTaskViewController {
         let time = secToHourMinutesSeconds(seconds: value)
         let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
         clockLabel.text = timeString
-        taskNumbersThirdLabel.text = timeString
-        taskNumbersThirdLabel.textColor = .systemBlue
+        thirdCountableLabel.text = timeString
+        thirdCountableLabel.textColor = .systemBlue
         ///    print("Установлен LABEl СLOCK с переводом цифрового значения в строку в ButtonsModel.")
     }
 
@@ -107,7 +107,7 @@ extension FourTaskViewController {
         setStopTimeThird(date: nil)
         setStartTimeThird(date: nil)
         clockLabel.text = makeTimeString(hours: 0, minutes: 0, seconds: 0)
-        taskNumbersThirdLabel.text = makeTimeString(hours: 0, minutes: 0, seconds: 0)
+        thirdCountableLabel.text = makeTimeString(hours: 0, minutes: 0, seconds: 0)
         stopTimerThird()
         //            animateThirdViewStart()
     }

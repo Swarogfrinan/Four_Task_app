@@ -8,7 +8,6 @@ var scheduledTimerFirst: Timer!
 
 //MARK: - FirstTask
 extension FourTaskViewController {
-    ///Подтягивание 1 таймера из бэкграунда если он был нажат последним.
     func refreshFirstBackgroundTimer() {
         if timerStarted.firstTimerStarted {
             startFirstTimer()
@@ -94,8 +93,8 @@ extension FourTaskViewController {
         let time = secToHourMinutesSeconds(seconds: value)
         let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
         clockLabel.text = timeString
-        taskNumberFirstLabel.text = timeString
-        taskNumberFirstLabel.textColor = .systemYellow
+        firstCountableLabel.text = timeString
+        firstCountableLabel.textColor = .systemYellow
     }
   
     //MARK: - Reset Default Action
@@ -104,7 +103,7 @@ extension FourTaskViewController {
         setFirstKeyPause(date: nil)
         setFirstKeyStart(date: nil)
         clockLabel.text = makeTimeString(hours: 0, minutes: 0, seconds: 0)
-        taskNumberFirstLabel.text = makeTimeString(hours: 0, minutes: 0, seconds: 0)
+        firstCountableLabel.text = makeTimeString(hours: 0, minutes: 0, seconds: 0)
         pauseFirstTimer()
         //    animateFirstViewStop()
     }
