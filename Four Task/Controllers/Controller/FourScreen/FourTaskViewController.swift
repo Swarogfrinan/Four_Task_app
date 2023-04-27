@@ -15,15 +15,15 @@ class FourTaskViewController: UIViewController {
     @IBOutlet weak var thirdButton: UIButton!
     @IBOutlet weak var fourButton: UIButton!
     
-    @IBOutlet weak var ordinalFirstLabel: UILabel!
-    @IBOutlet weak var ordinalSecondLabel: UILabel!
-    @IBOutlet weak var ordinalThirdLabel: UILabel!
-    @IBOutlet weak var ordinalFourLabel: UILabel!
+    @IBOutlet weak var firstOrdinalLabel: UILabel!
+    @IBOutlet weak var secondOrdinalLabel: UILabel!
+    @IBOutlet weak var thirdOrdinalLabel: UILabel!
+    @IBOutlet weak var fourOrdinalLabel: UILabel!
     
-    @IBOutlet weak var taskNumberFirstLabel: CountableLabel!
-    @IBOutlet weak var taskNumberSecondLabel: CountableLabel!
-    @IBOutlet weak var taskNumbersThirdLabel: CountableLabel!
-    @IBOutlet weak var taskNumbersFourLabel: CountableLabel!
+    @IBOutlet weak var firstCountableLabel: CountableLabel!
+    @IBOutlet weak var secondCountableLabel: CountableLabel!
+    @IBOutlet weak var thirdCountableLabel: CountableLabel!
+    @IBOutlet weak var fourCountableLabel: CountableLabel!
     
     
     let userDefaults = UserDefaults.standard
