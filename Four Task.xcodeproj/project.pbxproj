@@ -21,10 +21,13 @@
 		43A184B12889C2DF00BAD964 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A184B02889C2DF00BAD964 /* SettingsViewController.swift */; };
 		43A184B32889D71200BAD964 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A184B22889D71200BAD964 /* SettingsTableViewCell.swift */; };
 		43B27437289D104D0051C3D9 /* PomadoroSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B27436289D104D0051C3D9 /* PomadoroSettingsViewController.swift */; };
+		43B4BFF729FA814D0016877C /* FirstAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B4BFF629FA814D0016877C /* FirstAnimation.swift */; };
+		43B4BFF929FA81700016877C /* SecondAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B4BFF829FA81700016877C /* SecondAnimation.swift */; };
+		43B4BFFB29FA81920016877C /* ThirdAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B4BFFA29FA81920016877C /* ThirdAnimation.swift */; };
+		43B4BFFD29FA81E40016877C /* FourAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B4BFFC29FA81E40016877C /* FourAnimation.swift */; };
 		43BB9776288ACA48006E6159 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BB9775288ACA48006E6159 /* SwitchTableViewCell.swift */; };
 		43BB9778288C0997006E6159 /* TotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BB9777288C0997006E6159 /* TotalViewController.swift */; };
 		43BB977A288C0A02006E6159 /* TotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BB9779288C0A02006E6159 /* TotalTableViewCell.swift */; };
-		43C590C02880196C00580253 /* TaskAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C590BF2880196C00580253 /* TaskAction.swift */; };
 		43C6D6BE289A6A4D00672ADD /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6D6BD289A6A4D00672ADD /* TimerModel.swift */; };
 		43C815C328860577004B37C4 /* FirstButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C815C228860577004B37C4 /* FirstButtonLogic.swift */; };
 		43D3AF9329E898FB003943D0 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D3AF9229E898FB003943D0 /* SplashViewController.swift */; };
@@ -55,10 +58,13 @@
 		43A184B02889C2DF00BAD964 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		43A184B22889D71200BAD964 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		43B27436289D104D0051C3D9 /* PomadoroSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomadoroSettingsViewController.swift; sourceTree = "<group>"; };
+		43B4BFF629FA814D0016877C /* FirstAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAnimation.swift; sourceTree = "<group>"; };
+		43B4BFF829FA81700016877C /* SecondAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondAnimation.swift; sourceTree = "<group>"; };
+		43B4BFFA29FA81920016877C /* ThirdAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdAnimation.swift; sourceTree = "<group>"; };
+		43B4BFFC29FA81E40016877C /* FourAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourAnimation.swift; sourceTree = "<group>"; };
 		43BB9775288ACA48006E6159 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		43BB9777288C0997006E6159 /* TotalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalViewController.swift; sourceTree = "<group>"; };
 		43BB9779288C0A02006E6159 /* TotalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalTableViewCell.swift; sourceTree = "<group>"; };
-		43C590BF2880196C00580253 /* TaskAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAction.swift; sourceTree = "<group>"; };
 		43C6D6BD289A6A4D00672ADD /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		43C815C228860577004B37C4 /* FirstButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstButtonLogic.swift; sourceTree = "<group>"; };
 		43D09752288F24DC006D7390 /* PomadoroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PomadoroViewController.swift; path = "/Users/ilyavasilev/Documents/GitHub/Four Task/Four Task/Controllers/PomadoroViewController.swift"; sourceTree = "<absolute>"; };
@@ -94,6 +100,7 @@
 		4303DCB029DAF3C600328D57 /* PomadoroScreen */ = {
 			isa = PBXGroup;
 			children = (
+				43B60ADB29E93C7400420B8D /* Pomadoro */,
 				435784C829E8501900BDB495 /* Controllers */,
 				43D09752288F24DC006D7390 /* PomadoroViewController.swift */,
 			);
@@ -129,8 +136,8 @@
 		435784BA29E7F4AE00BDB495 /* FourTaskScreen */ = {
 			isa = PBXGroup;
 			children = (
+				435784C929E8502E00BDB495 /* Model */,
 				43917A5829E8C65D0020A325 /* Controller */,
-				43BB9772288ACA06006E6159 /* SettingsScreen */,
 			);
 			name = FourTaskScreen;
 			sourceTree = "<group>";
@@ -174,8 +181,8 @@
 		435784C929E8502E00BDB495 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				43BF6C46287EF27F005A5FBB /* FourTask */,
-				43B60ADB29E93C7400420B8D /* Pomadoro */,
+				43C7B636289AE49B003201B3 /* AnimationBrain */,
+				43B4BFF529FA81240016877C /* AnimationModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,8 +190,8 @@
 		43917A5829E8C65D0020A325 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				43C7B636289AE49B003201B3 /* AnimationBrain */,
-				43FE56C1287D7B680002BB51 /* FourTaskViewController.swift */,
+				43B4BFF429FA80E50016877C /* FourScreen */,
+				43BB9772288ACA06006E6159 /* SettingsScreen */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -197,9 +204,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		43B4BFF429FA80E50016877C /* FourScreen */ = {
+			isa = PBXGroup;
+			children = (
+				43FE56C1287D7B680002BB51 /* FourTaskViewController.swift */,
+			);
+			path = FourScreen;
+			sourceTree = "<group>";
+		};
+		43B4BFF529FA81240016877C /* AnimationModel */ = {
+			isa = PBXGroup;
+			children = (
+				43B4BFF629FA814D0016877C /* FirstAnimation.swift */,
+				43B4BFF829FA81700016877C /* SecondAnimation.swift */,
+				43B4BFFA29FA81920016877C /* ThirdAnimation.swift */,
+				43B4BFFC29FA81E40016877C /* FourAnimation.swift */,
+				43B4BFFE29FA82BA0016877C /* TimerModel */,
+			);
+			path = AnimationModel;
+			sourceTree = "<group>";
+		};
+		43B4BFFE29FA82BA0016877C /* TimerModel */ = {
+			isa = PBXGroup;
+			children = (
+				43FE56D4287D8A7E0002BB51 /* KeysBrain.swift */,
+				43C6D6BD289A6A4D00672ADD /* TimerModel.swift */,
+			);
+			path = TimerModel;
+			sourceTree = "<group>";
+		};
 		43B60ADB29E93C7400420B8D /* Pomadoro */ = {
 			isa = PBXGroup;
 			children = (
+				435784BF29E803C400BDB495 /* Notification */,
 				43917A5629E8C3220020A325 /* PomadoroBrain.swift */,
 				435784C629E8500000BDB495 /* StartedKeys.swift */,
 				435784C029E8255100BDB495 /* Count.swift */,
@@ -219,21 +256,10 @@
 		43BB9772288ACA06006E6159 /* SettingsScreen */ = {
 			isa = PBXGroup;
 			children = (
-				43A184B02889C2DF00BAD964 /* SettingsViewController.swift */,
 				4303DCB129DB07C800328D57 /* Cells */,
+				43A184B02889C2DF00BAD964 /* SettingsViewController.swift */,
 			);
 			path = SettingsScreen;
-			sourceTree = "<group>";
-		};
-		43BF6C46287EF27F005A5FBB /* FourTask */ = {
-			isa = PBXGroup;
-			children = (
-				43FE56D4287D8A7E0002BB51 /* KeysBrain.swift */,
-				43C590BF2880196C00580253 /* TaskAction.swift */,
-				43C6D6BD289A6A4D00672ADD /* TimerModel.swift */,
-				435784BF29E803C400BDB495 /* Notification */,
-			);
-			path = FourTask;
 			sourceTree = "<group>";
 		};
 		43C7B636289AE49B003201B3 /* AnimationBrain */ = {
@@ -278,7 +304,6 @@
 		43FE56BC287D7B680002BB51 /* Four Task */ = {
 			isa = PBXGroup;
 			children = (
-				435784C929E8502E00BDB495 /* Model */,
 				43FE56D3287D7B930002BB51 /* View */,
 				43FE56D1287D7B790002BB51 /* Controllers */,
 				43FE56C6287D7B6A0002BB51 /* Assets.xcassets */,
@@ -447,11 +472,12 @@
 				43917A5529E8BED10020A325 /* UIButton+Extension.swift in Sources */,
 				435784BE29E7F52300BDB495 /* Constants.swift in Sources */,
 				43FE56C2287D7B680002BB51 /* FourTaskViewController.swift in Sources */,
+				43B4BFF929FA81700016877C /* SecondAnimation.swift in Sources */,
 				43C815C328860577004B37C4 /* FirstButtonLogic.swift in Sources */,
 				43BB9778288C0997006E6159 /* TotalViewController.swift in Sources */,
 				43A184B12889C2DF00BAD964 /* SettingsViewController.swift in Sources */,
+				43B4BFF729FA814D0016877C /* FirstAnimation.swift in Sources */,
 				435784C729E8500000BDB495 /* StartedKeys.swift in Sources */,
-				43C590C02880196C00580253 /* TaskAction.swift in Sources */,
 				43BB9776288ACA48006E6159 /* SwitchTableViewCell.swift in Sources */,
 				430C9AC42899BF8700BF5A8B /* PomadoroViewController.swift in Sources */,
 				43FE56D5287D8A7E0002BB51 /* KeysBrain.swift in Sources */,
@@ -461,6 +487,7 @@
 				435784C129E8255100BDB495 /* Count.swift in Sources */,
 				43FE56BE287D7B680002BB51 /* AppDelegate.swift in Sources */,
 				435784C529E8498A00BDB495 /* Int + Extension.swift in Sources */,
+				43B4BFFB29FA81920016877C /* ThirdAnimation.swift in Sources */,
 				43D3AF9329E898FB003943D0 /* SplashViewController.swift in Sources */,
 				43B27437289D104D0051C3D9 /* PomadoroSettingsViewController.swift in Sources */,
 				43BB977A288C0A02006E6159 /* TotalTableViewCell.swift in Sources */,
@@ -470,6 +497,7 @@
 				43C6D6BE289A6A4D00672ADD /* TimerModel.swift in Sources */,
 				43A0B3362887FE5E00C49695 /* ThirdButtonLogic.swift in Sources */,
 				43A0B3342886FEED00C49695 /* SecondButtonLogic.swift in Sources */,
+				43B4BFFD29FA81E40016877C /* FourAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
